@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TheLook Weekly Report</title>
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+  --good-text: #006300;
+  --bad-text: #d03b3b;
+  --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
+  --neutral: #f0efec;
+  --ai-bg: #eef4fc;
+  --banner-bg: #fff4d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    --good-text: #0ca30c; --bad-text: #e66767; --neutral: #383835;
+    --ai-bg: #172333; --banner-bg: #3a2f10;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+  --good-text: #0ca30c; --bad-text: #e66767; --neutral: #383835;
+  --ai-bg: #172333; --banner-bg: #3a2f10;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px 48px; }
+.banner { background: var(--banner-bg); color: var(--ink); text-align: center; padding: 6px 16px; font-size: 13px; }
+header.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between; padding: 28px 0 20px; border-bottom: 1px solid var(--border); }
+header.top h1 { margin: 0; font-size: 26px; letter-spacing: -0.01em; }
+header.top .sub { color: var(--ink-2); margin-top: 4px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 10px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+.chip svg { width: 14px; height: 14px; flex: none; }
+.chip.ok { color: var(--good-text); }
+section { margin-top: 32px; }
+section > h2 { font-size: 18px; margin: 0 0 4px; }
+section > .lead { color: var(--ink-2); margin: 0 0 14px; font-size: 14px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.grid { display: grid; gap: 14px; }
+.g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.g4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 900px) { .g3, .g4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 620px) { .g2, .g3, .g4 { grid-template-columns: minmax(0,1fr); } }
+.ai { background: var(--ai-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-top: 14px; }
+.ai .tag { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--ink-2); margin-bottom: 6px; }
+.ai .tag svg { width: 13px; height: 13px; color: var(--good-text); }
+.ai p { margin: 0; }
+.ai ul { margin: 6px 0 0; padding-left: 20px; }
+.ai li { margin: 4px 0; }
+.headline { font-size: 20px; font-weight: 600; line-height: 1.35; margin: 0 0 6px; }
+.tile .label { color: var(--ink-2); font-size: 13px; }
+.tile .big { font-size: 34px; font-weight: 650; letter-spacing: -0.02em; margin: 2px 0; font-variant-numeric: tabular-nums; }
+.tile .small { font-size: 13px; color: var(--ink-2); }
+.bar { height: 6px; background: var(--neutral); border-radius: 3px; margin-top: 10px; position: relative; overflow: visible; }
+.bar > span { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: var(--s1); }
+.bar > i { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
+.kpi .name { font-size: 13px; color: var(--ink-2); min-height: 38px; }
+.kpi .val { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.kpi .row { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; }
+.delta { font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 3px; font-variant-numeric: tabular-nums; }
+.delta.good { color: var(--good-text); } .delta.bad { color: var(--bad-text); } .delta.flat { color: var(--ink-2); }
+.kpi .foot { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.spark { width: 96px; height: 32px; flex: none; }
+.chart { width: 100%; height: 300px; }
+.chart.sm { height: 220px; }
+.ctitle { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
+.csub { font-size: 12px; color: var(--muted); margin: 0 0 6px; }
+.watch { display: flex; gap: 12px; align-items: flex-start; }
+.watch .ico { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; flex: none; }
+.watch .ico svg { width: 16px; height: 16px; }
+.watch .lbl { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.watch .src { font-size: 12px; color: var(--muted); }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin-top: 10px; }
+summary { cursor: pointer; font-weight: 600; }
+.tablewrap { overflow-x: auto; margin-top: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+.trust dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 0; font-size: 14px; }
+.trust dt { color: var(--ink-2); }
+.trust dd { margin: 0; font-variant-numeric: tabular-nums; }
+.checks { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+.checks li { display: flex; gap: 8px; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--grid); }
+.checks li:last-child { border-bottom: 0; }
+.checks svg { width: 16px; height: 16px; color: var(--good-text); flex: none; }
+.checks .n { margin-left: auto; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.archive { display: flex; flex-wrap: wrap; gap: 8px; }
+.archive a { color: var(--s1); text-decoration: none; }
+a { color: var(--s1); }
+footer { margin-top: 40px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); padding-top: 14px; }
+
+.pts { margin: 6px 0 0; padding-left: 0; list-style: none; }
+.pts li { margin: 0; padding: 10px 0; border-top: 1px solid var(--border); }
+.pts li:first-child { border-top: 0; padding-top: 4px; }
+.pts .what { display: block; }
+.pts .sowhat { display: block; margin-top: 3px; color: var(--ink-2); font-size: 14px; }
+.pts .sowhat b { color: var(--ink); font-weight: 600; }
+.kpi .yoy { font-size: 12px; color: var(--ink-2); margin-top: 2px; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<div class="banner">MOCKUP for layout review. All numbers are illustrative, not real data.</div>
+<div class="wrap">
+
+<!-- 1. HEADER -->
+<header class="top">
+  <div>
+    <h1>TheLook Weekly Business Report</h1>
+    <div class="sub" id="weekLabel"></div>
+  </div>
+  <div class="meta">
+    <span class="chip ok"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>AI commentary verified: 6 of 6 checks passed</span>
+    <span class="chip">Published Mon 21 Sep 2026, 8:00 AM ET</span>
+    <span class="chip">Data through Sun 20 Sep 2026</span>
+  </div>
+</header>
+
+
+<!-- 2. EXECUTIVE SUMMARY -->
+<section>
+  <h2>Executive summary</h2>
+  <p class="lead">The week in one read: vs last week, vs last year, and vs plan.</p>
+  <div class="grid g3" id="tiles"></div>
+  <div class="ai">
+    <div class="tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>AI-written, numbers verified against source data</div>
+    <p class="headline" id="aiHeadline"></p>
+    <ul class="pts" id="aiSummary"></ul>
+  </div>
+</section>
+
+<!-- 3. WATCH-OUTS -->
+<section>
+  <h2>Watch-outs</h2>
+  <p class="lead">Read these before the numbers. Flags are detected by code; notes are written by AI and verified.</p>
+  <div class="grid g2" id="watch"></div>
+</section>
+
+<!-- 4. KPI SCORECARD -->
+<section>
+  <h2>KPI scorecard</h2>
+  <p class="lead">Reporting week vs prior week (WoW) and vs the same week last year (YoY). Green and red reflect whether the change is good for the business, not its direction. Sparklines show the last 8 weeks.</p>
+  <div class="grid g3" id="kpis"></div>
+</section>
+
+<!-- 5. PERFORMANCE VS PLAN -->
+<section>
+  <h2>Performance vs plan</h2>
+  <p class="lead">Actuals against the 2026 plan (same week last year plus 75% planned growth). Targets are shown through the end of 2026.</p>
+  <div class="grid g2">
+    <div class="card"><p class="ctitle">Weekly Orders Placed vs target</p><p class="csub">Last 52 weeks, targets through Dec 2026</p><div class="chart" id="cOrdersPlan"></div></div>
+    <div class="card"><p class="ctitle">Weekly Gross Revenue vs target (USD)</p><p class="csub">Last 52 weeks, targets through Dec 2026</p><div class="chart" id="cRevPlan"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><p class="ctitle">Quarter-to-date Gross Revenue vs plan, Q3 2026 (USD)</p><p class="csub">Cumulative by week, plan shown to quarter end</p><div class="chart sm" id="cQtd"></div></div>
+  <div class="ai"><div class="tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>AI-written, numbers verified</div><ul class="pts" id="aiPlan"></ul></div>
+</section>
+
+<!-- 6. GROWTH DRIVERS -->
+<section>
+  <h2>Growth drivers</h2>
+  <p class="lead">Where the change in orders came from, this week and vs last year.</p>
+  <div class="grid g2">
+    <div class="card"><p class="ctitle">Change in Weekly Orders Placed by region</p><p class="csub">Prior week to reporting week</p><div class="chart" id="cWfRegion"></div></div>
+    <div class="card"><p class="ctitle">Change in Weekly Orders Placed by traffic source</p><p class="csub">Prior week to reporting week</p><div class="chart" id="cWfTraffic"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><p class="ctitle">YoY growth in Weekly Orders Placed by segment (%)</p><p class="csub">Reporting week vs same week last year. Dashed line = 75% growth assumed in the plan.</p><div class="chart" id="cYoy"></div></div>
+  <div class="ai"><div class="tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>AI-written, numbers verified</div><ul class="pts" id="aiDrivers"></ul></div>
+</section>
+
+<!-- 7. CUSTOMER HEALTH -->
+<section>
+  <h2>Customer health</h2>
+  <p class="lead">Order quality and customer growth, last 26 weeks, with the same weeks last year for comparison.</p>
+  <div class="grid g2">
+    <div class="card"><p class="ctitle">Weekly Average Order Value (USD)</p><div class="chart sm" id="cAov"></div></div>
+    <div class="card"><p class="ctitle">Weekly Order Cancellation Rate (%)</p><div class="chart sm" id="cCancel"></div></div>
+    <div class="card"><p class="ctitle">14-Day Return Rate (%)</p><p class="csub">Mature weeks only. The latest 2 weeks are not shown until every order has had 14 days to be returned.</p><div class="chart sm" id="cReturn"></div></div>
+    <div class="card"><p class="ctitle">Weekly New Customer Signups</p><div class="chart sm" id="cSignups"></div></div>
+  </div>
+  <div class="ai"><div class="tag"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>AI-written, numbers verified</div><ul class="pts" id="aiHealth"></ul></div>
+</section>
+
+<!-- 8. DETAIL TABLES -->
+<section>
+  <h2>Detail tables</h2>
+  <details open><summary>Region breakdown</summary><div class="tablewrap"><table id="tRegion"></table></div></details>
+  <details><summary>Traffic source breakdown</summary><div class="tablewrap"><table id="tTraffic"></table></div></details>
+</section>
+
+<!-- 9. TRUST PANEL -->
+<section class="trust">
+  <h2>How this report was made</h2>
+  <p class="lead">Every number is computed by code from BigQuery. The AI only writes the commentary, and each run is checked before publishing.</p>
+  <div class="grid g2">
+    <div class="card">
+      <p class="ctitle">Reliability checks this run</p>
+      <ul class="checks" id="checks"></ul>
+    </div>
+    <div class="card">
+      <p class="ctitle">Run details</p>
+      <dl>
+        <dt>Model</dt><dd>claude-opus-5</dd>
+        <dt>Prompt version</dt><dd>narrative_v1.3</dd>
+        <dt>Tokens</dt><dd>6,180 in / 1,940 out</dd>
+        <dt>LLM cost</dt><dd>$0.0794</dd>
+        <dt>Latency</dt><dd>14.2 s (LLM), 49 s (full run)</dd>
+        <dt>Retries</dt><dd>0</dd>
+        <dt>Fallback used</dt><dd>No</dd>
+        <dt>Data scanned</dt><dd>31 MB (BigQuery)</dd>
+        <dt>Trace</dt><dd><a href="#">View trace in LangSmith</a></dd>
+      </dl>
+    </div>
+  </div>
+  <details><summary>KPI definitions and data notes</summary>
+    <ul style="margin:10px 0 0; padding-left:20px; font-size:14px; color:var(--ink-2)">
+      <li><b>Weekly Orders Placed</b>: orders created Monday to Sunday (UTC), any status.</li>
+      <li><b>Weekly Gross Revenue (excl. cancelled)</b>: value of items sold in the week, excluding cancelled items. Returns are not subtracted.</li>
+      <li><b>Weekly Average Order Value</b>: Gross Revenue divided by non-cancelled orders.</li>
+      <li><b>Weekly Order Cancellation Rate</b>: cancelled orders as a share of orders placed.</li>
+      <li><b>14-Day Return Rate</b>: orders the customer returned within 14 days of ordering. Reported only for weeks where every order has had 14 days.</li>
+      <li><b>Weekly New Customer Signups</b>: new customer accounts created in the week.</li>
+      <li><b>Targets</b>: 2026 annual plan, same week last year plus 75% growth. Frozen at the start of the year.</li>
+      <li><b>Source</b>: BigQuery public dataset thelook_ecommerce (a fictional store).</li>
+    </ul>
+  </details>
+</section>
+
+<!-- 10. ARCHIVE -->
+<section>
+  <h2>Previous reports</h2>
+  <div class="archive" id="archive"></div>
+</section>
+
+<footer>TheLook Weekly Business Report. Portfolio project: automated weekly report with evaluated, traced, and guarded AI commentary.</footer>
+</div>
+
+
+<script>
+/* ---------------- illustrative data (one object drives every number on the page) ---------------- */
+const N = 52, F = 15;                               // 52 actual weeks + 15 future target weeks (to end of 2026)
+const start = new Date(Date.UTC(2025, 8, 22));      // Mon 22 Sep 2025
+const weeks = Array.from({length: N + F}, (_, i) => new Date(start.getTime() + i * 7 * 864e5));
+const fmtD = d => d.toLocaleDateString('en-US', {month: 'short', day: 'numeric', timeZone: 'UTC'});
+const wave = (i, a, p, ph=0) => a * Math.sin((i + ph) / p * 2 * Math.PI);
+const holiday = i => (i >= N + 8 && i <= N + 12) ? 1 + 0.12 * (1 - Math.abs(i - (N + 10)) / 3) : 1; // Q4 seasonal bump
+const L = N - 1, P = N - 2;
+
+const orders = weeks.slice(0, N).map((_, i) => Math.round(620 + i * 11.2 + wave(i, 28, 7) + wave(i, 15, 3, 1)));
+orders[N-3] = 1368; orders[N-2] = 1686; orders[N-1] = 2950;
+const ordersTarget = weeks.map((_, i) => Math.round((430 + i * 5.3 + wave(i, 22, 13, 4)) * 1.75 * holiday(i)));
+ordersTarget[L] = 1043; ordersTarget[P] = 1037; ordersTarget[L+1] = 1058;
+const ordersLY = ordersTarget.map(t => Math.round(t / 1.75));
+
+const cancel = orders.map((_, i) => +(14.6 + wave(i, 0.5, 9) + wave(i, 0.25, 4, 2)).toFixed(1));
+cancel[N-4] = 14.3; cancel[N-3] = 14.4; cancel[N-2] = 14.6; cancel[N-1] = 15.2;
+const cancelLY = orders.map((_, i) => +(14.9 + wave(i, 0.4, 10, 3)).toFixed(1)); cancelLY[L] = 14.9;
+const aov = orders.map((_, i) => +(86.4 + wave(i, 1.3, 11) + wave(i, 0.6, 5, 3)).toFixed(2));
+const revenue = orders.map((_, i) => Math.round(orders[i] * (1 - cancel[i] / 100) * aov[i]));
+revenue[L] = 219480; revenue[P] = 126240;
+const nonCancel = i => Math.round(orders[i] * (1 - cancel[i] / 100));
+aov[L] = +(revenue[L] / nonCancel(L)).toFixed(2); aov[P] = +(revenue[P] / nonCancel(P)).toFixed(2);
+const aovLY = orders.map((_, i) => +(84.9 + wave(i, 1.1, 11, 2)).toFixed(2)); aovLY[L] = 85.10;
+const revTarget = weeks.map((_, i) => Math.round(ordersTarget[i] * 0.852 * 86.5));
+revTarget[L] = 78900;
+const revLY = revTarget.map(t => Math.round(t / 1.75));
+const signups = orders.map((_, i) => Math.round(560 + i * 8.6 + wave(i, 30, 6)));
+signups[P] = 1020; signups[L] = 1240;
+const signupsLY = orders.map((_, i) => Math.round(signups[i] / 1.62)); signupsLY[L] = 742;
+const ret = orders.map((_, i) => i >= N - 2 ? null : +(10.2 + wave(i, 0.4, 8, 1)).toFixed(1));
+ret[N-4] = 10.1; ret[N-3] = 9.8;
+const retLY = orders.map((_, i) => +(10.5 + wave(i, 0.35, 8, 3)).toFixed(1)); retLY[N-3] = 10.5;
+
+const regions = ['APAC', 'North America', 'EMEA', 'LATAM'];
+const regPrev = [690, 350, 370, 276], regNow = [1300, 680, 560, 410], regLY = [250, 150, 95, 101];
+const traffic = ['Search', 'Organic', 'Facebook', 'Email', 'Display'];
+const trPrev = [1175, 260, 90, 88, 73], trNow = [2065, 440, 180, 150, 115], trLY = [380, 110, 40, 38, 28];
+
+const q3All = weeks.map((_, i) => i).filter(i => weeks[i] >= new Date(Date.UTC(2026, 5, 29)) && weeks[i] < new Date(Date.UTC(2026, 8, 29)));
+const q3 = q3All.filter(i => i < N);
+const cum = a => a.reduce((acc, v) => (acc.push((acc.at(-1) || 0) + v), acc), []);
+const qtdAct = cum(q3.map(i => revenue[i])), qtdPlanAll = cum(q3All.map(i => revTarget[i]));
+const qtdPlan = qtdPlanAll.slice(0, q3.length);
+const q3PlanTotal = qtdPlanAll.at(-1);
+
+/* ---------------- formatting ---------------- */
+const n0 = v => Math.round(v).toLocaleString('en-US');
+const usd = v => (v < 0 ? '−$' : '$') + n0(Math.abs(v));
+const usd2 = v => '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const pct = (a, b) => (a / b - 1) * 100;
+const sgn = v => (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(1);
+const css = k => getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+
+/* ---------------- code-computed facts (these are what the data brief will carry) ---------------- */
+const oWoW = pct(orders[L], orders[P]), rWoW = pct(revenue[L], revenue[P]);
+const oYoY = pct(orders[L], ordersLY[L]), rYoY = pct(revenue[L], revLY[L]);
+const oAtt = orders[L] / ordersTarget[L] * 100, rAtt = revenue[L] / revTarget[L] * 100;
+const qAtt = qtdAct.at(-1) / qtdPlan.at(-1) * 100;
+const qAttExFlag = qtdAct.at(-2) / qtdPlan.at(-2) * 100;
+const avg8 = orders.slice(L-8, L).reduce((a, b) => a + b, 0) / 8;
+const q3Remaining = q3PlanTotal - qtdAct.at(-1);                      // negative = full-quarter plan already beaten
+const revPerPp = orders[L] * 0.01 * aov[L];                          // revenue value of 1 pp of cancellations
+const nextOrdersT = ordersTarget[L+1], nextRevT = revTarget[L+1];
+
+document.getElementById('weekLabel').textContent =
+  `Reporting week: Mon ${fmtD(weeks[L])} to Sun ${fmtD(new Date(weeks[L].getTime() + 6*864e5))}, 2026 (Q3, week 12 of 13)`;
+
+/* ---------------- helpers ---------------- */
+function points(id, items) {
+  document.getElementById(id).innerHTML = items.map(([what, so]) =>
+    `<li><span class="what">${what}</span><span class="sowhat"><b>So what:</b> ${so}</span></li>`).join('');
+}
+
+/* ---------------- 2. tiles + AI summary ---------------- */
+const tiles = [
+  ['Weekly Orders vs target', oAtt, `${n0(orders[L])} orders vs target ${n0(ordersTarget[L])}`, `Next week's target: ${n0(nextOrdersT)} orders`],
+  ['Weekly Gross Revenue vs target', rAtt, `${usd(revenue[L])} vs target ${usd(revTarget[L])}`, `Next week's target: ${usd(nextRevT)}`],
+  ['Quarter-to-date revenue vs plan', qAtt, `${usd(qtdAct.at(-1))} vs plan ${usd(qtdPlan.at(-1))}`, `Full Q3 plan: ${usd(q3PlanTotal)} (1 week left)`],
+];
+document.getElementById('tiles').innerHTML = tiles.map(([l, v, s, nxt]) => `
+  <div class="card tile"><div class="label">${l}</div><div class="big">${v.toFixed(1)}%</div>
+  <div class="small">${s}</div>
+  <div class="bar" title="100% = on plan"><span style="width:${Math.min(v, 300) / 3}%"></span><i style="left:33.3%"></i></div>
+  <div class="small" style="margin-top:4px;color:var(--muted)">Marker = 100% of plan (bar scale 0 to 300%)</div>
+  <div class="small" style="margin-top:8px">${nxt}</div></div>`).join('');
+
+document.getElementById('aiHeadline').textContent =
+  `A record week that beat plan nearly 3x, but the jump is flagged as unusual. Q3 is ahead of plan even without it.`;
+points('aiSummary', [
+  [`Weekly Orders Placed: ${n0(orders[L])}, ${sgn(oWoW)}% WoW and ${sgn(oYoY)}% YoY, ${oAtt.toFixed(1)}% of target.`,
+   `This is ${(orders[L]/avg8).toFixed(1)}x the 8-week average and was flagged as an anomaly. It should not be read as confirmed growth until the data is verified.`],
+  [`Weekly Gross Revenue: ${usd(revenue[L])}, ${sgn(rWoW)}% WoW and ${sgn(rYoY)}% YoY, ${rAtt.toFixed(1)}% of target.`,
+   `Q3 revenue is ${qAtt.toFixed(1)}% of plan. Excluding this week it would still be ${qAttExFlag.toFixed(1)}%, so the quarter is on plan either way.`],
+  [`Every region and traffic source grew; APAC added the most orders (+${n0(regNow[0]-regPrev[0])} of +${n0(orders[L]-orders[P])}).`,
+   `The increase is broad, not tied to a single market, which lowers the risk that one segment reverses it.`],
+  [`Weekly Order Cancellation Rate rose to ${cancel[L]}% (${sgn(cancel[L]-cancel[P])} pp WoW), the third weekly rise in a row.`,
+   `At this week's volume, each extra percentage point of cancellations is about ${usd(revPerPp)} of lost weekly revenue.`],
+]);
+
+/* ---------------- 3. watch-outs ---------------- */
+const icon = {
+  serious: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2l6.5 11.5h-13z"/><path d="M8 6.5v3M8 11.5v.01"/></svg>',
+  warning: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5M8 11v.01"/></svg>',
+};
+const watch = [
+  ['serious', 'Anomaly', 'Detected by code', `Weekly Orders Placed is ${(orders[L]/avg8).toFixed(1)}x its 8-week average (${n0(orders[L])} vs ${n0(avg8)}).`, `Every number for this week, including plan attainment, may be overstated.`],
+  ['warning', 'Trend', 'AI note, verified', `Weekly Order Cancellation Rate has risen three weeks in a row, from ${cancel[L-3]}% to ${cancel[L]}%.`, `Cancellations are now above last year's level; if the trend continues, each extra point costs about ${usd(revPerPp)} of weekly revenue.`],
+  ['warning', 'Plan context', 'Detected by code', `Excluding the flagged week, quarter-to-date revenue would be ${qAttExFlag.toFixed(1)}% of plan instead of ${qAtt.toFixed(1)}%.`, `The quarter is on plan even if this week is later corrected.`],
+  ['warning', 'Data maturity', 'Detected by code', `14-Day Return Rate is reported for the week of ${fmtD(weeks[L-2])}. The two most recent weeks are not yet mature.`, `Return impact of the big week will only be visible in two weeks' time.`],
+];
+const statusVar = {serious: '--serious', warning: '--warning'};
+document.getElementById('watch').innerHTML = watch.map(([s, lbl, src, txt, so]) => `
+  <div class="card watch"><div class="ico" style="background:color-mix(in srgb, var(${statusVar[s]}) 22%, transparent);color:var(${statusVar[s]})">${icon[s]}</div>
+  <div><div class="lbl">${lbl}</div><div>${txt}</div><div style="color:var(--ink-2);font-size:14px;margin-top:3px"><b style="color:var(--ink)">So what:</b> ${so}</div><div class="src">${src}</div></div></div>`).join('');
+
+/* ---------------- 4. KPI cards ---------------- */
+function spark(arr, color) {
+  const a = arr.filter(v => v != null), mn = Math.min(...a), mx = Math.max(...a), w = 96, h = 32, p = 3;
+  const pts = arr.map((v, i) => v == null ? null : [p + i * (w - 2*p) / (arr.length - 1), h - p - (v - mn) / ((mx - mn) || 1) * (h - 2*p)]).filter(Boolean);
+  const last = pts.at(-1);
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points="${pts.map(q => q.join(',')).join(' ')}"/><circle cx="${last[0]}" cy="${last[1]}" r="3" fill="${color}"/></svg>`;
+}
+const arrow = up => up ? '<svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 1l4 6H1z" fill="currentColor"/></svg>' : '<svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 9L1 3h8z" fill="currentColor"/></svg>';
+function delta(diff, unit, higherGood, label = 'WoW') {
+  if (Math.abs(diff) < 0.05) return `<span class="delta flat">no change ${label}</span>`;
+  const good = (diff > 0) === higherGood;
+  return `<span class="delta ${good ? 'good' : 'bad'}">${arrow(diff > 0)}${sgn(diff)}${unit} ${label}</span>`;
+}
+const kpis = [
+  ['Weekly Orders Placed', n0(orders[L]), delta(oWoW, '%', true), delta(oYoY, '%', true, 'YoY'), orders, `Prior week ${n0(orders[P])} · Last year ${n0(ordersLY[L])}`],
+  ['Weekly Gross Revenue (excl. cancelled)', usd(revenue[L]), delta(rWoW, '%', true), delta(rYoY, '%', true, 'YoY'), revenue, `Prior week ${usd(revenue[P])} · Last year ${usd(revLY[L])}`],
+  ['Weekly Average Order Value', usd2(aov[L]), delta(pct(aov[L], aov[P]), '%', true), delta(pct(aov[L], aovLY[L]), '%', true, 'YoY'), aov, `Prior week ${usd2(aov[P])} · Last year ${usd2(aovLY[L])}`],
+  ['Weekly Order Cancellation Rate', cancel[L] + '%', delta(cancel[L]-cancel[P], ' pp', false), delta(cancel[L]-cancelLY[L], ' pp', false, 'YoY'), cancel, `Prior week ${cancel[P]}% · Last year ${cancelLY[L]}%`],
+  ['14-Day Return Rate', ret[L-2] + '%', delta(ret[L-2]-ret[L-3], ' pp', false), delta(ret[L-2]-retLY[L-2], ' pp', false, 'YoY'), ret.slice(0, L-1), `Week of ${fmtD(weeks[L-2])} (latest mature week)`],
+  ['Weekly New Customer Signups', n0(signups[L]), delta(pct(signups[L], signups[P]), '%', true), delta(pct(signups[L], signupsLY[L]), '%', true, 'YoY'), signups, `Prior week ${n0(signups[P])} · Last year ${n0(signupsLY[L])}`],
+  ['Weekly Orders vs Target', oAtt.toFixed(1) + '%', `<span class="delta good">${arrow(true)}+${n0(orders[L]-ordersTarget[L])} orders vs target</span>`, '', orders.map((v,i)=>v/ordersTarget[i]*100), `Target ${n0(ordersTarget[L])} · Next week ${n0(nextOrdersT)}`],
+  ['Weekly Gross Revenue vs Target', rAtt.toFixed(1) + '%', `<span class="delta good">${arrow(true)}+${usd(revenue[L]-revTarget[L])} vs target</span>`, '', revenue.map((v,i)=>v/revTarget[i]*100), `Target ${usd(revTarget[L])} · Next week ${usd(nextRevT)}`],
+  ['Quarter-to-Date Gross Revenue vs Target', qAtt.toFixed(1) + '%', `<span class="delta good">${arrow(true)}+${usd(qtdAct.at(-1)-qtdPlan.at(-1))} vs plan</span>`, '', qtdAct.map((v,i)=>v/qtdPlan[i]*100), `Q3 plan ${usd(q3PlanTotal)} · 1 week left`],
+];
+function renderKpis() {
+  const c = css('--s1');
+  document.getElementById('kpis').innerHTML = kpis.map(([name, val, d, y, series, foot]) => `
+    <div class="card kpi"><div class="name">${name}</div>
+    <div class="row"><div><div class="val">${val}</div>${d}${y ? `<div class="yoy">${y}</div>` : ''}</div>${spark(series.slice(-8), c)}</div>
+    <div class="foot">${foot}</div></div>`).join('');
+}
+
+/* ---------------- charts (Plotly) ---------------- */
+const cfg = {displayModeBar: false, responsive: true};
+function baseLayout(extra = {}) {
+  return Object.assign({
+    paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
+    font: {family: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', size: 12, color: css('--ink-2')},
+    margin: {l: 52, r: 12, t: 8, b: 36},
+    xaxis: {gridcolor: 'rgba(0,0,0,0)', linecolor: css('--axis'), tickfont: {color: css('--muted')}, fixedrange: true},
+    yaxis: {gridcolor: css('--grid'), zeroline: false, tickfont: {color: css('--muted')}, fixedrange: true},
+    hovermode: 'x unified', hoverlabel: {bgcolor: css('--surface'), bordercolor: css('--axis'), font: {color: css('--ink')}},
+    legend: {orientation: 'h', y: 1.14, x: 0, font: {color: css('--ink-2')}},
+    showlegend: true,
+  }, extra);
+}
+const xs = weeks.map(d => d.toISOString().slice(0, 10));
+const yax = extra => Object.assign({}, baseLayout().yaxis, extra);
+function linePlan(id, act, tgt, money) {
+  const fmt = money ? '$%{y:,.0f}' : '%{y:,.0f}';
+  Plotly.react(id, [
+    {x: xs.slice(0, N), y: act, name: 'Actual', type: 'scatter', mode: 'lines', line: {color: css('--s1'), width: 2}, hovertemplate: fmt},
+    {x: xs.slice(0, N), y: tgt.slice(0, N), name: 'Target', type: 'scatter', mode: 'lines', line: {color: css('--muted'), width: 2, dash: 'dash'}, hovertemplate: fmt},
+    {x: xs.slice(L), y: tgt.slice(L), name: 'Future target', type: 'scatter', mode: 'lines', line: {color: css('--muted'), width: 2, dash: 'dot'}, hovertemplate: fmt},
+    {x: [xs[L]], y: [act[L]], type: 'scatter', mode: 'markers', marker: {color: css('--s1'), size: 9, line: {color: css('--surface'), width: 2}}, showlegend: false, hoverinfo: 'skip'},
+  ], baseLayout({
+    yaxis: yax({tickprefix: money ? '$' : '', tickformat: '~s'}),
+    shapes: [{type: 'line', xref: 'x', yref: 'paper', x0: xs[L+1], x1: xs[L+1], y0: 0, y1: 1, line: {color: css('--axis'), width: 1}}],
+    annotations: [{x: xs[L+1], y: 1, xref: 'x', yref: 'paper', text: 'Today', showarrow: false, xanchor: 'left', yanchor: 'top', font: {size: 11, color: css('--muted')}}],
+  }), cfg);
+}
+function waterfall(id, cats, prev, now) {
+  const d = now.map((v, i) => v - prev[i]);
+  Plotly.react(id, [{
+    type: 'waterfall', orientation: 'v',
+    x: ['Prior week', ...cats, 'Reporting week'],
+    measure: ['absolute', ...cats.map(() => 'relative'), 'total'],
+    y: [prev.reduce((a, b) => a + b, 0), ...d, 0],
+    text: [n0(prev.reduce((a,b)=>a+b,0)), ...d.map(v => (v > 0 ? '+' : '') + n0(v)), n0(now.reduce((a,b)=>a+b,0))],
+    textposition: 'outside', textfont: {color: css('--ink-2')}, cliponaxis: false,
+    connector: {line: {color: css('--axis'), width: 1}},
+    increasing: {marker: {color: css('--s1')}}, decreasing: {marker: {color: '#e34948'}},
+    totals: {marker: {color: css('--muted')}},
+    hovertemplate: '%{x}: %{text}<extra></extra>',
+  }], baseLayout({showlegend: false, hovermode: 'closest', margin: {l: 52, r: 12, t: 24, b: 56}}), cfg);
+}
+function yoyBars() {
+  const cats = [...regions.map(r => 'Region · ' + r), ...traffic.map(t => 'Traffic · ' + t)];
+  const vals = [...regNow.map((v, i) => pct(v, regLY[i])), ...trNow.map((v, i) => pct(v, trLY[i]))];
+  Plotly.react('cYoy', [{
+    type: 'bar', orientation: 'h', y: cats, x: vals, marker: {color: css('--s1'), cornerradius: 4},
+    text: vals.map(v => sgn(v) + '%'), textposition: 'outside', textfont: {color: css('--ink-2')}, cliponaxis: false,
+    hovertemplate: '%{y}: %{text}<extra></extra>',
+  }], baseLayout({
+    showlegend: false, hovermode: 'closest', margin: {l: 150, r: 48, t: 8, b: 32},
+    yaxis: {autorange: 'reversed', tickfont: {color: css('--ink-2')}, fixedrange: true},
+    xaxis: {gridcolor: css('--grid'), ticksuffix: '%', tickfont: {color: css('--muted')}, zeroline: false, fixedrange: true},
+    shapes: [{type: 'line', x0: 75, x1: 75, yref: 'paper', y0: 0, y1: 1, line: {color: css('--muted'), width: 2, dash: 'dash'}}],
+    annotations: [{x: 75, y: 1.02, yref: 'paper', text: 'Plan +75%', showarrow: false, xanchor: 'left', font: {size: 11, color: css('--muted')}}],
+  }), cfg);
+}
+function small(id, y, yLY, fmtY, suffix = '') {
+  const s = N - 26;
+  Plotly.react(id, [
+    {x: xs.slice(s, N), y: y.slice(s, N), name: 'This year', type: 'scatter', mode: 'lines', line: {color: css('--s1'), width: 2}, connectgaps: false, hovertemplate: fmtY + suffix},
+    {x: xs.slice(s, N), y: yLY.slice(s, N), name: 'Last year', type: 'scatter', mode: 'lines', line: {color: css('--muted'), width: 2, dash: 'dash'}, hovertemplate: fmtY + suffix},
+  ], baseLayout({margin: {l: 48, r: 12, t: 24, b: 32}, legend: {orientation: 'h', y: 1.2, x: 0, font: {color: css('--ink-2')}}, yaxis: yax({ticksuffix: suffix})}), cfg);
+}
+function qtd() {
+  const xa = q3.map(i => xs[i]), xp = q3All.map(i => xs[i]);
+  Plotly.react('cQtd', [
+    {x: xa, y: qtdAct, name: 'Actual (cumulative)', type: 'scatter', mode: 'lines+markers', line: {color: css('--s1'), width: 2}, marker: {size: 8, color: css('--s1'), line: {color: css('--surface'), width: 2}}, hovertemplate: '$%{y:,.0f}'},
+    {x: xp, y: qtdPlanAll, name: 'Plan (cumulative, to quarter end)', type: 'scatter', mode: 'lines', line: {color: css('--muted'), width: 2, dash: 'dash'}, hovertemplate: '$%{y:,.0f}'},
+  ], baseLayout({yaxis: yax({tickprefix: '$', tickformat: '~s'})}), cfg);
+}
+function renderCharts() {
+  linePlan('cOrdersPlan', orders, ordersTarget, false);
+  linePlan('cRevPlan', revenue, revTarget, true);
+  qtd();
+  waterfall('cWfRegion', regions, regPrev, regNow);
+  waterfall('cWfTraffic', traffic, trPrev, trNow);
+  yoyBars();
+  small('cAov', aov, aovLY, '$%{y:.2f}');
+  small('cCancel', cancel, cancelLY, '%{y:.1f}', '%');
+  small('cReturn', ret, retLY, '%{y:.1f}', '%');
+  small('cSignups', signups, signupsLY, '%{y:,.0f}');
+}
+
+/* ---------------- AI section commentary (points + so what) ---------------- */
+points('aiPlan', [
+  [`Weekly Orders Placed hit ${oAtt.toFixed(1)}% of target (${n0(orders[L])} vs ${n0(ordersTarget[L])}); revenue hit ${rAtt.toFixed(1)}%.`,
+   `Next week's targets are ${n0(nextOrdersT)} orders and ${usd(nextRevT)}. Even at the 8-week average pace (${n0(avg8)} orders) the orders target would be beaten.`],
+  [`Quarter-to-date revenue is ${usd(qtdAct.at(-1))}, ${qAtt.toFixed(1)}% of plan, with one week left in Q3.`,
+   q3Remaining <= 0
+     ? `The full-quarter plan of ${usd(q3PlanTotal)} is already exceeded by ${usd(-q3Remaining)}; Q3 will close ahead of plan.`
+     : `Q3 needs ${usd(q3Remaining)} in the final week to meet the full-quarter plan of ${usd(q3PlanTotal)}.`],
+  [`Orders grew ${sgn(oYoY)}% YoY against the ${'+75.0'}% growth the annual plan assumed.`,
+   `The business is running well ahead of the growth rate the plan was built on, even before this week's spike.`],
+]);
+points('aiDrivers', [
+  [`APAC added +${n0(regNow[0]-regPrev[0])} orders, ${(100*(regNow[0]-regPrev[0])/(orders[L]-orders[P])).toFixed(0)}% of the week's increase; North America added +${n0(regNow[1]-regPrev[1])}.`,
+   `The largest market also led the growth, so the increase is concentrated where most customers already are.`],
+  [`Search added +${n0(trNow[0]-trPrev[0])} orders, ${(100*(trNow[0]-trPrev[0])/(orders[L]-orders[P])).toFixed(0)}% of the increase.`,
+   `Most of the gain depends on one channel. A drop in Search traffic would affect orders more than any other source.`],
+  [`All 9 segments grew both WoW and YoY; every segment is above the plan's +75% YoY growth.`,
+   `No region or channel is lagging, so there is no segment-level risk to call out this week.`],
+]);
+points('aiHealth', [
+  [`Weekly Average Order Value was ${usd2(aov[L])}, flat WoW and ${sgn(pct(aov[L], aovLY[L]))}% YoY.`,
+   `Revenue growth came from more orders, not bigger baskets.`],
+  [`Weekly Order Cancellation Rate was ${cancel[L]}%, ${sgn(cancel[L]-cancel[P])} pp WoW and ${sgn(cancel[L]-cancelLY[L])} pp YoY.`,
+   `Now above last year's level. Each extra point costs about ${usd(revPerPp)} of weekly revenue at current volume.`],
+  [`14-Day Return Rate for the week of ${fmtD(weeks[L-2])} (latest mature week) was ${ret[L-2]}%, ${sgn(ret[L-2]-ret[L-3])} pp WoW and ${sgn(ret[L-2]-retLY[L-2])} pp YoY.`,
+   `Returns are not eroding the revenue gains; below last year's rate.`],
+  [`Weekly New Customer Signups were ${n0(signups[L])}, ${sgn(pct(signups[L], signups[P]))}% WoW and ${sgn(pct(signups[L], signupsLY[L]))}% YoY.`,
+   `Signups grew far less than orders (${sgn(pct(signups[L], signups[P]))}% vs ${sgn(oWoW)}% WoW), so the order jump was not matched by a jump in new accounts.`],
+]);
+
+/* ---------------- 8. tables ---------------- */
+function table(id, cats, prev, now, ly) {
+  const tp = prev.reduce((a,b)=>a+b,0), tn = now.reduce((a,b)=>a+b,0), tl = ly.reduce((a,b)=>a+b,0);
+  const rows = cats.map((c, i) => {
+    const rn = revenue[L] * now[i] / tn, rp = revenue[P] * prev[i] / tp, rl = revLY[L] * ly[i] / tl;
+    return `<tr><td>${c}</td><td>${n0(now[i])}</td><td>${sgn(pct(now[i], prev[i]))}%</td><td>${sgn(pct(now[i], ly[i]))}%</td><td>${usd(rn)}</td><td>${sgn(pct(rn, rp))}%</td><td>${sgn(pct(rn, rl))}%</td><td>${(now[i]/tn*100).toFixed(1)}%</td><td>${(now[i]-prev[i] > 0 ? '+' : '') + n0(now[i]-prev[i])}</td></tr>`;
+  }).join('');
+  document.getElementById(id).innerHTML = `<thead><tr><th>Segment</th><th>Orders</th><th>Orders WoW</th><th>Orders YoY</th><th>Revenue</th><th>Revenue WoW</th><th>Revenue YoY</th><th>Share of orders</th><th>Contribution to WoW change</th></tr></thead><tbody>${rows}
+  <tr style="font-weight:600"><td>Total</td><td>${n0(tn)}</td><td>${sgn(pct(tn,tp))}%</td><td>${sgn(pct(tn,tl))}%</td><td>${usd(revenue[L])}</td><td>${sgn(rWoW)}%</td><td>${sgn(pct(revenue[L], revLY[L]))}%</td><td>100.0%</td><td>+${n0(tn-tp)}</td></tr></tbody>`;
+}
+table('tRegion', regions, regPrev, regNow, regLY);
+table('tTraffic', traffic, trPrev, trNow, trLY);
+
+/* ---------------- 9. checks ---------------- */
+const tick = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg>';
+document.getElementById('checks').innerHTML = [
+  ['Output matches required format', 'schema valid'],
+  ['Every number matches source data', '58 of 58'],
+  ['Direction words match the data (up/down, better/worse)', '17 of 17'],
+  ['Every point has a grounded "so what"', '14 of 14'],
+  ['No causes, recommendations, or undefined metrics', '0 found'],
+  ['14-Day Return Rate labeled with its mature week; anomaly acknowledged', 'pass'],
+].map(([t, n]) => `<li>${tick}<span>${t}</span><span class="n">${n}</span></li>`).join('');
+
+/* ---------------- 10. archive ---------------- */
+document.getElementById('archive').innerHTML = [2,3,4,5,6,7,8].map(k => `<a class="chip" href="#">Week of ${fmtD(weeks[L-k+1])}</a>`).join('');
+
+renderKpis(); renderCharts();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { renderKpis(); renderCharts(); });
+</script>
+</body>
+</html>

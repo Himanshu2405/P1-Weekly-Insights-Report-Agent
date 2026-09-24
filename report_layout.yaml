@@ -1,0 +1,254 @@
+# report_layout.yaml
+# Structure of the weekly report page (what is shown, in what order, where AI commentary goes).
+# Styling (colors, fonts, spacing) lives in the HTML template and CSS, not here.
+# This file also drives: the LLM output schema (from commentary slots) and slot-level guards.
+# Mockup this was derived from: mockup/report_mockup.html (v2, approved 2026-09-24).
+
+version: 1.0
+
+page:
+  title: TheLook Weekly Business Report
+  timezone_display: America/New_York      # publish time shown in ET
+  week_definition: monday_to_sunday_utc
+  history_weeks: 52                       # trend charts
+  future_targets_through: 2026-12-28      # last target week shown on plan charts
+  archive_weeks: 8                        # previous reports linked at the bottom
+
+# ---------------------------------------------------------------------------
+# KPI display registry. Formulas live in SQL and TECH_SPEC.md; this is display only.
+#   format:          count | usd | usd_cents | percent
+#   higher_is_good:  drives green/red on deltas (polarity-aware)
+#   change_unit:     pct (relative %) | pp (percentage points)
+#   week:            reporting (latest completed week) | mature (2 weeks earlier, for 14-day returns)
+# ---------------------------------------------------------------------------
+kpis:
+  orders:
+    name: Weekly Orders Placed
+    format: count
+    higher_is_good: true
+    change_unit: pct
+    week: reporting
+    comparisons: [wow, yoy, target]
+  revenue:
+    name: Weekly Gross Revenue (excl. cancelled)
+    format: usd
+    higher_is_good: true
+    change_unit: pct
+    week: reporting
+    comparisons: [wow, yoy, target]
+  aov:
+    name: Weekly Average Order Value
+    format: usd_cents
+    higher_is_good: true
+    change_unit: pct
+    week: reporting
+    comparisons: [wow, yoy]
+  cancellation_rate:
+    name: Weekly Order Cancellation Rate
+    format: percent
+    decimals: 1
+    higher_is_good: false
+    change_unit: pp
+    week: reporting
+    comparisons: [wow, yoy]
+  return_rate_14d:
+    name: 14-Day Return Rate
+    format: percent
+    decimals: 1
+    higher_is_good: false
+    change_unit: pp
+    week: mature
+    comparisons: [wow, yoy]
+    label_rule: always show the mature week it refers to
+  new_signups:
+    name: Weekly New Customer Signups
+    format: count
+    higher_is_good: true
+    change_unit: pct
+    week: reporting
+    comparisons: [wow, yoy]
+  orders_vs_target:
+    name: Weekly Orders vs Target
+    format: percent
+    decimals: 1
+    higher_is_good: true
+    week: reporting
+    show: [attainment, gap, next_week_target]
+  revenue_vs_target:
+    name: Weekly Gross Revenue vs Target
+    format: percent
+    decimals: 1
+    higher_is_good: true
+    week: reporting
+    show: [attainment, gap, next_week_target]
+  qtd_revenue_vs_target:
+    name: Quarter-to-Date Gross Revenue vs Target
+    format: percent
+    decimals: 1
+    higher_is_good: true
+    week: reporting
+    show: [attainment, gap, full_quarter_plan, weeks_left]
+
+# Cuts available to components and commentary.
+cuts:
+  region: [APAC, North America, EMEA, LATAM]
+  traffic_source: [Search, Organic, Facebook, Email, Display]
+
+# ---------------------------------------------------------------------------
+# Sections, top to bottom.
+# Component types: header, tiles, kpi_cards, watchouts, line_chart, cumulative_chart,
+#                  waterfall, bar_chart, table, trust_panel, archive
+# ---------------------------------------------------------------------------
+sections:
+
+  - id: header
+    components:
+      - type: header
+        show: [reporting_week, quarter_week, publish_time, data_through, ai_status_badge]
+
+  - id: summary
+    title: Executive summary
+    subtitle: "The week in one read: vs last week, vs last year, and vs plan."
+    components:
+      - type: tiles
+        items:
+          - {kpi: orders_vs_target, footnote: next_week_target}
+          - {kpi: revenue_vs_target, footnote: next_week_target}
+          - {kpi: qtd_revenue_vs_target, footnote: full_quarter_plan}
+    commentary: summary
+
+  - id: watchouts
+    title: Watch-outs
+    subtitle: Read these before the numbers. Flags are detected by code; notes are written by AI and verified.
+    components:
+      - type: watchouts
+        sources: [code_flags, ai_notes]   # code flags always shown first
+        max_items: 6
+    commentary: watchouts
+
+  - id: scorecard
+    title: KPI scorecard
+    subtitle: Reporting week vs prior week (WoW) and same week last year (YoY). Green and red reflect whether the change is good for the business.
+    components:
+      - type: kpi_cards
+        kpis: [orders, revenue, aov, cancellation_rate, return_rate_14d, new_signups,
+               orders_vs_target, revenue_vs_target, qtd_revenue_vs_target]
+        sparkline_weeks: 8
+        show_prior_and_last_year: true
+    # numbers only, no commentary
+
+  - id: plan
+    title: Performance vs plan
+    subtitle: Actuals against the 2026 plan. Targets are shown through the end of 2026.
+    components:
+      - {type: line_chart, id: orders_vs_target_trend, title: Weekly Orders Placed vs target,
+         kpi: orders, weeks: 52, show_target: true, show_future_target: true, mark_today: true}
+      - {type: line_chart, id: revenue_vs_target_trend, title: Weekly Gross Revenue vs target (USD),
+         kpi: revenue, weeks: 52, show_target: true, show_future_target: true, mark_today: true}
+      - {type: cumulative_chart, id: qtd_burnup, title: Quarter-to-date Gross Revenue vs plan (USD),
+         kpi: revenue, period: quarter, plan_to_period_end: true}
+    commentary: plan
+
+  - id: drivers
+    title: Growth drivers
+    subtitle: Where the change in orders came from, this week and vs last year.
+    components:
+      - {type: waterfall, id: orders_change_by_region, title: Change in Weekly Orders Placed by region,
+         kpi: orders, cut: region, comparison: wow}
+      - {type: waterfall, id: orders_change_by_traffic, title: Change in Weekly Orders Placed by traffic source,
+         kpi: orders, cut: traffic_source, comparison: wow}
+      - {type: bar_chart, id: orders_yoy_by_segment, title: YoY growth in Weekly Orders Placed by segment (%),
+         kpi: orders, cuts: [region, traffic_source], comparison: yoy, reference_line: plan_growth}
+    commentary: drivers
+
+  - id: health
+    title: Customer health
+    subtitle: Order quality and customer growth, last 26 weeks, with the same weeks last year.
+    components:
+      - {type: line_chart, kpi: aov, weeks: 26, compare_last_year: true}
+      - {type: line_chart, kpi: cancellation_rate, weeks: 26, compare_last_year: true}
+      - {type: line_chart, kpi: return_rate_14d, weeks: 26, compare_last_year: true,
+         note: Mature weeks only. The latest 2 weeks are not shown until every order has had 14 days to be returned.}
+      - {type: line_chart, kpi: new_signups, weeks: 26, compare_last_year: true}
+    commentary: health
+
+  - id: details
+    title: Detail tables
+    components:
+      - {type: table, id: region_breakdown, cut: region, kpis: [orders, revenue],
+         columns: [value, wow, yoy, share, contribution_to_wow_change], collapsed: false}
+      - {type: table, id: traffic_breakdown, cut: traffic_source, kpis: [orders, revenue],
+         columns: [value, wow, yoy, share, contribution_to_wow_change], collapsed: true}
+
+  - id: trust
+    title: How this report was made
+    subtitle: Every number is computed by code from BigQuery. The AI only writes the commentary, and each run is checked before publishing.
+    components:
+      - type: trust_panel
+        show: [guard_results, model, prompt_version, tokens, llm_cost, latency, retries,
+               fallback_used, bytes_scanned, trace_link, kpi_definitions]
+
+  - id: archive
+    title: Previous reports
+    components:
+      - type: archive
+
+# ---------------------------------------------------------------------------
+# Commentary slots. Each becomes a field in the LLM output schema.
+# Every point = {what, so_what}. Guards enforce these rules per slot.
+#   allowed_kpis:   KPIs the slot may mention (any other KPI name = guard failure)
+#   so_what_facts:  code-computed facts from the data brief a "So what" may rely on
+# ---------------------------------------------------------------------------
+commentary_slots:
+
+  summary:
+    headline: {required: true, max_words: 30}
+    min_points: 3
+    max_points: 4
+    so_what_required: true
+    allowed_kpis: [orders, revenue, aov, cancellation_rate, return_rate_14d, new_signups,
+                   orders_vs_target, revenue_vs_target, qtd_revenue_vs_target]
+    allowed_cuts: [region, traffic_source]
+    must_mention_if_present: [anomaly_flags]
+    so_what_facts: [qtd_attainment_excl_flagged, full_quarter_plan, q3_remaining_to_plan,
+                    revenue_per_pp_cancellation, avg_8wk, top_contributor_share]
+
+  watchouts:
+    min_points: 0
+    max_points: 3            # AI notes only; code flags are added separately and always shown
+    so_what_required: true
+    allowed_kpis: [orders, revenue, aov, cancellation_rate, return_rate_14d, new_signups,
+                   qtd_revenue_vs_target]
+    trigger: only for patterns in the brief marked notable (streaks, thresholds, maturity)
+    so_what_facts: [streaks, revenue_per_pp_cancellation, qtd_attainment_excl_flagged]
+
+  plan:
+    min_points: 2
+    max_points: 3
+    so_what_required: true
+    allowed_kpis: [orders, revenue, orders_vs_target, revenue_vs_target, qtd_revenue_vs_target]
+    so_what_facts: [next_week_targets, full_quarter_plan, q3_remaining_to_plan, avg_8wk,
+                    yoy_vs_plan_growth]
+
+  drivers:
+    min_points: 2
+    max_points: 3
+    so_what_required: true
+    allowed_kpis: [orders]
+    allowed_cuts: [region, traffic_source]
+    so_what_facts: [contribution_by_segment, share_of_change, yoy_by_segment, plan_growth]
+
+  health:
+    min_points: 3
+    max_points: 4
+    so_what_required: true
+    allowed_kpis: [aov, cancellation_rate, return_rate_14d, new_signups, orders]
+    so_what_facts: [revenue_per_pp_cancellation, yoy_levels, signups_vs_orders_growth]
+
+# Rules that apply to every slot (checked by guards; wording lives in the prompt).
+commentary_rules:
+  format: bullet_points          # never paragraphs
+  numbers_must_exist_in_brief: true
+  direction_words_match_polarity: true
+  banned: [causal_claims, action_recommendations, undefined_metrics, "net revenue"]
+  return_rate_must_name_mature_week: true
