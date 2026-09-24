@@ -11,7 +11,7 @@ from datetime import date, datetime, timedelta, timezone
 
 from weekly_report import config, targets
 from weekly_report.bq import BigQueryRunner
-from weekly_report.brief import assemble
+from weekly_report.brief import assemble, split_facts
 from weekly_report.weeks import latest_completed_week, report_weeks, week_start
 
 
@@ -25,10 +25,9 @@ def main() -> int:
     weeks = report_weeks(reporting)
 
     runner = BigQueryRunner()
-    weekly = runner.run("weekly_kpis", start_week=reporting - timedelta(weeks=config.LOOKBACK_WEEKS),
-                        data_through=weeks.data_through)
-    cuts = runner.run("weekly_cuts", weeks=[weeks.reporting, weeks.prior, weeks.last_year],
-                      data_through=weeks.data_through)
+    facts = runner.run("weekly_facts", start_week=reporting - timedelta(weeks=config.LOOKBACK_WEEKS),
+                       data_through=weeks.data_through)
+    weekly, cuts = split_facts(facts, weeks)
     brief = assemble(weekly, cuts, targets.load(), weeks, now=now)
 
     config.BRIEFS_DIR.mkdir(exist_ok=True)

@@ -25,6 +25,24 @@ KPI_SPECS = [
 ANOMALY_KPIS = {"orders", "revenue", "aov", "new_signups"}  # ratio rule makes sense for counts and money
 
 
+# ---------------------------------------------------------------- split the single query result
+
+WEEKLY_COLS = ["orders", "cancelled_orders", "non_cancelled_orders", "returned_14d_orders", "revenue", "new_signups"]
+
+
+def split_facts(facts: pd.DataFrame, weeks: ReportWeeks) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """weekly_facts.sql returns week x country x traffic_source. Turn it into:
+    - weekly totals (one row per week) for the KPIs
+    - cut rows for the 3 compared weeks (reporting, prior, last year)
+    """
+    df = facts.copy()
+    df["week_start"] = pd.to_datetime(df["week_start"]).dt.date
+    weekly = df.groupby("week_start", as_index=False)[WEEKLY_COLS].sum()
+    compared = df[df["week_start"].isin([weeks.reporting, weeks.prior, weeks.last_year]) & (df["orders"] > 0)]
+    cuts = compared[["week_start", "country", "traffic_source", "orders", "revenue"]].reset_index(drop=True)
+    return weekly, cuts
+
+
 # ---------------------------------------------------------------- weekly KPI table
 
 def add_kpis(weekly: pd.DataFrame) -> pd.DataFrame:

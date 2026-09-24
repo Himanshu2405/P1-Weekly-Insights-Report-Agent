@@ -28,9 +28,9 @@ def generate(runner: BigQueryRunner) -> pd.DataFrame:
     weeks = plan_weeks(config.PLAN_YEAR)
     ly_weeks = [same_week_last_year(w) for w in weeks]
     last_ly_week_end = datetime.combine(ly_weeks[-1] + timedelta(days=7), datetime.min.time(), timezone.utc) - timedelta(microseconds=1)
-    actuals = runner.run("weekly_kpis", start_week=ly_weeks[0], data_through=last_ly_week_end)
-    actuals["week_start"] = pd.to_datetime(actuals["week_start"]).dt.date
-    by_week = actuals.set_index("week_start")
+    facts = runner.run("weekly_facts", start_week=ly_weeks[0], data_through=last_ly_week_end)
+    facts["week_start"] = pd.to_datetime(facts["week_start"]).dt.date
+    by_week = facts.groupby("week_start")[["orders", "revenue"]].sum()
 
     growth = 1 + config.PLAN_GROWTH_PCT / 100
     rows = []

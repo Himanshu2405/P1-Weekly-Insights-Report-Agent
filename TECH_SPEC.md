@@ -186,7 +186,7 @@ src/weekly_report/
   config.py        settings and rule thresholds (single place to tune)
   weeks.py         reporting / prior / last-year / mature week, quarter (Thursday rule)
   bq.py            BigQuery runner: SQL files, typed params, 500 MB bytes-billed cap
-  sql/             weekly_kpis.sql, weekly_cuts.sql
+  sql/             weekly_facts.sql (single query: week x country x traffic source)
   rules.py         pure functions: change, polarity, notable, anomaly, streak
   targets.py       plan generation (one-time) and loading
   models.py        data brief schema (Pydantic, extra fields forbidden)

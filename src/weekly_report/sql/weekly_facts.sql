@@ -1,7 +1,12 @@
 -- ============================================================================
--- weekly_kpis.sql
--- One row per week (Monday week_start, UTC) with the raw counts and sums that
--- Python turns into the 6 core KPIs (rates and AOV are derived in brief.py).
+-- weekly_facts.sql  (the only query the pipeline runs each week)
+--
+-- One row per week x country x traffic_source with the raw counts and sums
+-- behind every KPI and every cut. Python (brief.py) then:
+--   * sums across country and traffic_source -> weekly totals for the 6 KPIs
+--   * filters to 3 weeks (reporting, prior, last year) -> region and traffic cuts
+--   * derives rates and AOV (AOV, cancellation %, 14-day return %)
+--   * maps country -> region (an unmapped country fails the data-quality gate)
 --
 -- Parameters (passed by bq.py):
 --   @start_week    DATE       first Monday to include (about 120 weeks back,
@@ -16,22 +21,27 @@
 -- ============================================================================
 
 -- CTE 1: orders
--- One row per order placed in the window, tagged with the Monday of its week.
+-- One row per order placed in the window, with its week and the customer's
+-- country and traffic source.
 --   * week_start: DATE_TRUNC(..., WEEK(MONDAY)) snaps any date to its Monday,
 --     so every order lands in a Monday-to-Sunday bucket.
---   * The upper bound (created_at <= @data_through) drops the in-progress week,
---     so a partial week can never be reported.
---   * status and returned_at are kept for the cancellation and return counts.
+--   * created_at <= @data_through drops the in-progress week, so a partial
+--     week can never be reported.
+--   * Inner JOIN to users is safe: every order has a matching user (verified,
+--     0 orphan orders), so no orders are lost.
 WITH orders AS (
   SELECT
-    order_id,
-    DATE_TRUNC(DATE(created_at), WEEK(MONDAY)) AS week_start,
-    status,
-    created_at,
-    returned_at
-  FROM `bigquery-public-data.thelook_ecommerce.orders`
-  WHERE created_at >= TIMESTAMP(@start_week)
-    AND created_at <= @data_through
+    o.order_id,
+    DATE_TRUNC(DATE(o.created_at), WEEK(MONDAY)) AS week_start,
+    u.country,
+    u.traffic_source,
+    o.status,
+    o.created_at,
+    o.returned_at
+  FROM `bigquery-public-data.thelook_ecommerce.orders` AS o
+  JOIN `bigquery-public-data.thelook_ecommerce.users` AS u ON u.id = o.user_id
+  WHERE o.created_at >= TIMESTAMP(@start_week)
+    AND o.created_at <= @data_through
 ),
 
 -- CTE 2: item_revenue
@@ -50,10 +60,9 @@ item_revenue AS (
   GROUP BY i.order_id
 ),
 
--- CTE 3: order_kpis
--- Rolls orders up to one row per week and counts what each KPI needs.
---   * orders:               all orders placed that week, any status
---                           (Weekly Orders Placed)
+-- CTE 3: order_facts
+-- Rolls orders up to week x country x traffic_source and counts what each KPI needs.
+--   * orders:               all orders placed, any status (Weekly Orders Placed)
 --   * cancelled_orders:     numerator of the cancellation rate
 --   * non_cancelled_orders: denominator of AOV
 --   * returned_14d_orders:  orders the customer returned within 14 days of
@@ -62,10 +71,12 @@ item_revenue AS (
 --                             2. returned_at <= @data_through, because the source
 --                                contains future-dated returns and we never use
 --                                events after the report cutoff
---   * revenue:              sum of CTE 2 per week (Weekly Gross Revenue)
-order_kpis AS (
+--   * revenue:              sum of CTE 2 (Weekly Gross Revenue)
+order_facts AS (
   SELECT
     o.week_start,
+    o.country,
+    o.traffic_source,
     COUNT(*) AS orders,
     COUNTIF(o.status = 'Cancelled') AS cancelled_orders,
     COUNTIF(o.status != 'Cancelled') AS non_cancelled_orders,
@@ -77,37 +88,42 @@ order_kpis AS (
     SUM(r.revenue) AS revenue
   FROM orders AS o
   JOIN item_revenue AS r USING (order_id)
-  GROUP BY o.week_start
+  GROUP BY o.week_start, o.country, o.traffic_source
 ),
 
--- CTE 4: signups
--- New customer accounts per week (Weekly New Customer Signups), same weekly
--- bucketing and the same cutoff as orders.
-signups AS (
+-- CTE 4: signup_facts
+-- New customer accounts at the same grain (week x country x traffic_source),
+-- same weekly bucketing and the same cutoff as orders.
+signup_facts AS (
   SELECT
     DATE_TRUNC(DATE(created_at), WEEK(MONDAY)) AS week_start,
+    country,
+    traffic_source,
     COUNT(*) AS new_signups
   FROM `bigquery-public-data.thelook_ecommerce.users`
   WHERE created_at >= TIMESTAMP(@start_week)
     AND created_at <= @data_through
-  GROUP BY week_start
+  GROUP BY week_start, country, traffic_source
 )
 
 -- Final SELECT
--- Joins order KPIs with signups on week_start. LEFT JOIN + COALESCE so a week
--- with orders but zero signups still appears (with 0) instead of disappearing.
--- Python (brief.py) then derives:
---   AOV               = revenue / non_cancelled_orders
---   cancellation rate = 100 * cancelled_orders / orders
---   14-day return %   = 100 * returned_14d_orders / orders  (mature week only)
+-- FULL OUTER JOIN keeps a combination that has orders but no signups (or the
+-- reverse) instead of dropping it; COALESCE turns the missing side into 0.
+-- Output grain: one row per week_start x country x traffic_source
+-- (about 120 weeks x 16 countries x 5 sources, under 10k rows).
 SELECT
-  k.week_start,
-  k.orders,
-  k.cancelled_orders,
-  k.non_cancelled_orders,
-  k.returned_14d_orders,
-  ROUND(k.revenue, 2) AS revenue,
+  COALESCE(o.week_start, s.week_start) AS week_start,
+  COALESCE(o.country, s.country) AS country,
+  COALESCE(o.traffic_source, s.traffic_source) AS traffic_source,
+  COALESCE(o.orders, 0) AS orders,
+  COALESCE(o.cancelled_orders, 0) AS cancelled_orders,
+  COALESCE(o.non_cancelled_orders, 0) AS non_cancelled_orders,
+  COALESCE(o.returned_14d_orders, 0) AS returned_14d_orders,
+  ROUND(COALESCE(o.revenue, 0), 2) AS revenue,
   COALESCE(s.new_signups, 0) AS new_signups
-FROM order_kpis AS k
-LEFT JOIN signups AS s USING (week_start)
-ORDER BY k.week_start
+FROM order_facts AS o
+FULL OUTER JOIN signup_facts AS s
+  ON o.week_start = s.week_start
+  AND o.country = s.country
+  AND o.traffic_source = s.traffic_source
+ORDER BY week_start, country, traffic_source

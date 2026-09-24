@@ -4,6 +4,7 @@ Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech 
 
 ## 2026-09-24
 
+- CHANGED (user request): merged weekly_kpis.sql and weekly_cuts.sql into ONE query, `weekly_facts.sql` (grain: week x country x traffic_source, under 10k rows). Python sums it for weekly KPIs and filters it for cuts (`split_facts`). Same results (orders 2,344, revenue $169,732), cost halved from 63 MB to 31 MB billed. Every CTE commented. New test: cuts add up to weekly totals.
 - PHASE 1 BUILT (steps 1 to 7): src/weekly_report package (config, weeks, bq, rules, targets, models, brief), 2 SQL files, scripts (generate_targets, build_brief), 15 unit tests passing, JSON Schema export. First real brief: `briefs/brief_2026-09-14.json`, all 6 data-quality gates pass, 63 MB billed.
 - VERIFIED: brief revenue ($169,732), cancellation rate (14.4%), 14-Day Return Rate (9.4%, week of Aug 31) and new signups (1,528) match independent SQL exactly; orders (2,344) match a direct count.
 - FINDING: the public dataset is REGENERATED DAILY (modified 2026-09-24 03:35 UTC, 125,176 -> 124,778 orders). Week of 2026-09-14 changed from 2,950 to 2,344 orders; week of 2026-09-07 from 1,686 to 1,662. Validates frozen targets and frozen-brief evals. The "spike" is now 1.7x the 8-week average (below the 2x anomaly rule); new signups flagged as anomaly instead.

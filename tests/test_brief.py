@@ -80,3 +80,23 @@ def test_extra_fields_are_rejected():
     from weekly_report.models import QualityCheck
     with pytest.raises(Exception):
         QualityCheck(name="x", passed=True, detail="y", surprise=1)
+
+
+def test_split_facts_totals_match_cuts():
+    from weekly_report.brief import split_facts
+    facts = pd.DataFrame([
+        {"week_start": REPORTING, "country": "China", "traffic_source": "Search", "orders": 10, "cancelled_orders": 1,
+         "non_cancelled_orders": 9, "returned_14d_orders": 1, "revenue": 900.0, "new_signups": 4},
+        {"week_start": REPORTING, "country": "France", "traffic_source": "Email", "orders": 5, "cancelled_orders": 0,
+         "non_cancelled_orders": 5, "returned_14d_orders": 0, "revenue": 500.0, "new_signups": 2},
+        {"week_start": REPORTING, "country": "Japan", "traffic_source": "Display", "orders": 0, "cancelled_orders": 0,
+         "non_cancelled_orders": 0, "returned_14d_orders": 0, "revenue": 0.0, "new_signups": 3},   # signups only
+        {"week_start": REPORTING - timedelta(weeks=30), "country": "China", "traffic_source": "Search", "orders": 7,
+         "cancelled_orders": 0, "non_cancelled_orders": 7, "returned_14d_orders": 0, "revenue": 700.0, "new_signups": 1},
+    ])
+    weekly, cuts = split_facts(facts, report_weeks(REPORTING))
+    row = weekly.set_index("week_start").loc[REPORTING]
+    assert row["orders"] == 15 and row["new_signups"] == 9 and row["revenue"] == 1400.0
+    assert cuts["orders"].sum() == 15                      # cuts add up to the weekly total
+    assert set(cuts["week_start"]) == {REPORTING}          # week 30 back is not a compared week
+    assert "Japan" not in set(cuts["country"])             # signup-only rows are not order cuts
