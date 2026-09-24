@@ -401,7 +401,6 @@
       "revenue": 77972
     },
     "full_quarter_plan": 1177957,
-    "q3_remaining_to_plan": -5727,
     "qtd_attainment_excl_flagged_pct": 104.0,
     "revenue_per_pp_cancellation": 2588,
     "avg_8wk": {
@@ -431,6 +430,7 @@
       "wow": true,
       "yoy": true,
       "above_plan_growth": true
-    }
+    },
+    "quarter_remaining_to_plan": -5727
   }
 }

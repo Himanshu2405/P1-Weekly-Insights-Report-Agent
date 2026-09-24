@@ -67,7 +67,7 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 - [x] PRD v0.3
 - [x] business_context.md v0.1
 - [x] KPI Spec v1 locked
-- [ ] Phase 1 Data and metrics
+- [~] Phase 1 Data and metrics (brief pipeline done; charts and HTML rendering next)
 - [ ] Phase 2 Automated LLM narrative
 - [ ] Phase 3 Drill-down tools (optional)
 - [ ] Module 5 completed (prereq for Phase 4)

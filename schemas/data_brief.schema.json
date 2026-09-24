@@ -1,0 +1,892 @@
+{
+  "$defs": {
+    "CutMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "orders": {
+          "items": {
+            "$ref": "#/$defs/Segment"
+          },
+          "title": "Orders",
+          "type": "array"
+        }
+      },
+      "required": [
+        "orders"
+      ],
+      "title": "CutMetrics",
+      "type": "object"
+    },
+    "Cuts": {
+      "additionalProperties": false,
+      "properties": {
+        "region": {
+          "$ref": "#/$defs/CutMetrics"
+        },
+        "traffic_source": {
+          "$ref": "#/$defs/CutMetrics"
+        }
+      },
+      "required": [
+        "region",
+        "traffic_source"
+      ],
+      "title": "Cuts",
+      "type": "object"
+    },
+    "DataQuality": {
+      "additionalProperties": false,
+      "properties": {
+        "all_passed": {
+          "title": "All Passed",
+          "type": "boolean"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/QualityCheck"
+          },
+          "title": "Checks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "all_passed",
+        "checks"
+      ],
+      "title": "DataQuality",
+      "type": "object"
+    },
+    "Flag": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "anomaly",
+            "streak",
+            "plan_context",
+            "maturity"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "serious",
+            "warning"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "kpi": {
+          "title": "Kpi",
+          "type": "string"
+        },
+        "detected_by": {
+          "const": "code",
+          "default": "code",
+          "title": "Detected By",
+          "type": "string"
+        },
+        "facts": {
+          "additionalProperties": true,
+          "title": "Facts",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "severity",
+        "kpi",
+        "facts"
+      ],
+      "title": "Flag",
+      "type": "object"
+    },
+    "History": {
+      "additionalProperties": false,
+      "properties": {
+        "week_start": {
+          "items": {
+            "format": "date",
+            "type": "string"
+          },
+          "title": "Week Start",
+          "type": "array"
+        },
+        "orders": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Orders",
+          "type": "array"
+        },
+        "cancellation_rate": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Cancellation Rate",
+          "type": "array"
+        },
+        "return_rate_14d": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Return Rate 14D",
+          "type": "array"
+        }
+      },
+      "required": [
+        "week_start",
+        "orders",
+        "cancellation_rate",
+        "return_rate_14d"
+      ],
+      "title": "History",
+      "type": "object"
+    },
+    "Kpi": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "count",
+            "usd",
+            "usd_cents",
+            "percent"
+          ],
+          "title": "Format",
+          "type": "string"
+        },
+        "higher_is_good": {
+          "title": "Higher Is Good",
+          "type": "boolean"
+        },
+        "change_unit": {
+          "enum": [
+            "pct",
+            "pp"
+          ],
+          "title": "Change Unit",
+          "type": "string"
+        },
+        "week_ref": {
+          "enum": [
+            "reporting",
+            "mature"
+          ],
+          "title": "Week Ref",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "prior_week": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Prior Week"
+        },
+        "wow_change": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Wow Change"
+        },
+        "wow_direction": {
+          "enum": [
+            "up",
+            "down",
+            "flat"
+          ],
+          "title": "Wow Direction",
+          "type": "string"
+        },
+        "wow_assessment": {
+          "enum": [
+            "good",
+            "bad",
+            "flat"
+          ],
+          "title": "Wow Assessment",
+          "type": "string"
+        },
+        "last_year": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Last Year"
+        },
+        "yoy_change": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Yoy Change"
+        },
+        "yoy_direction": {
+          "enum": [
+            "up",
+            "down",
+            "flat"
+          ],
+          "title": "Yoy Direction",
+          "type": "string"
+        },
+        "yoy_assessment": {
+          "enum": [
+            "good",
+            "bad",
+            "flat"
+          ],
+          "title": "Yoy Assessment",
+          "type": "string"
+        },
+        "avg_8wk": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Avg 8Wk"
+        },
+        "notable": {
+          "title": "Notable",
+          "type": "boolean"
+        },
+        "notable_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notable Reason"
+        }
+      },
+      "required": [
+        "name",
+        "format",
+        "higher_is_good",
+        "change_unit",
+        "week_ref",
+        "value",
+        "prior_week",
+        "wow_change",
+        "wow_direction",
+        "wow_assessment",
+        "last_year",
+        "yoy_change",
+        "yoy_direction",
+        "yoy_assessment",
+        "notable"
+      ],
+      "title": "Kpi",
+      "type": "object"
+    },
+    "Kpis": {
+      "additionalProperties": false,
+      "properties": {
+        "orders": {
+          "$ref": "#/$defs/Kpi"
+        },
+        "revenue": {
+          "$ref": "#/$defs/Kpi"
+        },
+        "aov": {
+          "$ref": "#/$defs/Kpi"
+        },
+        "cancellation_rate": {
+          "$ref": "#/$defs/Kpi"
+        },
+        "return_rate_14d": {
+          "$ref": "#/$defs/Kpi"
+        },
+        "new_signups": {
+          "$ref": "#/$defs/Kpi"
+        }
+      },
+      "required": [
+        "orders",
+        "revenue",
+        "aov",
+        "cancellation_rate",
+        "return_rate_14d",
+        "new_signups"
+      ],
+      "title": "Kpis",
+      "type": "object"
+    },
+    "MatureWeek": {
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        },
+        "end": {
+          "format": "date",
+          "title": "End",
+          "type": "string"
+        },
+        "used_for": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Used For",
+          "type": "array"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "used_for"
+      ],
+      "title": "MatureWeek",
+      "type": "object"
+    },
+    "Meta": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "generated_at_utc": {
+          "format": "date-time",
+          "title": "Generated At Utc",
+          "type": "string"
+        },
+        "reporting_week": {
+          "$ref": "#/$defs/ReportingWeek"
+        },
+        "mature_week": {
+          "$ref": "#/$defs/MatureWeek"
+        },
+        "data_through_utc": {
+          "format": "date-time",
+          "title": "Data Through Utc",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "target_version": {
+          "title": "Target Version",
+          "type": "string"
+        },
+        "layout_version": {
+          "title": "Layout Version",
+          "type": "string"
+        },
+        "plan_growth_pct": {
+          "title": "Plan Growth Pct",
+          "type": "number"
+        }
+      },
+      "required": [
+        "run_id",
+        "generated_at_utc",
+        "reporting_week",
+        "mature_week",
+        "data_through_utc",
+        "source",
+        "target_version",
+        "layout_version",
+        "plan_growth_pct"
+      ],
+      "title": "Meta",
+      "type": "object"
+    },
+    "QtdTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "actual": {
+          "title": "Actual",
+          "type": "number"
+        },
+        "target_to_date": {
+          "title": "Target To Date",
+          "type": "number"
+        },
+        "attainment_pct": {
+          "title": "Attainment Pct",
+          "type": "number"
+        },
+        "gap": {
+          "title": "Gap",
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "ahead",
+            "behind",
+            "on_target"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "full_quarter_plan": {
+          "title": "Full Quarter Plan",
+          "type": "number"
+        },
+        "remaining_to_full_quarter_plan": {
+          "title": "Remaining To Full Quarter Plan",
+          "type": "number"
+        },
+        "weeks_left": {
+          "title": "Weeks Left",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "actual",
+        "target_to_date",
+        "attainment_pct",
+        "gap",
+        "status",
+        "full_quarter_plan",
+        "remaining_to_full_quarter_plan",
+        "weeks_left"
+      ],
+      "title": "QtdTarget",
+      "type": "object"
+    },
+    "QualityCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "passed",
+        "detail"
+      ],
+      "title": "QualityCheck",
+      "type": "object"
+    },
+    "ReportingWeek": {
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        },
+        "end": {
+          "format": "date",
+          "title": "End",
+          "type": "string"
+        },
+        "quarter": {
+          "title": "Quarter",
+          "type": "string"
+        },
+        "week_of_quarter": {
+          "title": "Week Of Quarter",
+          "type": "integer"
+        },
+        "weeks_in_quarter": {
+          "title": "Weeks In Quarter",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "quarter",
+        "week_of_quarter",
+        "weeks_in_quarter"
+      ],
+      "title": "ReportingWeek",
+      "type": "object"
+    },
+    "Segment": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "title": "Segment",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "prior_week": {
+          "title": "Prior Week",
+          "type": "number"
+        },
+        "wow_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Wow Pct"
+        },
+        "last_year": {
+          "title": "Last Year",
+          "type": "number"
+        },
+        "yoy_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Yoy Pct"
+        },
+        "share_pct": {
+          "title": "Share Pct",
+          "type": "number"
+        },
+        "contribution": {
+          "title": "Contribution",
+          "type": "number"
+        },
+        "share_of_change_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Share Of Change Pct"
+        }
+      },
+      "required": [
+        "segment",
+        "value",
+        "prior_week",
+        "wow_pct",
+        "last_year",
+        "yoy_pct",
+        "share_pct",
+        "contribution",
+        "share_of_change_pct"
+      ],
+      "title": "Segment",
+      "type": "object"
+    },
+    "SoWhatFacts": {
+      "additionalProperties": false,
+      "properties": {
+        "next_week_targets": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Next Week Targets",
+          "type": "object"
+        },
+        "full_quarter_plan": {
+          "title": "Full Quarter Plan",
+          "type": "number"
+        },
+        "quarter_remaining_to_plan": {
+          "title": "Quarter Remaining To Plan",
+          "type": "number"
+        },
+        "qtd_attainment_excl_flagged_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Qtd Attainment Excl Flagged Pct"
+        },
+        "revenue_per_pp_cancellation": {
+          "title": "Revenue Per Pp Cancellation",
+          "type": "number"
+        },
+        "avg_8wk": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Avg 8Wk",
+          "type": "object"
+        },
+        "top_contributor": {
+          "additionalProperties": {
+            "$ref": "#/$defs/TopContributor"
+          },
+          "title": "Top Contributor",
+          "type": "object"
+        },
+        "yoy_vs_plan_growth": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Yoy Vs Plan Growth",
+          "type": "object"
+        },
+        "signups_vs_orders_growth": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Signups Vs Orders Growth",
+          "type": "object"
+        },
+        "segments_all_growing": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "title": "Segments All Growing",
+          "type": "object"
+        }
+      },
+      "required": [
+        "next_week_targets",
+        "full_quarter_plan",
+        "quarter_remaining_to_plan",
+        "qtd_attainment_excl_flagged_pct",
+        "revenue_per_pp_cancellation",
+        "avg_8wk",
+        "top_contributor",
+        "yoy_vs_plan_growth",
+        "signups_vs_orders_growth",
+        "segments_all_growing"
+      ],
+      "title": "SoWhatFacts",
+      "type": "object"
+    },
+    "Targets": {
+      "additionalProperties": false,
+      "properties": {
+        "orders_vs_target": {
+          "$ref": "#/$defs/WeeklyTarget"
+        },
+        "revenue_vs_target": {
+          "$ref": "#/$defs/WeeklyTarget"
+        },
+        "qtd_revenue_vs_target": {
+          "$ref": "#/$defs/QtdTarget"
+        }
+      },
+      "required": [
+        "orders_vs_target",
+        "revenue_vs_target",
+        "qtd_revenue_vs_target"
+      ],
+      "title": "Targets",
+      "type": "object"
+    },
+    "TopContributor": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "title": "Segment",
+          "type": "string"
+        },
+        "contribution": {
+          "title": "Contribution",
+          "type": "number"
+        },
+        "share_of_change_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Share Of Change Pct"
+        }
+      },
+      "required": [
+        "segment",
+        "contribution",
+        "share_of_change_pct"
+      ],
+      "title": "TopContributor",
+      "type": "object"
+    },
+    "WeeklyTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "actual": {
+          "title": "Actual",
+          "type": "number"
+        },
+        "target": {
+          "title": "Target",
+          "type": "number"
+        },
+        "attainment_pct": {
+          "title": "Attainment Pct",
+          "type": "number"
+        },
+        "gap": {
+          "title": "Gap",
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "ahead",
+            "behind",
+            "on_target"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "next_week_target": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Week Target"
+        }
+      },
+      "required": [
+        "actual",
+        "target",
+        "attainment_pct",
+        "gap",
+        "status",
+        "next_week_target"
+      ],
+      "title": "WeeklyTarget",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "brief_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Brief Version",
+      "type": "string"
+    },
+    "meta": {
+      "$ref": "#/$defs/Meta"
+    },
+    "data_quality": {
+      "$ref": "#/$defs/DataQuality"
+    },
+    "kpis": {
+      "$ref": "#/$defs/Kpis"
+    },
+    "targets": {
+      "$ref": "#/$defs/Targets"
+    },
+    "cuts": {
+      "$ref": "#/$defs/Cuts"
+    },
+    "history_8wk": {
+      "$ref": "#/$defs/History"
+    },
+    "flags": {
+      "items": {
+        "$ref": "#/$defs/Flag"
+      },
+      "title": "Flags",
+      "type": "array"
+    },
+    "so_what_facts": {
+      "$ref": "#/$defs/SoWhatFacts"
+    }
+  },
+  "required": [
+    "meta",
+    "data_quality",
+    "kpis",
+    "targets",
+    "cuts",
+    "history_8wk",
+    "flags",
+    "so_what_facts"
+  ],
+  "title": "DataBrief",
+  "type": "object"
+}

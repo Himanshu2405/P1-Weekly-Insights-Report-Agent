@@ -2,7 +2,7 @@
 
 An automated weekly business report for a (fictional) online retailer, where every KPI is computed by code and the AI-written commentary is **evaluated, traced, guarded, observable, and cost-tracked** before it is published.
 
-> Status: design complete, Phase 1 (data and metrics) in progress.
+> Status: design complete. Phase 1: data pipeline and data brief working on real data; charts and HTML rendering next.
 
 ## The problem
 
@@ -39,6 +39,15 @@ Monday 8 AM ET (GitHub Actions)
 ## Data
 
 - BigQuery public dataset `bigquery-public-data.thelook_ecommerce` (fictional e-commerce store). No private or employer data.
+
+## Run it
+
+```bash
+python -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/pip install -e .
+gcloud auth application-default login            # BigQuery access
+.venv/bin/python scripts/build_brief.py           # brief for the latest completed week
+.venv/bin/python -m pytest                        # unit tests (no BigQuery needed)
+```
 
 ## Stack
 

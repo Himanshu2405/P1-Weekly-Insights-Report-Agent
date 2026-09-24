@@ -197,7 +197,7 @@ sections:
 # Commentary slots. Each becomes a field in the LLM output schema.
 # Every point = {what, so_what}. Guards enforce these rules per slot.
 #   allowed_kpis:   KPIs the slot may mention (any other KPI name = guard failure)
-#   so_what_facts:  code-computed facts from the data brief a "So what" may rely on
+#   so_what_facts:  keys in the brief's so_what_facts block (or whole brief blocks: flags, cuts) a "So what" may rely on
 # ---------------------------------------------------------------------------
 commentary_slots:
 
@@ -210,8 +210,8 @@ commentary_slots:
                    orders_vs_target, revenue_vs_target, qtd_revenue_vs_target]
     allowed_cuts: [region, traffic_source]
     must_mention_if_present: [anomaly_flags]
-    so_what_facts: [qtd_attainment_excl_flagged, full_quarter_plan, q3_remaining_to_plan,
-                    revenue_per_pp_cancellation, avg_8wk, top_contributor_share]
+    so_what_facts: [qtd_attainment_excl_flagged_pct, full_quarter_plan, quarter_remaining_to_plan,
+                    revenue_per_pp_cancellation, avg_8wk, top_contributor]
 
   watchouts:
     min_points: 0
@@ -220,14 +220,14 @@ commentary_slots:
     allowed_kpis: [orders, revenue, aov, cancellation_rate, return_rate_14d, new_signups,
                    qtd_revenue_vs_target]
     trigger: only for patterns in the brief marked notable (streaks, thresholds, maturity)
-    so_what_facts: [streaks, revenue_per_pp_cancellation, qtd_attainment_excl_flagged]
+    so_what_facts: [flags, revenue_per_pp_cancellation, qtd_attainment_excl_flagged_pct]
 
   plan:
     min_points: 2
     max_points: 3
     so_what_required: true
     allowed_kpis: [orders, revenue, orders_vs_target, revenue_vs_target, qtd_revenue_vs_target]
-    so_what_facts: [next_week_targets, full_quarter_plan, q3_remaining_to_plan, avg_8wk,
+    so_what_facts: [next_week_targets, full_quarter_plan, quarter_remaining_to_plan, avg_8wk,
                     yoy_vs_plan_growth]
 
   drivers:
@@ -236,14 +236,14 @@ commentary_slots:
     so_what_required: true
     allowed_kpis: [orders]
     allowed_cuts: [region, traffic_source]
-    so_what_facts: [contribution_by_segment, share_of_change, yoy_by_segment, plan_growth]
+    so_what_facts: [cuts, top_contributor, segments_all_growing, yoy_vs_plan_growth]
 
   health:
     min_points: 3
     max_points: 4
     so_what_required: true
     allowed_kpis: [aov, cancellation_rate, return_rate_14d, new_signups, orders]
-    so_what_facts: [revenue_per_pp_cancellation, yoy_levels, signups_vs_orders_growth]
+    so_what_facts: [revenue_per_pp_cancellation, signups_vs_orders_growth]
 
 # Rules that apply to every slot (checked by guards; wording lives in the prompt).
 commentary_rules:

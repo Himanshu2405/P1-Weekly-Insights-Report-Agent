@@ -1,0 +1,58 @@
+"""The 2026 plan: weekly targets = same week last year x (1 + planned growth).
+
+Generated ONCE and frozen in a versioned CSV (like a plan Finance hands over at the start of the year).
+The pipeline only reads the file; it never recomputes targets from live data.
+"""
+
+from datetime import date, datetime, timedelta, timezone
+
+import pandas as pd
+
+from . import config
+from .bq import BigQueryRunner
+from .weeks import quarter_of, same_week_last_year, week_start
+
+
+def plan_weeks(year: int) -> list[date]:
+    """Every week whose Thursday falls in the given year."""
+    w = week_start(date(year, 1, 1)) - timedelta(weeks=1)
+    weeks = []
+    while quarter_of(w)[0] <= year:
+        if quarter_of(w)[0] == year:
+            weeks.append(w)
+        w += timedelta(weeks=1)
+    return weeks
+
+
+def generate(runner: BigQueryRunner) -> pd.DataFrame:
+    weeks = plan_weeks(config.PLAN_YEAR)
+    ly_weeks = [same_week_last_year(w) for w in weeks]
+    last_ly_week_end = datetime.combine(ly_weeks[-1] + timedelta(days=7), datetime.min.time(), timezone.utc) - timedelta(microseconds=1)
+    actuals = runner.run("weekly_kpis", start_week=ly_weeks[0], data_through=last_ly_week_end)
+    actuals["week_start"] = pd.to_datetime(actuals["week_start"]).dt.date
+    by_week = actuals.set_index("week_start")
+
+    growth = 1 + config.PLAN_GROWTH_PCT / 100
+    rows = []
+    for w, ly in zip(weeks, ly_weeks):
+        if ly not in by_week.index:
+            raise ValueError(f"No actuals for last-year week {ly}; cannot build target for {w}")
+        ly_orders = int(by_week.at[ly, "orders"])
+        ly_revenue = float(by_week.at[ly, "revenue"])
+        rows.append({
+            "week_start": w.isoformat(),
+            "orders_target": round(ly_orders * growth),
+            "revenue_target": round(ly_revenue * growth),
+            "ly_week_start": ly.isoformat(),
+            "ly_orders": ly_orders,
+            "ly_revenue": round(ly_revenue),
+            "plan_growth_pct": config.PLAN_GROWTH_PCT,
+            "target_version": config.TARGET_VERSION,
+        })
+    return pd.DataFrame(rows)
+
+
+def load() -> pd.DataFrame:
+    df = pd.read_csv(config.TARGETS_FILE, parse_dates=["week_start"])
+    df["week_start"] = df["week_start"].dt.date
+    return df.set_index("week_start")

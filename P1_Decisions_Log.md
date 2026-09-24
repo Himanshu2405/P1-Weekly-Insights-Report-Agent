@@ -4,6 +4,16 @@ Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech 
 
 ## 2026-09-24
 
+- PHASE 1 BUILT (steps 1 to 7): src/weekly_report package (config, weeks, bq, rules, targets, models, brief), 2 SQL files, scripts (generate_targets, build_brief), 15 unit tests passing, JSON Schema export. First real brief: `briefs/brief_2026-09-14.json`, all 6 data-quality gates pass, 63 MB billed.
+- VERIFIED: brief revenue ($169,732), cancellation rate (14.4%), 14-Day Return Rate (9.4%, week of Aug 31) and new signups (1,528) match independent SQL exactly; orders (2,344) match a direct count.
+- FINDING: the public dataset is REGENERATED DAILY (modified 2026-09-24 03:35 UTC, 125,176 -> 124,778 orders). Week of 2026-09-14 changed from 2,950 to 2,344 orders; week of 2026-09-07 from 1,686 to 1,662. Validates frozen targets and frozen-brief evals. The "spike" is now 1.7x the 8-week average (below the 2x anomaly rule); new signups flagged as anomaly instead.
+- FINDING: 26,814 order items fall in a different week than their order. DECIDED: revenue is attributed to the week the ORDER was placed (keeps AOV = revenue / orders consistent). TECH_SPEC KPI 2 updated.
+- FINDING: source has future-dated events (420 returns, 863 shipments after "now"). DECIDED: SQL ignores anything after the reporting week's end.
+- DECIDED: quarter membership uses the week's Thursday (ISO convention); 2026 plan has 53 weeks. Same week last year = 364 days back (same weekday alignment).
+- DECIDED: BigQuery hard cap of 500 MB billed per query (maximum_bytes_billed).
+- RENAMED: so_what_facts.q3_remaining_to_plan -> quarter_remaining_to_plan (works for any quarter); layout so_what_facts now reference brief keys.
+- KNOWN LIMITATION: cancellation status has no timestamp, so backfilled briefs use today's status.
+
 - REPO: created public GitHub repo https://github.com/Himanshu2405/P1-Weekly-Insights-Report-Agent (local folder = repo root). First commit: all design docs, .gitignore (venv, .env, credentials excluded), requirements.txt, README for interviewers. Phase 1 started.
 - DRAFTED: data brief schema v1.0 (TECH_SPEC section 6) + illustrative `briefs/example_brief.json` (~2k tokens). Blocks: meta, data_quality, kpis (pre-computed direction and good/bad assessment), targets, cuts, history_8wk, flags (code rules), so_what_facts. Chart data kept out of the prompt in a separate chart_data.json. Thresholds: notable |WoW|>=10% or >=1pp or outside 8-wk range; anomaly >2x or <0.5x 8-wk avg; streak 3+ bad-direction weeks.
 - WROTE: report_layout.yaml v1.0 (page structure from mockup v2): 9-KPI display registry (format, polarity, change unit, mature week), 10 sections with components, 5 commentary slots (min/max points, so-what required, allowed KPIs/cuts, so-what facts), global commentary rules. Validated: parses, all KPI/slot references resolve.
