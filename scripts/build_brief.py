@@ -21,7 +21,7 @@ def main() -> int:
     args = parser.parse_args()
 
     now = datetime.now(timezone.utc)
-    reporting = week_start(args.week) if args.week else latest_completed_week(now)
+    reporting = week_start(args.week) if args.week else (config.AS_OF_WEEK or latest_completed_week(now))
     weeks = report_weeks(reporting)
 
     runner = BigQueryRunner()

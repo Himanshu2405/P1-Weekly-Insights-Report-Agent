@@ -45,7 +45,7 @@ Monday 8 AM ET (GitHub Actions)
 ```bash
 python -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/pip install -e .
 gcloud auth application-default login            # BigQuery access
-.venv/bin/python scripts/build_report.py          # brief + HTML report for the latest completed week (site/index.html)
+.venv/bin/python scripts/build_report.py --backfill  # briefs + HTML reports: as-of week (site/index.html) + 8-week archive
 .venv/bin/python -m pytest                        # unit tests (no BigQuery needed)
 ```
 

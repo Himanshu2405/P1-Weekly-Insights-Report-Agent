@@ -14,12 +14,6 @@
   </div>
 {%- endmacro -%}
 
-{%- macro chart(comp, size="") -%}
-  <div class="card"><p class="ctitle">{{ comp.title }}</p>
-    {%- if comp.note %}<p class="csub">{{ comp.note }}</p>{% endif %}
-    <div class="chart {{ size }}" data-chart="{{ comp._id }}"></div></div>
-{%- endmacro -%}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,13 +59,13 @@
 
   {%- for comp in comps %}
     {%- if comp.type == "tiles" %}
-  <div class="grid g3">
+  <div class="grid g4">
     {%- for t in tiles %}
-    <div class="card tile"><div class="label">{{ t.label }}</div><div class="big">{{ "%.1f"|format(t.pct) }}%</div>
-      <div class="small">{{ t.detail }}</div>
-      <div class="bar" title="100% = on plan"><span style="width:{{ [t.pct, 300]|min / 3 }}%"></span><i style="left:33.3%"></i></div>
-      <div class="small" style="margin-top:4px;color:var(--muted)">Marker = 100% of plan (bar scale 0 to 300%)</div>
-      <div class="small" style="margin-top:8px">{{ t.next }}</div></div>
+    <div class="card tile"><div class="label">{{ t.label }}</div>
+      <div class="big">{{ "%.1f"|format(t.pct) }}%</div>
+      <span class="pill {{ t.pill[1] }}">{{ t.pill[0] }}</span>
+      <div class="small" style="margin-top:8px">{{ t.detail }}</div>
+      <div class="small next">{{ t.next }}</div></div>
     {%- endfor %}
   </div>
 
@@ -96,13 +90,15 @@
     {%- endfor %}
   </div>
 
-    {%- elif comp.type in ["line_chart", "cumulative_chart", "waterfall", "bar_chart"] %}
-      {%- if loop.first or comps[loop.index0 - 1].type not in ["line_chart", "cumulative_chart", "waterfall", "bar_chart"] or comp.type in ["cumulative_chart", "bar_chart"] %}
-        {%- if not loop.first %}</div>{% endif %}
-  <div class="grid {{ 'g2' if comp.type in ['line_chart', 'waterfall'] else '' }}" style="margin-top:14px">
-      {%- endif %}
-    {{ chart(comp, "sm" if (comp.weeks or 52) <= 26 or comp.type == "cumulative_chart" else "") }}
-      {%- if loop.last %}</div>{% endif %}
+    {%- elif comp == section._charts[0] %}
+  <div class="grid g2 charts">
+      {%- for c in section._charts %}
+    <div class="card{% if c._full %} full{% endif %}"><p class="ctitle">{{ c.title }}</p>
+      {%- if c.note %}<p class="csub">{{ c.note }}</p>{% endif %}
+      <div class="chart{% if c.type in ['itpy_chart', 'cumulative_chart'] or (c.weeks or 52) <= 26 %} sm{% endif %}" data-chart="{{ c._id }}"></div>
+      <p class="csub chart-note" data-note="{{ c._id }}"></p></div>
+      {%- endfor %}
+  </div>
 
     {%- elif comp.type == "table" %}
   <details{% if not comp.collapsed %} open{% endif %}><summary>{{ "Region" if comp.cut == "region" else "Traffic source" }} breakdown</summary>
@@ -180,45 +176,82 @@ function base(extra = {}) {
 }
 
 const STYLE = {
-  actual:    () => ({color: css('--s1'), width: 2}),
+  actual:    () => ({color: css('--s1'), width: 2.5}),
+  actual2:   () => ({color: css('--s2'), width: 2.5}),
   reference: () => ({color: css('--muted'), width: 2, dash: 'dash'}),
   target:    () => ({color: css('--muted'), width: 2, dash: 'dash'}),
   future:    () => ({color: css('--muted'), width: 2, dash: 'dot'}),
 };
+const money = v => '$' + Math.round(v).toLocaleString('en-US');
+const short = v => Math.abs(v) >= 1e6 ? '$' + (v / 1e6).toFixed(2) + 'M' : Math.abs(v) >= 1e3 ? '$' + Math.round(v / 1e3) + 'k' : '$' + Math.round(v);
+
+function decorate(layout, c) {
+  layout.shapes = layout.shapes || []; layout.annotations = layout.annotations || [];
+  (c.bands || []).forEach(b => {
+    if (b.shade) layout.shapes.push({type: 'rect', xref: 'x', yref: 'paper', x0: b.x0, x1: b.x1, y0: 0, y1: 1,
+                                     fillcolor: css('--band'), line: {width: 0}, layer: 'below'});
+    layout.annotations.push({x: b.x0, y: 1, xref: 'x', yref: 'paper', text: b.label, showarrow: false, xanchor: 'left',
+                             yanchor: 'top', xshift: 4, font: {size: 11, color: css('--muted')}});
+  });
+  if (c.marker) {
+    layout.shapes.push({type: 'line', x0: c.marker.x, x1: c.marker.x, yref: 'paper', y0: 0, y1: 1, line: {color: css('--axis'), width: 1.5}});
+    layout.annotations.push({x: c.marker.x, y: 0.92, yref: 'paper', text: c.marker.label, showarrow: false, xanchor: 'left', xshift: 4,
+                             font: {size: 11, color: css('--ink-2')}});
+  }
+  if (c.reference) {
+    layout.shapes.push({type: 'line', xref: 'paper', x0: 0, x1: 1, y0: c.reference.y, y1: c.reference.y,
+                        line: {color: css('--muted'), width: 1.5, dash: 'dash'}});
+    layout.annotations.push({xref: 'paper', x: 0, y: c.reference.y, text: c.reference.label, showarrow: false, xanchor: 'left',
+                             yanchor: 'bottom', xshift: 4, font: {size: 11, color: css('--ink-2')}, bgcolor: css('--surface')});
+  }
+  return layout;
+}
 
 function line(el, c) {
-  const f = fmtFor(c.unit);
+  const f = c.unit === 'index' ? {p: '', f: '.0f', s: ''} : fmtFor(c.unit);
   const traces = c.series.map(s => ({
     x: c.x, y: s.y, name: s.name, type: 'scatter', mode: s.markers ? 'lines+markers' : 'lines', connectgaps: false,
     line: STYLE[s.role](), marker: {size: 8, color: css('--s1'), line: {color: css('--surface'), width: 2}},
     hovertemplate: f.p + '%{y:' + f.f + '}' + f.s,
   }));
-  const layout = base({yaxis: Object.assign(base().yaxis, {tickprefix: f.p, ticksuffix: f.s, tickformat: f.s ? '' : '~s'})});
-  if (c.today) {
-    layout.shapes = [{type: 'line', x0: c.today, x1: c.today, yref: 'paper', y0: 0, y1: 1, line: {color: css('--axis'), width: 1}}];
-    layout.annotations = [{x: c.today, y: 1, yref: 'paper', text: 'Today', showarrow: false, xanchor: 'left', yanchor: 'top',
-                           font: {size: 11, color: css('--muted')}}];
-  }
-  Plotly.react(el, traces, layout, cfg);
+  const layout = base({yaxis: Object.assign(base().yaxis, {tickprefix: f.p, ticksuffix: f.s, tickformat: f.s || c.unit === 'index' ? '' : '~s'})});
+  Plotly.react(el, traces, decorate(layout, c), cfg);
 }
 
 function waterfall(el, c) {
-  const n0 = v => Math.round(v).toLocaleString('en-US');
-  Plotly.react(el, [{
-    type: 'waterfall', x: ['Prior week', ...c.labels, 'Reporting week'],
-    measure: ['absolute', ...c.labels.map(() => 'relative'), 'total'],
-    y: [c.prior_total, ...c.deltas, 0],
-    text: [n0(c.prior_total), ...c.deltas.map(v => (v > 0 ? '+' : '') + n0(v)), n0(c.now_total)],
-    textposition: 'outside', textfont: {color: css('--ink-2')}, cliponaxis: false,
-    connector: {line: {color: css('--axis'), width: 1}},
-    increasing: {marker: {color: css('--s1')}}, decreasing: {marker: {color: '#e34948'}}, totals: {marker: {color: css('--muted')}},
-    hovertemplate: '%{x}: %{text}<extra></extra>',
-  }], base({showlegend: false, hovermode: 'closest', margin: {l: 56, r: 12, t: 28, b: 60}}), cfg);
+  const fmtv = c.unit === 'revenue' ? short : v => Math.round(v).toLocaleString('en-US');
+  const sign = v => (v > 0 ? '+' : v < 0 ? '−' : '') + fmtv(Math.abs(v));
+  const future = c.mode === 'bridge';
+  const x = [c.start.label, ...c.steps.map(s => s.label), c.end.label];
+  const deltas = c.steps.map(s => s.value);
+  // Build as stacked bars (invisible base + visible bar) so each bar can carry its own light color.
+  let run = c.start.value, base_ = [0], vis = [c.start.value], colors = [css('--total-fill')], text = [fmtv(c.start.value)];
+  deltas.forEach(d => {
+    base_.push(d >= 0 ? run : run + d); vis.push(Math.abs(d));
+    colors.push(future ? css('--plan-fill') : (d >= 0 ? css('--good-fill') : css('--bad-fill')));
+    text.push(future ? fmtv(d) : sign(d)); run += d;
+  });
+  base_.push(0); vis.push(c.end.value); colors.push(css('--end-fill')); text.push(fmtv(c.end.value));
+  const layout = base({barmode: 'stack', showlegend: false, hovermode: 'closest', margin: {l: 56, r: 12, t: 28, b: 60},
+                       yaxis: Object.assign(base().yaxis, {tickprefix: c.unit === 'revenue' ? '$' : '', tickformat: '~s'})});
+  // Variance waterfalls zoom the y-axis so small monthly or segment changes stay visible next to large totals.
+  if (c.mode === 'variance') {
+    const tops = base_.map((b, i) => b + vis[i]).slice(1, -1), bottoms = base_.slice(1, -1);
+    const lo = Math.min(...bottoms), hi = Math.max(...tops, c.start.value, c.end.value), pad = Math.max(hi - lo, hi * 0.02);
+    layout.yaxis.range = [Math.max(0, lo - pad * 0.8), hi + pad * 0.35];
+  }
+  Plotly.react(el, [
+    {type: 'bar', x, y: base_, marker: {color: 'rgba(0,0,0,0)'}, hoverinfo: 'skip'},
+    {type: 'bar', x, y: vis, marker: {color: colors, line: {color: css('--bar-edge'), width: 1}}, text, textposition: 'outside',
+     textfont: {color: css('--ink-2')}, cliponaxis: false, hovertemplate: '%{x}: %{text}<extra></extra>'},
+  ], decorate(layout, c), cfg);
+  const note = document.querySelector(`[data-note="${el.dataset.chart}"]`);
+  if (note && c.note) note.textContent = c.note;
 }
 
 function bar(el, c) {
   Plotly.react(el, [{
-    type: 'bar', orientation: 'h', y: c.labels, x: c.values, marker: {color: css('--s1'), cornerradius: 4},
+    type: 'bar', orientation: 'h', y: c.labels, x: c.values, marker: {color: css('--s1-soft'), line: {color: css('--s1'), width: 1}, cornerradius: 4},
     text: c.values.map(v => v == null ? 'n/a' : (v > 0 ? '+' : '') + v.toFixed(1) + '%'), textposition: 'outside',
     textfont: {color: css('--ink-2')}, cliponaxis: false, hovertemplate: '%{y}: %{text}<extra></extra>',
   }], base({

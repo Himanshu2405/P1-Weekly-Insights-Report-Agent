@@ -4,28 +4,17 @@ Generated ONCE and frozen in a versioned CSV (like a plan Finance hands over at 
 The pipeline only reads the file; it never recomputes targets from live data.
 """
 
-from datetime import date, datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone
 
 import pandas as pd
 
 from . import config
 from .bq import BigQueryRunner
-from .weeks import quarter_of, same_week_last_year, week_start
-
-
-def plan_weeks(year: int) -> list[date]:
-    """Every week whose Thursday falls in the given year."""
-    w = week_start(date(year, 1, 1)) - timedelta(weeks=1)
-    weeks = []
-    while quarter_of(w)[0] <= year:
-        if quarter_of(w)[0] == year:
-            weeks.append(w)
-        w += timedelta(weeks=1)
-    return weeks
+from .weeks import fiscal_year_weeks, same_week_last_year
 
 
 def generate(runner: BigQueryRunner) -> pd.DataFrame:
-    weeks = plan_weeks(config.PLAN_YEAR)
+    weeks = fiscal_year_weeks(config.PLAN_YEAR)
     ly_weeks = [same_week_last_year(w) for w in weeks]
     last_ly_week_end = datetime.combine(ly_weeks[-1] + timedelta(days=7), datetime.min.time(), timezone.utc) - timedelta(microseconds=1)
     facts = runner.run("weekly_facts", start_week=ly_weeks[0], data_through=last_ly_week_end)

@@ -1,6 +1,6 @@
 # Business Context: TheLook Weekly Report
 
-Version: v0.2 (2026-09-24)
+Version: v0.3 (2026-09-24)
 Purpose: this file is loaded into the LLM prompt every week. It holds stable facts about the business and the KPIs. It never contains this week's numbers (those come only from the data brief). Writing instructions and the output format live in the prompt file, not here.
 
 ## 1. The business
@@ -23,6 +23,9 @@ Purpose: this file is loaded into the LLM prompt every week. It holds stable fac
 - "YoY" means the reporting week compared with the same week last year. YoY growth can be compared with the 75% growth the plan assumed.
 - Changes in counts and money are shown in percent (%). Changes in rates are shown in percentage points (pp). Example: a cancellation rate moving from 14.0% to 15.5% is "+1.5 pp", not "+10.7%".
 - Money is in US dollars.
+- Fiscal year = calendar year (Jan to Dec). A week belongs to the month and quarter that contain its Thursday.
+- "YTD" means fiscal year to date: from the first week of the year through the reporting week.
+- "ITPY" (index to prior year) = value / same week last year x 100. The plan assumes an index of 175 (75% growth). Above 175 means growing faster than the plan assumes, regardless of season.
 
 ## 4. KPI glossary
 
@@ -37,13 +40,15 @@ Purpose: this file is loaded into the LLM prompt every week. It holds stable fac
 | Weekly Orders vs Target | Orders as a percentage of the plan target for the week. Above 100% means ahead of plan | Good |
 | Weekly Gross Revenue vs Target | Revenue as a percentage of the plan target for the week. Above 100% means ahead of plan | Good |
 | Quarter-to-Date (QTD) Gross Revenue vs Target | Revenue so far this quarter as a percentage of the plan for the same weeks | Good |
+| Year-to-Date (YTD) Gross Revenue vs Target | Revenue so far this fiscal year as a percentage of the plan for the same weeks. Comes with the full-year plan, the weekly revenue needed for the rest of the year to hit it, and the recent 8-week run-rate | Good |
 
 ## 5. Targets (the plan)
 
 - Targets come from the annual plan, set at the start of the year. They are not forecasts and are not updated during the year.
 - The 2026 plan assumes 75% growth over the same week last year, so targets follow last year's seasonal pattern.
 - Growth vs last week and performance vs plan are different questions. A week can be up WoW and still behind plan, or down WoW and still ahead of plan.
-- A strong week does not mean the quarter is on track. QTD attainment is the measure for the quarter.
+- A strong week does not mean the quarter is on track. QTD attainment is the measure for the quarter, YTD attainment for the year.
+- Comparing the required weekly run-rate with the recent 8-week run-rate shows whether the full-year plan is realistic at the current pace.
 - Targets exist for every week through the end of 2026, so next week's target and the full-quarter plan are known in advance.
 
 ## 6. Cuts

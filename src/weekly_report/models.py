@@ -9,7 +9,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, ConfigDict
 
-BRIEF_VERSION = "1.0"
+BRIEF_VERSION = "1.1"
 
 
 class Strict(BaseModel):
@@ -73,6 +73,7 @@ class Kpi(Strict):
     yoy_direction: Direction
     yoy_assessment: Assessment
     avg_8wk: Optional[float] = None
+    itpy: Optional[float] = None          # index to prior year: value / same week last year x 100
     notable: bool
     notable_reason: Optional[str] = None
 
@@ -106,10 +107,36 @@ class QtdTarget(Strict):
     weeks_left: int
 
 
+class YtdTarget(Strict):
+    fiscal_year: int
+    actual: float
+    target_to_date: float
+    attainment_pct: float
+    gap: float
+    status: Literal["ahead", "behind", "on_target"]
+    full_year_plan: float
+    remaining_to_full_year_plan: float
+    weeks_left: int
+    required_weekly_run_rate: Optional[float]   # revenue per week needed for the rest of the year to hit plan
+    current_8wk_run_rate: float                 # average weekly revenue over the last 8 weeks
+
+
+class MonthVsPlan(Strict):
+    month: str                  # YYYY-MM (week assigned by its Thursday)
+    label: str                  # "Jan", "Aug (MTD)"
+    actual: Optional[float]     # None for future months
+    plan: float                 # full-month plan (or plan to date for the current month)
+    variance: Optional[float]
+    attainment_pct: Optional[float]
+    status: Literal["complete", "month_to_date", "future"]
+
+
 class Targets(Strict):
     orders_vs_target: WeeklyTarget
     revenue_vs_target: WeeklyTarget
     qtd_revenue_vs_target: QtdTarget
+    ytd_revenue_vs_target: YtdTarget
+    monthly_revenue: list[MonthVsPlan]
 
 
 class Segment(Strict):
@@ -166,10 +193,16 @@ class SoWhatFacts(Strict):
     yoy_vs_plan_growth: dict[str, Optional[float]]
     signups_vs_orders_growth: dict[str, Optional[float]]
     segments_all_growing: dict[str, bool]
+    full_year_plan: float
+    ytd_attainment_pct: float
+    required_weekly_revenue_run_rate: Optional[float]
+    current_8wk_revenue_run_rate: float
+    months_ahead_of_plan: list[str]
+    months_behind_plan: list[str]
 
 
 class DataBrief(Strict):
-    brief_version: Literal["1.0"] = BRIEF_VERSION
+    brief_version: Literal["1.1"] = BRIEF_VERSION
     meta: Meta
     data_quality: DataQuality
     kpis: Kpis

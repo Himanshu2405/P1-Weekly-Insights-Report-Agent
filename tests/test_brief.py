@@ -36,7 +36,8 @@ def synthetic_cuts(countries=("China", "United States", "France", "Brasil")) -> 
 
 
 def synthetic_plan() -> pd.DataFrame:
-    weeks = [REPORTING + timedelta(weeks=i) for i in range(-20, 10)]
+    from weekly_report.weeks import fiscal_year_weeks
+    weeks = fiscal_year_weeks(2026)
     return pd.DataFrame({"week_start": weeks, "orders_target": 1000, "revenue_target": 85000}).set_index("week_start")
 
 
@@ -44,6 +45,13 @@ def test_brief_validates_and_passes_quality():
     b = assemble(synthetic_weekly(), synthetic_cuts(), synthetic_plan(), report_weeks(REPORTING), now=NOW)
     assert b.data_quality.all_passed
     assert b.meta.reporting_week.week_of_quarter == 12
+    ytd = b.targets.ytd_revenue_vs_target
+    assert ytd.weeks_left == 15 and ytd.required_weekly_run_rate is not None
+    months = b.targets.monthly_revenue
+    assert len(months) == 12 and months[0].label == "Jan"
+    assert [m.status for m in months].count("future") == 3            # Oct, Nov, Dec
+    assert months[8].label == "Sep (MTD)" and months[8].status == "month_to_date"
+    assert b.kpis.orders.itpy is not None
     assert b.kpis.return_rate_14d.week_ref == "mature"
     assert b.kpis.cancellation_rate.higher_is_good is False
     assert [s.segment for s in b.cuts.region.orders] == config.REGIONS

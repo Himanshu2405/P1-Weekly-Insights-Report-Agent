@@ -1,5 +1,6 @@
 """Project-wide settings. Tunable rule thresholds live here, not scattered in code."""
 
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -17,6 +18,13 @@ MAX_BYTES_BILLED = 500 * 1024**2  # hard stop: any single query scanning > 500 M
 TARGET_VERSION = "plan_2026_v1"
 PLAN_YEAR = 2026
 PLAN_GROWTH_PCT = 75.0
+
+# Reporting clock. The public dataset has a data break from the week of 2026-09-14 (signups 6x,
+# orders 1.7x their 8-week average) and accelerating growth from 2026-08-10. The report is frozen
+# at the last week of steady data. Set to None to report the latest completed week instead.
+AS_OF_WEEK = date(2026, 8, 3)
+FISCAL_YEAR = 2026            # fiscal year = calendar year (Jan to Dec)
+ARCHIVE_WEEKS = 8             # past reports backfilled for the archive
 
 # Time windows
 HISTORY_WEEKS = 52          # trend charts

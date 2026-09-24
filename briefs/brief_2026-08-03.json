@@ -1,0 +1,556 @@
+{
+  "brief_version": "1.1",
+  "meta": {
+    "run_id": "20260924T210904Z-6c77ba",
+    "generated_at_utc": "2026-09-24T21:09:04.571135Z",
+    "reporting_week": {
+      "start": "2026-08-03",
+      "end": "2026-08-09",
+      "quarter": "2026-Q3",
+      "week_of_quarter": 6,
+      "weeks_in_quarter": 13
+    },
+    "mature_week": {
+      "start": "2026-07-20",
+      "end": "2026-07-26",
+      "used_for": [
+        "return_rate_14d"
+      ]
+    },
+    "data_through_utc": "2026-08-09T23:59:59.999999Z",
+    "source": "bigquery-public-data.thelook_ecommerce",
+    "target_version": "plan_2026_v1",
+    "layout_version": "1.1",
+    "plan_growth_pct": 75.0
+  },
+  "data_quality": {
+    "all_passed": true,
+    "checks": [
+      {
+        "name": "reporting_week_complete",
+        "passed": true,
+        "detail": "week ended 2026-08-09 23:59 UTC, run at 2026-09-24 21:09 UTC"
+      },
+      {
+        "name": "no_missing_weeks",
+        "passed": true,
+        "detail": "reporting week and prior 8 weeks present"
+      },
+      {
+        "name": "target_rows_present",
+        "passed": true,
+        "detail": "all 53 fiscal-year weeks found in plan_2026_v1"
+      },
+      {
+        "name": "all_countries_mapped",
+        "passed": true,
+        "detail": "0 unmapped countries"
+      },
+      {
+        "name": "row_count_sane",
+        "passed": true,
+        "detail": "1192 orders vs 8-week average 1074 (limit: > 0 and <= 5x)"
+      },
+      {
+        "name": "mature_week_ready",
+        "passed": true,
+        "detail": "every order in week 2026-07-20 has had 14 days by 2026-08-09"
+      }
+    ]
+  },
+  "kpis": {
+    "orders": {
+      "name": "Weekly Orders Placed",
+      "format": "count",
+      "higher_is_good": true,
+      "change_unit": "pct",
+      "week_ref": "reporting",
+      "value": 1192.0,
+      "prior_week": 1196.0,
+      "wow_change": -0.3,
+      "wow_direction": "down",
+      "wow_assessment": "bad",
+      "last_year": 561.0,
+      "yoy_change": 112.5,
+      "yoy_direction": "up",
+      "yoy_assessment": "good",
+      "avg_8wk": 1074.0,
+      "itpy": 212.5,
+      "notable": false,
+      "notable_reason": null
+    },
+    "revenue": {
+      "name": "Weekly Gross Revenue (excl. cancelled)",
+      "format": "usd",
+      "higher_is_good": true,
+      "change_unit": "pct",
+      "week_ref": "reporting",
+      "value": 86736.0,
+      "prior_week": 90288.0,
+      "wow_change": -3.9,
+      "wow_direction": "down",
+      "wow_assessment": "bad",
+      "last_year": 42843.0,
+      "yoy_change": 102.5,
+      "yoy_direction": "up",
+      "yoy_assessment": "good",
+      "avg_8wk": 79565.0,
+      "itpy": 202.5,
+      "notable": false,
+      "notable_reason": null
+    },
+    "aov": {
+      "name": "Weekly Average Order Value",
+      "format": "usd_cents",
+      "higher_is_good": true,
+      "change_unit": "pct",
+      "week_ref": "reporting",
+      "value": 84.05,
+      "prior_week": 90.65,
+      "wow_change": -7.3,
+      "wow_direction": "down",
+      "wow_assessment": "bad",
+      "last_year": 92.14,
+      "yoy_change": -8.8,
+      "yoy_direction": "down",
+      "yoy_assessment": "bad",
+      "avg_8wk": null,
+      "itpy": null,
+      "notable": false,
+      "notable_reason": null
+    },
+    "cancellation_rate": {
+      "name": "Weekly Order Cancellation Rate",
+      "format": "percent",
+      "higher_is_good": false,
+      "change_unit": "pp",
+      "week_ref": "reporting",
+      "value": 13.4,
+      "prior_week": 16.7,
+      "wow_change": -3.3,
+      "wow_direction": "down",
+      "wow_assessment": "good",
+      "last_year": 17.1,
+      "yoy_change": -3.7,
+      "yoy_direction": "down",
+      "yoy_assessment": "good",
+      "avg_8wk": null,
+      "itpy": null,
+      "notable": true,
+      "notable_reason": "WoW change of -3.3 pp is at or above the 1.0 pp threshold"
+    },
+    "return_rate_14d": {
+      "name": "14-Day Return Rate",
+      "format": "percent",
+      "higher_is_good": false,
+      "change_unit": "pp",
+      "week_ref": "mature",
+      "value": 9.3,
+      "prior_week": 9.7,
+      "wow_change": -0.4,
+      "wow_direction": "down",
+      "wow_assessment": "good",
+      "last_year": 9.9,
+      "yoy_change": -0.6,
+      "yoy_direction": "down",
+      "yoy_assessment": "good",
+      "avg_8wk": null,
+      "itpy": null,
+      "notable": false,
+      "notable_reason": null
+    },
+    "new_signups": {
+      "name": "Weekly New Customer Signups",
+      "format": "count",
+      "higher_is_good": true,
+      "change_unit": "pct",
+      "week_ref": "reporting",
+      "value": 256.0,
+      "prior_week": 259.0,
+      "wow_change": -1.2,
+      "wow_direction": "down",
+      "wow_assessment": "bad",
+      "last_year": 251.0,
+      "yoy_change": 2.0,
+      "yoy_direction": "up",
+      "yoy_assessment": "good",
+      "avg_8wk": null,
+      "itpy": null,
+      "notable": false,
+      "notable_reason": null
+    }
+  },
+  "targets": {
+    "orders_vs_target": {
+      "actual": 1192.0,
+      "target": 982.0,
+      "attainment_pct": 121.4,
+      "gap": 210.0,
+      "status": "ahead",
+      "next_week_target": 964.0
+    },
+    "revenue_vs_target": {
+      "actual": 86736.0,
+      "target": 74975.0,
+      "attainment_pct": 115.7,
+      "gap": 11761.0,
+      "status": "ahead",
+      "next_week_target": 80736.0
+    },
+    "qtd_revenue_vs_target": {
+      "actual": 498852.0,
+      "target_to_date": 426670.0,
+      "attainment_pct": 116.9,
+      "gap": 72182.0,
+      "status": "ahead",
+      "full_quarter_plan": 987996.0,
+      "remaining_to_full_quarter_plan": 489144.0,
+      "weeks_left": 7
+    },
+    "ytd_revenue_vs_target": {
+      "fiscal_year": 2026,
+      "actual": 2097097.0,
+      "target_to_date": 2085311.0,
+      "attainment_pct": 100.6,
+      "gap": 11786.0,
+      "status": "ahead",
+      "full_year_plan": 3888802.0,
+      "remaining_to_full_year_plan": 1791705.0,
+      "weeks_left": 21,
+      "required_weekly_run_rate": 85319.0,
+      "current_8wk_run_rate": 81732.0
+    },
+    "monthly_revenue": [
+      {
+        "month": "2026-01",
+        "label": "Jan",
+        "actual": 271339.0,
+        "plan": 292895.0,
+        "variance": -21556.0,
+        "attainment_pct": 92.6,
+        "status": "complete"
+      },
+      {
+        "month": "2026-02",
+        "label": "Feb",
+        "actual": 212374.0,
+        "plan": 238465.0,
+        "variance": -26091.0,
+        "attainment_pct": 89.1,
+        "status": "complete"
+      },
+      {
+        "month": "2026-03",
+        "label": "Mar",
+        "actual": 227313.0,
+        "plan": 243195.0,
+        "variance": -15882.0,
+        "attainment_pct": 93.5,
+        "status": "complete"
+      },
+      {
+        "month": "2026-04",
+        "label": "Apr",
+        "actual": 319060.0,
+        "plan": 327864.0,
+        "variance": -8804.0,
+        "attainment_pct": 97.3,
+        "status": "complete"
+      },
+      {
+        "month": "2026-05",
+        "label": "May",
+        "actual": 272573.0,
+        "plan": 272022.0,
+        "variance": 551.0,
+        "attainment_pct": 100.2,
+        "status": "complete"
+      },
+      {
+        "month": "2026-06",
+        "label": "Jun",
+        "actual": 295586.0,
+        "plan": 284200.0,
+        "variance": 11386.0,
+        "attainment_pct": 104.0,
+        "status": "complete"
+      },
+      {
+        "month": "2026-07",
+        "label": "Jul",
+        "actual": 412116.0,
+        "plan": 351695.0,
+        "variance": 60421.0,
+        "attainment_pct": 117.2,
+        "status": "complete"
+      },
+      {
+        "month": "2026-08",
+        "label": "Aug (MTD)",
+        "actual": 86736.0,
+        "plan": 74975.0,
+        "variance": 11761.0,
+        "attainment_pct": 115.7,
+        "status": "month_to_date"
+      },
+      {
+        "month": "2026-09",
+        "label": "Sep",
+        "actual": null,
+        "plan": 334563.0,
+        "variance": null,
+        "attainment_pct": null,
+        "status": "future"
+      },
+      {
+        "month": "2026-10",
+        "label": "Oct",
+        "actual": null,
+        "plan": 434382.0,
+        "variance": null,
+        "attainment_pct": null,
+        "status": "future"
+      },
+      {
+        "month": "2026-11",
+        "label": "Nov",
+        "actual": null,
+        "plan": 365980.0,
+        "variance": null,
+        "attainment_pct": null,
+        "status": "future"
+      },
+      {
+        "month": "2026-12",
+        "label": "Dec",
+        "actual": null,
+        "plan": 441803.0,
+        "variance": null,
+        "attainment_pct": null,
+        "status": "future"
+      }
+    ]
+  },
+  "cuts": {
+    "region": {
+      "orders": [
+        {
+          "segment": "APAC",
+          "value": 516.0,
+          "prior_week": 518.0,
+          "wow_pct": -0.4,
+          "last_year": 243.0,
+          "yoy_pct": 112.3,
+          "share_pct": 43.3,
+          "contribution": -2.0,
+          "share_of_change_pct": 50.0
+        },
+        {
+          "segment": "North America",
+          "value": 281.0,
+          "prior_week": 257.0,
+          "wow_pct": 9.3,
+          "last_year": 120.0,
+          "yoy_pct": 134.2,
+          "share_pct": 23.6,
+          "contribution": 24.0,
+          "share_of_change_pct": -600.0
+        },
+        {
+          "segment": "EMEA",
+          "value": 223.0,
+          "prior_week": 242.0,
+          "wow_pct": -7.9,
+          "last_year": 109.0,
+          "yoy_pct": 104.6,
+          "share_pct": 18.7,
+          "contribution": -19.0,
+          "share_of_change_pct": 475.0
+        },
+        {
+          "segment": "LATAM",
+          "value": 172.0,
+          "prior_week": 179.0,
+          "wow_pct": -3.9,
+          "last_year": 89.0,
+          "yoy_pct": 93.3,
+          "share_pct": 14.4,
+          "contribution": -7.0,
+          "share_of_change_pct": 175.0
+        }
+      ]
+    },
+    "traffic_source": {
+      "orders": [
+        {
+          "segment": "Search",
+          "value": 829.0,
+          "prior_week": 880.0,
+          "wow_pct": -5.8,
+          "last_year": 401.0,
+          "yoy_pct": 106.7,
+          "share_pct": 69.5,
+          "contribution": -51.0,
+          "share_of_change_pct": 1275.0
+        },
+        {
+          "segment": "Organic",
+          "value": 160.0,
+          "prior_week": 148.0,
+          "wow_pct": 8.1,
+          "last_year": 87.0,
+          "yoy_pct": 83.9,
+          "share_pct": 13.4,
+          "contribution": 12.0,
+          "share_of_change_pct": -300.0
+        },
+        {
+          "segment": "Facebook",
+          "value": 75.0,
+          "prior_week": 67.0,
+          "wow_pct": 11.9,
+          "last_year": 23.0,
+          "yoy_pct": 226.1,
+          "share_pct": 6.3,
+          "contribution": 8.0,
+          "share_of_change_pct": -200.0
+        },
+        {
+          "segment": "Email",
+          "value": 74.0,
+          "prior_week": 55.0,
+          "wow_pct": 34.5,
+          "last_year": 23.0,
+          "yoy_pct": 221.7,
+          "share_pct": 6.2,
+          "contribution": 19.0,
+          "share_of_change_pct": -475.0
+        },
+        {
+          "segment": "Display",
+          "value": 54.0,
+          "prior_week": 46.0,
+          "wow_pct": 17.4,
+          "last_year": 27.0,
+          "yoy_pct": 100.0,
+          "share_pct": 4.5,
+          "contribution": 8.0,
+          "share_of_change_pct": -200.0
+        }
+      ]
+    }
+  },
+  "history_8wk": {
+    "week_start": [
+      "2026-06-15",
+      "2026-06-22",
+      "2026-06-29",
+      "2026-07-06",
+      "2026-07-13",
+      "2026-07-20",
+      "2026-07-27",
+      "2026-08-03"
+    ],
+    "orders": [
+      991.0,
+      1038.0,
+      1070.0,
+      1105.0,
+      1116.0,
+      1120.0,
+      1196.0,
+      1192.0
+    ],
+    "cancellation_rate": [
+      16.0,
+      11.8,
+      15.0,
+      15.7,
+      15.9,
+      15.4,
+      16.7,
+      13.4
+    ],
+    "return_rate_14d": [
+      9.3,
+      11.3,
+      11.3,
+      9.4,
+      9.7,
+      9.3,
+      null,
+      null
+    ]
+  },
+  "flags": [
+    {
+      "id": "maturity_returns",
+      "type": "maturity",
+      "severity": "warning",
+      "kpi": "return_rate_14d",
+      "detected_by": "code",
+      "facts": {
+        "mature_week_start": "2026-07-20",
+        "immature_weeks": 2
+      }
+    }
+  ],
+  "so_what_facts": {
+    "next_week_targets": {
+      "orders": 964.0,
+      "revenue": 80736.0
+    },
+    "full_quarter_plan": 987996.0,
+    "quarter_remaining_to_plan": 489144.0,
+    "qtd_attainment_excl_flagged_pct": null,
+    "revenue_per_pp_cancellation": 1002.0,
+    "avg_8wk": {
+      "orders": 1074.0,
+      "revenue": 79565.0
+    },
+    "top_contributor": {
+      "region": {
+        "segment": "EMEA",
+        "contribution": -19.0,
+        "share_of_change_pct": 475.0
+      },
+      "traffic_source": {
+        "segment": "Search",
+        "contribution": -51.0,
+        "share_of_change_pct": 1275.0
+      }
+    },
+    "yoy_vs_plan_growth": {
+      "orders_yoy_pct": 112.5,
+      "revenue_yoy_pct": 102.5,
+      "plan_growth_pct": 75.0
+    },
+    "signups_vs_orders_growth": {
+      "signups_wow_pct": -1.2,
+      "orders_wow_pct": -0.3,
+      "signups_yoy_pct": 2.0,
+      "orders_yoy_pct": 112.5
+    },
+    "segments_all_growing": {
+      "wow": false,
+      "yoy": true,
+      "above_plan_growth": true
+    },
+    "full_year_plan": 3888802.0,
+    "ytd_attainment_pct": 100.6,
+    "required_weekly_revenue_run_rate": 85319.0,
+    "current_8wk_revenue_run_rate": 81732.0,
+    "months_ahead_of_plan": [
+      "May",
+      "Jun",
+      "Jul",
+      "Aug (MTD)"
+    ],
+    "months_behind_plan": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr"
+    ]
+  }
+}

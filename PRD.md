@@ -98,6 +98,8 @@ Out of scope: product and category cuts, web funnel (`events` table), any delive
 
 - Public data only; no employer data, code, prompts, or names.
 - Data is rolling and rewritten daily; history may drift slightly. Every report records its run date. Evals use frozen briefs, not live data.
+- The report is frozen as of the week of 2026-08-03 (last week of steady data; the public dataset shows a data break from mid-September 2026).
+- Fiscal year = Jan to Dec.
 - Targets are simulated (same week last year x 1.75) and frozen in a versioned file.
 - Budget: GCP free tier with a $5 alert; Anthropic API pay-as-you-go.
 - Stack: Python, BigQuery, Anthropic API, LangSmith (free tier), GitHub Actions, GitHub Pages.

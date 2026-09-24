@@ -103,18 +103,31 @@ def kpi_cards(run: RunData, layout: dict) -> list[dict]:
 
 
 def tiles(run: RunData) -> list[dict]:
+    """Leadership tiles: attainment, a status pill, the gap, and what comes next."""
     t = run.brief.targets
+    o, r, q, y = t.orders_vs_target, t.revenue_vs_target, t.qtd_revenue_vs_target, t.ytd_revenue_vs_target
+
+    def pill(status):
+        return {"ahead": ("Ahead of plan", "good"), "behind": ("Behind plan", "bad"), "on_target": ("On plan", "flat")}[status]
+
+    def s_(n):
+        return "s" if n != 1 else ""
+
+    need = (f"Need {fmt(y.required_weekly_run_rate, 'usd')}/wk for the rest of the year "
+            f"(last 8 weeks: {fmt(y.current_8wk_run_rate, 'usd')}/wk)") if y.required_weekly_run_rate else "Fiscal year complete"
     return [
-        {"label": "Weekly Orders vs target", "pct": t.orders_vs_target.attainment_pct,
-         "detail": f"{fmt(t.orders_vs_target.actual, 'count')} orders vs target {fmt(t.orders_vs_target.target, 'count')}",
-         "next": f"Next week's target: {fmt(t.orders_vs_target.next_week_target, 'count')} orders"},
-        {"label": "Weekly Gross Revenue vs target", "pct": t.revenue_vs_target.attainment_pct,
-         "detail": f"{fmt(t.revenue_vs_target.actual, 'usd')} vs target {fmt(t.revenue_vs_target.target, 'usd')}",
-         "next": f"Next week's target: {fmt(t.revenue_vs_target.next_week_target, 'usd')}"},
-        {"label": "Quarter-to-date revenue vs plan", "pct": t.qtd_revenue_vs_target.attainment_pct,
-         "detail": f"{fmt(t.qtd_revenue_vs_target.actual, 'usd')} vs plan {fmt(t.qtd_revenue_vs_target.target_to_date, 'usd')}",
-         "next": f"Full-quarter plan: {fmt(t.qtd_revenue_vs_target.full_quarter_plan, 'usd')} "
-                 f"({t.qtd_revenue_vs_target.weeks_left} week{'s' if t.qtd_revenue_vs_target.weeks_left != 1 else ''} left)"},
+        {"label": "Weekly orders vs target", "pct": o.attainment_pct, "pill": pill(o.status),
+         "detail": f"{fmt(o.actual, 'count')} vs {fmt(o.target, 'count')} ({fmt_signed(o.gap, 'count')})",
+         "next": f"Next week's target: {fmt(o.next_week_target, 'count')}"},
+        {"label": "Weekly revenue vs target", "pct": r.attainment_pct, "pill": pill(r.status),
+         "detail": f"{fmt(r.actual, 'usd')} vs {fmt(r.target, 'usd')} ({fmt_signed(r.gap, 'usd')})",
+         "next": f"Next week's target: {fmt(r.next_week_target, 'usd')}"},
+        {"label": f"Q{run.weeks.quarter[1]} revenue to date vs plan", "pct": q.attainment_pct, "pill": pill(q.status),
+         "detail": f"{fmt(q.actual, 'usd')} vs {fmt(q.target_to_date, 'usd')} ({fmt_signed(q.gap, 'usd')})",
+         "next": f"Quarter plan {fmt(q.full_quarter_plan, 'usd')}, {q.weeks_left} week{s_(q.weeks_left)} left"},
+        {"label": f"FY{y.fiscal_year} revenue to date vs plan", "pct": y.attainment_pct, "pill": pill(y.status),
+         "detail": f"{fmt(y.actual, 'usd')} vs {fmt(y.target_to_date, 'usd')} ({fmt_signed(y.gap, 'usd')})",
+         "next": need},
     ]
 
 
@@ -176,7 +189,7 @@ def segment_table(run: RunData, by: str, order: list[str]) -> list[dict]:
 def archive(current: str) -> list[dict]:
     files = sorted(REPORTS_DIR.glob("report_*.html"), reverse=True)
     return [{"href": p.name, "label": f"Week of {pd.Timestamp(p.stem[7:]):%b %-d, %Y}"}
-            for p in files if p.stem[7:] != current][: 8]
+            for p in files if p.stem[7:] < current][: 8]
 
 
 # ---------------------------------------------------------------- render
@@ -185,8 +198,10 @@ def render(run: RunData) -> Path:
     layout = yaml.safe_load(config.LAYOUT_FILE.read_text())
     b, w = run.brief, run.weeks
     for section in layout["sections"]:
+        section["_charts"] = [c for c in section["components"] if c["type"] in chart_data.CHART_TYPES]
         for comp in section["components"]:
             comp["_id"] = chart_data.component_id(section["id"], comp)
+            comp["_full"] = comp.get("width") == "full"
             if comp.get("kpi") and not comp.get("title"):
                 comp["title"] = layout["kpis"][comp["kpi"]]["name"] + (" (%)" if layout["kpis"][comp["kpi"]]["format"] == "percent" else "")
 

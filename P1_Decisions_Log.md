@@ -4,6 +4,16 @@ Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech 
 
 ## 2026-09-24
 
+- DECIDED (user): freeze the report at the week of 2026-08-03 (`config.AS_OF_WEEK`), the last week of steady data. Evidence: orders ran 1.03x to 1.14x their 8-week average through Aug 3, then 1.16x to 1.30x from Aug 10 (accelerating) and 1.74x on Sep 14 with signups at 6.2x (data break). Keeps interviewers on the reliability story, not on a data artifact.
+- DECIDED (user): schedule publishes the frozen as-of week every Monday (stable output); 8 archive weeks backfilled once (`build_report.py --backfill`). Moving the as-of week is a one-line config change.
+- DECIDED (user): fiscal year = Jan to Dec. Plan charts show FY2026 with light quarter bands and a report-week marker. Weeks belong to the month and quarter of their Thursday.
+- DECIDED (mine, per user's "up to you"): ITPY = index to prior YEAR (value / same week last year x 100). A last-year line on the target charts would only mirror the target (target = last year x 1.75), so a separate ITPY chart with the plan index (175) is shown instead: seasonality cancels out.
+- ADDED (user): monthly revenue waterfall vs plan (YTD plan -> monthly variance -> YTD actual) and a path-to-plan bridge (YTD actual -> remaining months at plan -> FY outlook vs FY plan, with required vs current weekly run-rate). New KPI 10: YTD Gross Revenue vs Target (4th tile).
+- CHANGED (user): removed the blue attainment bar from tiles; leadership-style tiles with a light status pill, gap, and next step. Lighter palette (tinted tiles, pastel waterfall fills, delta pills).
+- BRIEF v1.1: added YTD target block, monthly revenue vs plan, ITPY per KPI, FY run-rate facts and months ahead/behind in so_what_facts. Layout v1.1: new chart types (itpy_chart, variance_waterfall, bridge_waterfall), full/half chart widths, plan slot may use FY facts.
+- MOVED: the Sep 14 brief to `briefs/scenarios/anomaly_week_2026-09-14.json` (kept as an anomaly test case for evals, not published).
+- Week of Aug 3 (as-of): orders 1,192 (121.4% of target), revenue $86,736 (115.7%), Q3 116.9%, FY2026 YTD 100.6% of plan; need $85,319/wk for the remaining 21 weeks vs $81,732/wk recent run-rate. 18 tests passing.
+
 - BUILT: HTML report rendering. `pipeline.py` (one query per run), `chart_data.py` (series per layout component, kept out of the brief), `render.py` + `templates/report.html.j2` (loops over report_layout.yaml sections), `scripts/build_report.py`. First real report: `site/reports/report_2026-09-14.html` (+ `site/index.html`). Code-detected watch-outs use deterministic text; AI commentary slots show placeholders until Phase 2. Trust panel shows the real data-quality checks and run details.
 - DECIDED: report is not rendered if any data-quality gate fails (exit code 2). BigQuery cache hits are shown as "0 MB (cache hit)", not as a misleading 0 MB scan.
 - DECIDED: `site/` is git-ignored (generated output); GitHub Actions will build and publish it in Phase 5.

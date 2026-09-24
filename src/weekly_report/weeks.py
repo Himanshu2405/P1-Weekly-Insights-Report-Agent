@@ -37,6 +37,24 @@ def quarter_of(week: date) -> tuple[int, int]:
     return thursday.year, (thursday.month - 1) // 3 + 1
 
 
+def month_of(week: date) -> tuple[int, int]:
+    """(year, month) of a week, by its Thursday (same rule as quarters)."""
+    thursday = week + timedelta(days=3)
+    return thursday.year, thursday.month
+
+
+def fiscal_year_weeks(year: int) -> list[date]:
+    """All weeks of a Jan-to-Dec fiscal year (weeks whose Thursday falls in that year)."""
+    w = week_start(date(year, 1, 1)) - timedelta(weeks=1)
+    out = []
+    while True:
+        if quarter_of(w)[0] == year:
+            out.append(w)
+        elif out:
+            return out
+        w += timedelta(weeks=1)
+
+
 def weeks_in_quarter(year: int, quarter: int) -> list[date]:
     """All week_starts whose Thursday falls in the given quarter, in order."""
     first_day = date(year, 3 * (quarter - 1) + 1, 1)
@@ -60,6 +78,7 @@ class ReportWeeks:
     mature_last_year: date
     quarter: tuple[int, int]
     quarter_weeks: list[date]
+    fy_weeks: list[date]
 
     @property
     def week_of_quarter(self) -> int:
@@ -83,4 +102,5 @@ def report_weeks(reporting: date) -> ReportWeeks:
         mature_last_year=same_week_last_year(mature),
         quarter=q,
         quarter_weeks=weeks_in_quarter(*q),
+        fy_weeks=fiscal_year_weeks(q[0]),
     )

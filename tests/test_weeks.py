@@ -29,3 +29,11 @@ def test_week_of_quarter_and_data_cutoff():
     w = report_weeks(date(2026, 9, 14))
     assert w.week_of_quarter == 12
     assert w.data_through.isoformat().startswith("2026-09-20T23:59:59")
+
+
+def test_fiscal_year_and_month_assignment():
+    from weekly_report.weeks import fiscal_year_weeks, month_of
+    fy = fiscal_year_weeks(2026)
+    assert fy[0] == date(2025, 12, 29) and fy[-1] == date(2026, 12, 28) and len(fy) == 53
+    assert month_of(date(2026, 7, 27)) == (2026, 7)   # Thursday 30 Jul
+    assert month_of(date(2026, 8, 3)) == (2026, 8)    # Thursday 6 Aug

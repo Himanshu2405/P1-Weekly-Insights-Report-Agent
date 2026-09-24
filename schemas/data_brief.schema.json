@@ -289,6 +289,18 @@
           "default": null,
           "title": "Avg 8Wk"
         },
+        "itpy": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Itpy"
+        },
         "notable": {
           "title": "Notable",
           "type": "boolean"
@@ -440,6 +452,76 @@
         "plan_growth_pct"
       ],
       "title": "Meta",
+      "type": "object"
+    },
+    "MonthVsPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "month": {
+          "title": "Month",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "actual": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Actual"
+        },
+        "plan": {
+          "title": "Plan",
+          "type": "number"
+        },
+        "variance": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Variance"
+        },
+        "attainment_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Attainment Pct"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "month_to_date",
+            "future"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "month",
+        "label",
+        "actual",
+        "plan",
+        "variance",
+        "attainment_pct",
+        "status"
+      ],
+      "title": "MonthVsPlan",
       "type": "object"
     },
     "QtdTarget": {
@@ -719,6 +801,43 @@
           },
           "title": "Segments All Growing",
           "type": "object"
+        },
+        "full_year_plan": {
+          "title": "Full Year Plan",
+          "type": "number"
+        },
+        "ytd_attainment_pct": {
+          "title": "Ytd Attainment Pct",
+          "type": "number"
+        },
+        "required_weekly_revenue_run_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Required Weekly Revenue Run Rate"
+        },
+        "current_8wk_revenue_run_rate": {
+          "title": "Current 8Wk Revenue Run Rate",
+          "type": "number"
+        },
+        "months_ahead_of_plan": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Months Ahead Of Plan",
+          "type": "array"
+        },
+        "months_behind_plan": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Months Behind Plan",
+          "type": "array"
         }
       },
       "required": [
@@ -731,7 +850,13 @@
         "top_contributor",
         "yoy_vs_plan_growth",
         "signups_vs_orders_growth",
-        "segments_all_growing"
+        "segments_all_growing",
+        "full_year_plan",
+        "ytd_attainment_pct",
+        "required_weekly_revenue_run_rate",
+        "current_8wk_revenue_run_rate",
+        "months_ahead_of_plan",
+        "months_behind_plan"
       ],
       "title": "SoWhatFacts",
       "type": "object"
@@ -747,12 +872,24 @@
         },
         "qtd_revenue_vs_target": {
           "$ref": "#/$defs/QtdTarget"
+        },
+        "ytd_revenue_vs_target": {
+          "$ref": "#/$defs/YtdTarget"
+        },
+        "monthly_revenue": {
+          "items": {
+            "$ref": "#/$defs/MonthVsPlan"
+          },
+          "title": "Monthly Revenue",
+          "type": "array"
         }
       },
       "required": [
         "orders_vs_target",
         "revenue_vs_target",
-        "qtd_revenue_vs_target"
+        "qtd_revenue_vs_target",
+        "ytd_revenue_vs_target",
+        "monthly_revenue"
       ],
       "title": "Targets",
       "type": "object"
@@ -838,13 +975,89 @@
       ],
       "title": "WeeklyTarget",
       "type": "object"
+    },
+    "YtdTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "fiscal_year": {
+          "title": "Fiscal Year",
+          "type": "integer"
+        },
+        "actual": {
+          "title": "Actual",
+          "type": "number"
+        },
+        "target_to_date": {
+          "title": "Target To Date",
+          "type": "number"
+        },
+        "attainment_pct": {
+          "title": "Attainment Pct",
+          "type": "number"
+        },
+        "gap": {
+          "title": "Gap",
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "ahead",
+            "behind",
+            "on_target"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "full_year_plan": {
+          "title": "Full Year Plan",
+          "type": "number"
+        },
+        "remaining_to_full_year_plan": {
+          "title": "Remaining To Full Year Plan",
+          "type": "number"
+        },
+        "weeks_left": {
+          "title": "Weeks Left",
+          "type": "integer"
+        },
+        "required_weekly_run_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Required Weekly Run Rate"
+        },
+        "current_8wk_run_rate": {
+          "title": "Current 8Wk Run Rate",
+          "type": "number"
+        }
+      },
+      "required": [
+        "fiscal_year",
+        "actual",
+        "target_to_date",
+        "attainment_pct",
+        "gap",
+        "status",
+        "full_year_plan",
+        "remaining_to_full_year_plan",
+        "weeks_left",
+        "required_weekly_run_rate",
+        "current_8wk_run_rate"
+      ],
+      "title": "YtdTarget",
+      "type": "object"
     }
   },
   "additionalProperties": false,
   "properties": {
     "brief_version": {
-      "const": "1.0",
-      "default": "1.0",
+      "const": "1.1",
+      "default": "1.1",
       "title": "Brief Version",
       "type": "string"
     },

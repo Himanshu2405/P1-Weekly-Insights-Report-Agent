@@ -28,6 +28,8 @@ This document describes HOW the system works. Sections marked "TBD" are designed
 ## 3. KPI Spec v1 (LOCKED 2026-09-24)
 
 ### Reporting conventions
+- Reporting clock: frozen at `config.AS_OF_WEEK` = week of 2026-08-03 (last week of steady data; accelerating growth from 2026-08-10 and a data break at 2026-09-14). Set to None to report the latest completed week. The schedule re-publishes the as-of week; an 8-week archive is backfilled once with `build_report.py --backfill`.
+- Fiscal year: Jan to Dec. Weeks belong to the month and quarter of their Thursday.
 - Reporting week: Monday 00:00 to Sunday 23:59:59 UTC. Report always covers the latest COMPLETED week, computed in code, never hard-coded.
 - Comparisons per KPI: week over week (WoW), year over year (YoY, same ISO week last year), vs target (where a target exists), and a 52-week trend.
 - Future targets (through Dec 2026) are shown on plan charts and as "next week's target" and "full-quarter plan".
@@ -51,6 +53,9 @@ This document describes HOW the system works. Sections marked "TBD" are designed
 | 7 | Weekly Orders vs Target (attainment %) | KPI 1 / weekly orders target x 100. Also report the gap (actual minus target) | Up | "Above/below target" wording must match attainment vs 100% |
 | 8 | Weekly Gross Revenue vs Target (attainment %) | KPI 2 / weekly revenue target x 100, plus the gap in USD | Up | Same as above, plus mixing up WoW growth with target attainment |
 | 9 | Quarter-to-Date (QTD) Gross Revenue vs Target | Sum of KPI 2 from quarter start through reporting week / sum of weekly targets for the same weeks | Up | Cumulative vs weekly confusion: a good week can still leave the quarter behind plan |
+| 10 | Year-to-Date (YTD) Gross Revenue vs Target | Same as KPI 9 for the fiscal year (Jan to Dec). Also: full-year plan, remaining to plan, required weekly run-rate = (FY plan - YTD actual) / weeks left, current 8-week run-rate | Up | Run-rate confusion: "ahead YTD" does not mean the remaining plan is achievable |
+
+Also computed: ITPY (index to prior year) for orders and revenue = value / same week last year x 100; plan index = 175. Monthly revenue vs plan per fiscal month (weeks assigned by their Thursday; current month is month-to-date).
 
 ### How targets are simulated (the "plan")
 - Real companies get targets from Finance once per year. We mimic that with a frozen plan file, not a live calculation.
@@ -69,19 +74,16 @@ This document describes HOW the system works. Sections marked "TBD" are designed
 - Data-quality gate: any unmapped country fails the run instead of silently dropping users.
 - "Biggest driver" = segment with the largest contribution to the total change (not the largest % change).
 
-### Report layout (exec-grade, see `mockup/report_mockup.html`)
-10 sections, top to bottom. Driven by [`report_layout.yaml`](report_layout.yaml) (v1.0).
-1. Header: title, reporting week, publish time, data freshness, AI-verified status badge.
-2. Executive summary: 3 plan-attainment tiles (with next week's target / full-quarter plan) + AI headline and points.
-3. Watch-outs: code-detected flags + verified AI notes, each with a "So what", status icons. Placed on top so readers see caveats before numbers.
-4. KPI scorecard: 9 cards (value, polarity-aware WoW and YoY deltas, prior week and last year values, 8-week sparkline; target cards show next week's target).
-5. Performance vs plan: orders vs target and revenue vs target (52 weeks + future targets to Dec 2026, "Today" marker), QTD cumulative actual vs plan to quarter end + AI points.
-6. Growth drivers: WoW waterfall by region and by traffic source, YoY growth by segment vs the plan's +75% + AI points.
-7. Customer health: AOV, cancellation rate, 14-Day Return Rate (mature weeks only), new signups, each with a last-year line + AI points.
-8. Detail tables: region and traffic source breakdowns with WoW and YoY (collapsible).
-9. Trust panel: reliability checks this run, model, prompt version, tokens, cost, latency, retries, fallback, trace link, definitions.
-10. Archive of previous weeks.
-Totals: 11 charts, 9 KPI cards, 3 tiles, 2 tables, 5 AI commentary slots.
+### Report layout (leadership style, driven by `report_layout.yaml` v1.1)
+1. Header: title, reporting week, data-check badge, AI status, build time, data cutoff.
+2. Executive summary: 4 tiles (weekly orders, weekly revenue, QTD, YTD) with attainment, a light status pill, the gap, and what comes next (next week's target, quarter plan, required weekly run-rate) + AI points.
+3. Watch-outs: code-detected flags (deterministic text) + AI notes.
+4. KPI scorecard: 9 cards with WoW and YoY delta pills (light green / light red by business meaning) and 8-week sparklines.
+5. Performance vs plan (FY2026): orders and revenue vs target for the fiscal year (Jan to Dec) with light quarter bands and a report-week marker; monthly revenue variance waterfall (YTD plan -> month variances -> YTD actual); path-to-plan bridge (YTD actual -> remaining months at plan -> FY outlook vs FY plan line, with required vs current run-rate); ITPY chart (orders and revenue vs plan index 175); QTD burn-up + AI points.
+6. Growth drivers: WoW waterfalls by region and traffic source (zoomed y-axis), YoY by segment vs plan +75% + AI points.
+7. Customer health: AOV, cancellation rate, 14-Day Return Rate, new signups, each with last year + AI points.
+8. Detail tables, 9. Trust panel, 10. Archive (earlier weeks only).
+Charts are half width (two per row) unless `width: full`. Light palette: tinted tiles, pastel waterfall fills (gains, losses, totals, future plan).
 
 ### Commentary format
 - Every slot is a list of points; each point = `what` (fact) + `so_what` (implication). No paragraphs.
@@ -124,7 +126,7 @@ GitHub Actions (Mon 8 AM ET)
 The data brief is the ONLY data the LLM sees. It is generated by code every run, saved as `briefs/brief_<week_start>.json`, and frozen copies become golden-set fixtures. Full illustrative example: [briefs/example_brief.json](briefs/example_brief.json) (mockup numbers, not real data). Implemented as Pydantic models in `src/weekly_report/models.py`; JSON Schema export in `schemas/data_brief.schema.json`.
 
 ### Design rules
-- Everything the commentary may say is pre-computed here: values, changes, directions, and whether a change is good or bad. The LLM never infers polarity or does arithmetic.
+- Brief v1.1 adds `targets.ytd_revenue_vs_target`, `targets.monthly_revenue`, `kpis.*.itpy`, and FY run-rate facts in `so_what_facts`. Everything the commentary may say is pre-computed here: values, changes, directions, and whether a change is good or bad. The LLM never infers polarity or does arithmetic.
 - Everything a "So what" may use is pre-computed in `so_what_facts` (matches `so_what_facts` in `report_layout.yaml`).
 - Only what the commentary needs. Chart data (52 weeks, future targets) goes to a separate `chart_data.json` for rendering, not into the prompt. Keeps the prompt small (~2k tokens for the brief) and cheap.
 - No personal data (no names, emails, addresses).

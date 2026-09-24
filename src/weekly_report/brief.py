@@ -11,7 +11,7 @@ import yaml
 
 from . import config, rules
 from .models import DataBrief
-from .weeks import ReportWeeks
+from .weeks import ReportWeeks, month_of
 
 # Display metadata for the 6 core KPIs: (brief key, name, format, higher_is_good, change_unit, week_ref)
 KPI_SPECS = [
@@ -85,6 +85,7 @@ def build_kpi(df: pd.DataFrame, spec: tuple, weeks: ReportWeeks) -> dict:
     }
     if key in ("orders", "revenue"):
         out["avg_8wk"] = round(sum(previous_8) / len(previous_8), 0)
+        out["itpy"] = round(100 * value / ly_v, 1) if ly_v else None
     return out
 
 
@@ -117,6 +118,48 @@ def build_targets(df: pd.DataFrame, plan: pd.DataFrame, weeks: ReportWeeks) -> d
         "full_quarter_plan": full, "remaining_to_full_quarter_plan": round(full - actual, 0),
         "weeks_left": len(weeks.quarter_weeks) - weeks.week_of_quarter,
     }
+    out["ytd_revenue_vs_target"] = build_ytd(df, plan, weeks)
+    out["monthly_revenue"] = build_monthly(df, plan, weeks)
+    return out
+
+
+def build_ytd(df: pd.DataFrame, plan: pd.DataFrame, weeks: ReportWeeks) -> dict:
+    done = [w for w in weeks.fy_weeks if w <= weeks.reporting]
+    left = [w for w in weeks.fy_weeks if w > weeks.reporting]
+    actual = float(df.loc[done, "revenue"].sum())
+    target_to_date = float(plan.loc[done, "revenue_target"].sum())
+    full = float(plan.loc[weeks.fy_weeks, "revenue_target"].sum())
+    att = 100 * actual / target_to_date
+    run_rate = float(df.loc[df.index <= weeks.reporting, "revenue"].tail(8).mean())
+    return {
+        "fiscal_year": weeks.quarter[0], "actual": actual, "target_to_date": target_to_date,
+        "attainment_pct": round(att, 1), "gap": round(actual - target_to_date, 0), "status": _status(att),
+        "full_year_plan": full, "remaining_to_full_year_plan": round(full - actual, 0), "weeks_left": len(left),
+        "required_weekly_run_rate": round((full - actual) / len(left), 0) if left else None,
+        "current_8wk_run_rate": round(run_rate, 0),
+    }
+
+
+def build_monthly(df: pd.DataFrame, plan: pd.DataFrame, weeks: ReportWeeks) -> list[dict]:
+    """Revenue vs plan per fiscal month. Weeks belong to the month of their Thursday."""
+    months: dict[tuple[int, int], list] = {}
+    for w in weeks.fy_weeks:
+        months.setdefault(month_of(w), []).append(w)
+    cur_month = month_of(weeks.reporting)
+    out = []
+    for (y, m), ws in sorted(months.items()):
+        label = date(y, m, 1).strftime("%b")
+        if (y, m) > cur_month:
+            p = float(plan.loc[ws, "revenue_target"].sum())
+            out.append({"month": f"{y}-{m:02d}", "label": label, "actual": None, "plan": p,
+                        "variance": None, "attainment_pct": None, "status": "future"})
+            continue
+        done = [w for w in ws if w <= weeks.reporting]
+        a, p = float(df.loc[done, "revenue"].sum()), float(plan.loc[done, "revenue_target"].sum())
+        mtd = (y, m) == cur_month and len(done) < len(ws)
+        out.append({"month": f"{y}-{m:02d}", "label": label + (" (MTD)" if mtd else ""), "actual": a, "plan": p,
+                    "variance": round(a - p, 0), "attainment_pct": round(100 * a / p, 1),
+                    "status": "month_to_date" if mtd else "complete"})
     return out
 
 
@@ -195,7 +238,7 @@ def build_so_what(kpis: dict, targets: dict, cuts: dict, qtd_excl: float | None)
         return {"segment": t["segment"], "contribution": t["contribution"], "share_of_change_pct": t["share_of_change_pct"]}
 
     all_segs = cuts["region"]["orders"] + cuts["traffic_source"]["orders"]
-    q = targets["qtd_revenue_vs_target"]
+    q, y = targets["qtd_revenue_vs_target"], targets["ytd_revenue_vs_target"]
     return {
         "next_week_targets": {"orders": targets["orders_vs_target"]["next_week_target"],
                               "revenue": targets["revenue_vs_target"]["next_week_target"]},
@@ -214,6 +257,12 @@ def build_so_what(kpis: dict, targets: dict, cuts: dict, qtd_excl: float | None)
             "yoy": all((s["yoy_pct"] or 0) > 0 for s in all_segs),
             "above_plan_growth": all((s["yoy_pct"] or 0) > config.PLAN_GROWTH_PCT for s in all_segs),
         },
+        "full_year_plan": y["full_year_plan"],
+        "ytd_attainment_pct": y["attainment_pct"],
+        "required_weekly_revenue_run_rate": y["required_weekly_run_rate"],
+        "current_8wk_revenue_run_rate": y["current_8wk_run_rate"],
+        "months_ahead_of_plan": [m["label"] for m in targets["monthly_revenue"] if m["variance"] is not None and m["variance"] > 0],
+        "months_behind_plan": [m["label"] for m in targets["monthly_revenue"] if m["variance"] is not None and m["variance"] < 0],
     }
 
 
@@ -230,8 +279,8 @@ def quality_checks(df: pd.DataFrame, plan: pd.DataFrame, unmapped: list[str], we
          "detail": f"week ended {weeks.data_through:%Y-%m-%d %H:%M} UTC, run at {now:%Y-%m-%d %H:%M} UTC"},
         {"name": "no_missing_weeks", "passed": not missing,
          "detail": "reporting week and prior 8 weeks present" if not missing else f"missing weeks: {missing}"},
-        {"name": "target_rows_present", "passed": weeks.reporting in plan.index and all(w in plan.index for w in weeks.quarter_weeks),
-         "detail": f"reporting week and all {len(weeks.quarter_weeks)} quarter weeks found in {config.TARGET_VERSION}"
+        {"name": "target_rows_present", "passed": all(w in plan.index for w in weeks.fy_weeks),
+         "detail": f"all {len(weeks.fy_weeks)} fiscal-year weeks found in {config.TARGET_VERSION}"
                    + ("" if nxt in plan.index else "; next week has no target (end of plan year)")},
         {"name": "all_countries_mapped", "passed": not unmapped,
          "detail": "0 unmapped countries" if not unmapped else f"unmapped: {unmapped}"},

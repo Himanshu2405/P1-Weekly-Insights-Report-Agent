@@ -4,14 +4,14 @@
 # This file also drives: the LLM output schema (from commentary slots) and slot-level guards.
 # Mockup this was derived from: mockup/report_mockup.html (v2, approved 2026-09-24).
 
-version: 1.0
+version: 1.1
 
 page:
   title: TheLook Weekly Business Report
   timezone_display: America/New_York      # publish time shown in ET
   week_definition: monday_to_sunday_utc
   history_weeks: 52                       # trend charts
-  future_targets_through: 2026-12-28      # last target week shown on plan charts
+  fiscal_year: 2026                       # Jan to Dec; weeks and months assigned by their Thursday
   archive_weeks: 8                        # previous reports linked at the bottom
 
 # ---------------------------------------------------------------------------
@@ -81,6 +81,13 @@ kpis:
     higher_is_good: true
     week: reporting
     show: [attainment, gap, next_week_target]
+  ytd_revenue_vs_target:
+    name: Year-to-Date Gross Revenue vs Target
+    format: percent
+    decimals: 1
+    higher_is_good: true
+    week: reporting
+    show: [attainment, gap, full_year_plan, required_weekly_run_rate, current_8wk_run_rate]
   qtd_revenue_vs_target:
     name: Quarter-to-Date Gross Revenue vs Target
     format: percent
@@ -96,8 +103,9 @@ cuts:
 
 # ---------------------------------------------------------------------------
 # Sections, top to bottom.
-# Component types: header, tiles, kpi_cards, watchouts, line_chart, cumulative_chart,
-#                  waterfall, bar_chart, table, trust_panel, archive
+# Component types: header, tiles, kpi_cards, watchouts, line_chart, cumulative_chart, itpy_chart,
+#                  waterfall, variance_waterfall, bridge_waterfall, bar_chart, table, trust_panel, archive
+# Charts default to half width (two per row); width: full spans the row.
 # ---------------------------------------------------------------------------
 sections:
 
@@ -115,6 +123,7 @@ sections:
           - {kpi: orders_vs_target, footnote: next_week_target}
           - {kpi: revenue_vs_target, footnote: next_week_target}
           - {kpi: qtd_revenue_vs_target, footnote: full_quarter_plan}
+          - {kpi: ytd_revenue_vs_target, footnote: required_weekly_run_rate}
     commentary: summary
 
   - id: watchouts
@@ -138,15 +147,22 @@ sections:
     # numbers only, no commentary
 
   - id: plan
-    title: Performance vs plan
-    subtitle: Actuals against the 2026 plan. Targets are shown through the end of 2026.
+    title: Performance vs plan (FY2026)
+    subtitle: "Fiscal year runs Jan to Dec. Actuals to date against the annual plan, plus the targets for the rest of the year."
     components:
-      - {type: line_chart, id: orders_vs_target_trend, title: Weekly Orders Placed vs target,
-         kpi: orders, weeks: 52, show_target: true, show_future_target: true, mark_today: true}
-      - {type: line_chart, id: revenue_vs_target_trend, title: Weekly Gross Revenue vs target (USD),
-         kpi: revenue, weeks: 52, show_target: true, show_future_target: true, mark_today: true}
-      - {type: cumulative_chart, id: qtd_burnup, title: Quarter-to-date Gross Revenue vs plan (USD),
-         kpi: revenue, period: quarter, plan_to_period_end: true}
+      - {type: line_chart, id: orders_fy, title: "Weekly Orders Placed vs target, FY2026",
+         kpi: orders, period: fiscal_year, show_target: true, quarter_bands: true, mark_report_week: true}
+      - {type: line_chart, id: revenue_fy, title: "Weekly Gross Revenue vs target, FY2026 (USD)",
+         kpi: revenue, period: fiscal_year, show_target: true, quarter_bands: true, mark_report_week: true}
+      - {type: variance_waterfall, id: revenue_monthly_variance, title: "Revenue vs plan by month, FY2026 year to date (USD)",
+         kpi: revenue}
+      - {type: bridge_waterfall, id: revenue_path_to_plan, title: "Path to the FY2026 revenue plan (USD)",
+         kpi: revenue}
+      - {type: itpy_chart, id: itpy, title: "Index to prior year (ITPY), FY2026",
+         kpis: [orders, revenue], reference: plan_index, width: full,
+         note: "Actual divided by the same week last year x 100. Seasonality cancels out; above 175 = growing faster than the plan assumes."}
+      - {type: cumulative_chart, id: qtd_burnup, title: "Quarter-to-date Gross Revenue vs plan (USD)",
+         kpi: revenue, period: quarter, plan_to_period_end: true, width: full}
     commentary: plan
 
   - id: drivers
@@ -158,7 +174,7 @@ sections:
       - {type: waterfall, id: orders_change_by_traffic, title: Change in Weekly Orders Placed by traffic source,
          kpi: orders, cut: traffic_source, comparison: wow}
       - {type: bar_chart, id: orders_yoy_by_segment, title: YoY growth in Weekly Orders Placed by segment (%),
-         kpi: orders, cuts: [region, traffic_source], comparison: yoy, reference_line: plan_growth}
+         kpi: orders, cuts: [region, traffic_source], comparison: yoy, reference_line: plan_growth, width: full}
     commentary: drivers
 
   - id: health
@@ -207,10 +223,11 @@ commentary_slots:
     max_points: 4
     so_what_required: true
     allowed_kpis: [orders, revenue, aov, cancellation_rate, return_rate_14d, new_signups,
-                   orders_vs_target, revenue_vs_target, qtd_revenue_vs_target]
+                   orders_vs_target, revenue_vs_target, qtd_revenue_vs_target, ytd_revenue_vs_target]
     allowed_cuts: [region, traffic_source]
     must_mention_if_present: [anomaly_flags]
     so_what_facts: [qtd_attainment_excl_flagged_pct, full_quarter_plan, quarter_remaining_to_plan,
+                    full_year_plan, ytd_attainment_pct, required_weekly_revenue_run_rate, current_8wk_revenue_run_rate,
                     revenue_per_pp_cancellation, avg_8wk, top_contributor]
 
   watchouts:
@@ -226,9 +243,10 @@ commentary_slots:
     min_points: 2
     max_points: 3
     so_what_required: true
-    allowed_kpis: [orders, revenue, orders_vs_target, revenue_vs_target, qtd_revenue_vs_target]
-    so_what_facts: [next_week_targets, full_quarter_plan, quarter_remaining_to_plan, avg_8wk,
-                    yoy_vs_plan_growth]
+    allowed_kpis: [orders, revenue, orders_vs_target, revenue_vs_target, qtd_revenue_vs_target, ytd_revenue_vs_target]
+    so_what_facts: [next_week_targets, full_quarter_plan, quarter_remaining_to_plan, avg_8wk, yoy_vs_plan_growth,
+                    full_year_plan, ytd_attainment_pct, required_weekly_revenue_run_rate, current_8wk_revenue_run_rate,
+                    months_ahead_of_plan, months_behind_plan]
 
   drivers:
     min_points: 2
