@@ -100,3 +100,23 @@ def test_split_facts_totals_match_cuts():
     assert cuts["orders"].sum() == 15                      # cuts add up to the weekly total
     assert set(cuts["week_start"]) == {REPORTING}          # week 30 back is not a compared week
     assert "Japan" not in set(cuts["country"])             # signup-only rows are not order cuts
+
+
+def test_report_renders_every_layout_section(tmp_path, monkeypatch):
+    import yaml
+    from weekly_report import render
+    from weekly_report.brief import add_kpis
+    from weekly_report.pipeline import RunData
+
+    weeks = report_weeks(REPORTING)
+    cuts, _ = map_regions(synthetic_cuts())
+    run = RunData(weeks, add_kpis(synthetic_weekly()), cuts, synthetic_plan(),
+                  assemble(synthetic_weekly(), synthetic_cuts(), synthetic_plan(), weeks, now=NOW), 0, True, NOW)
+    monkeypatch.setattr(render, "SITE_DIR", tmp_path)
+    monkeypatch.setattr(render, "REPORTS_DIR", tmp_path / "reports")
+    html = render.render(run).read_text()
+    layout = yaml.safe_load(config.LAYOUT_FILE.read_text())
+    for section in layout["sections"]:
+        if section.get("title"):
+            assert section["title"] in html
+    assert "cache hit" in html and (tmp_path / "index.html").exists()

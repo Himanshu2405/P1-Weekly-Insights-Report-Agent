@@ -20,3 +20,6 @@ application_default_credentials.json
 *.egg-info/
 build/
 dist/
+
+# Generated site (published by GitHub Actions in Phase 5)
+site/

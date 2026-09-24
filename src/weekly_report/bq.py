@@ -27,6 +27,8 @@ def _param(name: str, value) -> bigquery.ScalarQueryParameter | bigquery.ArrayQu
 class BigQueryRunner:
     client: bigquery.Client = field(default_factory=lambda: bigquery.Client(project=config.GCP_PROJECT))
     bytes_billed: int = 0
+    cache_hits: int = 0
+    queries: int = 0
 
     def run(self, sql_name: str, **params) -> pd.DataFrame:
         sql = (config.SQL_DIR / f"{sql_name}.sql").read_text()
@@ -37,4 +39,6 @@ class BigQueryRunner:
         job = self.client.query(sql, job_config=job_config)
         df = job.to_dataframe()
         self.bytes_billed += job.total_bytes_billed or 0
+        self.cache_hits += bool(job.cache_hit)
+        self.queries += 1
         return df

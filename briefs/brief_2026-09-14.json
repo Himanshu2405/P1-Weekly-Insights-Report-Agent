@@ -1,8 +1,8 @@
 {
   "brief_version": "1.0",
   "meta": {
-    "run_id": "20260924T202947Z-058efc",
-    "generated_at_utc": "2026-09-24T20:29:47.643695Z",
+    "run_id": "20260924T203951Z-8b559d",
+    "generated_at_utc": "2026-09-24T20:39:51.082652Z",
     "reporting_week": {
       "start": "2026-09-14",
       "end": "2026-09-20",
@@ -29,7 +29,7 @@
       {
         "name": "reporting_week_complete",
         "passed": true,
-        "detail": "week ended 2026-09-20 23:59 UTC, run at 2026-09-24 20:29 UTC"
+        "detail": "week ended 2026-09-20 23:59 UTC, run at 2026-09-24 20:39 UTC"
       },
       {
         "name": "no_missing_weeks",

@@ -4,6 +4,13 @@ Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech 
 
 ## 2026-09-24
 
+- BUILT: HTML report rendering. `pipeline.py` (one query per run), `chart_data.py` (series per layout component, kept out of the brief), `render.py` + `templates/report.html.j2` (loops over report_layout.yaml sections), `scripts/build_report.py`. First real report: `site/reports/report_2026-09-14.html` (+ `site/index.html`). Code-detected watch-outs use deterministic text; AI commentary slots show placeholders until Phase 2. Trust panel shows the real data-quality checks and run details.
+- DECIDED: report is not rendered if any data-quality gate fails (exit code 2). BigQuery cache hits are shown as "0 MB (cache hit)", not as a misleading 0 MB scan.
+- DECIDED: `site/` is git-ignored (generated output); GitHub Actions will build and publish it in Phase 5.
+- NOTE: targets exist only from the 2026 plan (week of 2025-12-29 on), so target lines start there; weeks before have no plan.
+- FINDING: Weekly New Customer Signups jumped to 1,528 (6.2x its 8-week average of 246) in the latest regeneration; flagged as an anomaly by code.
+- 17 tests passing (new: render smoke test covers every layout section).
+
 - CHANGED (user request): merged weekly_kpis.sql and weekly_cuts.sql into ONE query, `weekly_facts.sql` (grain: week x country x traffic_source, under 10k rows). Python sums it for weekly KPIs and filters it for cuts (`split_facts`). Same results (orders 2,344, revenue $169,732), cost halved from 63 MB to 31 MB billed. Every CTE commented. New test: cuts add up to weekly totals.
 - PHASE 1 BUILT (steps 1 to 7): src/weekly_report package (config, weeks, bq, rules, targets, models, brief), 2 SQL files, scripts (generate_targets, build_brief), 15 unit tests passing, JSON Schema export. First real brief: `briefs/brief_2026-09-14.json`, all 6 data-quality gates pass, 63 MB billed.
 - VERIFIED: brief revenue ($169,732), cancellation rate (14.4%), 14-Day Return Rate (9.4%, week of Aug 31) and new signups (1,528) match independent SQL exactly; orders (2,344) match a direct count.

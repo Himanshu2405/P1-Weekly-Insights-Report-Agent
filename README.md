@@ -2,7 +2,7 @@
 
 An automated weekly business report for a (fictional) online retailer, where every KPI is computed by code and the AI-written commentary is **evaluated, traced, guarded, observable, and cost-tracked** before it is published.
 
-> Status: design complete. Phase 1: data pipeline and data brief working on real data; charts and HTML rendering next.
+> Status: Phase 1 complete (data pipeline, validated data brief, HTML report on real data). Phase 2 next: AI commentary + guards.
 
 ## The problem
 
@@ -45,7 +45,7 @@ Monday 8 AM ET (GitHub Actions)
 ```bash
 python -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/pip install -e .
 gcloud auth application-default login            # BigQuery access
-.venv/bin/python scripts/build_brief.py           # brief for the latest completed week
+.venv/bin/python scripts/build_report.py          # brief + HTML report for the latest completed week (site/index.html)
 .venv/bin/python -m pytest                        # unit tests (no BigQuery needed)
 ```
 

@@ -191,9 +191,15 @@ src/weekly_report/
   targets.py       plan generation (one-time) and loading
   models.py        data brief schema (Pydantic, extra fields forbidden)
   brief.py         assembles the brief + data-quality gates
+  pipeline.py      one run: query once -> KPIs, cuts, plan, brief
+  chart_data.py    chart series per layout component (never sent to the LLM)
+  render.py        builds the HTML page from layout + brief + chart data
+templates/         report.html.j2 (Jinja, loops over layout sections) + report.css
 scripts/
   generate_targets.py   one-time, refuses to overwrite the frozen plan
-  build_brief.py        weekly run or --week backfill; exit code 2 if a gate fails
+  build_brief.py        brief only; weekly run or --week backfill; exit code 2 if a gate fails
+  build_report.py       full data-side run: brief + HTML report (not rendered if a gate fails)
+site/                             generated report pages (git-ignored; published by GitHub Actions in Phase 5)
 targets/weekly_targets_2026.csv   frozen plan (53 weeks)
 briefs/                           generated briefs (golden-set fixtures come from here)
 schemas/data_brief.schema.json    exported JSON Schema

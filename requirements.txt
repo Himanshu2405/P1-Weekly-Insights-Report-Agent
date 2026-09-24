@@ -1,5 +1,6 @@
 db-dtypes==1.7.1
 google-cloud-bigquery==3.45.2
+Jinja2==3.1.6
 pandas==3.0.6
 pydantic==2.13.5
 pytest==9.1.1
