@@ -4,6 +4,7 @@ Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech 
 
 ## 2026-09-24
 
+- REPO: created public GitHub repo https://github.com/Himanshu2405/P1-Weekly-Insights-Report-Agent (local folder = repo root). First commit: all design docs, .gitignore (venv, .env, credentials excluded), requirements.txt, README for interviewers. Phase 1 started.
 - DRAFTED: data brief schema v1.0 (TECH_SPEC section 6) + illustrative `briefs/example_brief.json` (~2k tokens). Blocks: meta, data_quality, kpis (pre-computed direction and good/bad assessment), targets, cuts, history_8wk, flags (code rules), so_what_facts. Chart data kept out of the prompt in a separate chart_data.json. Thresholds: notable |WoW|>=10% or >=1pp or outside 8-wk range; anomaly >2x or <0.5x 8-wk avg; streak 3+ bad-direction weeks.
 - WROTE: report_layout.yaml v1.0 (page structure from mockup v2): 9-KPI display registry (format, polarity, change unit, mature week), 10 sections with components, 5 commentary slots (min/max points, so-what required, allowed KPIs/cuts, so-what facts), global commentary rules. Validated: parses, all KPI/slot references resolve.
 - DECIDED (models): commentary default Claude Opus 5; Sonnet 5 and Haiku 4.5 are eval challengers; judge Claude Opus 5. User rule: no Claude Fable models anywhere. Eval-run cost target raised to under $5. PRD v0.5, TECH_SPEC section 10, mockup trust panel updated.

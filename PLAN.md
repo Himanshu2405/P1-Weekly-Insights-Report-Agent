@@ -17,10 +17,11 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 ### Phase 0: Setup (DONE)
 - Needs: Module 1 (venv, files, requests, unit testing). DONE.
 - Done: gcloud CLI, ADC login, project `master-chariot-413216`, venv with BigQuery client.
-- Remaining: confirm $5 budget alert is saved; git repo + `.gitignore` (at start of Phase 1).
+- Done: git repo + `.gitignore`, public GitHub repo created.
+- Remaining: confirm $5 budget alert is saved.
 - GAP: git/GitHub basics. Confirm comfortable.
 
-### Phase 1: Data and metrics (NEXT)
+### Phase 1: Data and metrics (IN PROGRESS)
 - Needs: Module 1 (Python, JSON), Module 2 (classes), Module 2.5 (NumPy). DONE.
 - GAP: pandas (assumed from DS background).
 - Tasks: data brief schema, SQL, targets file, KPI calc, cuts, data-quality gates, data brief writer, Plotly charts.
