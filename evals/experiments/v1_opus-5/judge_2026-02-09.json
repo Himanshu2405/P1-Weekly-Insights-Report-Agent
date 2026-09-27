@@ -1,0 +1,156 @@
+{
+  "week": "2026-02-09",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "down_and_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders fell 6.1% to 696 and revenue fell 9.1% to $49,640 ... Revenue reached 83.0% of the weekly target",
+      "reason": "Both declines and the 83.0% target attainment are stated accurately."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue attainment is 87.4%, behind target by $52,211 with 6 weeks left in the quarter.",
+      "reason": "Quarter shortfall, 87.4% attainment and 6 weeks remaining are all stated."
+    },
+    {
+      "id": "positive_framing",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue fell week on week and stayed behind target",
+      "reason": "No resilient/solid/strong framing; the week is consistently described as down and behind."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue fell week on week and stayed behind target ... returns rose in the mature week.",
+      "reason": "Gives a behind-target verdict and names the return-rate rise as an issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The cancellation rate fell 1.3 pp to 14.8%, a notable move rated good.",
+      "reason": "A good-news improvement is listed as a watch-out rather than a risk or caveat."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "These gains were too small to offset the declines elsewhere.",
+      "reason": "All claims trace to reported figures; no guessed causes or predictions beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Adds 8-week average figures without saying what the shortfall means."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Gives next week's targets only; no interpretation of the gap."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads strong YoY growth against the growth the 2026 target assumes."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Merely repeats that two metrics moved in opposite directions."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Explains maturity definition rather than what the rising return rate means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Adds a per-point revenue conversion without stating the business consequence."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "States the remaining amount required; no verdict on feasibility or meaning."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only lists next week's target numbers."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Repeats the required amount without interpreting it."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Required pace far exceeds recent run-rate, signalling the year is off track."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats contribution shares and decline sizes already in the fact."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Tells reader how to weigh Search's small percentage dip against its volume share."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says gains were insufficient to offset declines, framing the net effect."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue fell faster than orders using the AOV decline."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Judges the cancellation improvement as a modest positive for weekly revenue."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the maturity definition rather than what higher returns imply."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Juxtaposes flat signups with YoY order growth without saying what it means."
+    }
+  ],
+  "cost_usd": 0.17402800000000002,
+  "duration_s": 45.3
+}

@@ -1,0 +1,59 @@
+{
+  "week": "2026-02-16",
+  "status": "verified",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "growth_but_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders jumped 13.4% to 789 ... revenue stayed behind target at 89.6%",
+      "reason": "Both the 13.4% order rise and revenue at 89.6% of target (behind) are stated accurately."
+    },
+    {
+      "id": "cancellation_risk",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate of 19.0% is flagged as notable, with a 4.2 pp weekly rise against a 1.0 pp threshold.",
+      "reason": "Correct figures appear in watchouts and are described as the main drag, satisfying the risk flag."
+    },
+    {
+      "id": "strong_week",
+      "kind": "must_not_say",
+      "verdict": "fail",
+      "evidence": "Orders jumped 13.4% to 789, a strong week, but revenue stayed behind target",
+      "reason": "Headline explicitly calls it a strong week, and points repeat \"good week\" and \"strong order week\"."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Reaching the full-quarter target of $774,555 requires $359,246 over the remaining 5 weeks.",
+      "reason": "At least four so_whats only restate facts, add numbers, or state next week's targets without meaning."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "revenue stayed behind target at 89.6% and cancellations rose sharply to 19.0%",
+      "reason": "Headline gives a behind-target verdict and names the cancellation spike as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is $415,309 against a target of $473,740, a shortfall of $58,431",
+      "reason": "All three watch-outs are risks or maturity caveats; the key cancellation risk is included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Signup growth over the year, at 5.1%, is far below order growth of 58.1%, so volume is leaning on existing customers.",
+      "reason": "Infers reliance on existing customers and a 75% growth assumption behind targets, beyond the stated data."
+    }
+  ],
+  "cost_usd": 0.0760525,
+  "duration_s": 21.3
+}

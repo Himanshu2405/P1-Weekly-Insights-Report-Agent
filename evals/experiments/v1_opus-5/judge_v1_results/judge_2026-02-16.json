@@ -1,0 +1,59 @@
+{
+  "week": "2026-02-16",
+  "status": "verified",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "growth_but_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders jumped 13.4% to 789 ... revenue stayed behind target at 89.6%",
+      "reason": "Both the 13.4% order growth and the 89.6%-of-target shortfall are stated with matching numbers."
+    },
+    {
+      "id": "cancellation_risk",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate of 19.0% is flagged as notable, with a 4.2 pp weekly rise",
+      "reason": "Cancellation rise of 4.2 pp to 19.0% appears in watchouts as the main drag."
+    },
+    {
+      "id": "strong_week",
+      "kind": "must_not_say",
+      "verdict": "fail",
+      "evidence": "Orders jumped 13.4% to 789, a strong week, but revenue stayed behind target",
+      "reason": "The headline explicitly calls it a strong week, which the key forbids."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Customer acquisition grew faster than orders this week, which grew 13.4%.",
+      "reason": "Several so_whats merely restate facts or add numbers, e.g. signups vs orders and the EMEA share point."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "revenue stayed behind target at 89.6% and cancellations rose sharply to 19.0%",
+      "reason": "Headline gives a behind-target verdict and names cancellations as the key issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is $415,309 against a target of $473,740, a shortfall of $58,431",
+      "reason": "All three watchouts are risks or maturity caveats, and the cancellation risk is included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "far below order growth of 58.1%, so volume is leaning on existing customers",
+      "reason": "Concluding volume leans on existing customers interprets beyond the reported signup and order figures."
+    }
+  ],
+  "cost_usd": 0.06686550000000001,
+  "duration_s": 14.4
+}

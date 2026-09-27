@@ -1,0 +1,237 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "headline": {
+          "description": "At most 30 words",
+          "maxLength": 240,
+          "minLength": 1,
+          "title": "Headline",
+          "type": "string"
+        },
+        "points": {
+          "description": "3 to 4 points",
+          "items": {
+            "additionalProperties": false,
+            "description": "One bullet: the fact, then what it means for the business.",
+            "properties": {
+              "what": {
+                "description": "One sentence: the fact, with numbers from the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "What",
+                "type": "string"
+              },
+              "so_what": {
+                "description": "One sentence: the business implication, grounded in the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "So What",
+                "type": "string"
+              }
+            },
+            "required": [
+              "what",
+              "so_what"
+            ],
+            "title": "Point",
+            "type": "object"
+          },
+          "maxItems": 4,
+          "minItems": 3,
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "headline",
+        "points"
+      ],
+      "title": "SummarySlot",
+      "type": "object"
+    },
+    "watchouts": {
+      "additionalProperties": false,
+      "properties": {
+        "points": {
+          "description": "0 to 3 points",
+          "items": {
+            "additionalProperties": false,
+            "description": "One bullet: the fact, then what it means for the business.",
+            "properties": {
+              "what": {
+                "description": "One sentence: the fact, with numbers from the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "What",
+                "type": "string"
+              },
+              "so_what": {
+                "description": "One sentence: the business implication, grounded in the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "So What",
+                "type": "string"
+              }
+            },
+            "required": [
+              "what",
+              "so_what"
+            ],
+            "title": "Point",
+            "type": "object"
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "WatchoutsSlot",
+      "type": "object"
+    },
+    "vs_target": {
+      "additionalProperties": false,
+      "properties": {
+        "points": {
+          "description": "2 to 3 points",
+          "items": {
+            "additionalProperties": false,
+            "description": "One bullet: the fact, then what it means for the business.",
+            "properties": {
+              "what": {
+                "description": "One sentence: the fact, with numbers from the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "What",
+                "type": "string"
+              },
+              "so_what": {
+                "description": "One sentence: the business implication, grounded in the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "So What",
+                "type": "string"
+              }
+            },
+            "required": [
+              "what",
+              "so_what"
+            ],
+            "title": "Point",
+            "type": "object"
+          },
+          "maxItems": 3,
+          "minItems": 2,
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "VsTargetSlot",
+      "type": "object"
+    },
+    "drivers": {
+      "additionalProperties": false,
+      "properties": {
+        "points": {
+          "description": "2 to 3 points",
+          "items": {
+            "additionalProperties": false,
+            "description": "One bullet: the fact, then what it means for the business.",
+            "properties": {
+              "what": {
+                "description": "One sentence: the fact, with numbers from the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "What",
+                "type": "string"
+              },
+              "so_what": {
+                "description": "One sentence: the business implication, grounded in the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "So What",
+                "type": "string"
+              }
+            },
+            "required": [
+              "what",
+              "so_what"
+            ],
+            "title": "Point",
+            "type": "object"
+          },
+          "maxItems": 3,
+          "minItems": 2,
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "DriversSlot",
+      "type": "object"
+    },
+    "health": {
+      "additionalProperties": false,
+      "properties": {
+        "points": {
+          "description": "3 to 4 points",
+          "items": {
+            "additionalProperties": false,
+            "description": "One bullet: the fact, then what it means for the business.",
+            "properties": {
+              "what": {
+                "description": "One sentence: the fact, with numbers from the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "What",
+                "type": "string"
+              },
+              "so_what": {
+                "description": "One sentence: the business implication, grounded in the brief",
+                "maxLength": 240,
+                "minLength": 1,
+                "title": "So What",
+                "type": "string"
+              }
+            },
+            "required": [
+              "what",
+              "so_what"
+            ],
+            "title": "Point",
+            "type": "object"
+          },
+          "maxItems": 4,
+          "minItems": 3,
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "HealthSlot",
+      "type": "object"
+    }
+  },
+  "required": [
+    "summary",
+    "watchouts",
+    "vs_target",
+    "drivers",
+    "health"
+  ],
+  "title": "Commentary",
+  "type": "object"
+}

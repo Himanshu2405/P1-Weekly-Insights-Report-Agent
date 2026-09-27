@@ -1,0 +1,435 @@
+{
+  "week": "2026-02-09",
+  "status": "verified_after_retry",
+  "commentary": {
+    "summary": {
+      "headline": "Softer week: orders down 6.1% to 696 and revenue down 9.1% to $49,640, both behind target, though still well ahead of last year.",
+      "points": [
+        {
+          "what": "Orders fell 6.1% week on week to 696 and revenue fell 9.1% to $49,640.",
+          "so_what": "Both sit below the 8-week averages of 710 orders and $51,669 revenue."
+        },
+        {
+          "what": "Orders were up 44.4% and revenue up 37.3% versus the same week last year.",
+          "so_what": "Both growth rates are below the 75% growth the 2026 targets assume."
+        },
+        {
+          "what": "The week reached 82.4% of the 845-order target and 83.0% of the $59,794 revenue target.",
+          "so_what": "The week closed $10,154 short of its revenue target, leaving the quarter further behind."
+        },
+        {
+          "what": "The cancellation rate improved 1.3 pp to 14.8%, while the 14-Day Return Rate for the week of 26 Jan 2026 rose 2.2 pp to 11.6%.",
+          "so_what": "Order quality signals point in opposite directions this week."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The 14-Day Return Rate for the mature week of 26 Jan 2026 was 11.6%, up 2.2 pp, above the 1.0 pp notable threshold.",
+          "so_what": "The two most recent weeks are not yet mature, so this is the latest complete read on returns."
+        },
+        {
+          "what": "The cancellation rate moved 1.3 pp to 14.8%, a notable change by the 1.0 pp threshold.",
+          "so_what": "Each percentage point of cancellations is worth about $583 of weekly revenue."
+        },
+        {
+          "what": "QTD revenue is 87.4% of target at $361,944, a gap of $52,211 with 6 weeks left in the quarter.",
+          "so_what": "Reaching the $774,555 full-quarter target requires $412,611 over those 6 weeks."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Weekly orders reached 82.4% of the 845-order target (gap of 149) and revenue 83.0% of the $59,794 target (gap of $10,154).",
+          "so_what": "Next week's targets step to 802 orders and $59,585 of revenue."
+        },
+        {
+          "what": "QTD revenue of $361,944 is 87.4% of the $414,155 target to date, behind by $52,211.",
+          "so_what": "Both Jan and Feb to date are behind target, at 88.0% and 86.0% attainment."
+        },
+        {
+          "what": "YTD revenue is 87.4% of target, and the full-year target of $3,888,802 needs $76,671 per week for the remaining 46 weeks.",
+          "so_what": "That is well above the recent 8-week run-rate of $51,543 per week."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "APAC orders fell 22 to 317 and LATAM fell 22 to 81, each accounting for 48.9% of the total order decline.",
+          "so_what": "LATAM produced the same order loss as APAC from a base of 103, versus APAC's 339."
+        },
+        {
+          "what": "Organic orders fell 25.9% to 83, a contribution of -29 orders, or 64.4% of the week's change.",
+          "so_what": "Organic alone accounts for more than the net decline of 45 orders."
+        },
+        {
+          "what": "Search, the largest source at 72.8% of orders, slipped 1.9% to 507, while Display rose 16.7% to 28.",
+          "so_what": "Display's gain of 4 orders offsets only a small part of the losses elsewhere."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "The cancellation rate improved 1.3 pp week on week to 14.8%, and was 0.6 pp below the same week last year.",
+          "so_what": "At about $583 of weekly revenue per percentage point, this level of cancellations is worth watching against the revenue gap."
+        },
+        {
+          "what": "AOV fell 4.7% to $83.71 and was 5.5% below last year.",
+          "so_what": "This explains why revenue fell 9.1% while orders fell only 6.1%."
+        },
+        {
+          "what": "The 14-Day Return Rate for the mature week of 26 Jan 2026 was 11.6%, up 2.2 pp both week on week and year on year.",
+          "so_what": "Returns are not deducted from gross revenue, so this does not reduce the reported revenue figure."
+        },
+        {
+          "what": "New signups were flat at 223, and down 3.9% year on year, while orders grew 44.4% year on year.",
+          "so_what": "Order growth is running well ahead of customer acquisition growth."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "summary point 4 what: 5 numbers",
+          "vs_target point 1 what: 6 numbers",
+          "drivers point 1 what: 5 numbers",
+          "drivers point 3 what: 5 numbers"
+        ]
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'1.3' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'14.8' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'2.2' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'11.6' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v1",
+  "model": "claude-opus-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": false,
+      "error": null,
+      "duration_ms": 45617,
+      "cost_usd": 0.1109415,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6646,
+        "cache_read": 5143,
+        "output": 1676,
+        "thinking": 0
+      },
+      "blocking_failures": [
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "guard_details": {
+        "no causes, recommendations, 'plan', or 'net revenue'": [
+          "health point 1 so_what: causal claim ('as a result of')"
+        ],
+        "sentences at most 30 words and 4 numbers": [
+          "summary point 2 what: 5 numbers",
+          "summary point 4 what: 5 numbers",
+          "watchouts point 1 what: 31 words",
+          "watchouts point 1 what: 5 numbers",
+          "vs_target point 1 what: 6 numbers",
+          "vs_target point 3 what: 6 numbers",
+          "drivers point 1 what: 5 numbers",
+          "drivers point 2 what: 5 numbers"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'1.3' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'14.8' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'2.2' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'11.6' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Orders and revenue fell week on week and stayed behind target, though both remain well above last year; returns rose in the mature week.",
+          "points": [
+            {
+              "what": "Orders fell 6.1% to 696 and revenue fell 9.1% to $49,640, both rated bad week on week.",
+              "so_what": "Both sit below the 8-week averages of 710 orders and $51,669 revenue."
+            },
+            {
+              "what": "Revenue reached 83.0% of the weekly target of $59,794, a gap of $10,154, and orders reached 82.4% of the 845 target.",
+              "so_what": "Next week needs $59,585 of revenue and 802 orders to meet target."
+            },
+            {
+              "what": "Orders grew 44.4% and revenue 37.3% versus last year, both rated good.",
+              "so_what": "Both remain below the 75% growth the 2026 targets assume."
+            },
+            {
+              "what": "The cancellation rate improved 1.3 pp to 14.8%, while the 14-Day Return Rate for the mature week of 26 Jan 2026 rose 2.2 pp to 11.6%.",
+              "so_what": "Order quality moved in opposite directions on the two measures this week."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate for the mature week of 26 Jan 2026 rose 2.2 pp to 11.6%, above the 1.0 pp notable threshold, and is also 2.2 pp above last year.",
+              "so_what": "The two most recent weeks are not yet mature, so their return rates are not reported."
+            },
+            {
+              "what": "The cancellation rate fell 1.3 pp to 14.8%, a notable move rated good.",
+              "so_what": "Each percentage point of cancellations is worth about $583 of revenue."
+            },
+            {
+              "what": "QTD revenue is $361,944 against a target to date of $414,155, 87.4% attainment and a gap of $52,211.",
+              "so_what": "Reaching the full quarter target of $774,555 needs $412,611 in the remaining 6 weeks."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Weekly revenue was 83.0% of target ($49,640 vs $59,794) and weekly orders 82.4% of target (696 vs 845), both behind.",
+              "so_what": "Next week's targets are $59,585 of revenue and 802 orders."
+            },
+            {
+              "what": "QTD revenue attainment is 87.4%, behind target by $52,211 with 6 weeks left in the quarter.",
+              "so_what": "$412,611 is still required to reach the full quarter target of $774,555."
+            },
+            {
+              "what": "YTD revenue is $361,944, 87.4% of target, and the full-year target of $3,888,802 needs $76,671 a week versus the current 8-week run-rate of $51,543.",
+              "so_what": "The required pace is well above the recent pace, and both Jan and Feb MTD are behind target."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "APAC orders fell 22 to 317, and LATAM also fell 22 to 81, each accounting for 48.9% of the WoW decline.",
+              "so_what": "These two regions explain nearly all of the 45-order decline, with LATAM's 21.4% drop the steepest."
+            },
+            {
+              "what": "Organic orders fell 29 to 83, the largest single contributor at 64.4% of the change, while Search fell 10 to 507.",
+              "so_what": "Search still carries 72.8% of orders, so its 1.9% dip matters less in percent than in volume."
+            },
+            {
+              "what": "North America orders rose 1.8% to 169 and Display rose 16.7% to 28, the only segments up week on week.",
+              "so_what": "These gains were too small to offset the declines elsewhere."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell 4.7% to $83.71 week on week and is down 5.5% versus last year, both rated bad.",
+              "so_what": "Revenue fell faster than orders (-9.1% vs -6.1%) as a result of the lower value per order."
+            },
+            {
+              "what": "The cancellation rate improved 1.3 pp to 14.8%, and is 0.6 pp below last year.",
+              "so_what": "At about $583 of revenue per percentage point, this is a modest positive for the week's revenue."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 26 Jan 2026 was 11.6%, up 2.2 pp on the prior week and 2.2 pp on last year.",
+              "so_what": "This is customer return behavior for an earlier week, not the reporting week."
+            },
+            {
+              "what": "New signups were flat at 223 and down 3.9% versus last year, rated bad on the year.",
+              "so_what": "Signups are not growing while orders are up 44.4% year on year."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": 2,
+      "ok": true,
+      "error": null,
+      "duration_ms": 30258,
+      "cost_usd": 0.1291465,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6714,
+        "cache_read": 5143,
+        "output": 2377,
+        "thinking": 435
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "sentences at most 30 words and 4 numbers": [
+          "summary point 4 what: 5 numbers",
+          "vs_target point 1 what: 6 numbers",
+          "drivers point 1 what: 5 numbers",
+          "drivers point 3 what: 5 numbers"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'1.3' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'14.8' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'2.2' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'11.6' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Softer week: orders down 6.1% to 696 and revenue down 9.1% to $49,640, both behind target, though still well ahead of last year.",
+          "points": [
+            {
+              "what": "Orders fell 6.1% week on week to 696 and revenue fell 9.1% to $49,640.",
+              "so_what": "Both sit below the 8-week averages of 710 orders and $51,669 revenue."
+            },
+            {
+              "what": "Orders were up 44.4% and revenue up 37.3% versus the same week last year.",
+              "so_what": "Both growth rates are below the 75% growth the 2026 targets assume."
+            },
+            {
+              "what": "The week reached 82.4% of the 845-order target and 83.0% of the $59,794 revenue target.",
+              "so_what": "The week closed $10,154 short of its revenue target, leaving the quarter further behind."
+            },
+            {
+              "what": "The cancellation rate improved 1.3 pp to 14.8%, while the 14-Day Return Rate for the week of 26 Jan 2026 rose 2.2 pp to 11.6%.",
+              "so_what": "Order quality signals point in opposite directions this week."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate for the mature week of 26 Jan 2026 was 11.6%, up 2.2 pp, above the 1.0 pp notable threshold.",
+              "so_what": "The two most recent weeks are not yet mature, so this is the latest complete read on returns."
+            },
+            {
+              "what": "The cancellation rate moved 1.3 pp to 14.8%, a notable change by the 1.0 pp threshold.",
+              "so_what": "Each percentage point of cancellations is worth about $583 of weekly revenue."
+            },
+            {
+              "what": "QTD revenue is 87.4% of target at $361,944, a gap of $52,211 with 6 weeks left in the quarter.",
+              "so_what": "Reaching the $774,555 full-quarter target requires $412,611 over those 6 weeks."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Weekly orders reached 82.4% of the 845-order target (gap of 149) and revenue 83.0% of the $59,794 target (gap of $10,154).",
+              "so_what": "Next week's targets step to 802 orders and $59,585 of revenue."
+            },
+            {
+              "what": "QTD revenue of $361,944 is 87.4% of the $414,155 target to date, behind by $52,211.",
+              "so_what": "Both Jan and Feb to date are behind target, at 88.0% and 86.0% attainment."
+            },
+            {
+              "what": "YTD revenue is 87.4% of target, and the full-year target of $3,888,802 needs $76,671 per week for the remaining 46 weeks.",
+              "so_what": "That is well above the recent 8-week run-rate of $51,543 per week."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "APAC orders fell 22 to 317 and LATAM fell 22 to 81, each accounting for 48.9% of the total order decline.",
+              "so_what": "LATAM produced the same order loss as APAC from a base of 103, versus APAC's 339."
+            },
+            {
+              "what": "Organic orders fell 25.9% to 83, a contribution of -29 orders, or 64.4% of the week's change.",
+              "so_what": "Organic alone accounts for more than the net decline of 45 orders."
+            },
+            {
+              "what": "Search, the largest source at 72.8% of orders, slipped 1.9% to 507, while Display rose 16.7% to 28.",
+              "so_what": "Display's gain of 4 orders offsets only a small part of the losses elsewhere."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "The cancellation rate improved 1.3 pp week on week to 14.8%, and was 0.6 pp below the same week last year.",
+              "so_what": "At about $583 of weekly revenue per percentage point, this level of cancellations is worth watching against the revenue gap."
+            },
+            {
+              "what": "AOV fell 4.7% to $83.71 and was 5.5% below last year.",
+              "so_what": "This explains why revenue fell 9.1% while orders fell only 6.1%."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 26 Jan 2026 was 11.6%, up 2.2 pp both week on week and year on year.",
+              "so_what": "Returns are not deducted from gross revenue, so this does not reduce the reported revenue figure."
+            },
+            {
+              "what": "New signups were flat at 223, and down 3.9% year on year, while orders grew 44.4% year on year.",
+              "so_what": "Order growth is running well ahead of customer acquisition growth."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "d982a02a2773d24d",
+  "cache_hit": false,
+  "cost_usd": 0.2401,
+  "duration_ms": 75875,
+  "tokens": {
+    "input": 4,
+    "cache_write": 13360,
+    "cache_read": 10286,
+    "output": 4053,
+    "thinking": 435
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "week": "2026-01-12",
+  "status": "verified",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "deep_miss",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue reached 74.9% of the $68,109 weekly target, leaving a gap of $17,106.",
+      "reason": "States the week was well behind target with the correct 74.9% figure."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue of $150,921 is 83.7% of the $180,401 target to date... With 10 weeks left",
+      "reason": "Quarter behind at 83.7% with 10 weeks remaining is stated correctly."
+    },
+    {
+      "id": "cancellation_improved",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Cancellation rate fell 2.1 pp to 11.4%, a good move and the lowest of the last eight weeks.",
+      "reason": "Improvement of 2.1 pp to 11.4% is stated and framed as good."
+    },
+    {
+      "id": "softened",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "eased slightly and stayed well behind target",
+      "reason": "\"Slightly\" describes the week-on-week move, not the miss, which is called well behind."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Next week's targets step down to 828 orders and $55,460 revenue, a lower bar than this week's.",
+      "reason": "Three so_whats merely restate numbers: vs_target 1 and 2, and health returns point."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "stayed well behind target, though cancellations improved sharply",
+      "reason": "Headline gives a behind-target verdict and names the target gap as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The cancellation rate move of -2.1 pp is flagged as notable, above the 1.0 pp threshold.",
+      "reason": "An improvement in cancellations is good news listed as a watch-out, not a risk."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The customer base is not expanding in line with the 48.4% year-on-year growth in orders.",
+      "reason": "Interprets beyond data; also claims order growth is not coming from new accounts."
+    }
+  ],
+  "cost_usd": 0.0910275,
+  "duration_s": 28.4
+}

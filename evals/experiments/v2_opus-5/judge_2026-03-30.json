@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-30",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "near_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "revenue cleared target at 100.4% while orders reached only 95.0%",
+      "reason": "Both target percentages are stated correctly, plus the small week-on-week moves of -0.5% orders and -1.3% revenue."
+    },
+    {
+      "id": "year_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "the year is still behind at 93.0% of target",
+      "reason": "YTD position is stated in the headline and repeated in the summary with the correct figure."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Orders fell 0.5% and revenue 1.3% against the prior week",
+      "reason": "Language stays measured, no surge/plunge/sharp wording, and each watch-out rests on a rated metric."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Mixed week: revenue cleared target at 100.4% while orders reached only 95.0%; the year is still behind at 93.0%",
+      "reason": "Headline gives a mixed ahead/behind verdict and names the year-to-date shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose to 14.2%, up 0.6 pp on the prior week",
+      "reason": "All three watch-outs are worsening trends or run-rate risks; no good news is listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Growth is running under the rate the targets were built on",
+      "reason": "Claims are derived from stated figures; no guessed causes or predictions beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader not to treat the week as broadly on target."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames the decline as the quarter opening below prior week."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says the beat leaves year unchanged and shortfall carries into Q2."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Links sub-target growth rate to the opening of the YTD gap."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Sizes cancellations against the revenue beat, showing the beat is fragile."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains revenue must lean on order counts already behind target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes gap must close from a base below the missed target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says first-week beat provides little cushion for the quarter."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Positions April's start against three months that built the shortfall."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says decline is concentrated, not broad-based; guides reading."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains North America cushioned the total decline."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says Search's offset was insufficient to lift the total."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader to read revenue as volume-led, not value-led."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says returns add nothing to cancellation-driven quality pressure."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes signups did not mirror the order dip."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts above-average volume with the missed weekly target."
+    }
+  ],
+  "cost_usd": 0.10932099999999999,
+  "duration_s": 35.0
+}

@@ -1,0 +1,331 @@
+{
+  "week": "2026-01-12",
+  "status": "fallback",
+  "commentary": null,
+  "guard_report": {
+    "passed": false,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": false,
+        "details": [
+          "summary point 3 so_what: '100' is not in the brief"
+        ]
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "vs_target point 2 what: 5 numbers",
+          "vs_target point 3 what: 5 numbers",
+          "drivers point 2 what: 5 numbers"
+        ]
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "health point 2 what: mentions ['revenue'], not allowed in this slot"
+        ]
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-opus-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": false,
+      "error": null,
+      "duration_ms": 72886,
+      "cost_usd": 0.21549249999999998,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6615,
+        "cache_read": 6015,
+        "output": 5853,
+        "thinking": 4262
+      },
+      "blocking_failures": [
+        "ahead/behind target matches the data"
+      ],
+      "guard_details": {
+        "ahead/behind target matches the data": [
+          "vs_target point 2 so_what: says ahead of target, but no target is ahead"
+        ],
+        "sentences at most 30 words and 4 numbers": [
+          "vs_target point 3 what: 5 numbers"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "A week behind target: orders at 75.3% and revenue at 74.9%; the year sits at 83.7% of target, with the required pace far above the recent run-rate.",
+          "points": [
+            {
+              "what": "Orders came in at 678, 75.3% of the weekly target of 900.",
+              "so_what": "The week added to the quarter's shortfall instead of closing any of it."
+            },
+            {
+              "what": "Revenue was $51,003, 74.9% of the weekly target, and both orders and revenue were down week on week.",
+              "so_what": "The miss is broad rather than confined to one KPI, so no single measure carried the week."
+            },
+            {
+              "what": "Revenue grew 68.4% and orders 48.4% against the same week last year, both below the 75% growth the targets assume.",
+              "so_what": "Growth is real but slower than the targets were built on, so the gap to target keeps widening."
+            },
+            {
+              "what": "New customer signups fell 15.0% week on week to 233, a notably large drop, and were 3.7% below last year.",
+              "so_what": "Signups are the only headline measure below last year while orders are well ahead, a divergence worth tracking."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "Quarter-to-date revenue is $29,480 below the target to date, with 10 weeks of the quarter left.",
+              "so_what": "Three weeks in the quarter is already behind, and the gap grows with every further week near this level of attainment."
+            },
+            {
+              "what": "Signups dropped 15.0% week on week, a change the brief marks as notable, and are below last year.",
+              "so_what": "This is the weakest of the customer-growth measures and is moving in the wrong direction on both comparisons."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 29 Dec 2025 was 11.2%, 1.0 pp above the same week last year.",
+              "so_what": "Returns are running above last year's level, which works against gross revenue even in weeks when orders grow."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders finished 222 short of the weekly target and revenue $17,106 short.",
+              "so_what": "The week did nothing to reduce the quarter-to-date shortfall and instead enlarged it."
+            },
+            {
+              "what": "Quarter-to-date revenue of $150,921 is 83.7% of the target to date for 2026-Q1.",
+              "so_what": "Recovering the quarter would require later weeks to run above target, not merely reach it."
+            },
+            {
+              "what": "Reaching the full-year target of $3,888,802 requires $74,758 of revenue a week for the remaining 50 weeks, against a recent 8-week run-rate of $50,363.",
+              "so_what": "The required pace is far above anything achieved recently, so at the current pace the full-year target is out of reach."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA orders fell 15.4% to 115, a contribution of -21 orders and the largest single drag on the week.",
+              "so_what": "One region accounted for more than the entire weekly decline, so the drop was concentrated rather than broad."
+            },
+            {
+              "what": "Search orders fell 4.0% to 481, contributing -20 orders.",
+              "so_what": "The decline sits in the largest traffic source, so the smaller sources had no realistic scope to offset it."
+            },
+            {
+              "what": "APAC orders rose 4.7% to 309, adding 14 orders, and Email added 8.",
+              "so_what": "Growth in the largest region and in Email is what kept the overall weekly decline to a small one."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell 4.0% to $84.86, still 5.4% above the same week last year.",
+              "so_what": "Revenue fell further than orders this week, and the lower AOV is the difference between the two."
+            },
+            {
+              "what": "The cancellation rate improved 2.1 pp to 11.4%, a notable move, and is well below last year's 17.7%.",
+              "so_what": "Each percentage point of cancellations is worth $575 of revenue, so this improvement cushioned an otherwise weak revenue week."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 29 Dec 2025 eased 0.2 pp to 11.2%.",
+              "so_what": "Week to week the measure is stable, so the issue is its level rather than its direction."
+            },
+            {
+              "what": "Orders of 678 sat just below the 8-week average of 683.",
+              "so_what": "Weekly volume has been flat for two months while weekly targets step up, so the shortfall is not self-correcting."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": 2,
+      "ok": false,
+      "error": null,
+      "duration_ms": 51336,
+      "cost_usd": 0.1730775,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6681,
+        "cache_read": 6015,
+        "output": 4130,
+        "thinking": 2521
+      },
+      "blocking_failures": [
+        "numbers exist in the brief"
+      ],
+      "guard_details": {
+        "numbers exist in the brief": [
+          "summary point 3 so_what: '100' is not in the brief"
+        ],
+        "sentences at most 30 words and 4 numbers": [
+          "vs_target point 2 what: 5 numbers",
+          "vs_target point 3 what: 5 numbers",
+          "drivers point 2 what: 5 numbers"
+        ],
+        "each slot only covers its allowed KPIs": [
+          "health point 2 what: mentions ['revenue'], not allowed in this slot"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Both orders and revenue finished the week behind target, at 75.3% and 74.9%; the quarter and the year now stand at 83.7% of target.",
+          "points": [
+            {
+              "what": "Orders came in at 678 against a target of 900, and revenue at $51,003 against $68,109.",
+              "so_what": "Both headline KPIs missed, so the week added to the shortfall the quarter is carrying."
+            },
+            {
+              "what": "QTD and YTD revenue are both at 83.7% of target, $29,480 behind the target to date.",
+              "so_what": "Three weeks into the year the gap to target is already material, with no surplus week to offset it."
+            },
+            {
+              "what": "Orders were down 1.5% week on week, while still 48.4% above the same week last year.",
+              "so_what": "Year-on-year growth remains strong but sits below the 75% growth the targets assume, which is why attainment is under 100%."
+            },
+            {
+              "what": "The cancellation rate fell 2.1 pp to 11.4%, a notable move rated good.",
+              "so_what": "Order quality improved even though the week itself finished behind target."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "Revenue grew 68.4% year on year and orders 48.4%, against the 75% growth the targets assume.",
+              "so_what": "While growth stays below that rate, the gap to target widens week by week rather than closing."
+            },
+            {
+              "what": "New signups fell 15.0% week on week to 233, a notable move rated bad.",
+              "so_what": "Customer additions moved down while orders held close to the recent level, a risk to watch in the coming weeks."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 29 Dec 2025 was 11.2%, up 1.0 pp year on year, rated bad.",
+              "so_what": "Returns are running higher than a year ago, which weighs on the value of the revenue already booked."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders reached 75.3% of the weekly target and revenue 74.9%, a revenue gap of $17,106.",
+              "so_what": "Both measures of the week fell short, so the week did nothing to recover the quarter's position."
+            },
+            {
+              "what": "QTD revenue of $150,921 is 83.7% of the target to date, leaving $623,634 of the $774,555 full-quarter target across 10 remaining weeks.",
+              "so_what": "The quarter is behind after three weeks and the remaining weeks carry more than the original weekly pace assumed."
+            },
+            {
+              "what": "Hitting the $3,888,802 full-year target requires $74,758 of revenue a week for the remaining 50 weeks, against a recent 8-week run-rate of $50,363.",
+              "so_what": "The required pace is far above what the business has been running, so the full-year target is out of reach at the current pace."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA orders fell 15.4% to 115, a contribution of -21 orders and 210% of the week-on-week change.",
+              "so_what": "EMEA was the single largest drag on the week's order decline; without it the total would have moved differently."
+            },
+            {
+              "what": "Search orders fell 4.0% to 481, contributing -20 orders and 200% of the change, on a 70.9% share of orders.",
+              "so_what": "With Search holding the bulk of volume, its direction sets the direction of total orders."
+            },
+            {
+              "what": "APAC orders rose 4.7% to 309, contributing 14 orders.",
+              "so_what": "The APAC gain was not enough to offset the declines elsewhere, so total orders still fell."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell 4.0% to $84.86, though it remains 5.4% above the same week last year.",
+              "so_what": "Revenue fell faster than orders this week, so smaller baskets added to the order decline rather than cushioning it."
+            },
+            {
+              "what": "The cancellation rate of 11.4% is down from 17.7% a year ago, with each percentage point worth about $575 of revenue.",
+              "so_what": "Fewer cancellations protected revenue this week and partly limited the size of the miss against target."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 29 Dec 2025 eased 0.2 pp to 11.2%.",
+              "so_what": "Week to week returns are broadly flat, so the year-on-year rise is the part of this measure that matters."
+            },
+            {
+              "what": "Orders of 678 sat just below the 8-week average of 683.",
+              "so_what": "The week tracked the recent run-rate rather than stepping up towards the weekly target level."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "02488e6128411229",
+  "cache_hit": false,
+  "cost_usd": 0.3886,
+  "duration_ms": 124222,
+  "tokens": {
+    "input": 4,
+    "cache_write": 13296,
+    "cache_read": 12030,
+    "output": 9983,
+    "thinking": 6783
+  }
+}

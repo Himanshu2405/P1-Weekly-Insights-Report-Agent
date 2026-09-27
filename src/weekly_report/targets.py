@@ -1,6 +1,6 @@
-"""The 2026 plan: weekly targets = same week last year x (1 + planned growth).
+"""The 2026 targets: weekly targets = same week last year x (1 + target growth).
 
-Generated ONCE and frozen in a versioned CSV (like a plan Finance hands over at the start of the year).
+Generated ONCE and frozen in a versioned CSV (like the targets Finance hands over at the start of the year).
 The pipeline only reads the file; it never recomputes targets from live data.
 """
 
@@ -14,14 +14,14 @@ from .weeks import fiscal_year_weeks, same_week_last_year
 
 
 def generate(runner: BigQueryRunner) -> pd.DataFrame:
-    weeks = fiscal_year_weeks(config.PLAN_YEAR)
+    weeks = fiscal_year_weeks(config.TARGET_YEAR)
     ly_weeks = [same_week_last_year(w) for w in weeks]
     last_ly_week_end = datetime.combine(ly_weeks[-1] + timedelta(days=7), datetime.min.time(), timezone.utc) - timedelta(microseconds=1)
     facts = runner.run("weekly_facts", start_week=ly_weeks[0], data_through=last_ly_week_end)
     facts["week_start"] = pd.to_datetime(facts["week_start"]).dt.date
     by_week = facts.groupby("week_start")[["orders", "revenue"]].sum()
 
-    growth = 1 + config.PLAN_GROWTH_PCT / 100
+    growth = 1 + config.TARGET_GROWTH_PCT / 100
     rows = []
     for w, ly in zip(weeks, ly_weeks):
         if ly not in by_week.index:
@@ -35,7 +35,7 @@ def generate(runner: BigQueryRunner) -> pd.DataFrame:
             "ly_week_start": ly.isoformat(),
             "ly_orders": ly_orders,
             "ly_revenue": round(ly_revenue),
-            "plan_growth_pct": config.PLAN_GROWTH_PCT,
+            "target_growth_pct": config.TARGET_GROWTH_PCT,
             "target_version": config.TARGET_VERSION,
         })
     return pd.DataFrame(rows)

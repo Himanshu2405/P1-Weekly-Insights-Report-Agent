@@ -11,7 +11,7 @@
 
 ## 1. Problem
 
-- Leadership at TheLook needs a weekly view of business health: orders, revenue, customer growth, and progress against plan.
+- Leadership at TheLook needs a weekly view of business health: orders, revenue, customer growth, and progress against target.
 - Today (simulated baseline) an analyst pulls numbers, builds charts, and writes commentary by hand every Monday. This takes 2 to 3 hours a week, arrives late, and the quality of the commentary depends on who wrote it.
 - An LLM can write the commentary in seconds, but an unchecked LLM can quote wrong numbers, call bad news good, or invent causes. One wrong number in a leadership report destroys trust in the whole report.
 - The real problem is not "generate commentary". It is "generate commentary that is trustworthy enough to publish without a human rewriting it, and prove it".
@@ -22,21 +22,21 @@
 |---|---|---|
 | Head of E-commerce (primary) | Is the business on track this week? | Decide where to focus the team |
 | Marketing lead | Which channels and regions drive growth? | Shift spend between traffic sources |
-| Finance / planning | Are we on plan for the quarter? | Flag risk to the quarterly forecast |
+| Finance / planning | Are we on target for the quarter? | Flag risk to the quarterly forecast |
 | Analyst (report owner) | Stop hand-writing the report | Spend time on deep dives instead |
 
 ## 3. Goals
 
 - G1. Publish a weekly report automatically every Monday by 8:00 AM US Eastern, with no manual step.
 - G2. Commentary is factually grounded: every number in the prose matches the computed data.
-- G3. Commentary is useful: it states performance vs last week and vs plan, calls out anomalies, and names the biggest drivers by channel and region.
+- G3. Commentary is useful: it states performance vs last week and vs target, calls out anomalies, and names the biggest drivers by channel and region.
 - G4. The AI layer is measurable and observable: every run is evaluated, traced, and cost-tracked, and failures are visible, not silent.
 
 ## 4. Non-goals
 
 - No interactive dashboard or chatbot (that is Project 2).
 - No causal explanations ("orders rose BECAUSE of the campaign"). The report describes what changed and where, not why.
-- No forecasting or target setting. Targets are an input from the plan file.
+- No forecasting or target setting. Targets are an input from the targets file.
 - No RAG. All context fits in one prompt.
 - No real-time data. Weekly grain only.
 
@@ -53,7 +53,7 @@ Out of scope: product and category cuts, web funnel (`events` table), any delive
 ## 6. User stories
 
 - As the Head of E-commerce, I open one link on Monday morning and understand in 2 minutes whether last week was good or bad and why it matters.
-- As Finance, I see whether we are ahead or behind plan for the week and for the quarter, stated plainly.
+- As Finance, I see whether we are ahead or behind target for the week and for the quarter, stated plainly.
 - As Marketing, I see which traffic source and region contributed most to the change.
 - As the report owner, I get alerted when the AI commentary fails checks, instead of finding out from a stakeholder.
 
@@ -65,8 +65,8 @@ Out of scope: product and category cuts, web funnel (`events` table), any delive
 | F2 | Report the latest completed Monday to Sunday week only; never a partial week |
 | F3 | Compute all KPIs in code (SQL/Python); the LLM never calculates numbers |
 | F4 | Report the 14-Day Return Rate only for mature weeks, clearly labeled with the week it refers to |
-| F5 | Compare each KPI to the prior week (WoW), the same week last year (YoY), and, where available, the plan target. Show future targets through year end |
-| F6 | Produce commentary as bullet points with a "So what" per point, in fixed slots: executive summary, watch-outs, performance vs plan, growth drivers, customer health |
+| F5 | Compare each KPI to the prior week (WoW), the same week last year (YoY), and, where available, the target. Show future targets through year end |
+| F6 | Produce commentary as bullet points with a "So what" per point, in fixed slots: executive summary, watch-outs, performance vs target, growth drivers, customer health |
 | F7 | Flag anomalies detected by code (for example a KPI far outside its recent range) |
 | F8 | Publish HTML to GitHub Pages and keep an archive of past reports |
 | F9 | Stop the run if input data fails quality checks (missing target row, unmapped country, empty week) |
@@ -130,7 +130,7 @@ Out of scope: product and category cuts, web funnel (`events` table), any delive
 
 - Delivery: GitHub Pages only. No Slack or email, now or later.
 - Models: commentary default is Claude Opus 5 (`claude-opus-5`). Claude Sonnet 5 and Claude Haiku 4.5 are eval challengers: if one passes the same golden set and guards, switch to it and report the savings. Judge: Claude Opus 5 (at least as capable as the model it grades). No Claude Fable models anywhere in this project.
-- Commentary style: bullet points, never long paragraphs. Every point = what happened + a "So what" (the business implication). A "So what" must be grounded in code-computed facts in the brief (plan impact, quarter outlook, revenue value of a change, comparison between KPIs, data caveats). Still no causes and no action recommendations such as "increase spend", because they cannot be verified from the data and invite invented causes.
+- Commentary style: bullet points, never long paragraphs. Every point = what happened + a "So what" (the business implication). A "So what" must be grounded in code-computed facts in the brief (target impact, quarter outlook, revenue value of a change, comparison between KPIs, data caveats). Still no causes and no action recommendations such as "increase spend", because they cannot be verified from the data and invite invented causes.
 
 ## 14. Open questions
 

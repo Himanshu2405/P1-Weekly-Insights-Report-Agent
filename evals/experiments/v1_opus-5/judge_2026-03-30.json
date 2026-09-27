@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-30",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "near_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue reached 100.4% of the weekly target ($249 above), while orders landed at 95.0% of target, 45 orders short.",
+      "reason": "Both attainment figures are given and the weekly moves are described as small."
+    },
+    {
+      "id": "year_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "YTD still behind at 93%",
+      "reason": "Year-to-date shortfall at 93.0% attainment is stated in headline and multiple sections."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Both movements are small and leave the week close to the 8-week averages",
+      "reason": "Language stays measured; no dramatizing verbs and watch-outs are grounded in reported data."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Flat week: ... but revenue just cleared its weekly target as Q2 opens; YTD still behind at 93%.",
+      "reason": "Headline gives an ahead/behind verdict for the week and names the YTD shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose 0.6 pp to 14.2% and is 2.1 pp above last year.",
+      "reason": "All three watch-outs are caveats or worsening trends, including the YTD run-rate gap."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "so volume is leaning on existing customers",
+      "reason": "Inferring that volume leans on existing customers from signup versus order growth goes beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says moves are immaterial and week sits near recent run-rate."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains attainment depends on order value not volume."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links growth rate to inability to close YTD shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames signups as the week's only positive movement against slipping orders."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader the metric is stale and cannot be judged yet."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Adds a per-point dollar figure without saying what it means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is a stretch at current run-rate."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only gives next week's targets, no meaning."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Reads early Q2 lead against outstanding quarter requirement."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Repeats required pace numbers without stating implication."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how to read the small net change against regional moves."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains why total orders stayed near last week's level."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates share and direction without business meaning."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue growth trails order growth."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Calls the YoY gap a meaningful revenue drag."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Locates order-quality concern in cancellations rather than returns."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Draws conclusion about volume source, though speculative."
+    }
+  ],
+  "cost_usd": 0.108581,
+  "duration_s": 34.0
+}

@@ -1,0 +1,300 @@
+{
+  "week": "2026-01-12",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Orders and revenue eased slightly and stayed well behind target, though cancellations improved sharply and year-on-year growth remained strong.",
+      "points": [
+        {
+          "what": "Orders fell 1.5% week on week to 678, a bad move, while revenue fell 3.0% to $51,003.",
+          "so_what": "Both sit close to the 8-week averages of 683 orders and $49,686 revenue, so the week was steady rather than a break in trend."
+        },
+        {
+          "what": "Revenue reached 74.9% of the $68,109 weekly target, leaving a gap of $17,106.",
+          "so_what": "Next week's revenue target of $55,460 is lower, but this shortfall still adds to the quarter's deficit."
+        },
+        {
+          "what": "Orders grew 48.4% and revenue 68.4% year on year, both assessed as good.",
+          "so_what": "Both remain below the 75% growth the 2026 targets assume, which is why the week still fell short of target."
+        },
+        {
+          "what": "Cancellation rate fell 2.1 pp to 11.4%, a good move and the lowest of the last eight weeks.",
+          "so_what": "Each percentage point of cancellations is worth about $575 of revenue, so this partly cushioned the softer week."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "New signups fell 15.0% week on week to 233, flagged as notable, and were down 3.7% year on year.",
+          "so_what": "Signups are shrinking while orders grow 48.4% year on year, so order growth is not coming from new accounts."
+        },
+        {
+          "what": "The cancellation rate move of -2.1 pp is flagged as notable, above the 1.0 pp threshold.",
+          "so_what": "At about $575 of revenue per percentage point, a shift of this size is large enough to matter for weekly revenue."
+        },
+        {
+          "what": "The 14-Day Return Rate is reported for the mature week of 29 Dec 2025, as the two most recent weeks are not yet mature.",
+          "so_what": "Return behaviour for the reporting week cannot be read yet, so returns should be judged only on the 29 Dec 2025 week."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders reached 75.3% of the 900 weekly target, 222 behind, and revenue 74.9% of target, $17,106 behind; both are behind.",
+          "so_what": "Next week's targets step down to 828 orders and $55,460 revenue, a lower bar than this week's."
+        },
+        {
+          "what": "Quarter-to-date revenue of $150,921 is 83.7% of the $180,401 target to date, a gap of $29,480.",
+          "so_what": "With 10 weeks left, $623,634 is still needed to reach the full-quarter target of $774,555."
+        },
+        {
+          "what": "Year-to-date revenue is 83.7% of target, and the $3,888,802 full-year target needs $74,758 a week across the remaining 50 weeks.",
+          "so_what": "The recent 8-week run-rate of $50,363 is well below that required weekly pace."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "EMEA was the biggest driver of the order decline, down 15.4% to 115 orders, a contribution of -21 and 210% of the total change.",
+          "so_what": "EMEA alone more than accounts for the 10-order weekly decline, with other regions offsetting part of it."
+        },
+        {
+          "what": "APAC rose 4.7% to 309 orders, contributing +14, LATAM added 1 order, and North America fell 4 to 152.",
+          "so_what": "APAC holds a 45.6% share of orders and offset most of the EMEA weakness this week."
+        },
+        {
+          "what": "Search fell 4.0% to 481 orders, contributing -20, while Email rose 29.6% to 35 orders, contributing +8.",
+          "so_what": "Search carries 70.9% of orders, so its direction sets the direction of the weekly total."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV fell 4.0% week on week to $84.86, assessed as bad, but was 5.4% above last year.",
+          "so_what": "Revenue fell 3.0% on a 1.5% order decline, so the lower AOV explains the wider revenue drop."
+        },
+        {
+          "what": "The cancellation rate fell 2.1 pp to 11.4% and is 6.3 pp below last year, both good.",
+          "so_what": "At about $575 of revenue per percentage point, the year-on-year improvement is worth meaningful revenue at this week's volume."
+        },
+        {
+          "what": "The 14-Day Return Rate for the mature week of 29 Dec 2025 was 11.2%, down 0.2 pp week on week but 1.0 pp above last year, which is bad.",
+          "so_what": "Returns are steady week to week but running above the prior-year level for that week."
+        },
+        {
+          "what": "New signups fell 15.0% to 233 and were 3.7% below last year, both bad.",
+          "so_what": "The customer base is not expanding in line with the 48.4% year-on-year growth in orders."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "vs_target point 1 what: 5 numbers",
+          "drivers point 2 what: 6 numbers",
+          "drivers point 3 what: 6 numbers"
+        ]
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'48.4' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'$575' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v1",
+  "model": "claude-opus-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 32415,
+      "cost_usd": 0.17682350000000002,
+      "tokens": {
+        "input": 4,
+        "cache_write": 8395,
+        "cache_read": 16907,
+        "output": 3376,
+        "thinking": 0
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "sentences at most 30 words and 4 numbers": [
+          "vs_target point 1 what: 5 numbers",
+          "drivers point 2 what: 6 numbers",
+          "drivers point 3 what: 6 numbers"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'48.4' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'$575' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Orders and revenue eased slightly and stayed well behind target, though cancellations improved sharply and year-on-year growth remained strong.",
+          "points": [
+            {
+              "what": "Orders fell 1.5% week on week to 678, a bad move, while revenue fell 3.0% to $51,003.",
+              "so_what": "Both sit close to the 8-week averages of 683 orders and $49,686 revenue, so the week was steady rather than a break in trend."
+            },
+            {
+              "what": "Revenue reached 74.9% of the $68,109 weekly target, leaving a gap of $17,106.",
+              "so_what": "Next week's revenue target of $55,460 is lower, but this shortfall still adds to the quarter's deficit."
+            },
+            {
+              "what": "Orders grew 48.4% and revenue 68.4% year on year, both assessed as good.",
+              "so_what": "Both remain below the 75% growth the 2026 targets assume, which is why the week still fell short of target."
+            },
+            {
+              "what": "Cancellation rate fell 2.1 pp to 11.4%, a good move and the lowest of the last eight weeks.",
+              "so_what": "Each percentage point of cancellations is worth about $575 of revenue, so this partly cushioned the softer week."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "New signups fell 15.0% week on week to 233, flagged as notable, and were down 3.7% year on year.",
+              "so_what": "Signups are shrinking while orders grow 48.4% year on year, so order growth is not coming from new accounts."
+            },
+            {
+              "what": "The cancellation rate move of -2.1 pp is flagged as notable, above the 1.0 pp threshold.",
+              "so_what": "At about $575 of revenue per percentage point, a shift of this size is large enough to matter for weekly revenue."
+            },
+            {
+              "what": "The 14-Day Return Rate is reported for the mature week of 29 Dec 2025, as the two most recent weeks are not yet mature.",
+              "so_what": "Return behaviour for the reporting week cannot be read yet, so returns should be judged only on the 29 Dec 2025 week."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders reached 75.3% of the 900 weekly target, 222 behind, and revenue 74.9% of target, $17,106 behind; both are behind.",
+              "so_what": "Next week's targets step down to 828 orders and $55,460 revenue, a lower bar than this week's."
+            },
+            {
+              "what": "Quarter-to-date revenue of $150,921 is 83.7% of the $180,401 target to date, a gap of $29,480.",
+              "so_what": "With 10 weeks left, $623,634 is still needed to reach the full-quarter target of $774,555."
+            },
+            {
+              "what": "Year-to-date revenue is 83.7% of target, and the $3,888,802 full-year target needs $74,758 a week across the remaining 50 weeks.",
+              "so_what": "The recent 8-week run-rate of $50,363 is well below that required weekly pace."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA was the biggest driver of the order decline, down 15.4% to 115 orders, a contribution of -21 and 210% of the total change.",
+              "so_what": "EMEA alone more than accounts for the 10-order weekly decline, with other regions offsetting part of it."
+            },
+            {
+              "what": "APAC rose 4.7% to 309 orders, contributing +14, LATAM added 1 order, and North America fell 4 to 152.",
+              "so_what": "APAC holds a 45.6% share of orders and offset most of the EMEA weakness this week."
+            },
+            {
+              "what": "Search fell 4.0% to 481 orders, contributing -20, while Email rose 29.6% to 35 orders, contributing +8.",
+              "so_what": "Search carries 70.9% of orders, so its direction sets the direction of the weekly total."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell 4.0% week on week to $84.86, assessed as bad, but was 5.4% above last year.",
+              "so_what": "Revenue fell 3.0% on a 1.5% order decline, so the lower AOV explains the wider revenue drop."
+            },
+            {
+              "what": "The cancellation rate fell 2.1 pp to 11.4% and is 6.3 pp below last year, both good.",
+              "so_what": "At about $575 of revenue per percentage point, the year-on-year improvement is worth meaningful revenue at this week's volume."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 29 Dec 2025 was 11.2%, down 0.2 pp week on week but 1.0 pp above last year, which is bad.",
+              "so_what": "Returns are steady week to week but running above the prior-year level for that week."
+            },
+            {
+              "what": "New signups fell 15.0% to 233 and were 3.7% below last year, both bad.",
+              "so_what": "The customer base is not expanding in line with the 48.4% year-on-year growth in orders."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "02488e6128411229",
+  "cache_hit": false,
+  "cost_usd": 0.1768,
+  "duration_ms": 32415,
+  "tokens": {
+    "input": 4,
+    "cache_write": 8395,
+    "cache_read": 16907,
+    "output": 3376,
+    "thinking": 0
+  }
+}

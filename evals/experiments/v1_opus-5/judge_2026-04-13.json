@@ -1,0 +1,163 @@
+{
+  "week": "2026-04-13",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue reached 88.7% of the weekly target of $66,235 ... revenue fell 13.1% to $58,718",
+      "reason": "Both the 88.7% target miss and the 13.1% weekly revenue decline are stated correctly."
+    },
+    {
+      "id": "quarter_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The quarter is still ahead of target ... or 101.3%",
+      "reason": "Quarter-to-date ahead position at 101.3% is clearly stated."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for three weeks in a row, from 13.6% to 15.3%.",
+      "reason": "Appears as the first watch-out with the correct streak and range."
+    },
+    {
+      "id": "quarter_behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "the quarter stays just ahead at 101.3% of target to date",
+      "reason": "Commentary consistently describes the quarter as ahead, never behind."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "both missed target, but the quarter stays just ahead at 101.3% of target to date",
+      "reason": "Headline gives a behind-target verdict for the week and names the quarter position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate is reported for the mature week of 30 Mar 2026",
+      "reason": "All three items are risks, worsening trends, or a caveat; key cancellation risk included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Customer acquisition is flat to declining while orders are still up 58.3% year on year.",
+      "reason": "Claims are arithmetic or directly readable from stated figures; no guessed causes or predictions."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats the threshold definition and adds the 8-week average number; no business meaning."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates the same target miss with gap figures."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads growth against the 75% assumption embedded in 2026 targets."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States quarter position and what remains required to hold it."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Translates each cancellation point into weekly revenue value, sizing the risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Adds the 8-week average comparison without saying what it means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains how the maturity lag limits reading the reporting week."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Gives next week's targets only, per rubric a restatement."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames the ahead position as the year's only month ahead, changing how it reads."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Compares required weekly run-rate with actual pace, showing the full-year target gap."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates the 112.7% contribution as largest driver."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates the regional ups and downs already listed."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates Search as biggest driver and lists further channel numbers."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links falling AOV to revenue declining faster than orders."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Sizes the cancellation level in weekly revenue terms, indicating materiality."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the improvement and the notability threshold definition."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts flat acquisition with strong order growth, a meaningful tension."
+    }
+  ],
+  "cost_usd": 0.10810599999999998,
+  "duration_s": 33.8
+}

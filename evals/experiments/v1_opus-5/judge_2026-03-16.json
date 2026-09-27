@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-16",
+  "status": "verified_after_retry",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue finished at 101.8% of target... remains behind at 92.6% attainment... one week left in the quarter.",
+      "reason": "Both the ahead week (101.8%) and behind quarter (92.6%, one week left) are stated."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen three weeks in a row, from 14.3% to 16.4%.",
+      "reason": "Streak with correct figures appears as the first watch-out."
+    },
+    {
+      "id": "q1_will_hit",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "the quarter is set to close behind target",
+      "reason": "Commentary explicitly says the quarter will close behind, never suggesting Q1 hits target."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue beat weekly targets... but the quarter stays behind at 92.6% and cancellations rose again.",
+      "reason": "Headline gives an ahead verdict plus the quarter position and cancellation risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen three weeks in a row",
+      "reason": "All three items are risks, worsening trends, or a maturity caveat; key risk included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue growth of 49.6% year on year is therefore coming from order volume rather than basket size.",
+      "reason": "Claims are arithmetic or directly readable from the stated facts; no causal guessing."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads orders against target and the growth rate the targets assume."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Only adds attainment percentage and 8-week average; no meaning given."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States strong week does not change the behind-target quarter."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Says cancellations weigh on an otherwise strong revenue week."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies why a sustained streak is materially costly."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates the maturity definition rather than what the level means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Repeats the signups-versus-orders contrast already stated in the fact."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Gives next week's targets without saying what they mean."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes the quarter is set to close behind target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Contrasts required run-rate with actual pace, showing the year's gap."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains APAC more than accounts for the week's order growth."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says the gain would have been larger absent LATAM's decline."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Mainly restates Search's order share without stating consequence."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Interprets growth as volume-driven rather than basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames the year-on-year rise as a meaningful revenue drag."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Just adds the prior-year comparison number."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Repeats the orders-versus-signups gap already in the fact."
+    }
+  ],
+  "cost_usd": 0.11122099999999999,
+  "duration_s": 33.7
+}

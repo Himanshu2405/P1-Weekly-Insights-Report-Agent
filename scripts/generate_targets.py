@@ -1,4 +1,4 @@
-"""One-time: build the frozen 2026 plan file. Refuses to overwrite unless --force is given."""
+"""One-time: build the frozen 2026 targets file. Refuses to overwrite unless --force is given."""
 
 import argparse
 import sys
@@ -9,11 +9,11 @@ from weekly_report.bq import BigQueryRunner
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--force", action="store_true", help="overwrite an existing plan file")
+    parser.add_argument("--force", action="store_true", help="overwrite an existing targets file")
     args = parser.parse_args()
 
     if config.TARGETS_FILE.exists() and not args.force:
-        print(f"{config.TARGETS_FILE} already exists. Targets are frozen; use --force only to issue a new plan version.")
+        print(f"{config.TARGETS_FILE} already exists. Targets are frozen; use --force only to issue a new targets version.")
         return 1
 
     runner = BigQueryRunner()

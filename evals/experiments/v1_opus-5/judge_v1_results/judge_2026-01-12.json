@@ -1,0 +1,66 @@
+{
+  "week": "2026-01-12",
+  "status": "verified",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "deep_miss",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue reached 74.9% of the $68,109 weekly target, leaving a gap of $17,106.",
+      "reason": "States revenue at 74.9% of target and headline says \"stayed well behind target\"."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue of $150,921 is 83.7% of the $180,401 target to date... With 10 weeks left",
+      "reason": "QTD 83.7% shortfall and 10 weeks remaining are both stated correctly."
+    },
+    {
+      "id": "cancellation_improved",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Cancellation rate fell 2.1 pp to 11.4%, a good move and the lowest of the last eight weeks.",
+      "reason": "Improvement reported with correct magnitude and explicitly framed as good."
+    },
+    {
+      "id": "softened",
+      "kind": "must_not_say",
+      "verdict": "fail",
+      "evidence": "Both sit close to the 8-week averages of 683 orders and $49,686 revenue, so the week was steady rather than a break in trend.",
+      "reason": "Calling the deepest miss of the year \"steady\" and \"eased slightly\" softens the shortfall."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Search carries 70.9% of orders, so its direction sets the direction of the weekly total.",
+      "reason": "Nearly all so_whats explain meaning for target, quarter, year, or reading another number."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue eased slightly and stayed well behind target",
+      "reason": "Headline gives a behind-target verdict and names the revenue shortfall as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The cancellation rate move of -2.1 pp is flagged as notable, above the 1.0 pp threshold.",
+      "reason": "An improvement in cancellations is good news, not a risk, yet listed as a watch-out."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The customer base is not expanding in line with the 48.4% year-on-year growth in orders.",
+      "reason": "Infers causes beyond the data, also claiming order growth \"is not coming from new accounts\"."
+    }
+  ],
+  "cost_usd": 0.0913255,
+  "duration_s": 28.7
+}

@@ -36,3 +36,21 @@ def test_bad_streak_counts_only_consecutive_bad_moves():
     assert rules.bad_streak([14.8, 14.3, 14.4, 14.6], higher_is_good=False) == 2
     assert rules.bad_streak([15.0, 14.0], higher_is_good=False) == 0
     assert rules.bad_streak([100, 90, 80], higher_is_good=True) == 2
+
+
+def test_backoff_retries_infrastructure_errors_then_gives_up():
+    import pytest
+    from weekly_report.llm import LLMError, with_backoff
+    calls, waits = [], []
+
+    def flaky():
+        calls.append(1)
+        if len(calls) < 3:
+            raise LLMError("exit 1")
+        return "ok"
+    assert with_backoff(flaky, retries=2, sleep=waits.append) == "ok" and waits == [5.0, 10.0]
+
+    def always_fails():
+        raise LLMError("exit 1")
+    with pytest.raises(LLMError):
+        with_backoff(always_fails, retries=1, sleep=lambda s: None)

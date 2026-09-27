@@ -1,0 +1,163 @@
+{
+  "week": "2025-12-29",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "A week behind target: orders at 87.4% and revenue at 87.5%",
+      "reason": "Headline states the week was behind target with both percentages matching the key."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose for a third consecutive week, from 13.0% to 16.0%.",
+      "reason": "Appears as the first watch-out with the correct streak length and range."
+    },
+    {
+      "id": "positive_framing",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Volume and value moved away from the weekly target rather than toward it.",
+      "reason": "No sentence calls the week strong, good, or on track; framing stays negative throughout."
+    },
+    {
+      "id": "streak_as_good",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Order quality is worse than last week while still better than a year ago",
+      "reason": "The rising cancellation rate is consistently treated as deterioration, not improvement."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "A week behind target ... with the new quarter and year both opening below target and cancellations rising a third week.",
+      "reason": "Gives a behind-target verdict plus quarter/year position and the flagged cancellation risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At the current pace the full-year target is out of reach.",
+      "reason": "All three watch-outs are genuine risks and the key's cancellation streak is included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Growth on last year is real but slower than the rate the targets are built on, which is why the week lands behind.",
+      "reason": "Claims are arithmetic readings of the stated figures, with no guessed causes or predictions."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States quarter opens behind and gap must be recovered later."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames the declines as movement away from the weekly target."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains why growth below assumed rate causes the target miss."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Only repeats that signups rose while orders fell."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies revenue impact of an unreversed cancellation trend."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says the rise is not a one-off comparison effect."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target unreachable at current pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats that both orders and revenue missed target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says nearly all quarterly target now rests on remaining weeks."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Later weeks must run above target to recover shortfall."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads decline as concentrated in one region, not broad-based."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains Search sets the weekly order trend."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Merely repeats gains were smaller than declines so total fell."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Growth comes from order volume, not basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains yearly comparison reads better than the current trend."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes two quality measures deteriorating simultaneously."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Just compares the two growth numbers again without meaning."
+    }
+  ],
+  "cost_usd": 0.089281,
+  "duration_s": 26.7
+}

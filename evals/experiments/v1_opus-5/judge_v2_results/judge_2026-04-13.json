@@ -1,0 +1,66 @@
+{
+  "week": "2026-04-13",
+  "status": "verified",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue reached 88.7% of the weekly target of $66,235 ... revenue fell 13.1% to $58,718",
+      "reason": "Behind-target status and the 13.1% weekly revenue decline are both stated with matching figures."
+    },
+    {
+      "id": "quarter_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "the quarter stays just ahead at 101.3% of target to date",
+      "reason": "Quarter-ahead position stated with the correct 101.3% figure."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for three weeks in a row, from 13.6% to 15.3%.",
+      "reason": "Three-week rise with the correct range appears in the watchouts section."
+    },
+    {
+      "id": "quarter_behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The quarter is still ahead of target",
+      "reason": "Commentary consistently describes the quarter as ahead, never behind."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Next week the bar rises to 919 orders and $68,310 of revenue.",
+      "reason": "About five so_whats merely restate facts, add numbers, or state next week's target; limit of two exceeded."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "both missed target, but the quarter stays just ahead at 101.3% of target to date",
+      "reason": "Headline gives a behind-target verdict for the week plus the quarter position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for three weeks in a row",
+      "reason": "All three watch-outs are risks or reading caveats, including the key cancellation streak."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Customer acquisition is flat to declining while orders are still up 58.3% year on year.",
+      "reason": "Claims stay within reported figures without guessing causes or predicting outcomes."
+    }
+  ],
+  "cost_usd": 0.11786350000000001,
+  "duration_s": 27.1
+}

@@ -1,0 +1,75 @@
+flowchart TD
+    %% ---------- inputs ----------
+    subgraph IN["Inputs"]
+        BQ[("BigQuery public data<br/>orders, order_items, users")]
+        TGT["targets/weekly_targets_2026.csv<br/>frozen weekly targets"]
+        LAY["report_layout.yaml<br/>page sections + AI slots"]
+        CTX["business_context.md<br/>business facts for Claude"]
+        PR["prompts/commentary_v1.md<br/>instructions for Claude"]
+    end
+
+    %% ---------- data: phase 1 ----------
+    subgraph DATA["1. Data (build the numbers)"]
+        S1["Step 1: Pick the weeks<br/>weeks.py"]
+        S2["Step 2: Run one SQL query<br/>weekly_facts.sql via bq.py"]
+        S3["Step 3: Weekly totals + cuts<br/>split_facts, add_kpis"]
+        S4["Step 4: Build the data brief<br/>KPIs, targets, cuts, flags, so-what facts"]
+        S5{"Step 5: 6 data-quality checks<br/>all pass?"}
+        STOP(["Stop: no report"])
+        S6["Step 6: Save the brief<br/>briefs/brief_week.json"]
+    end
+
+    %% ---------- AI: phase 2 ----------
+    subgraph AI["2. AI commentary (write the text)"]
+        S7["Step 7: Assemble the prompt<br/>prompt + business context + brief + output format"]
+        S8["Step 8: Call Claude (headless)<br/>returns JSON + tokens, time, cost"]
+        S9{"Step 9: Guards<br/>numbers, direction words,<br/>so-what, banned words"}
+        S9R["Retry once"]
+        S9F["Template fallback<br/>labelled 'commentary unavailable'"]
+        S10["Step 10: Log the run<br/>checks, model, tokens, cost"]
+    end
+
+    %% ---------- page: phase 1 ----------
+    subgraph PAGE["3. Page (show it)"]
+        S11["Step 11: Chart data<br/>chart_data.py, never sent to Claude"]
+        S12["Step 12: Render HTML<br/>render.py + template + layout"]
+        OUT["site/reports/report_week.html<br/>+ site/index.html"]
+    end
+
+    %% ---------- later ----------
+    subgraph LATER["4. Prove it + 5. Publish"]
+        EV["Phase 4: Evals<br/>run steps 7 to 9 on ~25 saved briefs,<br/>score, error analysis, prompt v2, v3"]
+        TR["Phase 4: Traces<br/>LangSmith records every call"]
+        PUB["Phase 5: GitHub Pages<br/>public link for interviewers"]
+    end
+
+    BQ --> S2
+    S1 --> S2 --> S3 --> S4
+    TGT --> S4
+    S4 --> S5
+    S5 -- "no" --> STOP
+    S5 -- "yes" --> S6
+    S6 --> S7
+    PR --> S7
+    CTX --> S7
+    LAY -- "slots become the output format" --> S7
+    S7 --> S8 --> S9
+    S9 -- "pass" --> S10
+    S9 -- "fail" --> S9R --> S8
+    S9R -. "fails again" .-> S9F --> S10
+    S10 --> S12
+    S3 --> S11 --> S12
+    LAY --> S12
+    S12 --> OUT
+    S6 -. "saved briefs = golden set" .-> EV
+    S8 -. "every call" .-> TR
+    OUT -.-> PUB
+
+    classDef done fill:#e7f5ea,stroke:#1d6b33,color:#0b0b0b
+    classDef next fill:#fff4d6,stroke:#b07d00,color:#0b0b0b
+    classDef later fill:#f0efec,stroke:#898781,color:#52514e
+    classDef input fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b
+    class BQ,TGT,LAY,CTX input
+    class PR input
+    class S1,S2,S3,S4,S5,S6,S7,S8,S9,S9R,S9F,S10,S11,S12,OUT,STOP done
+    class EV,TR,PUB later

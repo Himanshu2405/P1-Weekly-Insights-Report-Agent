@@ -1,0 +1,156 @@
+{
+  "week": "2026-04-20",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders reached 91.4% of the weekly target and revenue reached 90.7%.",
+      "reason": "Behind-target week stated with matching percentages in headline and summary."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose for a fourth straight week, from 13.6% to 15.5%.",
+      "reason": "Four-week streak with correct range is the lead watch-out."
+    },
+    {
+      "id": "streak_missed",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "A four-week run in the bad direction shows the trend is not reversing",
+      "reason": "Watch-outs are populated and lead with the cancellation streak."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week behind target on both orders and revenue, and the year stands at 93.9% of target",
+      "reason": "Gives behind-target verdict plus the year-to-date position and run-rate gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Jan, Feb, Mar and Apr (MTD) all finished behind target, with no month ahead.",
+      "reason": "All three watch-outs are genuine risks; key streak included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "each percentage point is worth $733 of revenue",
+      "reason": "Claims are arithmetic or direct readings of stated figures; no causal guessing."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says shortfall grew and quarter remains behind."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains growth beats assumption yet misses weekly target."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames improvement as counterweight to rising cancellations."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts acquisition direction with order growth; reads one number against another."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Trend not reversing plus revenue value per point."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes full-year target unreachable at present pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says shortfall is systemic, not a one-week issue."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Not just next week's numbers; says required pace rises from unmet level."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Positions quarter behind with requirement above recent pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States a step change is needed for the year."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Counterfactual: week would be further below orders target."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains region offset gains and held orders flat."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Attributes weekly change to regional mix rather than search."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains basket size, not volume, drove revenue growth."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links lost orders to widening target gap."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Adds another comparison and repeats the fall as improvement; no business meaning."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Concludes order growth is not from new accounts."
+    }
+  ],
+  "cost_usd": 0.102771,
+  "duration_s": 31.7
+}

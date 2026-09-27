@@ -23,3 +23,6 @@ dist/
 
 # Generated site (published by GitHub Actions in Phase 5)
 site/
+
+# Logs
+*.log

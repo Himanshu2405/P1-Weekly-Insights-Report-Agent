@@ -13,19 +13,19 @@ Purpose: this file is loaded into the LLM prompt every week. It holds stable fac
 ## 2. Audience for the report
 
 - Readers: Head of E-commerce (primary), Marketing lead, Finance and planning.
-- They read the report on Monday morning and want to know within 2 minutes: was last week good or bad, are we on plan, and what should we keep an eye on.
+- They read the report on Monday morning and want to know within 2 minutes: was last week good or bad, are we on target, and what should we keep an eye on.
 - They are business readers, not analysts. Plain language, no statistical jargon.
 
 ## 3. Reporting conventions
 
 - Reporting week: Monday 00:00 to Sunday 23:59 UTC. The report always covers the latest completed week.
 - "WoW" means the reporting week compared with the week before it.
-- "YoY" means the reporting week compared with the same week last year. YoY growth can be compared with the 75% growth the plan assumed.
+- "YoY" means the reporting week compared with the same week last year. YoY growth can be compared with the 75% growth the targets assumed.
 - Changes in counts and money are shown in percent (%). Changes in rates are shown in percentage points (pp). Example: a cancellation rate moving from 14.0% to 15.5% is "+1.5 pp", not "+10.7%".
 - Money is in US dollars.
 - Fiscal year = calendar year (Jan to Dec). A week belongs to the month and quarter that contain its Thursday.
 - "YTD" means fiscal year to date: from the first week of the year through the reporting week.
-- "ITPY" (index to prior year) = value / same week last year x 100. The plan assumes an index of 175 (75% growth). Above 175 means growing faster than the plan assumes, regardless of season.
+- "ITPY" (index to prior year) = value / same week last year x 100. The targets assume an index of 175 (75% growth). Above 175 means growing faster than the targets assume, regardless of season.
 
 ## 4. KPI glossary
 
@@ -37,19 +37,19 @@ Purpose: this file is loaded into the LLM prompt every week. It holds stable fac
 | Weekly Order Cancellation Rate | Share of the week's orders that were cancelled | Bad |
 | 14-Day Return Rate | Share of the week's orders that the customer returned within 14 days of placing the order (order date to return date). Customer behavior only, nothing to do with inventory or warehouse receipt. Reported for an EARLIER week (about 2 weeks before the reporting week), so every order in that week has had the full 14 days to be returned. It always refers to the week named in the data brief, never the reporting week | Bad |
 | Weekly New Customer Signups | Number of new customer accounts created in the week | Good |
-| Weekly Orders vs Target | Orders as a percentage of the plan target for the week. Above 100% means ahead of plan | Good |
-| Weekly Gross Revenue vs Target | Revenue as a percentage of the plan target for the week. Above 100% means ahead of plan | Good |
-| Quarter-to-Date (QTD) Gross Revenue vs Target | Revenue so far this quarter as a percentage of the plan for the same weeks | Good |
-| Year-to-Date (YTD) Gross Revenue vs Target | Revenue so far this fiscal year as a percentage of the plan for the same weeks. Comes with the full-year plan, the weekly revenue needed for the rest of the year to hit it, and the recent 8-week run-rate | Good |
+| Weekly Orders vs Target | Orders as a percentage of the target for the week. Above 100% means ahead of target | Good |
+| Weekly Gross Revenue vs Target | Revenue as a percentage of the target for the week. Above 100% means ahead of target | Good |
+| Quarter-to-Date (QTD) Gross Revenue vs Target | Revenue so far this quarter as a percentage of the targets for the same weeks | Good |
+| Year-to-Date (YTD) Gross Revenue vs Target | Revenue so far this fiscal year as a percentage of the targets for the same weeks. Comes with the full-year target, the weekly revenue needed for the rest of the year to hit it, and the recent 8-week run-rate | Good |
 
-## 5. Targets (the plan)
+## 5. Targets
 
-- Targets come from the annual plan, set at the start of the year. They are not forecasts and are not updated during the year.
-- The 2026 plan assumes 75% growth over the same week last year, so targets follow last year's seasonal pattern.
-- Growth vs last week and performance vs plan are different questions. A week can be up WoW and still behind plan, or down WoW and still ahead of plan.
+- Targets come from the annual targets, set at the start of the year. They are not forecasts and are not updated during the year.
+- The 2026 targets assume 75% growth over the same week last year, so targets follow last year's seasonal pattern.
+- Growth vs last week and performance vs target are different questions. A week can be up WoW and still behind target, or down WoW and still ahead of target.
 - A strong week does not mean the quarter is on track. QTD attainment is the measure for the quarter, YTD attainment for the year.
-- Comparing the required weekly run-rate with the recent 8-week run-rate shows whether the full-year plan is realistic at the current pace.
-- Targets exist for every week through the end of 2026, so next week's target and the full-quarter plan are known in advance.
+- Comparing the required weekly run-rate with the recent 8-week run-rate shows whether the full-year target is realistic at the current pace.
+- Targets exist for every week through the end of 2026, so next week's target and the full-quarter target are known in advance.
 
 ## 6. Cuts
 
@@ -67,5 +67,5 @@ Purpose: this file is loaded into the LLM prompt every week. It holds stable fac
 - Anomaly flags in the data brief are computed by code. When a flag is present, treat the movement as unusual and say so. Do not present it as normal business growth or decline.
 - Small changes are normal week-to-week noise. The data brief marks which changes are notable; do not dramatize changes it does not mark.
 - The data describes what happened, not why. There is no information about campaigns, pricing, promotions, stock levels, or competitors, so causes cannot be stated.
-- A "So what" is the business implication of a fact: what it means for the plan, the quarter, revenue, or how to read other numbers. It must follow from facts in the data brief (for example the revenue value of one percentage point of cancellations, the amount still needed to reach the quarterly plan, or a comparison between two KPIs). It is never a cause and never an instruction to act.
+- A "So what" is the business implication of a fact: what it means for the targets, the quarter, revenue, or how to read other numbers. It must follow from facts in the data brief (for example the revenue value of one percentage point of cancellations, the amount still needed to reach the quarterly target, or a comparison between two KPIs). It is never a cause and never an instruction to act.
 - Recent orders are still being processed and shipped. Status-based measures other than cancellations and the 14-Day Return Rate are not reported for this reason.

@@ -1,0 +1,156 @@
+{
+  "week": "2026-02-16",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "growth_but_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders jumped 13.4% to 789 ... revenue stayed behind target at 89.6%",
+      "reason": "Both the 13.4% order rise and 89.6% behind-target revenue are stated with correct figures."
+    },
+    {
+      "id": "cancellation_risk",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate of 19.0% is flagged as notable, with a 4.2 pp weekly rise",
+      "reason": "Cancellation rise to 19.0% (+4.2 pp) appears in watchouts as the main drag."
+    },
+    {
+      "id": "strong_week",
+      "kind": "must_not_say",
+      "verdict": "fail",
+      "evidence": "Orders jumped 13.4% to 789, a strong week, but revenue stayed behind target",
+      "reason": "Headline explicitly calls it a strong week, and summary adds \"a good week for volume\"."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "revenue stayed behind target at 89.6% and cancellations rose sharply to 19.0%",
+      "reason": "Headline gives a behind-target verdict and names the cancellation risk alongside the gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is $415,309 against a target of $473,740, a shortfall of $58,431",
+      "reason": "All three watchouts are risks, shortfalls, or a maturity caveat; the cancellation risk is included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Signup growth over the year, at 5.1%, is far below order growth of 58.1%, so volume is leaning on existing customers.",
+      "reason": "Concluding volume leans on existing customers interprets beyond the reported signup and order data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Ties YoY growth to the growth rate targets assume."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains order strength did not close the revenue target gap."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Quantifies revenue drag offsetting order growth."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Only compares two growth numbers without saying what it means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Names cancellations as main drag on converting orders to revenue."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Gives required remaining revenue arithmetic without a verdict on feasibility."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Essentially restates the maturity definition and which week it covers."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates behind-target status and lists next week's targets."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says weekly growth has not shifted the cumulative position."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is a stretch at current run-rate."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats that EMEA led, adding a share number only."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes breadth of growth yet still short of revenue target."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Repeats channel contribution numbers without business meaning."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue is volume/cancellation driven, not basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links worsening cancellations to revenue captured from orders."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the two comparisons and the reference week."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Reads volume as leaning on existing customers, not new ones."
+    }
+  ],
+  "cost_usd": 0.104061,
+  "duration_s": 32.4
+}

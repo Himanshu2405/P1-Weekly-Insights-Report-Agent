@@ -9,7 +9,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, ConfigDict
 
-BRIEF_VERSION = "1.1"
+BRIEF_VERSION = "1.3"
 
 
 class Strict(BaseModel):
@@ -39,7 +39,7 @@ class Meta(Strict):
     source: str
     target_version: str
     layout_version: str
-    plan_growth_pct: float
+    target_growth_pct: float
 
 
 class QualityCheck(Strict):
@@ -66,6 +66,7 @@ class Kpi(Strict):
     value: float
     prior_week: Optional[float]
     wow_change: Optional[float]
+    wow_abs_change: Optional[float] = None   # value minus prior week, for counts and money (e.g. +49 orders)
     wow_direction: Direction
     wow_assessment: Assessment
     last_year: Optional[float]
@@ -102,8 +103,8 @@ class QtdTarget(Strict):
     attainment_pct: float
     gap: float
     status: Literal["ahead", "behind", "on_target"]
-    full_quarter_plan: float
-    remaining_to_full_quarter_plan: float
+    full_quarter_target: float
+    remaining_to_full_quarter_target: float
     weeks_left: int
 
 
@@ -114,18 +115,18 @@ class YtdTarget(Strict):
     attainment_pct: float
     gap: float
     status: Literal["ahead", "behind", "on_target"]
-    full_year_plan: float
-    remaining_to_full_year_plan: float
+    full_year_target: float
+    remaining_to_full_year_target: float
     weeks_left: int
-    required_weekly_run_rate: Optional[float]   # revenue per week needed for the rest of the year to hit plan
+    required_weekly_run_rate: Optional[float]   # revenue per week needed for the rest of the year to hit the target
     current_8wk_run_rate: float                 # average weekly revenue over the last 8 weeks
 
 
-class MonthVsPlan(Strict):
+class MonthVsTarget(Strict):
     month: str                  # YYYY-MM (week assigned by its Thursday)
     label: str                  # "Jan", "Aug (MTD)"
     actual: Optional[float]     # None for future months
-    plan: float                 # full-month plan (or plan to date for the current month)
+    target: float                 # full-month target (or target to date for the current month)
     variance: Optional[float]
     attainment_pct: Optional[float]
     status: Literal["complete", "month_to_date", "future"]
@@ -136,7 +137,7 @@ class Targets(Strict):
     revenue_vs_target: WeeklyTarget
     qtd_revenue_vs_target: QtdTarget
     ytd_revenue_vs_target: YtdTarget
-    monthly_revenue: list[MonthVsPlan]
+    monthly_revenue: list[MonthVsTarget]
 
 
 class Segment(Strict):
@@ -169,7 +170,7 @@ class History(Strict):
 
 class Flag(Strict):
     id: str
-    type: Literal["anomaly", "streak", "plan_context", "maturity"]
+    type: Literal["anomaly", "streak", "target_context", "maturity"]
     severity: Literal["serious", "warning"]
     kpi: str
     detected_by: Literal["code"] = "code"
@@ -184,25 +185,25 @@ class TopContributor(Strict):
 
 class SoWhatFacts(Strict):
     next_week_targets: dict[str, Optional[float]]
-    full_quarter_plan: float
-    quarter_remaining_to_plan: float
+    full_quarter_target: float
+    quarter_remaining_to_target: float
     qtd_attainment_excl_flagged_pct: Optional[float]
     revenue_per_pp_cancellation: float
     avg_8wk: dict[str, float]
     top_contributor: dict[str, TopContributor]
-    yoy_vs_plan_growth: dict[str, Optional[float]]
+    yoy_vs_target_growth: dict[str, Optional[float]]
     signups_vs_orders_growth: dict[str, Optional[float]]
     segments_all_growing: dict[str, bool]
-    full_year_plan: float
+    full_year_target: float
     ytd_attainment_pct: float
     required_weekly_revenue_run_rate: Optional[float]
     current_8wk_revenue_run_rate: float
-    months_ahead_of_plan: list[str]
-    months_behind_plan: list[str]
+    months_ahead_of_target: list[str]
+    months_behind_target: list[str]
 
 
 class DataBrief(Strict):
-    brief_version: Literal["1.1"] = BRIEF_VERSION
+    brief_version: Literal["1.3"] = BRIEF_VERSION
     meta: Meta
     data_quality: DataQuality
     kpis: Kpis

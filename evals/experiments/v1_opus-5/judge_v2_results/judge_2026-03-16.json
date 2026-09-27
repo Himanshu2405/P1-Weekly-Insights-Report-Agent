@@ -1,0 +1,59 @@
+{
+  "week": "2026-03-16",
+  "status": "verified_after_retry",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue finished at 101.8% of target... remains behind at 92.6% attainment... with one week left in the quarter.",
+      "reason": "Both the ahead-of-target week (101.8%) and Q1 behind at 92.6% with one week left are stated."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen three weeks in a row, from 14.3% to 16.4%.",
+      "reason": "Appears in watchouts with correct streak and figures, framed as material risk."
+    },
+    {
+      "id": "q1_will_hit",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "so the quarter is set to close behind target",
+      "reason": "Commentary states the quarter will close behind, never implying Q1 reaches target."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Next week's bar is higher, at 831 orders and $68,006 of revenue.",
+      "reason": "At least four so_whats only restate facts, add numbers, or restate the maturity definition."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue beat weekly targets and hit an 8-week high, but the quarter stays behind at 92.6%",
+      "reason": "Gives an ahead verdict for the week plus quarter position and cancellation risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen three weeks in a row",
+      "reason": "All three watch-outs are risks or read-the-numbers caveats; key cancellation risk included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "That is roughly double this week's $60,698, so the quarter is set to close behind target.",
+      "reason": "Claims trace back to stated figures; no guessed causes or interpretation beyond data."
+    }
+  ],
+  "cost_usd": 0.12339800000000001,
+  "duration_s": 30.9
+}

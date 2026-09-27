@@ -1,0 +1,59 @@
+{
+  "week": "2026-02-23",
+  "status": "verified",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead",
+      "kind": "must_say",
+      "verdict": "fail",
+      "evidence": "Strong week: orders 817 and revenue $62,651 both beat weekly targets",
+      "reason": "Ahead-of-target with correct 108.7%/101.2% is conveyed, but it never says this is the first week ahead this year."
+    },
+    {
+      "id": "quarter_still_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "the quarter remains behind at 90% of target with four weeks left",
+      "reason": "Quarter behind at 90.0% with four weeks remaining is stated explicitly and repeated in vs_target."
+    },
+    {
+      "id": "quarter_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "One strong week has not closed the quarter gap; $296,595 is still needed",
+      "reason": "Commentary consistently presents quarter and year as behind target, never implying either is on track."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At this pace the gap to target builds even in weeks that beat their own weekly target.",
+      "reason": "Nearly all so_whats state target, quarter, risk or read-through meaning; only one mainly restates with a number."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Strong week: ... both beat weekly targets, but the quarter remains behind at 90% of target",
+      "reason": "Headline gives an ahead-of-target verdict and names the quarter shortfall as the key issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Both completed months are behind target: Jan at 88.0% and Feb at 92.4%",
+      "reason": "All three watch-outs are caveats or worsening trends, including the quarter shortfall risk from the key."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Order growth is far outpacing new customer growth, so the week leaned on the existing customer base.",
+      "reason": "Infers reliance on existing customers and predicts the target gap will build, going beyond the stated facts."
+    }
+  ],
+  "cost_usd": 0.08965050000000001,
+  "duration_s": 28.4
+}

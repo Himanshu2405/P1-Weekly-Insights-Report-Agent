@@ -81,7 +81,7 @@ def kpi_cards(run: RunData, layout: dict) -> list[dict]:
     for key, tgt, kind in (("orders_vs_target", t.orders_vs_target, "count"), ("revenue_vs_target", t.revenue_vs_target, "usd")):
         col = "orders" if kind == "count" else "revenue"
         weeks8 = [run.weeks.reporting - timedelta(weeks=i) for i in range(7, -1, -1)]
-        att = [100 * run.kpis.at[w, col] / run.plan.at[w, f"{col}_target"] if w in run.plan.index and w in run.kpis.index else None
+        att = [100 * run.kpis.at[w, col] / run.target_table.at[w, f"{col}_target"] if w in run.target_table.index and w in run.kpis.index else None
                for w in weeks8]
         cards.append({
             "name": reg[key]["name"], "value": f"{tgt.attainment_pct:.1f}%",
@@ -92,12 +92,12 @@ def kpi_cards(run: RunData, layout: dict) -> list[dict]:
     q = t.qtd_revenue_vs_target
     done = [w for w in run.weeks.quarter_weeks if w <= run.weeks.reporting]
     cum_a = run.kpis.loc[done, "revenue"].cumsum()
-    cum_p = run.plan.loc[done, "revenue_target"].cumsum()
+    cum_p = run.target_table.loc[done, "revenue_target"].cumsum()
     cards.append({
         "name": reg["qtd_revenue_vs_target"]["name"], "value": f"{q.attainment_pct:.1f}%",
-        "deltas": [(f"{fmt_signed(q.gap, 'usd')} vs plan", "good" if q.gap >= 0 else "bad", "up" if q.gap >= 0 else "down")],
+        "deltas": [(f"{fmt_signed(q.gap, 'usd')} vs target", "good" if q.gap >= 0 else "bad", "up" if q.gap >= 0 else "down")],
         "spark": sparkline((100 * cum_a / cum_p).tolist()[-8:]),
-        "foot": f"Full-quarter plan {fmt(q.full_quarter_plan, 'usd')} · {q.weeks_left} week{'s' if q.weeks_left != 1 else ''} left",
+        "foot": f"Full-quarter target {fmt(q.full_quarter_target, 'usd')} · {q.weeks_left} week{'s' if q.weeks_left != 1 else ''} left",
     })
     return cards
 
@@ -108,7 +108,7 @@ def tiles(run: RunData) -> list[dict]:
     o, r, q, y = t.orders_vs_target, t.revenue_vs_target, t.qtd_revenue_vs_target, t.ytd_revenue_vs_target
 
     def pill(status):
-        return {"ahead": ("Ahead of plan", "good"), "behind": ("Behind plan", "bad"), "on_target": ("On plan", "flat")}[status]
+        return {"ahead": ("Ahead of target", "good"), "behind": ("Behind target", "bad"), "on_target": ("On target", "flat")}[status]
 
     def s_(n):
         return "s" if n != 1 else ""
@@ -122,10 +122,10 @@ def tiles(run: RunData) -> list[dict]:
         {"label": "Weekly revenue vs target", "pct": r.attainment_pct, "pill": pill(r.status),
          "detail": f"{fmt(r.actual, 'usd')} vs {fmt(r.target, 'usd')} ({fmt_signed(r.gap, 'usd')})",
          "next": f"Next week's target: {fmt(r.next_week_target, 'usd')}"},
-        {"label": f"Q{run.weeks.quarter[1]} revenue to date vs plan", "pct": q.attainment_pct, "pill": pill(q.status),
+        {"label": f"Q{run.weeks.quarter[1]} revenue to date vs target", "pct": q.attainment_pct, "pill": pill(q.status),
          "detail": f"{fmt(q.actual, 'usd')} vs {fmt(q.target_to_date, 'usd')} ({fmt_signed(q.gap, 'usd')})",
-         "next": f"Quarter plan {fmt(q.full_quarter_plan, 'usd')}, {q.weeks_left} week{s_(q.weeks_left)} left"},
-        {"label": f"FY{y.fiscal_year} revenue to date vs plan", "pct": y.attainment_pct, "pill": pill(y.status),
+         "next": f"Quarter target {fmt(q.full_quarter_target, 'usd')}, {q.weeks_left} week{s_(q.weeks_left)} left"},
+        {"label": f"FY{y.fiscal_year} revenue to date vs target", "pct": y.attainment_pct, "pill": pill(y.status),
          "detail": f"{fmt(y.actual, 'usd')} vs {fmt(y.target_to_date, 'usd')} ({fmt_signed(y.gap, 'usd')})",
          "next": need},
     ]
@@ -146,10 +146,10 @@ def code_watchouts(run: RunData, layout: dict) -> list[dict]:
             text = (f"{names[f.kpi]} has moved in the wrong direction {x['weeks']} weeks in a row, "
                     f"from {x['from']:.1f}% to {x['to']:.1f}%.")
             label = "Trend"
-        elif f.type == "plan_context":
+        elif f.type == "target_context":
             text = (f"Excluding the flagged week, quarter-to-date revenue would be {x['qtd_attainment_excl_flagged_pct']:.1f}% "
-                    f"of plan instead of {x['qtd_attainment_pct']:.1f}%.")
-            label = "Plan context"
+                    f"of target instead of {x['qtd_attainment_pct']:.1f}%.")
+            label = "Target context"
         else:
             text = (f"14-Day Return Rate is reported for the week of {pd.Timestamp(x['mature_week_start']):%b %-d}. "
                     f"The {x['immature_weeks']} most recent weeks are not yet mature.")
@@ -194,7 +194,34 @@ def archive(current: str) -> list[dict]:
 
 # ---------------------------------------------------------------- render
 
-def render(run: RunData) -> Path:
+def ai_context(outcome) -> dict:
+    """What the page needs to know about the AI commentary for this run."""
+    if outcome is None:
+        return {"status": "not_generated", "badge": "AI commentary: not generated", "badge_class": "pending",
+                "commentary": {}, "checks": [], "details": []}
+    checks = (outcome.guard_report or {}).get("checks", [])
+    blocks = [c for c in checks if c["severity"] == "block"]
+    warns = [c for c in checks if c["severity"] == "warn" and not c["passed"]]
+    if outcome.status == "fallback":
+        badge, cls = "Commentary unavailable: automated checks failed", "fail"
+    else:
+        badge = f"AI commentary verified: {sum(c['passed'] for c in blocks)} of {len(blocks)} checks passed"
+        badge += f", {len(warns)} warning{'s' if len(warns) != 1 else ''}" if warns else ""
+        cls = "ok"
+    t = outcome.tokens
+    details = [
+        ("Model", outcome.model), ("Prompt version", outcome.prompt_version),
+        ("Engine", "Claude Code headless (subscription)" if outcome.backend == "claude_headless" else outcome.backend),
+        ("Attempts", f"{len(outcome.attempts)}" + (" (retried after failed checks)" if len(outcome.attempts) > 1 else "")),
+        ("Tokens", f"{t.get('input', 0) + t.get('cache_write', 0) + t.get('cache_read', 0):,} in / {t.get('output', 0):,} out"),
+        ("LLM cost (API equivalent)", f"${outcome.cost_usd:.4f}" + (" (reused, no new call)" if outcome.cache_hit else "")),
+        ("LLM time", f"{outcome.duration_ms / 1000:.1f} s"),
+    ]
+    return {"status": outcome.status, "badge": badge, "badge_class": cls, "commentary": outcome.commentary or {},
+            "checks": checks, "details": details}
+
+
+def render(run: RunData, outcome=None) -> Path:
     layout = yaml.safe_load(config.LAYOUT_FILE.read_text())
     b, w = run.brief, run.weeks
     for section in layout["sections"]:
@@ -223,6 +250,7 @@ def render(run: RunData) -> Path:
         "run": {"run_id": b.meta.run_id, "bytes": "0 MB (cache hit)" if run.cache_hit else f"{run.bytes_billed / 1e6:.0f} MB", "target_version": b.meta.target_version,
                 "brief_version": b.brief_version, "layout_version": b.meta.layout_version},
         "archive": archive(w.reporting.isoformat()),
+        "ai": ai_context(outcome),
         "charts_json": json.dumps(chart_data.build(layout, run)),
         "kpi_formats_json": json.dumps({k: v["format"] for k, v in layout["kpis"].items()}),
     }

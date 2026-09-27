@@ -1,0 +1,156 @@
+{
+  "week": "2026-06-15",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "down_but_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders came in at 980, down 1.5% week on week... Orders finished at 106.9% of the weekly target... revenue at 113.6%",
+      "reason": "The dip, the ahead-of-target verdict, and both attainment figures are all stated and match the key."
+    },
+    {
+      "id": "quarter_just_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is $811,926, or 100.1% of the target for the same weeks, with one week left in the quarter.",
+      "reason": "QTD 100.1% with one week remaining is stated explicitly, and described as only marginally ahead."
+    },
+    {
+      "id": "behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on both orders and revenue",
+      "reason": "The week is consistently called ahead of target; the dip is never framed as a target miss."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on both orders and revenue, with revenue at 113.6%; the year to date remains behind target at 96.3%.",
+      "reason": "Headline gives an ahead-of-target verdict for the week and names the year-to-date shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At the recent pace the full-year target is out of reach.",
+      "reason": "All three watch-outs are genuine risks: year gap, fragile quarter surplus, and falling signups."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Customer additions are moving in the opposite direction to order growth, a risk to volume beyond this quarter.",
+      "reason": "Forward-looking claim about future volume, plus \"order growth is not being matched by account growth\", interprets beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how to read the beat: value as well as count."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Places the WoW dip against target attainment."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says the good week does not fix the year deficit."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Links lower cancellations to the week's revenue attainment."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Concludes the full-year target is unreachable at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States the condition under which the quarter surplus survives."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames divergence as a forward risk to volume."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says the beat built the quarter's surplus."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes quarter outcome hinges on the final week."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says required pace exceeds recent delivery."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats the contribution share already stated in the fact."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains that the largest channel set total orders' direction."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads the net: gains offset most but not all losses."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue rose on value, not volume."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Just multiplies the stated per-point value into another number."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says rising returns erode the gross revenue reported."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Reads signups against order growth as a mismatch."
+    }
+  ],
+  "cost_usd": 0.111456,
+  "duration_s": 74.7
+}

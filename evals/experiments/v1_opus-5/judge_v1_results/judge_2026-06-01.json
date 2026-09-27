@@ -1,0 +1,59 @@
+{
+  "week": "2026-06-01",
+  "status": "verified",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders reached 93.6% of the weekly target (gap of 64 orders) and revenue 90.2% (gap of $7,380), both behind.",
+      "reason": "Both attainment figures and the 8.7% revenue decline are stated and match the key."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue of $659,577 is 97.7% of target, $15,299 behind, in week 10 of 13.",
+      "reason": "QTD 97.7% behind target with 3 weeks left is explicitly conveyed."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "These gains cushioned the week, holding the total order decline to 2.8% rather than a steeper fall.",
+      "reason": "Tone stays measured and all three watch-outs are genuine caveats or trends, not invented drama."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Next week's targets are lower, at 894 orders and $67,665 of revenue.",
+      "reason": "Only one so_what merely adds numbers; the rest state clear business implications."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue fell week on week and landed behind target; year-on-year growth stayed strong but below the 75% the targets assume.",
+      "reason": "Headline gives a behind-target verdict and names growth lagging the assumed rate as the key issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue is behind target in Jan, Feb, Mar, Apr and June month-to-date, with only May ahead at 101.2%.",
+      "reason": "All three watch-outs are maturity caveats, worsening trends, or persistent target shortfalls."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Customer acquisition is shrinking against last year while orders grew 70.3%, so growth is leaning on existing customers.",
+      "reason": "Concludes growth leans on existing customers, an interpretation not readable from the stated facts."
+    }
+  ],
+  "cost_usd": 0.07359550000000001,
+  "duration_s": 20.7
+}

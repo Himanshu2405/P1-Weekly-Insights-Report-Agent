@@ -1,0 +1,156 @@
+{
+  "week": "2026-06-22",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "q2_closes_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Q2 closed at 100.7% of the quarterly revenue target ... revenue 107.5% ($78,682 vs $73,167)",
+      "reason": "Both the Q2 100.7% close and the week's 107.5% revenue attainment are stated correctly."
+    },
+    {
+      "id": "year_gap",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "YTD revenue is behind at 96.8% ... That requires $84,542 of revenue a week, against a recent 8-week run-rate of $71,736.",
+      "reason": "YTD 96.8% behind plus required $84,542 vs recent $71,736 are all conveyed accurately."
+    },
+    {
+      "id": "year_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "the year is behind",
+      "reason": "Commentary repeatedly states the year is behind target; never implies it is on track."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Record week: orders 1,030 and revenue $78,682, both ahead of target ... Q2 closed 100.7% of target but the year is behind.",
+      "reason": "Headline gives an ahead-of-target verdict and names the year position as the key issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "this is a meaningful improvement in order quality",
+      "reason": "Second watch-out presents an improvement as good news rather than a risk, worsening trend, or caveat."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "volume is leaning on the existing customer base",
+      "reason": "Infers a cause of growth from signup versus order rates, going beyond what the data shows."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Compares order growth to the 75% growth targets assume; says what it means."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Only adds target attainment numbers without saying what they mean."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Places quarter in context of prior months and confirms it is delivered."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States the strong week did not close the full-year gap."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader how to read the 9.7% figure given maturity lag."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Interprets the move as meaningful improvement in order quality, with revenue value."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Warns against treating the spike as baseline versus next week's targets."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Gives next week's targets without saying what they mean."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Repeats the quarter beat in dollars; adds a number, no implication."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Contrasts required weekly run-rate with actual, showing the year gap's difficulty."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains North America fully accounts for growth and offsets other declines."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains dependence on Search and how totals track it."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reframes declines as still above the growth rate targets assume."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue rose only 1.3% despite 5.1% order growth."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Only supplies a conversion figure; does not say what it means."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads returns alongside cancellations to judge order quality."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Draws conclusion that volume leans on existing customers."
+    }
+  ],
+  "cost_usd": 0.10320099999999999,
+  "duration_s": 30.1
+}

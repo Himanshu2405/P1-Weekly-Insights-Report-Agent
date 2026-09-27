@@ -8,16 +8,26 @@ SQL_DIR = Path(__file__).resolve().parent / "sql"
 TARGETS_FILE = ROOT / "targets" / "weekly_targets_2026.csv"
 BRIEFS_DIR = ROOT / "briefs"
 LAYOUT_FILE = ROOT / "report_layout.yaml"
+PROMPTS_DIR = ROOT / "prompts"
+BUSINESS_CONTEXT_FILE = ROOT / "business_context.md"
+COMMENTARY_DIR = ROOT / "commentary"
+RUNS_DIR = ROOT / "runs"
+
+# AI commentary (Claude Code headless today; API backend can be added behind llm.generate)
+PROMPT_VERSION = "v1"
+LLM_MODEL = "claude-opus-5"
+LLM_TIMEOUT_SECONDS = 300
+LLM_TRANSPORT_RETRIES = 2      # infrastructure retries (with backoff) per attempt
 
 # BigQuery
 GCP_PROJECT = "master-chariot-413216"
 SOURCE_DATASET = "bigquery-public-data.thelook_ecommerce"
 MAX_BYTES_BILLED = 500 * 1024**2  # hard stop: any single query scanning > 500 MB fails
 
-# Plan (targets)
-TARGET_VERSION = "plan_2026_v1"
-PLAN_YEAR = 2026
-PLAN_GROWTH_PCT = 75.0
+# Targets
+TARGET_VERSION = "targets_2026_v1"
+TARGET_YEAR = 2026
+TARGET_GROWTH_PCT = 75.0
 
 # Reporting clock. The public dataset has a data break from the week of 2026-09-14 (signups 6x,
 # orders 1.7x their 8-week average) and accelerating growth from 2026-08-10. The report is frozen

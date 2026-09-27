@@ -1,0 +1,156 @@
+{
+  "week": "2026-06-15",
+  "status": "verified_after_retry",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "down_but_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders came in at 980, down 1.5% from 995 last week ... Both weekly targets were beaten: orders at 106.9% of target and revenue at 113.6% of target.",
+      "reason": "Both the 1.5% weekly dip and the ahead-of-target attainment figures are stated correctly."
+    },
+    {
+      "id": "quarter_just_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is $811,926, just 100.1% of target, with $72,160 still needed in the final week of the quarter.",
+      "reason": "QTD 100.1% and one week remaining are both conveyed accurately."
+    },
+    {
+      "id": "behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The week was ahead on both measures",
+      "reason": "Commentary consistently calls the week ahead of target; only the year is described as behind."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue of $77,678 beat the weekly target at 113.6% attainment, while orders slipped 1.5% week on week and the year stays behind target.",
+      "reason": "Headline gives an ahead-of-target verdict for the week and names the year-to-date shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The cancellation rate fell 1.7 pp to 14.5%, a move at or above the 1.0 pp notable threshold and rated good.",
+      "reason": "An explicitly good improvement is listed as a watch-out rather than a risk or caveat."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Order growth is not being matched by new customer growth, which is a point to monitor for future demand.",
+      "reason": "Infers a forward-looking demand concern from signups versus orders, going beyond the stated facts."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Interprets revenue vs 8-week history as a notably strong week."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says dip leaves annual growth pace intact versus assumed 75%."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links beat to closing the year-to-date shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States catch-up still needed over remaining 28 weeks for full-year target."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains the rate must be read as a stale two-week-old signal."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Adds a revenue-per-point number and vague watch, no business meaning."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Quarter outcome hinges on final week hitting target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates the beat and simply lists next week's targets."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Final week decides whether the quarter lands on target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target out of reach at current pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains LATAM more than accounts for net decline, others offsetting."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says Search's share means it sets the overall order trend."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains these gains cushioned the declines."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue rose while orders fell."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects cancellation improvement to the week's revenue beat."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Only restates ratings and that changes are small."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames divergence between order and signup growth as something to monitor."
+    }
+  ],
+  "cost_usd": 0.108321,
+  "duration_s": 34.3
+}

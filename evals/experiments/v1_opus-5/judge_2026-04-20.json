@@ -1,0 +1,156 @@
+{
+  "week": "2026-04-20",
+  "status": "verified_after_retry",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Weekly orders hit 91.4% of target (840 vs 919) and weekly revenue 90.7% ($61,965 vs $68,310); both are behind.",
+      "reason": "Both attainment percentages stated correctly and explicitly described as behind target."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for four consecutive weeks, from 13.6% to 15.5%.",
+      "reason": "Streak with correct figures appears as the lead watch-out."
+    },
+    {
+      "id": "streak_missed",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "watchouts ... The cancellation rate has risen for four consecutive weeks",
+      "reason": "Watch-outs are populated and lead with the cancellation streak."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "but both landed behind target and every month remains behind",
+      "reason": "Headline gives a behind-target verdict and names the year-to-date monthly shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "QTD revenue ... 98.4% attainment and behind by $3,999.",
+      "reason": "All three watch-outs are a worsening trend, a data caveat, and a shortfall; key risk included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Higher value per order is why revenue grew 5.5% while orders grew only 0.7%.",
+      "reason": "Claims are arithmetic or comparative readings of stated figures; no guessed causes or predictions."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads growth against target assumption and notes the week still missed target."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says shortfall against target persists despite the weekly increase."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Only repeats improvement and adds the prior-year figure."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts signups with order growth, showing how to read the divergence."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Adds a revenue-per-point conversion without stating consequence."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Caveat changing how the return rate should be read."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Adds remaining-amount arithmetic without saying what it means."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only gives next week's targets with no interpretation."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames the YTD gap as every month behind, no month ahead."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is a stretch at current run-rate."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains LATAM more than accounts for the week's net order gain."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains offsetting regional moves leaving total orders flat."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says Search drives the week's source movement, Display the offset."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains AOV as the reason revenue outgrew orders."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Sizes cancellations against the weekly revenue gap to target."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Contrasts improving returns with worsening cancellations for order quality."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Merely restates that orders grew faster than signups."
+    }
+  ],
+  "cost_usd": 0.096291,
+  "duration_s": 29.2
+}

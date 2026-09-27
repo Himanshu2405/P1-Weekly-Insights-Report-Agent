@@ -1,0 +1,415 @@
+{
+  "week": "2026-06-15",
+  "status": "verified_after_retry",
+  "commentary": {
+    "summary": {
+      "headline": "Revenue of $77,678 beat the weekly target at 113.6% attainment, while orders slipped 1.5% week on week and the year stays behind target.",
+      "points": [
+        {
+          "what": "Weekly gross revenue was $77,678, up 4.0% on the prior week and up 92.4% year on year.",
+          "so_what": "This sits above the 8-week average of $68,426 and outside the 8-week range, so it is a notably strong revenue week."
+        },
+        {
+          "what": "Orders came in at 980, down 1.5% from 995 last week but up 84.6% year on year.",
+          "so_what": "Year-on-year growth of 84.6% is above the 75% growth the targets assume, so the small weekly dip leaves the annual pace intact."
+        },
+        {
+          "what": "Both weekly targets were beaten: orders at 106.9% of target and revenue at 113.6% of target.",
+          "so_what": "The week added $9,300 of revenue above target, helping close the year-to-date shortfall."
+        },
+        {
+          "what": "Year-to-date revenue is $1,527,483, or 96.3% of the target to date, a gap of $57,991.",
+          "so_what": "Despite the strong week, the full-year target of $3,888,802 still requires catch-up over the remaining 28 weeks."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The 14-Day Return Rate of 9.4% refers to the mature week of 01 Jun 2026; the two most recent weeks are not yet mature.",
+          "so_what": "Return behaviour for the reporting week cannot be judged yet, so this rate should be read as a two-week-old signal."
+        },
+        {
+          "what": "The cancellation rate fell 1.7 pp to 14.5%, a move at or above the 1.0 pp notable threshold and rated good.",
+          "so_what": "At $908 of revenue per percentage point of cancellations, this shift is worth watching for whether it holds."
+        },
+        {
+          "what": "Quarter-to-date revenue is $811,926, just 100.1% of target, with $72,160 still needed in the final week of the quarter.",
+          "so_what": "With one week left, the quarter's outcome depends on a week close to the $73,167 revenue target."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Weekly orders of 980 were 63 above the target of 917 (106.9%), and revenue of $77,678 was $9,300 above its $68,378 target (113.6%).",
+          "so_what": "The week was ahead on both measures, against next week's targets of 952 orders and $73,167 revenue."
+        },
+        {
+          "what": "Quarter-to-date revenue is 100.1% of target at $811,926, with $72,160 remaining against the full-quarter target of $884,086.",
+          "so_what": "The quarter is only marginally ahead, so the final week decides whether 2026-Q2 lands on target."
+        },
+        {
+          "what": "Year-to-date attainment is 96.3% and the required weekly run-rate for the rest of the year is $84,333 versus a current 8-week run-rate of $70,390.",
+          "so_what": "At the present pace the $3,888,802 full-year target is out of reach, as May and June are the only months ahead of target so far."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "LATAM orders fell 18.0% to 137, a contribution of -30 orders and 200% of the total weekly change.",
+          "so_what": "LATAM alone more than accounts for the 15-order decline, with other regions partly offsetting it."
+        },
+        {
+          "what": "Search orders dropped 6.1% to 683, contributing -44 orders, or 293.3% of the weekly change.",
+          "so_what": "Search carries 69.7% of all orders, so its direction sets the overall order trend."
+        },
+        {
+          "what": "EMEA rose 16.4% to 192 orders (+27) and Organic rose 21.1% to 161 orders (+28).",
+          "so_what": "These gains cushioned the declines, and all four regions remain up year on year."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "Average order value reached $92.69, up 3.5% on the week and 4.0% year on year, outside its 8-week range.",
+          "so_what": "Higher value per order explains how revenue rose 4.0% while orders fell 1.5%."
+        },
+        {
+          "what": "The cancellation rate improved to 14.5%, down 1.7 pp from 16.2% and 0.2 pp below last year.",
+          "so_what": "Each percentage point of cancellations is worth about $908 of revenue, so this improvement supports the week's revenue beat."
+        },
+        {
+          "what": "The 14-Day Return Rate for the mature week of 01 Jun 2026 was 9.4%, up 0.1 pp on the prior week and 0.2 pp year on year.",
+          "so_what": "Both movements are rated bad, though the changes are small and not marked as notable."
+        },
+        {
+          "what": "New customer signups were 241, down 0.4% on the week and down 11.4% year on year, while orders grew 84.6% year on year.",
+          "so_what": "Order growth is not being matched by new customer growth, which is a point to monitor for future demand."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "vs_target point 1 what: 8 numbers",
+          "drivers point 3 what: 6 numbers"
+        ]
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v1",
+  "model": "claude-opus-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": false,
+      "error": null,
+      "duration_ms": 26401,
+      "cost_usd": 0.1342465,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6714,
+        "cache_read": 5143,
+        "output": 2581,
+        "thinking": 834
+      },
+      "blocking_failures": [
+        "numbers exist in the brief"
+      ],
+      "guard_details": {
+        "numbers exist in the brief": [
+          "summary headline: '13.6' is not in the brief"
+        ],
+        "sentences at most 30 words and 4 numbers": [
+          "summary headline: 5 numbers",
+          "summary point 1 what: 5 numbers",
+          "vs_target point 1 what: 6 numbers",
+          "drivers point 2 what: 6 numbers",
+          "drivers point 3 what: 7 numbers"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'84.6' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'$72,160' appears in 3 slots: ['summary', 'vs_target', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Revenue hit $77,678, up 4.0% and 13.6% ahead of the weekly target, while orders eased 1.5%; the year remains behind target at 96.3%.",
+          "points": [
+            {
+              "what": "Weekly gross revenue reached $77,678, up 4.0% week on week and outside its 8-week range, against an 8-week average of $68,426.",
+              "so_what": "Revenue came in 113.6% of the weekly target, a $9,300 cushion against next week's $73,167 target."
+            },
+            {
+              "what": "Orders fell 1.5% to 980 from 995, but were 84.6% above the same week last year.",
+              "so_what": "That growth is above the 75% the targets assume, and orders still landed 106.9% of the weekly target of 917."
+            },
+            {
+              "what": "Quarter-to-date revenue is $811,926, or 100.1% of the target to date, with one week left in 2026-Q2.",
+              "so_what": "Reaching the full-quarter target of $884,086 requires $72,160 in the final week."
+            },
+            {
+              "what": "Year-to-date revenue of $1,527,483 is 96.3% of target, a shortfall of $57,991.",
+              "so_what": "A strong week does not change the year position, which remains behind target."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate of 9.4% refers to the mature week of 01 Jun 2026; the two most recent weeks are not yet mature.",
+              "so_what": "Return behaviour for the reporting week cannot be judged yet, so read this rate as an earlier-week signal."
+            },
+            {
+              "what": "New customer signups were 241, down 11.4% against the same week last year and down 0.4% week on week.",
+              "so_what": "Signups are shrinking year on year while orders grow 84.6%, so order growth is not coming from new account creation."
+            },
+            {
+              "what": "Quarter-to-date attainment is only 100.1%, leaving $72,160 to be earned in the last week of the quarter.",
+              "so_what": "That required amount is close to this week's $77,678, so the quarter target is within reach but not secured."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders reached 106.9% of the weekly target (980 vs 917) and revenue 113.6% (%$77,678 vs $68,378), both ahead.",
+              "so_what": "Next week's bar rises to 952 orders and $73,167 revenue."
+            },
+            {
+              "what": "Quarter-to-date revenue is $811,926 against a target to date of $810,919, ahead by $1,007.",
+              "so_what": "With one week left, $72,160 more is needed to reach the full-quarter target of $884,086."
+            },
+            {
+              "what": "Year-to-date revenue is behind at 96.3% of target, and the remaining $2,361,319 over 28 weeks needs $84,333 per week.",
+              "so_what": "The recent 8-week run-rate of $70,390 is below that required pace, so the full-year target of $3,888,802 is at risk."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "LATAM orders fell 18.0% to 137, a contribution of -30 orders and 200% of the total weekly change.",
+              "so_what": "LATAM alone more than accounts for the 15-order decline, with other regions partly offsetting it."
+            },
+            {
+              "what": "Search orders dropped 6.1% to 683, contributing -44 orders, or 293.3% of the change, while Organic added 28 orders, up 21.1%.",
+              "so_what": "Search remains 69.7% of all orders, so its direction sets the weekly total despite Organic's gain."
+            },
+            {
+              "what": "EMEA rose 16.4% to 192 orders (+27) and APAC edged up 0.7% to 455, while North America fell 7.1% to 196.",
+              "so_what": "Every region is still above last year, with EMEA up 106.5% and North America up 48.5%."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "Average order value rose 3.5% to $92.69, above its 8-week range and 4.0% higher than last year.",
+              "so_what": "Higher value per order explains how revenue grew 4.0% in a week when orders fell 1.5%."
+            },
+            {
+              "what": "The cancellation rate improved 1.7 pp to 14.5%, down from 16.2% and below last year's 14.7%.",
+              "so_what": "Each percentage point of cancellations is worth about $908 of revenue, so this move supports the week's revenue."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 01 Jun 2026 was 9.4%, up 0.1 pp on the prior week and 0.2 pp on last year.",
+              "so_what": "Returns are edging up slightly, and they are not deducted from the reported gross revenue figure."
+            },
+            {
+              "what": "New customer signups were 241, down 0.4% week on week and down 11.4% year on year.",
+              "so_what": "Customer acquisition is not keeping pace with the 84.6% year-on-year growth in orders."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": 2,
+      "ok": true,
+      "error": null,
+      "duration_ms": 31131,
+      "cost_usd": 0.13591150000000002,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6773,
+        "cache_read": 5143,
+        "output": 2624,
+        "thinking": 846
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "sentences at most 30 words and 4 numbers": [
+          "vs_target point 1 what: 8 numbers",
+          "drivers point 3 what: 6 numbers"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Revenue of $77,678 beat the weekly target at 113.6% attainment, while orders slipped 1.5% week on week and the year stays behind target.",
+          "points": [
+            {
+              "what": "Weekly gross revenue was $77,678, up 4.0% on the prior week and up 92.4% year on year.",
+              "so_what": "This sits above the 8-week average of $68,426 and outside the 8-week range, so it is a notably strong revenue week."
+            },
+            {
+              "what": "Orders came in at 980, down 1.5% from 995 last week but up 84.6% year on year.",
+              "so_what": "Year-on-year growth of 84.6% is above the 75% growth the targets assume, so the small weekly dip leaves the annual pace intact."
+            },
+            {
+              "what": "Both weekly targets were beaten: orders at 106.9% of target and revenue at 113.6% of target.",
+              "so_what": "The week added $9,300 of revenue above target, helping close the year-to-date shortfall."
+            },
+            {
+              "what": "Year-to-date revenue is $1,527,483, or 96.3% of the target to date, a gap of $57,991.",
+              "so_what": "Despite the strong week, the full-year target of $3,888,802 still requires catch-up over the remaining 28 weeks."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate of 9.4% refers to the mature week of 01 Jun 2026; the two most recent weeks are not yet mature.",
+              "so_what": "Return behaviour for the reporting week cannot be judged yet, so this rate should be read as a two-week-old signal."
+            },
+            {
+              "what": "The cancellation rate fell 1.7 pp to 14.5%, a move at or above the 1.0 pp notable threshold and rated good.",
+              "so_what": "At $908 of revenue per percentage point of cancellations, this shift is worth watching for whether it holds."
+            },
+            {
+              "what": "Quarter-to-date revenue is $811,926, just 100.1% of target, with $72,160 still needed in the final week of the quarter.",
+              "so_what": "With one week left, the quarter's outcome depends on a week close to the $73,167 revenue target."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Weekly orders of 980 were 63 above the target of 917 (106.9%), and revenue of $77,678 was $9,300 above its $68,378 target (113.6%).",
+              "so_what": "The week was ahead on both measures, against next week's targets of 952 orders and $73,167 revenue."
+            },
+            {
+              "what": "Quarter-to-date revenue is 100.1% of target at $811,926, with $72,160 remaining against the full-quarter target of $884,086.",
+              "so_what": "The quarter is only marginally ahead, so the final week decides whether 2026-Q2 lands on target."
+            },
+            {
+              "what": "Year-to-date attainment is 96.3% and the required weekly run-rate for the rest of the year is $84,333 versus a current 8-week run-rate of $70,390.",
+              "so_what": "At the present pace the $3,888,802 full-year target is out of reach, as May and June are the only months ahead of target so far."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "LATAM orders fell 18.0% to 137, a contribution of -30 orders and 200% of the total weekly change.",
+              "so_what": "LATAM alone more than accounts for the 15-order decline, with other regions partly offsetting it."
+            },
+            {
+              "what": "Search orders dropped 6.1% to 683, contributing -44 orders, or 293.3% of the weekly change.",
+              "so_what": "Search carries 69.7% of all orders, so its direction sets the overall order trend."
+            },
+            {
+              "what": "EMEA rose 16.4% to 192 orders (+27) and Organic rose 21.1% to 161 orders (+28).",
+              "so_what": "These gains cushioned the declines, and all four regions remain up year on year."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "Average order value reached $92.69, up 3.5% on the week and 4.0% year on year, outside its 8-week range.",
+              "so_what": "Higher value per order explains how revenue rose 4.0% while orders fell 1.5%."
+            },
+            {
+              "what": "The cancellation rate improved to 14.5%, down 1.7 pp from 16.2% and 0.2 pp below last year.",
+              "so_what": "Each percentage point of cancellations is worth about $908 of revenue, so this improvement supports the week's revenue beat."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 01 Jun 2026 was 9.4%, up 0.1 pp on the prior week and 0.2 pp year on year.",
+              "so_what": "Both movements are rated bad, though the changes are small and not marked as notable."
+            },
+            {
+              "what": "New customer signups were 241, down 0.4% on the week and down 11.4% year on year, while orders grew 84.6% year on year.",
+              "so_what": "Order growth is not being matched by new customer growth, which is a point to monitor for future demand."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "d01144fc1c4990c9",
+  "cache_hit": false,
+  "cost_usd": 0.2702,
+  "duration_ms": 57532,
+  "tokens": {
+    "input": 4,
+    "cache_write": 13487,
+    "cache_read": 10286,
+    "output": 5205,
+    "thinking": 1680
+  }
+}

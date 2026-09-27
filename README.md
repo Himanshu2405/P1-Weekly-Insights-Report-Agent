@@ -27,6 +27,7 @@ Monday 8 AM ET (GitHub Actions)
 
 | Doc | What it answers |
 |---|---|
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Flow diagram of the whole pipeline, step by step |
 | [PRD.md](PRD.md) | What and why: problem, users, goals, reliability requirements, success metrics |
 | [TECH_SPEC.md](TECH_SPEC.md) | How it works: data, KPI definitions, targets, architecture, data brief schema |
 | [PLAN.md](PLAN.md) | When: phases, checklist |

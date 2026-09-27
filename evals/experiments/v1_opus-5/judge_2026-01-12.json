@@ -1,0 +1,163 @@
+{
+  "week": "2026-01-12",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "deep_miss",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue reached 74.9% of the $68,109 weekly target, leaving a gap of $17,106.",
+      "reason": "Explicitly states revenue at 74.9% of target and headline says 'stayed well behind target'."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue of $150,921 is 83.7% of the $180,401 target to date... With 10 weeks left",
+      "reason": "QTD 83.7% shortfall and 10 remaining weeks both stated."
+    },
+    {
+      "id": "cancellation_improved",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Cancellation rate fell 2.1 pp to 11.4%, a good move and the lowest of the last eight weeks.",
+      "reason": "Improvement stated with correct magnitude and framed as good news."
+    },
+    {
+      "id": "softened",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "stayed well behind target",
+      "reason": "Miss is described as 'well behind target'; 'eased slightly' refers to the week-on-week move, not the gap."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue eased slightly and stayed well behind target, though cancellations improved sharply",
+      "reason": "Gives a clear behind-target verdict for the week and names the target shortfall as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The cancellation rate move of -2.1 pp is flagged as notable, above the 1.0 pp threshold.",
+      "reason": "A favourable cancellation-rate improvement is listed as a watch-out, so good news appears in the risk section."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The customer base is not expanding in line with the 48.4% year-on-year growth in orders.",
+      "reason": "Infers customer-base dynamics and that order growth is not from new accounts, beyond what the data shows."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads the week against 8-week averages to judge trend, not just restating."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links weekly shortfall to the growing quarter deficit."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains why growth still fell short of target assumptions."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Quantifies revenue value and says it cushioned the softer week."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Draws conclusion that order growth is not driven by new accounts."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says the size of the shift is material to weekly revenue."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Tells reader how to interpret returns given immaturity caveat."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only gives next week's targets without saying what they mean."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Adds remaining-amount numbers without interpreting achievability."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Compares run-rate to required pace, showing target is off track."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains EMEA more than accounts for decline with partial offsets."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says APAC offset most of EMEA weakness, interpreting the mix."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains Search share means it sets the total's direction."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Attributes wider revenue drop to lower AOV versus order decline."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Translates year-on-year improvement into meaningful revenue value."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Merely repeats the week-on-week and year-on-year return movements."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts signup decline with order growth to interpret customer base."
+    }
+  ],
+  "cost_usd": 0.114071,
+  "duration_s": 48.0
+}

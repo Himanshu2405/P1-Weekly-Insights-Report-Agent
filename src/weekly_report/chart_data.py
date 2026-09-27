@@ -35,7 +35,7 @@ def fiscal_year_line(comp: dict, run: RunData) -> dict:
     actual = [v if w <= run.weeks.reporting else None for w, v in zip(fy, _series(run.kpis, fy, kpi))]
     out = {"type": "line", "x": [w.isoformat() for w in fy], "unit": kpi,
            "series": [{"name": "Actual", "y": actual, "role": "actual"},
-                      {"name": "Target", "y": [float(run.plan.at[w, f"{kpi}_target"]) for w in fy], "role": "target"}]}
+                      {"name": "Target", "y": [float(run.target_table.at[w, f"{kpi}_target"]) for w in fy], "role": "target"}]}
     if comp.get("quarter_bands"):
         out["bands"] = _quarter_bands(fy)
     if comp.get("mark_report_week"):
@@ -52,7 +52,7 @@ def itpy_chart(comp: dict, run: RunData) -> dict:
         series.append({"name": comp_name(kpi), "y": [round(100 * c / l, 1) if c and l else None for c, l in zip(cur, ly)],
                        "role": "actual" if i == 0 else "actual2"})
     return {"type": "line", "x": [w.isoformat() for w in fy], "unit": "index", "series": series,
-            "reference": {"y": 100 + config.PLAN_GROWTH_PCT, "label": f"Plan index {100 + config.PLAN_GROWTH_PCT:.0f}"},
+            "reference": {"y": 100 + config.TARGET_GROWTH_PCT, "label": f"Target index {100 + config.TARGET_GROWTH_PCT:.0f}"},
             "bands": _quarter_bands(fy)}
 
 
@@ -60,39 +60,39 @@ def comp_name(kpi: str) -> str:
     return {"orders": "Weekly Orders Placed", "revenue": "Weekly Gross Revenue"}.get(kpi, kpi)
 
 
-def _month_plan_full(run: RunData, month: str) -> float:
+def _month_target_full(run: RunData, month: str) -> float:
     y, m = map(int, month.split("-"))
-    return float(sum(run.plan.at[w, "revenue_target"] for w in run.weeks.fy_weeks if month_of(w) == (y, m)))
+    return float(sum(run.target_table.at[w, "revenue_target"] for w in run.weeks.fy_weeks if month_of(w) == (y, m)))
 
 
 def variance_waterfall(comp: dict, run: RunData) -> dict:
-    """YTD plan -> monthly variance (actual - plan) -> YTD actual."""
+    """YTD target -> monthly variance (actual - target) -> YTD actual."""
     months = [m for m in run.brief.targets.monthly_revenue if m.status != "future"]
     ytd = run.brief.targets.ytd_revenue_vs_target
     return {"type": "waterfall", "mode": "variance", "unit": comp["kpi"],
-            "start": {"label": "YTD plan", "value": ytd.target_to_date},
+            "start": {"label": "YTD target", "value": ytd.target_to_date},
             "steps": [{"label": m.label, "value": m.variance} for m in months],
             "end": {"label": "YTD actual", "value": ytd.actual}}
 
 
 def bridge_waterfall(comp: dict, run: RunData) -> dict:
-    """YTD actual -> remaining months at plan -> FY outlook, compared with the FY plan."""
+    """YTD actual -> remaining months at target -> FY outlook, compared with the FY target."""
     months = run.brief.targets.monthly_revenue
     ytd = run.brief.targets.ytd_revenue_vs_target
     steps = []
     for m in months:
         if m.status == "month_to_date":
-            rest = _month_plan_full(run, m.month) - m.plan
+            rest = _month_target_full(run, m.month) - m.target
             if rest > 0:
                 steps.append({"label": f"Rest of {m.label.split(' ')[0]}", "value": rest})
         elif m.status == "future":
-            steps.append({"label": m.label, "value": m.plan})
+            steps.append({"label": m.label, "value": m.target})
     outlook = ytd.actual + sum(s["value"] for s in steps)
     return {"type": "waterfall", "mode": "bridge", "unit": comp["kpi"],
             "start": {"label": "YTD actual", "value": ytd.actual},
-            "steps": steps, "end": {"label": "FY outlook at plan", "value": outlook},
-            "reference": {"y": ytd.full_year_plan, "label": f"FY plan ${ytd.full_year_plan / 1e6:.2f}M"},
-            "note": (f"To hit the FY plan: ${ytd.required_weekly_run_rate:,.0f} per week for the remaining {ytd.weeks_left} weeks "
+            "steps": steps, "end": {"label": "FY outlook at target", "value": outlook},
+            "reference": {"y": ytd.full_year_target, "label": f"FY target ${ytd.full_year_target / 1e6:.2f}M"},
+            "note": (f"To hit the FY target: ${ytd.required_weekly_run_rate:,.0f} per week for the remaining {ytd.weeks_left} weeks "
                      f"vs ${ytd.current_8wk_run_rate:,.0f} per week over the last 8 weeks")
                     if ytd.required_weekly_run_rate else None}
 
@@ -112,16 +112,16 @@ def line_chart(comp: dict, run: RunData) -> dict:
         out["series"].append({"name": "Last year", "y": _series(run.kpis, ly, kpi), "role": "reference"})
     if comp.get("show_target"):
         col = f"{kpi}_target"
-        out["series"].append({"name": "Target", "y": [float(run.plan.at[w, col]) if w in run.plan.index else None for w in hist],
+        out["series"].append({"name": "Target", "y": [float(run.target_table.at[w, col]) if w in run.target_table.index else None for w in hist],
                               "role": "target"})
         if comp.get("show_future_target"):
-            future = [w for w in run.plan.index if w > run.weeks.reporting]
+            future = [w for w in run.target_table.index if w > run.weeks.reporting]
             out["x"] += [w.isoformat() for w in future]
             for s in out["series"]:
                 s["y"] += [None] * len(future)
             out["series"].append({"name": "Future target",
                                   "y": [None] * (len(hist) - 1) + [out["series"][-1]["y"][len(hist) - 1]]
-                                       + [float(run.plan.at[w, col]) for w in future],
+                                       + [float(run.target_table.at[w, col]) for w in future],
                                   "role": "future"})
     if comp.get("mark_today"):
         out["marker"] = {"x": (run.weeks.reporting + timedelta(days=3)).isoformat(), "label": "Report week"}
@@ -132,10 +132,10 @@ def cumulative_chart(comp: dict, run: RunData) -> dict:
     qw = run.weeks.quarter_weeks
     done = [w for w in qw if w <= run.weeks.reporting]
     actual = run.kpis.loc[done, comp["kpi"]].cumsum().tolist()
-    plan = run.plan.loc[qw, f"{comp['kpi']}_target"].cumsum().tolist()
+    cum_target = run.target_table.loc[qw, f"{comp['kpi']}_target"].cumsum().tolist()
     return {"type": "line", "x": [w.isoformat() for w in qw], "unit": comp["kpi"],
             "series": [{"name": "Actual (cumulative)", "y": actual + [None] * (len(qw) - len(done)), "role": "actual", "markers": True},
-                       {"name": "Plan (cumulative, to quarter end)", "y": plan, "role": "target"}]}
+                       {"name": "Target (cumulative, to quarter end)", "y": cum_target, "role": "target"}]}
 
 
 def waterfall(comp: dict, run: RunData) -> dict:
@@ -153,7 +153,7 @@ def bar_chart(comp: dict, run: RunData) -> dict:
         for s in getattr(run.brief.cuts, cut).orders:
             labels.append(f"{prefix} · {s.segment}")
             values.append(s.yoy_pct)
-    return {"type": "bar", "labels": labels, "values": values, "reference": config.PLAN_GROWTH_PCT}
+    return {"type": "bar", "labels": labels, "values": values, "reference": config.TARGET_GROWTH_PCT}
 
 
 BUILDERS = {"line_chart": line_chart, "cumulative_chart": cumulative_chart, "waterfall": waterfall, "bar_chart": bar_chart,

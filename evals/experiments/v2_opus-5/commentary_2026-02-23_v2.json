@@ -1,0 +1,288 @@
+{
+  "week": "2026-02-23",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Orders and revenue both finished the week ahead of target, but the quarter is still at 90.0% of target with four weeks to go.",
+      "points": [
+        {
+          "what": "Orders reached 817, or 101.2% of the weekly target, and revenue reached $62,651, or 108.7% of target.",
+          "so_what": "Revenue ran further ahead of target than orders, so the beat came from order value as well as order volume."
+        },
+        {
+          "what": "Quarter-to-date revenue of $477,960 stands at 90.0% of the target for the same weeks, a gap of $53,400.",
+          "so_what": "A single week ahead of target does not change the quarter position, which remains behind."
+        },
+        {
+          "what": "Orders grew 62.1% and revenue 64.7% against the same week last year, while the targets assume 75% growth.",
+          "so_what": "Growth is running under the pace the targets were built on, which is how a week can beat target while the year stays behind."
+        },
+        {
+          "what": "New customer signups fell 10.8% week on week to 256, a notable move rated bad, while orders rose 3.5%.",
+          "so_what": "Signups were the one measure moving the wrong way in a week when the order and revenue targets were met."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The quarter is behind at 90.0% of target, with $296,595 still needed against the full quarter target of $774,555 in the four weeks left.",
+          "so_what": "Reaching the quarter target would require weekly revenue well above the level of recent weeks."
+        },
+        {
+          "what": "Year-to-date revenue is at 90.0% of target, and the rest of the year needs $77,519 a week against a recent eight-week run-rate of $53,830.",
+          "so_what": "At the current pace the full-year target of $3,888,802 is out of reach."
+        },
+        {
+          "what": "Signups are up 9.9% on last year while orders are up 62.1%.",
+          "so_what": "Customer growth is running far below order growth, and that gap is the main thing to watch behind an otherwise on-target week."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders came in at 101.2% of the weekly target and revenue at 108.7%, both ahead, against next week's targets of 838 orders and $58,985.",
+          "so_what": "The week cleared both targets, which is the first requirement for narrowing the shortfall built up this quarter."
+        },
+        {
+          "what": "Quarter-to-date revenue is 90.0% of target, $53,400 behind, with $296,595 left to reach the full quarter target in four weeks.",
+          "so_what": "The shortfall is large enough that beats of this week's size do not close it."
+        },
+        {
+          "what": "Year-to-date attainment is 90.0%, with January at 88.0% and February at 92.4% of target.",
+          "so_what": "Every completed month so far has landed behind target, so the year starts from a deficit rather than a cushion."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "LATAM orders rose 25.2% to 134, contributing 27 orders, or 96.4% of the weekly change.",
+          "so_what": "Almost all of the weekly order gain sits in the smallest region, giving the increase a narrow base."
+        },
+        {
+          "what": "Search orders rose 4.7% to 575, contributing 26 orders, or 92.9% of the weekly change, and hold a 70.4% share.",
+          "so_what": "Movement in the largest source carries far more weight for target attainment than swings in the small sources."
+        },
+        {
+          "what": "Facebook orders fell 27.3% to 48, a contribution of -18 orders, while EMEA orders fell 4.9% to 156.",
+          "so_what": "These declines offset part of what LATAM and Search added, holding the net order gain to a modest step up."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV rose 7.2% week on week to $89.50 but remains 1.2% below the same week last year, rated bad.",
+          "so_what": "With order value still under last year, the year-on-year revenue gain rests on order volume."
+        },
+        {
+          "what": "The cancellation rate fell 4.7 pp to 14.3%, a notable move rated good, and sits below last year's 16.7%.",
+          "so_what": "At $731 of revenue per percentage point of cancellations, the lower rate worked in favour of this week's revenue attainment."
+        },
+        {
+          "what": "The 14-Day Return Rate for the mature week of 09 Feb 2026 was flat at 10.8%, 1.5 pp above last year, rated bad.",
+          "so_what": "Returns running above last year works against the value of what was sold, since gross revenue does not subtract them."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "drivers point 2 what: 5 numbers",
+          "drivers point 3 what: 5 numbers"
+        ]
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'90.0' appears in 3 slots: ['summary', 'vs_target', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-opus-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 54887,
+      "cost_usd": 0.1788425,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6660,
+        "cache_read": 6015,
+        "output": 4369,
+        "thinking": 2758
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "sentences at most 30 words and 4 numbers": [
+          "drivers point 2 what: 5 numbers",
+          "drivers point 3 what: 5 numbers"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'90.0' appears in 3 slots: ['summary', 'vs_target', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Orders and revenue both finished the week ahead of target, but the quarter is still at 90.0% of target with four weeks to go.",
+          "points": [
+            {
+              "what": "Orders reached 817, or 101.2% of the weekly target, and revenue reached $62,651, or 108.7% of target.",
+              "so_what": "Revenue ran further ahead of target than orders, so the beat came from order value as well as order volume."
+            },
+            {
+              "what": "Quarter-to-date revenue of $477,960 stands at 90.0% of the target for the same weeks, a gap of $53,400.",
+              "so_what": "A single week ahead of target does not change the quarter position, which remains behind."
+            },
+            {
+              "what": "Orders grew 62.1% and revenue 64.7% against the same week last year, while the targets assume 75% growth.",
+              "so_what": "Growth is running under the pace the targets were built on, which is how a week can beat target while the year stays behind."
+            },
+            {
+              "what": "New customer signups fell 10.8% week on week to 256, a notable move rated bad, while orders rose 3.5%.",
+              "so_what": "Signups were the one measure moving the wrong way in a week when the order and revenue targets were met."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The quarter is behind at 90.0% of target, with $296,595 still needed against the full quarter target of $774,555 in the four weeks left.",
+              "so_what": "Reaching the quarter target would require weekly revenue well above the level of recent weeks."
+            },
+            {
+              "what": "Year-to-date revenue is at 90.0% of target, and the rest of the year needs $77,519 a week against a recent eight-week run-rate of $53,830.",
+              "so_what": "At the current pace the full-year target of $3,888,802 is out of reach."
+            },
+            {
+              "what": "Signups are up 9.9% on last year while orders are up 62.1%.",
+              "so_what": "Customer growth is running far below order growth, and that gap is the main thing to watch behind an otherwise on-target week."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders came in at 101.2% of the weekly target and revenue at 108.7%, both ahead, against next week's targets of 838 orders and $58,985.",
+              "so_what": "The week cleared both targets, which is the first requirement for narrowing the shortfall built up this quarter."
+            },
+            {
+              "what": "Quarter-to-date revenue is 90.0% of target, $53,400 behind, with $296,595 left to reach the full quarter target in four weeks.",
+              "so_what": "The shortfall is large enough that beats of this week's size do not close it."
+            },
+            {
+              "what": "Year-to-date attainment is 90.0%, with January at 88.0% and February at 92.4% of target.",
+              "so_what": "Every completed month so far has landed behind target, so the year starts from a deficit rather than a cushion."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "LATAM orders rose 25.2% to 134, contributing 27 orders, or 96.4% of the weekly change.",
+              "so_what": "Almost all of the weekly order gain sits in the smallest region, giving the increase a narrow base."
+            },
+            {
+              "what": "Search orders rose 4.7% to 575, contributing 26 orders, or 92.9% of the weekly change, and hold a 70.4% share.",
+              "so_what": "Movement in the largest source carries far more weight for target attainment than swings in the small sources."
+            },
+            {
+              "what": "Facebook orders fell 27.3% to 48, a contribution of -18 orders, while EMEA orders fell 4.9% to 156.",
+              "so_what": "These declines offset part of what LATAM and Search added, holding the net order gain to a modest step up."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV rose 7.2% week on week to $89.50 but remains 1.2% below the same week last year, rated bad.",
+              "so_what": "With order value still under last year, the year-on-year revenue gain rests on order volume."
+            },
+            {
+              "what": "The cancellation rate fell 4.7 pp to 14.3%, a notable move rated good, and sits below last year's 16.7%.",
+              "so_what": "At $731 of revenue per percentage point of cancellations, the lower rate worked in favour of this week's revenue attainment."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 09 Feb 2026 was flat at 10.8%, 1.5 pp above last year, rated bad.",
+              "so_what": "Returns running above last year works against the value of what was sold, since gross revenue does not subtract them."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "3723fd55a8559fbd",
+  "cache_hit": false,
+  "cost_usd": 0.1788,
+  "duration_ms": 54887,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6660,
+    "cache_read": 6015,
+    "output": 4369,
+    "thinking": 2758
+  }
+}

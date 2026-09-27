@@ -1,0 +1,156 @@
+{
+  "week": "2026-05-11",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "both beat the weekly target, but the quarter and year stay behind ... 104.5% of the weekly target ... 96.8% of target to date",
+      "reason": "Week ahead at 104.5% and quarter behind at 96.8% are both stated with correct figures."
+    },
+    {
+      "id": "return_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate has risen for three consecutive weeks, from 8.7% to 11.3% in the mature week of 27 Apr 2026.",
+      "reason": "Streak, range and correct week appear in the watchouts section as a risk."
+    },
+    {
+      "id": "wrong_return_week",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Return behaviour for the reporting week of 11 May is not yet known",
+      "reason": "Commentary consistently attributes the return rate to the mature week of 27 Apr, not 11 May."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "both beat the weekly target, but the quarter and year stay behind",
+      "reason": "Headline gives an ahead verdict for the week and names the quarter/year shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate has risen for three consecutive weeks",
+      "reason": "All three watchouts are a worsening trend, a maturity caveat, or the QTD gap."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At the current pace the full-year target is out of reach",
+      "reason": "Claims are arithmetic or read directly from stated figures, without guessing causes."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says the week is unusually strong, not routine, and ties to target attainment."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Reads yearly growth against the growth rate the targets assume."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States one strong week does not close the gap; quantifies remaining need."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames third consecutive worsening as an order-quality risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that sustained returns erode revenue retained from orders."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Caveat: measure lags two weeks, changing how to read it."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Only adds the required revenue figure without saying what it means."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Gives next week's targets without stating any implication."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Contrasts ahead week with quarter/year still behind across months."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Shows decline is concentrated in a small-share region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Interprets that decline came from smaller channels, not Search."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes shortfall was concentrated rather than broad-based."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how revenue rose while orders fell."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links cancellation improvement in dollars to the revenue beat."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes the two quality measures diverge, guiding interpretation."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Restates signup and order growth numbers without stating business meaning."
+    }
+  ],
+  "cost_usd": 0.10779099999999998,
+  "duration_s": 34.2
+}

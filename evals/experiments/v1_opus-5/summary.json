@@ -1,0 +1,278 @@
+{
+  "experiment": "v1_opus-5",
+  "prompt_version": "v1",
+  "model": "claude-opus-5",
+  "finished_at_utc": "2026-09-25T22:13:16+00:00",
+  "weeks": 16,
+  "verified_first_attempt": 6,
+  "verified_after_retry": 5,
+  "fallback": 5,
+  "weeks_with_warnings": 16,
+  "total_cost_usd": 3.901,
+  "avg_cost_per_week_usd": 0.244,
+  "avg_duration_s": 55.9,
+  "wall_clock_min": 20.9,
+  "rows": [
+    {
+      "week": "2025-12-29",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1261,
+      "duration_s": 27.2
+    },
+    {
+      "week": "2026-01-12",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1768,
+      "duration_s": 32.4
+    },
+    {
+      "week": "2026-01-19",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1261,
+      "duration_s": 28.0
+    },
+    {
+      "week": "2026-02-09",
+      "status": "verified_after_retry",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.2401,
+      "duration_s": 75.9
+    },
+    {
+      "week": "2026-02-16",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1265,
+      "duration_s": 38.4
+    },
+    {
+      "week": "2026-02-23",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1938,
+      "duration_s": 59.4
+    },
+    {
+      "week": "2026-03-16",
+      "status": "verified_after_retry",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "numbers exist in the brief"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.2514,
+      "duration_s": 54.3
+    },
+    {
+      "week": "2026-03-23",
+      "status": "fallback",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "direction words match the data",
+        "numbers exist in the brief"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.2641,
+      "duration_s": 59.7
+    },
+    {
+      "week": "2026-03-30",
+      "status": "fallback",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "direction words match the data",
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers"
+      ],
+      "cost_usd": 0.2448,
+      "duration_s": 51.6
+    },
+    {
+      "week": "2026-04-06",
+      "status": "verified_after_retry",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.316,
+      "duration_s": 62.0
+    },
+    {
+      "week": "2026-04-13",
+      "status": "fallback",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "direction words match the data",
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers"
+      ],
+      "cost_usd": 0.3532,
+      "duration_s": 72.0
+    },
+    {
+      "week": "2026-04-20",
+      "status": "fallback",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "direction words match the data",
+        "numbers exist in the brief"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.3602,
+      "duration_s": 78.9
+    },
+    {
+      "week": "2026-05-11",
+      "status": "verified_after_retry",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.4407,
+      "duration_s": 104.8
+    },
+    {
+      "week": "2026-06-01",
+      "status": "fallback",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "direction words match the data",
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers"
+      ],
+      "cost_usd": 0.2765,
+      "duration_s": 62.3
+    },
+    {
+      "week": "2026-06-15",
+      "status": "verified_after_retry",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "numbers exist in the brief"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers"
+      ],
+      "cost_usd": 0.2702,
+      "duration_s": 57.5
+    },
+    {
+      "week": "2026-06-22",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1342,
+      "duration_s": 30.7
+    }
+  ]
+}

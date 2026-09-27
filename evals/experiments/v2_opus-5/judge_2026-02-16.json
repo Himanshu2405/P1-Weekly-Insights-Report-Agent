@@ -1,0 +1,156 @@
+{
+  "week": "2026-02-16",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "growth_but_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders came in at 789, up 13.4% week on week and 98.4% of the weekly target... Revenue was $53,365, 89.6% of target",
+      "reason": "Both the 13.4% order rise and the 89.6% revenue miss are stated as behind target."
+    },
+    {
+      "id": "cancellation_risk",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose 4.2 pp to 19.0%... a live risk to revenue attainment",
+      "reason": "Correct figures given and explicitly flagged as a risk in watchouts."
+    },
+    {
+      "id": "strong_week",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished behind target",
+      "reason": "Commentary consistently frames the week as behind target, never strong or on track."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished behind target at 98.4% and 89.6%; the quarter stands at 87.7% of target with cancellations notably higher.",
+      "reason": "Gives a behind-target verdict plus quarter position and the cancellation issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Cancellations are elevated on both timeframes, which is a live risk",
+      "reason": "All three watchouts are genuine risks, including the key cancellation rise."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Growth is real but below the rate the targets were built on",
+      "reason": "Claims stay tied to stated figures without guessing causes beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says growth insufficient to close target gap."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Locates the miss in value per order, not volume."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links cancellation rise to revenue attainment impact."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Only ranks it against another growth number; no business meaning."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Names a live risk to revenue attainment for the quarter."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains gaps will keep widening below assumed growth rate."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Identifies which miss carries into quarter position."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Quarter behind and remaining amount above recent pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames shortfall as persistent, explaining YTD attainment."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says growth rests on a smaller base, a reliability read."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Merely re-aggregates the stated regional contributions."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains growth skewed to smaller sources versus total."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Attributes revenue growth to volume rather than basket value."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says measure needs watching, not recovered."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Warns order gain should not be read as signup-led."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts above-average volume with still missing target."
+    }
+  ],
+  "cost_usd": 0.086841,
+  "duration_s": 24.9
+}

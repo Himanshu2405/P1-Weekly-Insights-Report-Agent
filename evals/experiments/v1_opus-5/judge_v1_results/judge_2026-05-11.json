@@ -1,0 +1,59 @@
+{
+  "week": "2026-05-11",
+  "status": "verified",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "both beat the weekly target, but the quarter and year stay behind ... it puts revenue at 104.5% of the weekly target ... 96.8% of target to date",
+      "reason": "Week ahead (104.5%) and quarter behind (96.8%) are both stated with matching figures."
+    },
+    {
+      "id": "return_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate has risen for three consecutive weeks, from 8.7% to 11.3% in the mature week of 27 Apr 2026.",
+      "reason": "Streak, values, and the 27 Apr week are flagged in the watchouts section."
+    },
+    {
+      "id": "wrong_return_week",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Return behaviour for the reporting week of 11 May is not yet known, so this measure lags the rest of the report by two weeks.",
+      "reason": "Commentary consistently attributes the return rate to the mature 27 Apr week, not 11 May."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The bar rises next week, with targets of 962 orders and $70,820 of revenue.",
+      "reason": "Only one so_what merely adds numbers; nearly all others state a clear business implication."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Orders fell 3.6% to 914 while revenue rose 3.3% to $68,099; both beat the weekly target, but the quarter and year stay behind.",
+      "reason": "Verdict is present but the headline omits the week's key issue, the three-week return rate rise."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is $14,719 behind the target to date, at 96.8% attainment with 6 weeks left",
+      "reason": "All three watchouts are risks or maturity caveats, including the return streak from the key."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At the current pace the full-year target is out of reach, so the size of the required step-up is the key number to track.",
+      "reason": "Claims are arithmetic or qualified by stated pace; no guessed causes or unsupported interpretation."
+    }
+  ],
+  "cost_usd": 0.0906705,
+  "duration_s": 27.9
+}

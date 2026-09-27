@@ -1,0 +1,156 @@
+{
+  "week": "2026-04-06",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "strong_week",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "889 orders against a target of 854 (104.1%) and $67,572 revenue against $57,958 (116.6%), both ahead... Quarter-to-date revenue is $128,119 versus $118,256 of target, 108.3%",
+      "reason": "All three figures for the strong week and ahead quarter are stated correctly."
+    },
+    {
+      "id": "year_gap",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Year-to-date revenue is $843,676 against $892,811 of target, 94.5% and $49,135 behind... needs $80,135 a week, well above the recent 8-week run-rate of $60,216",
+      "reason": "Year shortfall, 94.5%, required weekly run-rate and recent pace all match the key."
+    },
+    {
+      "id": "year_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "the year to date remains behind target",
+      "reason": "Commentary consistently states the year is behind, never implying it is on track."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Strong week: orders and revenue both above target and above their 8-week range, but the year to date remains behind target.",
+      "reason": "Headline gives an ahead-of-target verdict and names the year-to-date gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate ... up 2.2 pp week on week and up 3.1 pp year on year",
+      "reason": "All three watch-outs are worsening trends or a maturity caveat, no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Higher value per order explains why revenue grew 11.6% while orders grew 4.5%.",
+      "reason": "Claims are arithmetic or comparisons readable from stated figures, with no guessed causes or forecasts."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Places order step-up against 8-week average and target attainment."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Reads revenue growth against the growth rate targets assume."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says strong quarter has not closed the year-to-date shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames return rate as the main quality risk in a good week."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only repeats bad assessment and threshold definition."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Tells reader not to read figure as covering reporting week."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Repeats assessment and adds another number without stating meaning."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Gives next week's targets without saying what they mean."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames remaining quarter requirement across remaining weeks."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Compares required weekly run-rate to actual recent run-rate."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains LATAM as sole source of the week's net gain."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Reads that largest regions contributed nothing despite yearly growth."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates that smaller sources added and Search held its share."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue outpacing orders via higher order value."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Quantifies revenue materiality of each cancellation point."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Repeats the year-on-year comparison already stated in the fact."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Reads order growth against flat new-customer acquisition."
+    }
+  ],
+  "cost_usd": 0.123566,
+  "duration_s": 43.1
+}

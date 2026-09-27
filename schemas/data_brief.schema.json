@@ -67,7 +67,7 @@
           "enum": [
             "anomaly",
             "streak",
-            "plan_context",
+            "target_context",
             "maturity"
           ],
           "title": "Type",
@@ -218,6 +218,18 @@
             }
           ],
           "title": "Wow Change"
+        },
+        "wow_abs_change": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Wow Abs Change"
         },
         "wow_direction": {
           "enum": [
@@ -435,8 +447,8 @@
           "title": "Layout Version",
           "type": "string"
         },
-        "plan_growth_pct": {
-          "title": "Plan Growth Pct",
+        "target_growth_pct": {
+          "title": "Target Growth Pct",
           "type": "number"
         }
       },
@@ -449,12 +461,12 @@
         "source",
         "target_version",
         "layout_version",
-        "plan_growth_pct"
+        "target_growth_pct"
       ],
       "title": "Meta",
       "type": "object"
     },
-    "MonthVsPlan": {
+    "MonthVsTarget": {
       "additionalProperties": false,
       "properties": {
         "month": {
@@ -476,8 +488,8 @@
           ],
           "title": "Actual"
         },
-        "plan": {
-          "title": "Plan",
+        "target": {
+          "title": "Target",
           "type": "number"
         },
         "variance": {
@@ -516,12 +528,12 @@
         "month",
         "label",
         "actual",
-        "plan",
+        "target",
         "variance",
         "attainment_pct",
         "status"
       ],
-      "title": "MonthVsPlan",
+      "title": "MonthVsTarget",
       "type": "object"
     },
     "QtdTarget": {
@@ -552,12 +564,12 @@
           "title": "Status",
           "type": "string"
         },
-        "full_quarter_plan": {
-          "title": "Full Quarter Plan",
+        "full_quarter_target": {
+          "title": "Full Quarter Target",
           "type": "number"
         },
-        "remaining_to_full_quarter_plan": {
-          "title": "Remaining To Full Quarter Plan",
+        "remaining_to_full_quarter_target": {
+          "title": "Remaining To Full Quarter Target",
           "type": "number"
         },
         "weeks_left": {
@@ -571,8 +583,8 @@
         "attainment_pct",
         "gap",
         "status",
-        "full_quarter_plan",
-        "remaining_to_full_quarter_plan",
+        "full_quarter_target",
+        "remaining_to_full_quarter_target",
         "weeks_left"
       ],
       "title": "QtdTarget",
@@ -730,12 +742,12 @@
           "title": "Next Week Targets",
           "type": "object"
         },
-        "full_quarter_plan": {
-          "title": "Full Quarter Plan",
+        "full_quarter_target": {
+          "title": "Full Quarter Target",
           "type": "number"
         },
-        "quarter_remaining_to_plan": {
-          "title": "Quarter Remaining To Plan",
+        "quarter_remaining_to_target": {
+          "title": "Quarter Remaining To Target",
           "type": "number"
         },
         "qtd_attainment_excl_flagged_pct": {
@@ -767,7 +779,7 @@
           "title": "Top Contributor",
           "type": "object"
         },
-        "yoy_vs_plan_growth": {
+        "yoy_vs_target_growth": {
           "additionalProperties": {
             "anyOf": [
               {
@@ -778,7 +790,7 @@
               }
             ]
           },
-          "title": "Yoy Vs Plan Growth",
+          "title": "Yoy Vs Target Growth",
           "type": "object"
         },
         "signups_vs_orders_growth": {
@@ -802,8 +814,8 @@
           "title": "Segments All Growing",
           "type": "object"
         },
-        "full_year_plan": {
-          "title": "Full Year Plan",
+        "full_year_target": {
+          "title": "Full Year Target",
           "type": "number"
         },
         "ytd_attainment_pct": {
@@ -825,38 +837,38 @@
           "title": "Current 8Wk Revenue Run Rate",
           "type": "number"
         },
-        "months_ahead_of_plan": {
+        "months_ahead_of_target": {
           "items": {
             "type": "string"
           },
-          "title": "Months Ahead Of Plan",
+          "title": "Months Ahead Of Target",
           "type": "array"
         },
-        "months_behind_plan": {
+        "months_behind_target": {
           "items": {
             "type": "string"
           },
-          "title": "Months Behind Plan",
+          "title": "Months Behind Target",
           "type": "array"
         }
       },
       "required": [
         "next_week_targets",
-        "full_quarter_plan",
-        "quarter_remaining_to_plan",
+        "full_quarter_target",
+        "quarter_remaining_to_target",
         "qtd_attainment_excl_flagged_pct",
         "revenue_per_pp_cancellation",
         "avg_8wk",
         "top_contributor",
-        "yoy_vs_plan_growth",
+        "yoy_vs_target_growth",
         "signups_vs_orders_growth",
         "segments_all_growing",
-        "full_year_plan",
+        "full_year_target",
         "ytd_attainment_pct",
         "required_weekly_revenue_run_rate",
         "current_8wk_revenue_run_rate",
-        "months_ahead_of_plan",
-        "months_behind_plan"
+        "months_ahead_of_target",
+        "months_behind_target"
       ],
       "title": "SoWhatFacts",
       "type": "object"
@@ -878,7 +890,7 @@
         },
         "monthly_revenue": {
           "items": {
-            "$ref": "#/$defs/MonthVsPlan"
+            "$ref": "#/$defs/MonthVsTarget"
           },
           "title": "Monthly Revenue",
           "type": "array"
@@ -1008,12 +1020,12 @@
           "title": "Status",
           "type": "string"
         },
-        "full_year_plan": {
-          "title": "Full Year Plan",
+        "full_year_target": {
+          "title": "Full Year Target",
           "type": "number"
         },
-        "remaining_to_full_year_plan": {
-          "title": "Remaining To Full Year Plan",
+        "remaining_to_full_year_target": {
+          "title": "Remaining To Full Year Target",
           "type": "number"
         },
         "weeks_left": {
@@ -1043,8 +1055,8 @@
         "attainment_pct",
         "gap",
         "status",
-        "full_year_plan",
-        "remaining_to_full_year_plan",
+        "full_year_target",
+        "remaining_to_full_year_target",
         "weeks_left",
         "required_weekly_run_rate",
         "current_8wk_run_rate"
@@ -1056,8 +1068,8 @@
   "additionalProperties": false,
   "properties": {
     "brief_version": {
-      "const": "1.1",
-      "default": "1.1",
+      "const": "1.3",
+      "default": "1.3",
       "title": "Brief Version",
       "type": "string"
     },

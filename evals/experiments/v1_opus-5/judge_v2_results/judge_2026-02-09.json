@@ -1,0 +1,59 @@
+{
+  "week": "2026-02-09",
+  "status": "verified",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "down_and_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders fell 6.1% to 696 and revenue fell 9.1% to $49,640 ... Revenue reached 83.0% of the weekly target",
+      "reason": "All three figures stated and consistent with the key."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue attainment is 87.4%, behind target by $52,211 with 6 weeks left in the quarter.",
+      "reason": "Quarter shortfall and 6 weeks remaining explicitly stated."
+    },
+    {
+      "id": "positive_framing",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue fell week on week and stayed behind target",
+      "reason": "No resilient/solid/strong framing; the week is described negatively throughout."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "\"so_what\": \"Next week's targets are $59,585 of revenue and 802 orders.\"",
+      "reason": "At least five so_whats merely restate facts, numbers, definitions or next week's targets."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "fell week on week and stayed behind target, though both remain well above last year; returns rose",
+      "reason": "Gives a behind-target verdict plus a named issue (rising returns)."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The cancellation rate fell 1.3 pp to 14.8%, a notable move rated good.",
+      "reason": "Good news is listed as a watch-out, so the section is not all risks."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "These gains were too small to offset the declines elsewhere.",
+      "reason": "All claims trace to reported figures; no guessed causes or predictions."
+    }
+  ],
+  "cost_usd": 0.0692225,
+  "duration_s": 18.0
+}

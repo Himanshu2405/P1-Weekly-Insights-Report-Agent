@@ -8,10 +8,26 @@
                   "down": '<svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 9L1 3h8z" fill="currentColor"/></svg>', "flat": ""} -%}
 
 {%- macro commentary(slot) -%}
+  {%- set body = ai.commentary.get(slot) %}
+  {%- if ai.status == "fallback" %}
   <div class="ai pending">
-    <div class="tag">AI commentary · slot "{{ slot }}"</div>
-    <p>Commentary will be generated here in Phase 2 (points with a "So what", checked by guards before publishing).</p>
+    <div class="tag">AI commentary unavailable</div>
+    <p>The AI text for this section failed the automated checks twice and was not published. All numbers and charts above are unaffected.</p>
   </div>
+  {%- elif body and (body.points or body.headline) %}
+  <div class="ai">
+    <div class="tag">{{ tick|safe }}AI-written, checked against the data before publishing</div>
+    {%- if body.headline %}<p class="headline">{{ body.headline }}</p>{% endif %}
+    <ul class="pts">
+    {%- for p in body.points %}
+      <li><span class="what">{{ p.what }}</span><span class="sowhat"><b>So what:</b> {{ p.so_what }}</span></li>
+    {%- endfor %}
+    </ul>
+  </div>
+  {%- elif ai.status == "not_generated" %}
+  <div class="ai pending"><div class="tag">AI commentary · slot "{{ slot }}"</div>
+    <p>Not generated for this run.</p></div>
+  {%- endif %}
 {%- endmacro -%}
 
 <!DOCTYPE html>
@@ -39,7 +55,7 @@
     {%- else %}
     <span class="chip fail">{{ cross|safe }}Data checks failed</span>
     {%- endif %}
-    <span class="chip pending">AI commentary: not enabled yet</span>
+    <span class="chip {{ ai.badge_class }}">{% if ai.badge_class == "ok" %}{{ tick|safe }}{% elif ai.badge_class == "fail" %}{{ cross|safe }}{% endif %}{{ ai.badge }}</span>
     <span class="chip">{{ published }}</span>
     <span class="chip">{{ data_through }}</span>
   </div>
@@ -119,16 +135,26 @@
         <li>{{ (tick if c.passed else cross)|safe }}<span>{{ c.name|replace("_", " ")|capitalize }}</span><span class="n">{{ "pass" if c.passed else "FAIL" }}</span></li>
       {%- endfor %}
       </ul>
-      <p class="csub" style="margin-top:10px">AI commentary checks (numbers, direction words, banned claims) arrive in Phase 2.</p>
+    </div>
+    <div class="card"><p class="ctitle">AI commentary checks this run</p>
+      {%- if ai.checks %}
+      <ul class="checks">
+      {%- for c in ai.checks %}
+        <li>{{ (tick if c.passed else cross)|safe }}<span>{{ c.name[:1]|upper }}{{ c.name[1:] }}</span>
+          <span class="n">{{ "pass" if c.passed else ("warning" if c.severity == "warn" else "FAIL") }}</span></li>
+        {%- if not c.passed %}{% for d in c.details[:3] %}<li class="detail">{{ d }}</li>{% endfor %}{% endif %}
+      {%- endfor %}
+      </ul>
+      <p class="csub" style="margin-top:10px">Failed checks block publishing (retry once, then fallback). Warnings are logged but do not block.</p>
+      {%- else %}<p class="csub">No AI commentary for this run.</p>{% endif %}
     </div>
     <div class="card"><p class="ctitle">Run details</p>
       <dl>
         <dt>Run ID</dt><dd>{{ run.run_id }}</dd>
         <dt>BigQuery scanned</dt><dd>{{ run.bytes }}</dd>
-        <dt>Plan version</dt><dd>{{ run.target_version }}</dd>
+        <dt>Target version</dt><dd>{{ run.target_version }}</dd>
         <dt>Brief / layout</dt><dd>v{{ run.brief_version }} / v{{ run.layout_version }}</dd>
-        <dt>Model</dt><dd>not used yet (Phase 2)</dd>
-        <dt>LLM cost</dt><dd>$0.00</dd>
+        {%- for k, v in ai.details %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}
       </dl>
     </div>
   </div>
@@ -140,7 +166,7 @@
       <li><b>Weekly Order Cancellation Rate</b>: cancelled orders as a share of orders placed.</li>
       <li><b>14-Day Return Rate</b>: orders the customer returned within 14 days of ordering. Reported only for weeks where every order has had 14 days.</li>
       <li><b>Weekly New Customer Signups</b>: new customer accounts created in the week.</li>
-      <li><b>Targets</b>: 2026 annual plan, same week last year plus 75% growth, frozen at the start of the year.</li>
+      <li><b>Targets</b>: 2026 annual targets, same week last year plus 75% growth, frozen at the start of the year.</li>
       <li><b>Source</b>: BigQuery public dataset thelook_ecommerce (a fictional store). The source is regenerated daily, so past weeks can shift slightly between runs.</li>
     </ul>
   </details>
@@ -228,7 +254,7 @@ function waterfall(el, c) {
   let run = c.start.value, base_ = [0], vis = [c.start.value], colors = [css('--total-fill')], text = [fmtv(c.start.value)];
   deltas.forEach(d => {
     base_.push(d >= 0 ? run : run + d); vis.push(Math.abs(d));
-    colors.push(future ? css('--plan-fill') : (d >= 0 ? css('--good-fill') : css('--bad-fill')));
+    colors.push(future ? css('--target-fill') : (d >= 0 ? css('--good-fill') : css('--bad-fill')));
     text.push(future ? fmtv(d) : sign(d)); run += d;
   });
   base_.push(0); vis.push(c.end.value); colors.push(css('--end-fill')); text.push(fmtv(c.end.value));
@@ -259,7 +285,7 @@ function bar(el, c) {
     yaxis: {autorange: 'reversed', tickfont: {color: css('--ink-2')}, fixedrange: true},
     xaxis: {gridcolor: css('--grid'), ticksuffix: '%', tickfont: {color: css('--muted')}, zeroline: false, fixedrange: true},
     shapes: [{type: 'line', x0: c.reference, x1: c.reference, yref: 'paper', y0: 0, y1: 1, line: {color: css('--muted'), width: 2, dash: 'dash'}}],
-    annotations: [{x: c.reference, y: 1.04, yref: 'paper', text: 'Plan +' + c.reference + '%', showarrow: false, xanchor: 'left',
+    annotations: [{x: c.reference, y: 1.04, yref: 'paper', text: 'Target +' + c.reference + '%', showarrow: false, xanchor: 'left',
                    font: {size: 11, color: css('--muted')}}],
   }), cfg);
 }

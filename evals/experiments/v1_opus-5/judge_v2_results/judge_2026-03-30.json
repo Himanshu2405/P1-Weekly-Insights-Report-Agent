@@ -1,0 +1,59 @@
+{
+  "week": "2026-03-30",
+  "status": "verified",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "near_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue reached 100.4% of the weekly target ($249 above), while orders landed at 95.0% of target, 45 orders short.",
+      "reason": "Both attainment figures match the key and the week is described as flat with small movements."
+    },
+    {
+      "id": "year_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "YTD still behind at 93%",
+      "reason": "Year-to-date shortfall at 93.0% attainment is stated in headline and vs_target."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Both movements are small and leave the week close to the 8-week averages",
+      "reason": "No dramatizing language; watch-outs are grounded in reported maturity, cancellation and YTD facts."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Next week's bar is 854 orders and $57,958 revenue.",
+      "reason": "At least four so_whats only restate numbers, definitions or next week's target (vs_target 1 and 3, watchout 2, drivers 3)."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Flat week: ... revenue just cleared its weekly target as Q2 opens; YTD still behind at 93%.",
+      "reason": "Gives a mixed ahead/behind verdict for the week plus the year-to-date position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose 0.6 pp to 14.2% and is 2.1 pp above last year.",
+      "reason": "All three items are a caveat, a worsening trend and the year shortfall; no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Order growth is running well ahead of signup growth year on year, so volume is leaning on existing customers.",
+      "reason": "Inferring reliance on existing customers goes beyond the reported signup and order data."
+    }
+  ],
+  "cost_usd": 0.0784925,
+  "duration_s": 22.0
+}

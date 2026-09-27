@@ -1,0 +1,66 @@
+{
+  "week": "2025-12-29",
+  "status": "verified",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders reached 87.4% of the weekly target and revenue 87.5%, a revenue shortfall of $6,736.",
+      "reason": "Behind-target verdict stated with matching 87.4%/87.5% figures in headline, summary and vs_target."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen three weeks in a row, from 13.0% to 16.0%.",
+      "reason": "The three-week rise from 13.0% to 16.0% is the lead watch-out with a revenue cost attached."
+    },
+    {
+      "id": "positive_framing",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Both are good YoY results but below the 75% growth the 2026 targets assume",
+      "reason": "Only YoY growth is called good, immediately qualified; the week itself is consistently framed as behind target."
+    },
+    {
+      "id": "streak_as_good",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "the direction matters even while the YoY comparison is favourable",
+      "reason": "The rising cancellation rate is consistently treated as a worsening risk, not an improvement."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "With AOV no longer contributing, revenue growth depends on order volume, which fell this week.",
+      "reason": "Nearly all so_whats explain meaning for target, quarter, year or how to read another number."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "landed behind target in the first week of 2026, though both remain well ahead of last year.",
+      "reason": "Verdict is clear, but the headline omits the week's key issue, the three-week cancellation rise, and ends on positives."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate ... rose 1.6 pp to 10.3%, above the 1.0 pp notable threshold",
+      "reason": "All three watch-outs are worsening trends or risks, including the cancellation streak from the key."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At the current pace the full-year target is out of reach, so the size of the required step-up is the key number to watch.",
+      "reason": "Claims are arithmetic or directly readable from the stated figures; no guessed causes or unsupported interpretation."
+    }
+  ],
+  "cost_usd": 0.129415,
+  "duration_s": 40.1
+}

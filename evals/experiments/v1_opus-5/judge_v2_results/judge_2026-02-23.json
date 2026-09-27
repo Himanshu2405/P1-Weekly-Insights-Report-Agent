@@ -1,0 +1,59 @@
+{
+  "week": "2026-02-23",
+  "status": "verified",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The week landed 108.7% of its revenue target ... That is 101.2% of the weekly orders target, 10 orders ahead.",
+      "reason": "Week-ahead verdict stated with both attainment figures matching the key."
+    },
+    {
+      "id": "quarter_still_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "the quarter remains behind at 90% of target with four weeks left",
+      "reason": "QTD 90.0% shortfall and four remaining weeks stated explicitly."
+    },
+    {
+      "id": "quarter_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "One strong week has not closed the quarter gap; $296,595 is still needed for the full quarter target.",
+      "reason": "Commentary repeatedly stresses quarter and year are behind, never implying on track."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Both weekly targets were beaten, with next week's bar set at 838 orders and $58,985 of revenue.",
+      "reason": "Three so_whats only restate attainment numbers or next week's targets without stating implications."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Strong week: orders 817 and revenue $62,651 both beat weekly targets, but the quarter remains behind at 90% of target",
+      "reason": "Headline gives ahead-of-target verdict plus the quarter position as the key issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At this pace the gap to target builds even in weeks that beat their own weekly target.",
+      "reason": "All three watch-outs are caveats or worsening trends, including the quarter shortfall risk."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Order growth is far outpacing new customer growth, so the week leaned on the existing customer base.",
+      "reason": "Inference about reliance on existing customers goes beyond the reported signup and order data."
+    }
+  ],
+  "cost_usd": 0.109095,
+  "duration_s": 25.5
+}

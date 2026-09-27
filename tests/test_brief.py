@@ -35,14 +35,14 @@ def synthetic_cuts(countries=("China", "United States", "France", "Brasil")) -> 
     return pd.DataFrame(rows)
 
 
-def synthetic_plan() -> pd.DataFrame:
+def synthetic_targets() -> pd.DataFrame:
     from weekly_report.weeks import fiscal_year_weeks
     weeks = fiscal_year_weeks(2026)
     return pd.DataFrame({"week_start": weeks, "orders_target": 1000, "revenue_target": 85000}).set_index("week_start")
 
 
 def test_brief_validates_and_passes_quality():
-    b = assemble(synthetic_weekly(), synthetic_cuts(), synthetic_plan(), report_weeks(REPORTING), now=NOW)
+    b = assemble(synthetic_weekly(), synthetic_cuts(), synthetic_targets(), report_weeks(REPORTING), now=NOW)
     assert b.data_quality.all_passed
     assert b.meta.reporting_week.week_of_quarter == 12
     ytd = b.targets.ytd_revenue_vs_target
@@ -57,15 +57,15 @@ def test_brief_validates_and_passes_quality():
     assert [s.segment for s in b.cuts.region.orders] == config.REGIONS
 
 
-def test_spike_raises_anomaly_and_plan_context_flags():
-    b = assemble(synthetic_weekly(spike=2.5), synthetic_cuts(), synthetic_plan(), report_weeks(REPORTING), now=NOW)
+def test_spike_raises_anomaly_and_target_context_flags():
+    b = assemble(synthetic_weekly(spike=2.5), synthetic_cuts(), synthetic_targets(), report_weeks(REPORTING), now=NOW)
     ids = {f.id for f in b.flags}
-    assert {"anomaly_orders", "plan_context_qtd", "maturity_returns"} <= ids
+    assert {"anomaly_orders", "target_context_qtd", "maturity_returns"} <= ids
     assert b.so_what_facts.qtd_attainment_excl_flagged_pct is not None
 
 
 def test_unmapped_country_fails_quality_gate():
-    b = assemble(synthetic_weekly(), synthetic_cuts(countries=("China", "Atlantis")), synthetic_plan(),
+    b = assemble(synthetic_weekly(), synthetic_cuts(countries=("China", "Atlantis")), synthetic_targets(),
                  report_weeks(REPORTING), now=NOW)
     gate = {c.name: c for c in b.data_quality.checks}["all_countries_mapped"]
     assert not gate.passed and "Atlantis" in gate.detail
@@ -74,7 +74,7 @@ def test_unmapped_country_fails_quality_gate():
 
 def test_brief_is_not_built_before_week_ends():
     early = datetime(2026, 9, 20, 12, 0, tzinfo=timezone.utc)  # Sunday, week still running
-    b = assemble(synthetic_weekly(), synthetic_cuts(), synthetic_plan(), report_weeks(REPORTING), now=early)
+    b = assemble(synthetic_weekly(), synthetic_cuts(), synthetic_targets(), report_weeks(REPORTING), now=early)
     assert not {c.name: c for c in b.data_quality.checks}["reporting_week_complete"].passed
 
 
@@ -118,8 +118,8 @@ def test_report_renders_every_layout_section(tmp_path, monkeypatch):
 
     weeks = report_weeks(REPORTING)
     cuts, _ = map_regions(synthetic_cuts())
-    run = RunData(weeks, add_kpis(synthetic_weekly()), cuts, synthetic_plan(),
-                  assemble(synthetic_weekly(), synthetic_cuts(), synthetic_plan(), weeks, now=NOW), 0, True, NOW)
+    run = RunData(weeks, add_kpis(synthetic_weekly()), cuts, synthetic_targets(),
+                  assemble(synthetic_weekly(), synthetic_cuts(), synthetic_targets(), weeks, now=NOW), 0, True, NOW)
     monkeypatch.setattr(render, "SITE_DIR", tmp_path)
     monkeypatch.setattr(render, "REPORTS_DIR", tmp_path / "reports")
     html = render.render(run).read_text()

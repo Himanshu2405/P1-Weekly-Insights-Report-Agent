@@ -1,0 +1,59 @@
+{
+  "week": "2026-04-20",
+  "status": "verified_after_retry",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Weekly orders hit 91.4% of target (840 vs 919) and weekly revenue 90.7% ($61,965 vs $68,310); both are behind.",
+      "reason": "Both attainment figures match the key exactly and the week is called behind target."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for four consecutive weeks, from 13.6% to 15.5%.",
+      "reason": "Streak with correct figures appears as the first watch-out."
+    },
+    {
+      "id": "streak_missed",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "watchouts... The cancellation rate has risen for four consecutive weeks",
+      "reason": "Watch-outs are populated and lead with the cancellation streak."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Return behaviour for that week improved and sits below the 8.9% recorded a year earlier.",
+      "reason": "Several so_whats only restate the fact or add numbers, e.g. this one and \"Next week's bar rises to 998 orders\"."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "but both landed behind target and every month remains behind.",
+      "reason": "Gives the behind-target verdict but never names the cancellation streak, the week's key issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "QTD revenue is $248,802 against a target to date of $252,801, 98.4% attainment and behind by $3,999.",
+      "reason": "All three watch-outs are risks or data caveats, including the required cancellation streak."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Higher value per order is why revenue grew 5.5% while orders grew only 0.7%.",
+      "reason": "Claims are arithmetic or direct comparisons readable from the stated figures."
+    }
+  ],
+  "cost_usd": 0.08841550000000001,
+  "duration_s": 27.7
+}

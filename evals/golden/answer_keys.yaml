@@ -1,0 +1,195 @@
+# Answer keys for the 16 golden weeks (v1.1: v1 approved by Himanshu 2026-09-25; 2026-09-26 removed "first week ahead this year" from 2026-02-23 because the brief does not contain that fact)
+#
+# For each week: what a good commentary MUST say and MUST NOT say, anywhere across the 5 slots.
+# Numbers come from the frozen briefs in evals/golden/briefs/. These are scored by the LLM judge
+# (Phase 4); the guards already enforce the general rules (numbers from the brief, direction words,
+# no causes or recommendations, "target" not "plan", return-rate week named) on every week.
+#
+# Recurring theme across all of H1: the year is behind target every week, and the weekly revenue
+# needed for the rest of the year is well above the recent run-rate.
+
+- week: 2025-12-29
+  scenario: First week of FY2026, behind target, cancellation streak
+  must_say:
+    - id: behind_target
+      text: The week was behind target (revenue 87.5%, orders 87.4% of target).
+    - id: cancellation_streak
+      text: Flags the cancellation rate rising 3 weeks in a row (13.0% to 16.0%) as a watch-out.
+  must_not_say:
+    - id: positive_framing
+      text: Calls the week strong, good, or on track.
+    - id: streak_as_good
+      text: Treats the rising cancellation rate as an improvement.
+
+- week: 2026-01-12
+  scenario: Deepest miss of the year
+  must_say:
+    - id: deep_miss
+      text: Clearly states the week was well behind target (revenue 74.9% of target).
+    - id: quarter_behind
+      text: The quarter is behind target (QTD 83.7%) with 10 weeks left.
+    - id: cancellation_improved
+      text: The cancellation rate improved (down 2.1 pp to 11.4%), described as good news.
+  must_not_say:
+    - id: softened
+      text: Softens the miss ("slightly behind", "close to target", "broadly on track").
+
+- week: 2026-01-19
+  scenario: Orders up WoW but behind target; big cancellation jump
+  must_say:
+    - id: up_but_behind
+      text: Orders rose 9.9% on the week but the week was still behind target (revenue 91.3%, orders 90.0%).
+    - id: cancellation_jump
+      text: The cancellation rate worsened sharply (up 5.4 pp to 16.8%) and is called out as a risk.
+    - id: revenue_vs_orders
+      text: Revenue fell 0.7% even though orders rose (average order value down 3.7%).
+  must_not_say:
+    - id: ahead_claim
+      text: Says the week was ahead of or on target.
+    - id: cancellation_positive
+      text: Describes the cancellation increase as neutral or positive.
+
+- week: 2026-02-09
+  scenario: Plain bad week
+  must_say:
+    - id: down_and_behind
+      text: Orders (down 6.1%) and revenue (down 9.1%) fell on the week and the week was behind target (revenue 83.0%).
+    - id: quarter_behind
+      text: The quarter is behind target (QTD 87.4%) with 6 weeks left.
+  must_not_say:
+    - id: positive_framing
+      text: Uses positive framing for the week ("resilient", "solid", "strong").
+
+- week: 2026-02-16
+  scenario: Strong growth week that still misses target
+  must_say:
+    - id: growth_but_behind
+      text: Orders rose 13.4% on the week, yet revenue was only 89.6% of target (behind).
+    - id: cancellation_risk
+      text: The cancellation rate rose 4.2 pp to 19.0% and is flagged as a risk.
+  must_not_say:
+    - id: strong_week
+      text: Calls the week strong, ahead of target, or on track.
+
+- week: 2026-02-23
+  scenario: Good week, bad quarter
+  must_say:
+    - id: week_ahead
+      text: The week was ahead of target (revenue 108.7%, orders 101.2%).
+    - id: quarter_still_behind
+      text: The quarter is still behind target (QTD 90.0%) with 4 weeks left.
+  must_not_say:
+    - id: quarter_on_track
+      text: Implies the quarter or the year is on track.
+
+- week: 2026-03-16
+  scenario: Eventful week ahead of target, quarter behind with 1 week left, cancellation streak
+  must_say:
+    - id: week_ahead_quarter_behind
+      text: The week was ahead of target (revenue 101.8%) but Q1 is behind (92.6%) with 1 week left.
+    - id: cancellation_streak
+      text: Flags the cancellation rate rising 3 weeks in a row (14.3% to 16.4%) as a watch-out.
+  must_not_say:
+    - id: q1_will_hit
+      text: Suggests Q1 will reach its target.
+
+- week: 2026-03-23
+  scenario: Last week of Q1, mixed week (orders ahead, revenue behind)
+  must_say:
+    - id: mixed_week
+      text: Orders were ahead of target (102.9%) but revenue was behind (90.2%).
+    - id: q1_closes_behind
+      text: Q1 closes behind target at 92.4%.
+  must_not_say:
+    - id: ahead_overall
+      text: Calls the week ahead of target without saying revenue missed.
+
+- week: 2026-03-30
+  scenario: Quiet week, first week of Q2
+  must_say:
+    - id: near_target
+      text: The week was close to target (revenue 100.4%, orders 95.0%) with small changes on the week.
+    - id: year_behind
+      text: The year is still behind target (YTD 93.0%).
+  must_not_say:
+    - id: dramatized
+      text: Dramatizes small moves ("surge", "plunge", "sharp", "sharply") or invents watch-outs.
+
+- week: 2026-04-06
+  scenario: Clearly good week
+  must_say:
+    - id: strong_week
+      text: A strong week, ahead of target (revenue 116.6%, orders 104.1%), with the quarter ahead (QTD 108.3%).
+    - id: year_gap
+      text: The year is still behind (YTD 94.5%) and needs $80,135 a week vs a recent $60,216.
+  must_not_say:
+    - id: year_on_track
+      text: Says or implies the year is on track.
+
+- week: 2026-04-13
+  scenario: Bad week, good quarter, cancellation streak
+  must_say:
+    - id: week_behind
+      text: The week was behind target (revenue 88.7%) with revenue down 13.1% on the week.
+    - id: quarter_ahead
+      text: The quarter is still ahead of target (QTD 101.3%).
+    - id: cancellation_streak
+      text: Flags the cancellation rate rising 3 weeks in a row (13.6% to 15.3%) as a watch-out.
+  must_not_say:
+    - id: quarter_behind_claim
+      text: Says the quarter is behind target.
+
+- week: 2026-04-20
+  scenario: Behind target, quiet except a 4-week cancellation streak
+  must_say:
+    - id: behind_target
+      text: The week was behind target (revenue 90.7%, orders 91.4%).
+    - id: cancellation_streak
+      text: Flags the cancellation rate rising 4 weeks in a row (13.6% to 15.5%) as the key watch-out.
+  must_not_say:
+    - id: streak_missed
+      text: Leaves the watch-outs empty or omits the cancellation streak.
+
+- week: 2026-05-11
+  scenario: Ahead of target, 14-Day Return Rate streak
+  must_say:
+    - id: week_ahead_quarter_behind
+      text: The week was ahead of target (revenue 104.5%) while the quarter is behind (QTD 96.8%).
+    - id: return_streak
+      text: Flags the 14-Day Return Rate rising 3 weeks in a row (8.7% to 11.3%), for the week of 27 Apr.
+  must_not_say:
+    - id: wrong_return_week
+      text: Attributes the return rate to the reporting week (week of 11 May).
+
+- week: 2026-06-01
+  scenario: Quiet week, behind target
+  must_say:
+    - id: behind_target
+      text: The week was behind target (revenue 90.2%, orders 93.6%), with revenue down 8.7% on the week.
+    - id: quarter_behind
+      text: Q2 is behind target (QTD 97.7%) with 3 weeks left.
+  must_not_say:
+    - id: dramatized
+      text: Dramatizes the week or invents watch-outs.
+
+- week: 2026-06-15
+  scenario: Orders down WoW but ahead of target
+  must_say:
+    - id: down_but_ahead
+      text: Orders dipped 1.5% on the week but the week was ahead of target (orders 106.9%, revenue 113.6%).
+    - id: quarter_just_ahead
+      text: Q2 is just ahead of target (QTD 100.1%) with 1 week left.
+  must_not_say:
+    - id: behind_claim
+      text: Describes the week as behind target because orders dipped.
+
+- week: 2026-06-22
+  scenario: Last week of Q2, ahead of target
+  must_say:
+    - id: q2_closes_ahead
+      text: Q2 closes ahead of target at 100.7%, with the week ahead (revenue 107.5%).
+    - id: year_gap
+      text: The year is still behind (YTD 96.8%) and needs $84,542 a week vs a recent $71,736.
+  must_not_say:
+    - id: year_on_track
+      text: Says or implies the year is on track.

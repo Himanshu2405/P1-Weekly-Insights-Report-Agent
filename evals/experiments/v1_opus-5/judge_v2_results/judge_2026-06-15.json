@@ -1,0 +1,59 @@
+{
+  "week": "2026-06-15",
+  "status": "verified_after_retry",
+  "judge": "judge_v2",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "down_but_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders came in at 980, down 1.5% from 995 last week... Both weekly targets were beaten: orders at 106.9% of target and revenue at 113.6% of target.",
+      "reason": "Both the weekly order dip and the ahead-of-target attainment figures are stated and match the key."
+    },
+    {
+      "id": "quarter_just_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is 100.1% of target at $811,926... the final week decides whether 2026-Q2 lands on target.",
+      "reason": "QTD 100.1% marginally ahead with one week remaining is clearly conveyed."
+    },
+    {
+      "id": "behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Revenue of $77,678 beat the weekly target at 113.6% attainment",
+      "reason": "Only the year is called behind; the week is consistently described as ahead of target."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The week was ahead on both measures, against next week's targets of 952 orders and $73,167 revenue.",
+      "reason": "At least four so_whats merely restate facts, add numbers, or recite ratings/next-week targets without implications."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue of $77,678 beat the weekly target at 113.6% attainment, while orders slipped 1.5% week on week and the year stays behind target.",
+      "reason": "Gives an ahead-of-target verdict for the week and names the year's shortfall as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The cancellation rate fell 1.7 pp to 14.5%, a move at or above the 1.0 pp notable threshold and rated good.",
+      "reason": "An improvement explicitly rated good is listed as a watch-out rather than a risk or caveat."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Order growth is not being matched by new customer growth, which is a point to monitor for future demand.",
+      "reason": "Interprets signup versus order trends as a forward-looking demand concern beyond what the data shows."
+    }
+  ],
+  "cost_usd": 0.0912825,
+  "duration_s": 28.8
+}

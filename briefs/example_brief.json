@@ -20,9 +20,9 @@
     },
     "data_through_utc": "2026-09-20T23:59:59Z",
     "source": "bigquery-public-data.thelook_ecommerce",
-    "target_version": "plan_2026_v1",
+    "target_version": "targets_2026_v1",
     "layout_version": "1.0",
-    "plan_growth_pct": 75.0
+    "target_growth_pct": 75.0
   },
   "data_quality": {
     "all_passed": true,
@@ -35,7 +35,7 @@
       {
         "name": "target_row_present",
         "passed": true,
-        "detail": "week 2026-09-14 found in plan_2026_v1"
+        "detail": "week 2026-09-14 found in targets_2026_v1"
       },
       {
         "name": "all_countries_mapped",
@@ -187,8 +187,8 @@
       "attainment_pct": 117.6,
       "gap": 177295,
       "status": "ahead",
-      "full_quarter_plan": 1177957,
-      "remaining_to_full_quarter_plan": -5727,
+      "full_quarter_target": 1177957,
+      "remaining_to_full_quarter_target": -5727,
       "weeks_left": 1
     }
   },
@@ -372,15 +372,15 @@
       }
     },
     {
-      "id": "plan_context_qtd",
-      "type": "plan_context",
+      "id": "target_context_qtd",
+      "type": "target_context",
       "severity": "warning",
       "kpi": "qtd_revenue_vs_target",
       "detected_by": "code",
       "facts": {
         "qtd_attainment_pct": 117.6,
         "qtd_attainment_excl_flagged_pct": 104.0,
-        "rule": "shown when an anomaly flag affects a plan KPI"
+        "rule": "shown when an anomaly flag affects a target KPI"
       }
     },
     {
@@ -400,7 +400,7 @@
       "orders": 1058,
       "revenue": 77972
     },
-    "full_quarter_plan": 1177957,
+    "full_quarter_target": 1177957,
     "qtd_attainment_excl_flagged_pct": 104.0,
     "revenue_per_pp_cancellation": 2588,
     "avg_8wk": {
@@ -418,9 +418,9 @@
         "share_of_change_pct": 70.4
       }
     },
-    "yoy_vs_plan_growth": {
+    "yoy_vs_target_growth": {
       "orders_yoy_pct": 395.0,
-      "plan_growth_pct": 75.0
+      "target_growth_pct": 75.0
     },
     "signups_vs_orders_growth": {
       "signups_wow_pct": 21.6,
@@ -429,8 +429,8 @@
     "segments_all_growing": {
       "wow": true,
       "yoy": true,
-      "above_plan_growth": true
+      "above_target_growth": true
     },
-    "quarter_remaining_to_plan": -5727
+    "quarter_remaining_to_target": -5727
   }
 }

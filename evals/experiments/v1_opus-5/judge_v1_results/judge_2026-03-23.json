@@ -1,0 +1,59 @@
+{
+  "week": "2026-03-23",
+  "status": "verified_after_retry",
+  "judge": "judge_v1",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "mixed_week",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders reached 855, ahead of target at 102.9%, but revenue hit only 90.2% of the weekly target",
+      "reason": "Both the orders beat (102.9%) and revenue miss (90.2%) are stated with matching figures."
+    },
+    {
+      "id": "q1_closes_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Q1 closed with revenue of $715,557 against a full-quarter target of $774,555, or 92.4% attainment.",
+      "reason": "Q1 closing behind target at 92.4% is stated explicitly in the summary."
+    },
+    {
+      "id": "ahead_overall",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The week fell $6,650 short of target even though orders finished ahead of their own target.",
+      "reason": "The revenue miss is stated repeatedly; the week is never framed as ahead overall."
+    },
+    {
+      "id": "so_what_is_implication",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "So what: \"Next week's targets are 896 orders and $60,298 of revenue.\"",
+      "reason": "Several so_whats only restate figures or add new numbers without saying what they mean for the business."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "ahead of target at 102.9%, but revenue hit only 90.2% of the weekly target and Q1 closed at 92.4% attainment",
+      "reason": "Headline gives a clear split verdict and names the revenue/Q1 shortfall as the key issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "All three months of the quarter \u2014 Jan, Feb and Mar \u2014 finished behind target",
+      "reason": "All three watch-outs are caveats or adverse trends; no good news is listed there."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Softer order value explains why revenue rose only 1.1% while orders rose 3.1%.",
+      "reason": "Claims trace to stated figures; no guessed causes or outcome predictions beyond the data."
+    }
+  ],
+  "cost_usd": 0.09453049999999999,
+  "duration_s": 27.9
+}

@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-23",
+  "status": "verified_after_retry",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "mixed_week",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders reached 855, ahead of target at 102.9%, but revenue hit only 90.2% of the weekly target",
+      "reason": "Both figures stated correctly in the headline and repeated in vs_target."
+    },
+    {
+      "id": "q1_closes_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Q1 closed with revenue of $715,557 against a full-quarter target of $774,555, or 92.4% attainment",
+      "reason": "Q1 attainment of 92.4%, behind target, is stated explicitly."
+    },
+    {
+      "id": "ahead_overall",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The week fell $6,650 short of target even though orders finished ahead of their own target.",
+      "reason": "Revenue miss is stated throughout; week is never framed as simply ahead."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "ahead of target at 102.9%, but revenue hit only 90.2% ... and Q1 closed at 92.4% attainment",
+      "reason": "Gives a mixed ahead/behind verdict and names the Q1 position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "All three months of the quarter \u2014 Jan, Feb and Mar \u2014 finished behind target",
+      "reason": "Each watch-out is a caveat or adverse trend; the Q1 shortfall is flagged."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Softer order value explains why revenue rose only 1.1% while orders rose 3.1%.",
+      "reason": "Claims are arithmetic or directly readable from stated figures; no guessed causes."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates orders above range and adds a target-growth number without business meaning."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Repeats the shortfall amount and the orders fact; no added meaning."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says the gap is now locked in and carries into year-to-date position."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Calls it an improvement and adds a per-point revenue figure only."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Caveat changing how the reporting week's return rate should be read."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains divergence and tells reader to treat the two KPIs separately."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads the trend as narrowing yet never ahead, a quarter-position judgement."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only gives next week's targets without saying what they mean."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Adds remaining-target arithmetic without stating implication."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States required pace far exceeds run-rate, making full-year target demanding."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how one region offset declines elsewhere, interpreting the 134.6% share."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says growth came from smallest sources, a read on growth quality."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes movement rests on small, volatile sources \u2014 a risk read."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue growth lagged order growth."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States the year-on-year cancellation gap still weighs on revenue."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the year-on-year fact plus a definitional caveat."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Compares growth rates and repeats the year-on-year decline without meaning."
+    }
+  ],
+  "cost_usd": 0.107416,
+  "duration_s": 31.8
+}
