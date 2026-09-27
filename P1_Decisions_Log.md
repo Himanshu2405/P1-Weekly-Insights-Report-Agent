@@ -10,6 +10,7 @@ Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech 
 - NOTE: golden-set v2(Opus 5) vs v3(Sonnet 5) comparison is confounded by model change; user asked to skip that comparison for now, revisit later. No clean v2-vs-v3 held-out comparison yet (v3 held-out not run).
 - RESUMED (step 6): v3 held-out generation (10 weeks, Sonnet 5): 8/10 first-attempt, 2 after retry, 0 fallback, $1.652 total ($0.165/week). Results in `evals/experiments/heldout_v3_sonnet-5/`.
 - DECIDED (user): skip step 7 (judge v4 on v3 held-out) and the planned same-model v2-vs-v3 held-out comparison. Data is synthetic (no real company/product), so there is no ground truth for "correct" commentary; further eval/prompt iteration chasing a higher pass-rate is a token/time sink, not a learning gain. Eval loop (golden set, judge, guards, held-out replay) is considered demonstrated. BACKLOG item closed, not deferred.
+- DECIDED (user): defer all LangSmith work (tracing SDK, dashboard, hosted datasets) to P2, not P1. Reasoning discussed: P1 already has a real eval/observability stack built by hand (guards, judge_v1-v4, golden/held-out sets, `run_log.jsonl`, `guard_review.md`), and LangSmith's actual value-add (trace UI, nested call trees, production monitoring) fits P2's live chatbot far better than P1's manual weekly batch job. Phase 4 in `PLAN.md` marked done (eval in CI still open, folded into Phase 5). Module 5 in the learning plan (LangSmith video series) still stands as learning, but its target project is now P2.
 
 ## 2026-09-26
 

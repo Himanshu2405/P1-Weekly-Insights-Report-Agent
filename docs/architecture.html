@@ -21,13 +21,12 @@
 <header>
   <h1>How the weekly report is built</h1>
   <div class="sub">One command runs everything for one week: <code>python scripts/build_report.py --week 2026-08-03</code>.
-  Step details: see ARCHITECTURE.md.</div>
+  Step details: see TECH_SPEC.md.</div>
 </header>
 <div class="legend">
   <span class="chip" style="background:#eef4fc">Inputs</span>
   <span class="chip" style="background:#e7f5ea">Built</span>
-  
-  <span class="chip" style="background:#f0efec">Phase 4 and 5 (later)</span>
+  <span class="chip" style="background:#fff4d6">Next</span>
 </div>
 <div class="wrap"><pre class="mermaid">
 flowchart TD
@@ -69,10 +68,9 @@ flowchart TD
     end
 
     %% ---------- later ----------
-    subgraph LATER["4. Prove it + 5. Publish"]
-        EV["Phase 4: Evals<br/>run steps 7 to 9 on ~25 saved briefs,<br/>score, error analysis, prompt v2, v3"]
-        TR["Phase 4: Traces<br/>LangSmith records every call"]
-        PUB["Phase 5: GitHub Pages<br/>public link for interviewers"]
+    subgraph LATER["4. Proven (done) + 5. Automate and publish (next)"]
+        EV["Phase 4: Evals - DONE<br/>golden set 16 weeks + held-out 10 weeks,<br/>guards, LLM judge v1 to v4, error analysis"]
+        PUB["Phase 5: Automate and publish<br/>GitHub Actions schedule, eval in CI,<br/>GitHub Pages public link"]
     end
 
     BQ --&gt; S2
@@ -94,17 +92,15 @@ flowchart TD
     LAY --&gt; S12
     S12 --&gt; OUT
     S6 -. "saved briefs = golden set" .-&gt; EV
-    S8 -. "every call" .-&gt; TR
     OUT -.-&gt; PUB
 
     classDef done fill:#e7f5ea,stroke:#1d6b33,color:#0b0b0b
     classDef next fill:#fff4d6,stroke:#b07d00,color:#0b0b0b
-    classDef later fill:#f0efec,stroke:#898781,color:#52514e
     classDef input fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b
     class BQ,TGT,LAY,CTX input
     class PR input
-    class S1,S2,S3,S4,S5,S6,S7,S8,S9,S9R,S9F,S10,S11,S12,OUT,STOP done
-    class EV,TR,PUB later
+    class S1,S2,S3,S4,S5,S6,S7,S8,S9,S9R,S9F,S10,S11,S12,OUT,STOP,EV done
+    class PUB next
 
 </pre></div>
 <script type="module">

@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| Updated | 2026-09-24 |
+| Updated | 2026-09-27 |
 | Learning plan | [AI_Automation_Engineering_Plan.md](../../AI_Automation_Engineering_Plan.md) |
 | PRD | [PRD.md](PRD.md) |
 | Tech spec | [TECH_SPEC.md](TECH_SPEC.md) |
@@ -35,11 +35,11 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 - Needs: Modules 3 and 4. DONE.
 - Only if evals show the brief misses insights: let the model call `get_breakdown(metric, segment)`.
 
-### Phase 4: Evaluation, tracing, reliability (core of the project)
-- PREREQ: Module 5.
-  - [x] Hamel Husain / Peter Yang evals video.
-  - [ ] LangChain Academy, Building Reliable Agents (LangSmith, tracing, judge).
-- Tasks: golden set (25+), deterministic checks, LLM-as-judge calibrated on your labels, error analysis with failure taxonomy, LangSmith tracing, template fallback, eval in CI.
+### Phase 4: Evaluation, reliability (core of the project) (DONE except eval in CI)
+- Needs: Module 3, Module 4. DONE.
+- Done: golden set (16 weeks), 10 deterministic guards, LLM-as-judge (judge_v1 to v4, calibrated), error analysis (`guard_review.md`), retry with feedback, fallback, held-out replay.
+- DECIDED (2026-09-27): LangSmith tracing/dashboard deferred to P2. P1 is a manual weekly batch job, not live production traffic, so the homegrown stack (guards, judge, `run_log.jsonl`) is the final observability/eval answer here, not a placeholder for LangSmith. P2's chatbot has the real production-traffic use case for a tracing UI. See `P1_Decisions_Log.md` 2026-09-27 and Module 5 in the learning plan.
+- Remaining: eval in CI (needs Module 7.3, folded into Phase 5 below).
 
 ### Phase 5: Ship and operate
 - PREREQ: Module 7.3 (GitHub Actions). Module 7.4 (observability concepts) for run metrics.
@@ -51,8 +51,8 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 
 ## Recommended order
 
-- Now: Phases 1 and 2 (only completed modules needed), with the LangChain Academy course in parallel.
-- Phase 4 after Module 5 is complete.
+- Now: Phases 1 and 2 (only completed modules needed).
+- Phase 4 done except eval in CI, which lands with Phase 5.
 - Phase 5 after Module 7.3.
 
 ## Deliverables
@@ -70,8 +70,7 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 - [x] Phase 1 Data and metrics (brief pipeline, charts, HTML report with commentary placeholders)
 - [x] Phase 2 AI commentary: prompt v1, output format, Claude headless call, guards, retry with feedback, fallback, cache, run log, page
 - [ ] Phase 3 Drill-down tools (optional)
-- [ ] Module 5 completed (prereq for Phase 4)
-- [ ] Phase 4 Evaluation, tracing, reliability
+- [x] Phase 4 Evaluation, reliability (eval in CI still open, folded into Phase 5)
 - [ ] Module 7.3 completed (prereq for Phase 5)
 - [ ] Phase 5 Ship and operate
 - [ ] README + slides
