@@ -1,0 +1,163 @@
+{
+  "week": "2025-12-29",
+  "status": "verified_after_retry",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue were behind target this week (87.4% and 87.5% of target)",
+      "reason": "Headline clearly states both orders and revenue behind target with matching percentages."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for three straight weeks, from 13.0% to 16.0%.",
+      "reason": "Appears in watchouts section as a flagged risk with matching numbers."
+    },
+    {
+      "id": "positive_framing",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "",
+      "reason": "No sentence calls the week strong, good, or on track."
+    },
+    {
+      "id": "streak_as_good",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "",
+      "reason": "Cancellation streak is consistently treated as a risk, never as an improvement."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue were behind target this week (87.4% and 87.5% of target), the quarter is starting behind target, and cancellations rose for a third straight week.",
+      "reason": "Headline states behind-target verdict and names the quarter position and a risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for three straight weeks... The current 8-week revenue run rate... is well below the 73,875 weekly rate required",
+      "reason": "All three watchouts are genuine risks or trends that change how to read the numbers."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "With AOV falling year on year, revenue growth is coming more from order volume than from bigger baskets.",
+      "reason": "All claims are traceable to brief figures; no causal guesses or unsupported predictions found."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates missed target and next week's target without saying what it means."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States the quarter is starting behind target."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says growth pace won't close the gap to target."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Links returns and cancellations to weaker order quality."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains ongoing revenue erosion from the streak."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames return rate as second sign of weakening order quality."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is not on track at current pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes next week's target is a higher bar than this week's shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States the quarter needs stronger performance to close the gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says current pace puts full-year target out of reach."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links Search's drop to orders falling behind target."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Just restates which segment drove the decline most."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains why the LATAM gain didn't offset overall decline."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Connects worsening returns to weaker order quality."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains revenue growth is volume-driven, not price-driven."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Ties rising cancellations to ongoing revenue impact."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Compares signup growth to order growth, noting a lag."
+    }
+  ],
+  "cost_usd": 0.07372400000000001,
+  "duration_s": 36.2
+}

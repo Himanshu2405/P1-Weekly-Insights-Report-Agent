@@ -5,23 +5,23 @@ Then we measure how often the judge agrees with you. Target: 85% or more before 
 
 | # | Week | Item | Kind | Judge | Evidence | Judge's reason | Your verdict |
 |---|---|---|---|---|---|---|---|
-| 1 | 2025-12-29 | so_what drivers 3 | so_what | fail | (none) | Merely repeats gains were smaller than declines so total fell. |  |
-| 2 | 2025-12-29 | so_what health 2 | so_what | pass | (none) | Explains yearly comparison reads better than the current trend. |  |
-| 3 | 2025-12-29 | so_what health 4 | so_what | fail | (none) | Just compares the two growth numbers again without meaning. |  |
-| 4 | 2025-12-29 | so_what summary 4 | so_what | fail | (none) | Only repeats that signups rose while orders fell. |  |
-| 5 | 2026-01-12 | so_what vs_target 1 | so_what | pass | (none) | Interprets the shortfall as enlarging the quarter-to-date gap. |  |
-| 6 | 2026-01-19 | cancellation_jump | must_say | pass | The cancellation rate at 16.8% is the highest in the 8-week history ... a risk to watch if the level persists. | The 5.4 pp jump to 16.8% is stated and flagged in watchouts as a risk. |  |
-| 7 | 2026-01-19 | revenue_vs_orders | must_say | pass | Revenue slipped 0.7% week on week to $50,652 while orders rose, and AOV fell 3.7% to $81.70. | Revenue decline despite order growth, with the AOV decline, is stated accurately. |  |
-| 8 | 2026-01-19 | so_what health 4 | so_what | fail | (none) | Restates the signup-versus-order comparison without business meaning. |  |
-| 9 | 2026-02-09 | so_what drivers 2 | so_what | fail | (none) | Merely restates the 64.4% concentration already stated in the fact. |  |
-| 10 | 2026-03-16 | watchouts_are_risks | quality | pass | Reaching the full-quarter target of $774,555 requires $120,354 in the final week | All three watch-outs are risks or gaps, and the cancellation streak is included. |  |
-| 11 | 2026-03-23 | q1_closes_behind | must_say | pass | Q1 closed behind at 92.4% of the quarter target | Stated in headline and repeated as QTD 92.4% in vs_target. |  |
-| 12 | 2026-03-23 | so_what health 1 | so_what | pass | (none) | Explains AOV as where the order-revenue growth gap appears. |  |
-| 13 | 2026-04-13 | so_what drivers 2 | so_what | pass | (none) | Says growing regions did not cover the EMEA and LATAM losses. |  |
-| 14 | 2026-04-13 | so_what summary 4 | so_what | fail | (none) | Restates the streak continuing and adds a per-point number without saying what it means. |  |
-| 15 | 2026-04-20 | so_what health 3 | so_what | fail | (none) | Adds another comparison and repeats the fall as improvement; no business meaning. |  |
-| 16 | 2026-05-11 | so_what health 3 | so_what | fail | (none) | Mainly adds another number; 'not in step' adds little meaning. |  |
-| 17 | 2026-05-11 | so_what summary 1 | so_what | pass | (none) | Reads the week against the quarter's shortfall. |  |
-| 18 | 2026-06-01 | so_what drivers 3 | so_what | pass | (none) | Notes the largest region's growth still failed to offset declines. |  |
-| 19 | 2026-06-01 | so_what health 2 | so_what | fail | (none) | Merely juxtaposes signups and order growth without saying what it means. |  |
-| 20 | 2026-06-15 | so_what health 2 | so_what | fail | (none) | Just multiplies the stated per-point value into another number. |  |
+| 1 | 2025-12-29 | so_what drivers 3 | so_what | fail | (none) | Only restates that gains didn't offset declines, no further meaning. |  |
+| 2 | 2025-12-29 | so_what health 3 | so_what | pass | (none) | Flags compounding risk of two order-quality measures worsening together. |  |
+| 3 | 2025-12-29 | so_what summary 4 | so_what | fail | (none) | Just notes the two metrics diverge without stating a business meaning. |  |
+| 4 | 2026-01-12 | no_speculation | quality | pass | at the current pace the full-year target is out of reach | Claims are computations or trends directly supported by brief figures, no guessed causes. |  |
+| 5 | 2026-01-12 | so_what watchouts 3 | so_what | pass | (none) | Explains how elevated returns hurt gross revenue. |  |
+| 6 | 2026-01-19 | cancellation_jump | must_say | pass | The cancellation rate at 16.8% is the highest in the 8-week history and is rated bad both week on week and year on year. | Cancellation jump to 16.8% is stated and placed in watchouts as a risk. |  |
+| 7 | 2026-01-19 | revenue_vs_orders | must_say | pass | Revenue slipped 0.7% week on week to $50,652 while orders rose, and AOV fell 3.7% to $81.70. | Matches the key: revenue down despite orders up, AOV down 3.7%. |  |
+| 8 | 2026-01-19 | so_what health 3 | so_what | fail | (none) | Just restates the flat/above-last-year fact without new meaning. |  |
+| 9 | 2026-02-23 | so_what drivers 3 | so_what | fail | (none) | Just restates the arithmetic of offsetting contributions without new implication. |  |
+| 10 | 2026-02-23 | so_what summary 4 | so_what | fail | (none) | Just restates the divergence direction without stating a consequence. |  |
+| 11 | 2026-03-16 | so_what health 3 | so_what | fail | (none) | Just restates the two directional facts without stating a business meaning. |  |
+| 12 | 2026-03-16 | so_what summary 1 | so_what | fail | (none) | Only notes next week's higher target without saying what missing it would mean. |  |
+| 13 | 2026-03-23 | q1_closes_behind | must_say | pass | Q1 closed behind at 92.4% of the quarter target | Headline explicitly states Q1 closed behind at the correct attainment figure. |  |
+| 14 | 2026-03-23 | no_speculation | quality | fail | Signups are the one measure running below last year while orders are well ahead, a divergence to keep watching. | Cancellation rate also worsened YoY (+1.2pp, bad), so signups is not the only measure below last year. |  |
+| 15 | 2026-03-23 | so_what vs_target 3 | so_what | pass | (none) | Explains the required pace change needed for the year. |  |
+| 16 | 2026-04-06 | no_speculation | quality | fail | The smallest source is growing far faster than the 75% year-on-year growth the targets assume. | Display (51 orders) is not the smallest traffic source; Email (49) is, so this claim is unsupported. |  |
+| 17 | 2026-04-13 | so_what summary 2 | so_what | pass | (none) | Says how to read the drop, i.e. not ordinary fluctuation. |  |
+| 18 | 2026-05-11 | so_what drivers 2 | so_what | fail | (none) | Reframes share vs contribution figures without stating a further business consequence. |  |
+| 19 | 2026-05-11 | so_what drivers 3 | so_what | pass | (none) | Notes the largest region failed to offset declines elsewhere, a net-effect implication. |  |
+| 20 | 2026-06-01 | so_what drivers 2 | so_what | pass | (none) | Says gap to target traces to segments other than the top-growing region. |  |

@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-30",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "near_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Mixed week: orders were 95.0% of target while revenue was 100.4% of target",
+      "reason": "Both attainment percentages are given and match the key, conveying a near-target week."
+    },
+    {
+      "id": "year_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "YTD revenue remains behind target at 93.0%",
+      "reason": "Headline explicitly states the year is behind target with matching 93.0% figure."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "",
+      "reason": "No dramatizing language (surge, plunge, sharp) found and no invented watch-outs; all cited risks are supported."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Mixed week: orders were 95.0% of target while revenue was 100.4% of target, and YTD revenue remains behind target at 93.0%.",
+      "reason": "Headline gives an ahead/behind verdict (mixed) and names the YTD target gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Cancellation rate was 14.2%, up 0.6pp WoW and up 2.1pp YoY.",
+      "reason": "All three watch-outs (cancellations, AOV, run-rate gap) are genuine risks or worsening trends, none is good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "LATAM was the biggest driver behind orders finishing below the weekly target.",
+      "reason": "Conflates LATAM's contribution to WoW change with the separate target-gap shortfall, an unsupported causal leap between two different baselines."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States LATAM caused the shortfall versus target, an implication despite being an overreach."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains NA's offsetting role was insufficient to reach target."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains decline is isolated to a small channel while the main channel is healthy."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue growth source is volume, not basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Translates cancellation rise into revenue impact and target attainment risk."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Contrasts return rate stability with other worsening metrics' pressure on revenue."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States the order dip is not linked to weaker customer acquisition."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Locates the shortfall in volume rather than order value."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects weekly beat to persistent YTD gap, saying one week doesn't fix the year."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States signup growth rules out weaker acquisition as cause of order dip."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Links cancellation rise to revenue target attainment risk."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames the week as mixed rather than a clean beat or miss."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes quarter's ahead start but flags remaining large gap to full target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States the full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains rising cancellations erode revenue independent of order volume."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States shrinking AOV is a drag on revenue relative to order growth."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States current run-rate implies missing the full-year target without improvement."
+    }
+  ],
+  "cost_usd": 0.08475400000000001,
+  "duration_s": 52.5
+}

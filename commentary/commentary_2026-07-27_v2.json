@@ -1,0 +1,275 @@
+{
+  "week": "2026-07-27",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Ahead of target on orders and revenue, and the quarter is running ahead; but the year sits barely above target and needs a faster pace than recent weeks.",
+      "points": [
+        {
+          "what": "Orders came in at 1,157, or 117.8% of the weekly target, and up 106.2% on last year.",
+          "so_what": "The week cleared its volume target, with growth running faster than the targets assume."
+        },
+        {
+          "what": "Revenue was $86,556, or 108.4% of the weekly target, but down 2.6% week on week, which is rated bad.",
+          "so_what": "The week beat its revenue target even though revenue moved down against the prior week."
+        },
+        {
+          "what": "Year-to-date revenue is 100.3% of the target to date.",
+          "so_what": "The year's margin above target is thin, so a run of weaker weeks would tip the year behind."
+        },
+        {
+          "what": "Orders are flagged as notable because the week's count sits outside the 8-week range, against an 8-week average of 1,054.",
+          "so_what": "This week's volume should be treated as unusual rather than as the new weekly level."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "Hitting the full-year target requires $85,110 of revenue a week for the remaining 22 weeks, against a current 8-week run-rate of $77,852.",
+          "so_what": "The rest of the year demands more per week than recent weeks have delivered, putting the full-year target at risk."
+        },
+        {
+          "what": "The cancellation rate rose 0.5 pp to 15.3%, rated bad, and each percentage point is worth $1,022 of revenue.",
+          "so_what": "The increase worked against revenue in a week when revenue already fell versus the prior week."
+        },
+        {
+          "what": "New signups of 254 were down 4.9% on last year, rated bad, while orders were up 106.2% on last year.",
+          "so_what": "The two year-on-year growth measures point in opposite directions, so order growth is not matched on the signup side."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Quarter-to-date revenue of $403,276 is 114.7% of the target to date, five weeks into the quarter.",
+          "so_what": "The quarter has built a cushion against target, but it is only settled once the remaining weeks are in."
+        },
+        {
+          "what": "$584,720 of the $987,996 full-quarter target is still outstanding with 8 weeks left.",
+          "so_what": "Most of the quarter's target is still ahead, so the current cushion is not decisive for the quarter."
+        },
+        {
+          "what": "Year-to-date revenue is 100.3% of target, with January to April behind target and May to July ahead.",
+          "so_what": "The year is only marginally ahead, and that position rests entirely on the recent run of months."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "EMEA orders rose 26.1% to 251 and contributed 52 of the week's order increase, or 208% of the change.",
+          "so_what": "EMEA accounts for more than the entire weekly gain, so the total increase depends on one region."
+        },
+        {
+          "what": "North America orders fell 13.2% to 224, a contribution of -34 orders.",
+          "so_what": "North America pulled against the weekly increase, and it is the only region growing more slowly year on year than the targets assume."
+        },
+        {
+          "what": "Search, the largest source at 69.1% of orders, contributed 15 orders, or 60% of the week's change.",
+          "so_what": "The weekly order gain rests on the largest source rather than on a shift between sources."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV was $88.32, down 4.1% week on week, which is rated bad, though up 2.7% on last year.",
+          "so_what": "Read with the higher order count, the week's revenue decline sits with lower value per order rather than volume."
+        },
+        {
+          "what": "The 14-Day Return Rate for the mature week of 13 July was 10.0%, down 0.5 pp on the week before and 1.7 pp on last year, both rated good.",
+          "so_what": "Returns are the one order-quality measure moving in the right direction, offsetting part of the AOV and cancellation movement."
+        },
+        {
+          "what": "New signups were 254, up 9.5% week on week, which is rated good, against order growth of 2.2%.",
+          "so_what": "Week on week, signup growth ran ahead of order growth, the reverse of the year-on-year comparison."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-opus-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 75701,
+      "cost_usd": 0.2218125,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6702,
+        "cache_read": 6015,
+        "output": 6071,
+        "thinking": 4543
+      },
+      "blocking_failures": [],
+      "guard_details": {},
+      "commentary": {
+        "summary": {
+          "headline": "Ahead of target on orders and revenue, and the quarter is running ahead; but the year sits barely above target and needs a faster pace than recent weeks.",
+          "points": [
+            {
+              "what": "Orders came in at 1,157, or 117.8% of the weekly target, and up 106.2% on last year.",
+              "so_what": "The week cleared its volume target, with growth running faster than the targets assume."
+            },
+            {
+              "what": "Revenue was $86,556, or 108.4% of the weekly target, but down 2.6% week on week, which is rated bad.",
+              "so_what": "The week beat its revenue target even though revenue moved down against the prior week."
+            },
+            {
+              "what": "Year-to-date revenue is 100.3% of the target to date.",
+              "so_what": "The year's margin above target is thin, so a run of weaker weeks would tip the year behind."
+            },
+            {
+              "what": "Orders are flagged as notable because the week's count sits outside the 8-week range, against an 8-week average of 1,054.",
+              "so_what": "This week's volume should be treated as unusual rather than as the new weekly level."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "Hitting the full-year target requires $85,110 of revenue a week for the remaining 22 weeks, against a current 8-week run-rate of $77,852.",
+              "so_what": "The rest of the year demands more per week than recent weeks have delivered, putting the full-year target at risk."
+            },
+            {
+              "what": "The cancellation rate rose 0.5 pp to 15.3%, rated bad, and each percentage point is worth $1,022 of revenue.",
+              "so_what": "The increase worked against revenue in a week when revenue already fell versus the prior week."
+            },
+            {
+              "what": "New signups of 254 were down 4.9% on last year, rated bad, while orders were up 106.2% on last year.",
+              "so_what": "The two year-on-year growth measures point in opposite directions, so order growth is not matched on the signup side."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Quarter-to-date revenue of $403,276 is 114.7% of the target to date, five weeks into the quarter.",
+              "so_what": "The quarter has built a cushion against target, but it is only settled once the remaining weeks are in."
+            },
+            {
+              "what": "$584,720 of the $987,996 full-quarter target is still outstanding with 8 weeks left.",
+              "so_what": "Most of the quarter's target is still ahead, so the current cushion is not decisive for the quarter."
+            },
+            {
+              "what": "Year-to-date revenue is 100.3% of target, with January to April behind target and May to July ahead.",
+              "so_what": "The year is only marginally ahead, and that position rests entirely on the recent run of months."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA orders rose 26.1% to 251 and contributed 52 of the week's order increase, or 208% of the change.",
+              "so_what": "EMEA accounts for more than the entire weekly gain, so the total increase depends on one region."
+            },
+            {
+              "what": "North America orders fell 13.2% to 224, a contribution of -34 orders.",
+              "so_what": "North America pulled against the weekly increase, and it is the only region growing more slowly year on year than the targets assume."
+            },
+            {
+              "what": "Search, the largest source at 69.1% of orders, contributed 15 orders, or 60% of the week's change.",
+              "so_what": "The weekly order gain rests on the largest source rather than on a shift between sources."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV was $88.32, down 4.1% week on week, which is rated bad, though up 2.7% on last year.",
+              "so_what": "Read with the higher order count, the week's revenue decline sits with lower value per order rather than volume."
+            },
+            {
+              "what": "The 14-Day Return Rate for the mature week of 13 July was 10.0%, down 0.5 pp on the week before and 1.7 pp on last year, both rated good.",
+              "so_what": "Returns are the one order-quality measure moving in the right direction, offsetting part of the AOV and cancellation movement."
+            },
+            {
+              "what": "New signups were 254, up 9.5% week on week, which is rated good, against order growth of 2.2%.",
+              "so_what": "Week on week, signup growth ran ahead of order growth, the reverse of the year-on-year comparison."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "6a16659dca5625f0",
+  "cache_hit": false,
+  "cost_usd": 0.2218,
+  "duration_ms": 75701,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6702,
+    "cache_read": 6015,
+    "output": 6071,
+    "thinking": 4543
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "week": "2026-07-13",
+  "status": "verified_after_retry",
+  "attempts": 2,
+  "prompt_version": "v2",
+  "cost_usd": 0.3571,
+  "warnings": [
+    "sentences at most 30 words and 4 numbers",
+    "no fact repeated across 3+ slots"
+  ],
+  "rejected_attempts": [
+    {
+      "attempt": 1,
+      "failures": {
+        "direction words match the data": [
+          "health point 2 so_what: says worse, but the change in Weekly Orders Placed is good for the business"
+        ],
+        "sentences at most 30 words and 4 numbers": [
+          "watchouts point 2 what: 5 numbers",
+          "vs_target point 1 what: 31 words",
+          "vs_target point 1 what: 6 numbers",
+          "drivers point 3 what: 5 numbers"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'16.8' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      }
+    }
+  ],
+  "problems": [],
+  "judge_cost_usd": 0.094731,
+  "so_what_share": 0.875,
+  "quality_fails": [],
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The week came in ahead of target on both orders and revenue, but the year is still behind target and the cancellation rate rose for a third week.",
+      "reason": "Gives a clear ahead-of-target verdict for the week and names the year shortfall and cancellation risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has now risen three weeks in a row, from 14.1% to 16.8%",
+      "reason": "All three watch-outs are genuine risks: worsening cancellations, the year-to-date gap, and the required run-rate step up."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Organic's decline offset the gain from Search and held the total increase to a modest one.",
+      "reason": "Claims stay tied to stated contributions, comparisons and run-rates; no guessed causes or forecasts beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads the beat against the unresolved year-to-date shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links growth above assumed rate to the quarter's lead."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says the trend is not reversing, beyond the single figure."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Translates further cancellation rise into ongoing revenue cost versus target."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames the year gap against the quarter's lead, aiding interpretation."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States the full-year target needs a step up from current pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads the beat as adding to the quarter's buffer."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Repeats that the lead is early and most target outstanding."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains that recent months narrowed but did not erase the shortfall."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Flags concentration risk from dependence on one region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Infers offsetting declines elsewhere from the over-100% contribution."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains how Organic's fall limited the net order increase."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue growth trails order growth."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates that signups fell while orders beat target; no consequence."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Rules out a soft comparison explaining the cancellation rise."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Connects above-range order level to the week's target beat."
+    }
+  ]
+}

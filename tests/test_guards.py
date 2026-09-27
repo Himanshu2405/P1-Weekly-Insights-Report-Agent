@@ -162,3 +162,26 @@ def test_regressions_from_golden_run_v2_prompt():
     if "ahead" not in statuses:
         c = clean(b); c["vs_target"]["points"][0]["so_what"] = "The week finished ahead of target."
         assert not check_target_status(c, b).passed
+
+
+def test_order_quality_is_not_order_volume():
+    """Replay 2026-07-13: 'order quality is weaker' was checked against order volume (false alarm)."""
+    b = brief(); c = clean(b)
+    c["health"]["points"][2]["so_what"] = "Order quality is weaker than a year ago even as volume grows strongly."
+    assert "direction words match the data" not in failed(run_guards(c, b, LAYOUT))
+
+
+def test_contrast_sentences_about_a_segment_are_left_to_the_judge():
+    """Replay 2026-08-03: 'the gain came despite LATAM' was read as LATAM growing (false alarm)."""
+    b = brief(); c = clean(b)
+    fell = next((s.segment for s in b.cuts.region.orders if s.contribution < 0), None)
+    if fell:
+        c["drivers"]["points"][0]["so_what"] = f"One region pulled against the increase, so the gain came despite {fell}."
+        assert "direction words match the data" not in failed(run_guards(c, b, LAYOUT))
+
+
+def test_order_quality_next_to_another_kpi_is_mixed():
+    """Regression found while fixing the replay: must stay allowed (golden v2, week of 2026-04-20)."""
+    b = brief(); c = clean(b)
+    c["health"]["points"][0]["so_what"] = "Order quality on that week improved, a counterweight to the rising cancellation rate."
+    assert "direction words match the data" not in failed(run_guards(c, b, LAYOUT))

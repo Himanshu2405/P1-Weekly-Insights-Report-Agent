@@ -1,0 +1,135 @@
+{
+  "week": "2026-02-02",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both missed target this week, and at the current pace the full-year revenue target is out of reach.",
+      "reason": "Headline states both KPIs missed target and flags the full-year target risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The quarter is behind target, with $445,746 still needed...",
+      "reason": "All three watch-outs describe risks or caveats (quarter gap, rising returns, tougher next-week target)."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "This was the single largest driver of the week's order shortfall against target.",
+      "reason": "Region's contribution figure measures share of WoW decline, not of the gap to the 800-order target; linking it to target is unsupported."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Ties region's decline to the week's target shortfall."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Just restates the contribution/share figures as a rank claim, no added consequence."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes offset was insufficient to reach target."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue miss as driven by spend-per-order, not just volume."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects fewer cancellations to revenue realization despite the target miss."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames return-rate rise as offsetting the cancellation-rate improvement."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Positions signup decline as compounding weakness alongside order/revenue miss."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only restates attainment percentages as a ranking, no further implication."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains revenue decline as combination of fewer orders and lower AOV."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames signup drop as a second area of weakness."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates attainment percentages and ranks them without further consequence."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States quarter and year are both behind with ground to make up."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current run-rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States closing the gap needs pace well above recent average."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes return-rate rise offsets cancellation-rate improvement."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States next week's target requires a bigger rebound than this week's shortfall."
+    }
+  ],
+  "cost_usd": 0.087354,
+  "duration_s": 56.0
+}

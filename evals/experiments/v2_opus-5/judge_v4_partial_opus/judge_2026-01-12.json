@@ -1,0 +1,163 @@
+{
+  "week": "2026-01-12",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "deep_miss",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "A week behind target: orders at 75.3% and revenue at 74.9%",
+      "reason": "Headline states the week was behind target with the correct revenue attainment figure."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue of $150,921 is 83.7% of the target to date for 2026-Q1",
+      "reason": "QTD attainment of 83.7% and the 10 weeks remaining are both stated."
+    },
+    {
+      "id": "cancellation_improved",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate improved 2.1 pp to 11.4% ... this improvement cushioned an otherwise weak revenue week",
+      "reason": "Improvement correctly quantified and framed as a positive offset."
+    },
+    {
+      "id": "softened",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The week added to the quarter's shortfall instead of closing any of it.",
+      "reason": "No softening language; the miss is consistently described as broad and compounding."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "A week behind target ... the year sits at 83.7% of target, with the required pace far above the recent run-rate.",
+      "reason": "Gives a behind-target verdict plus the year position and run-rate gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Quarter-to-date revenue is $29,480 below the target to date, with 10 weeks of the quarter left.",
+      "reason": "All three watch-outs are genuine risks or worsening trends; no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Signups are the only headline measure below last year while orders are well ahead",
+      "reason": "False on the brief: cancellation rate is also below last year, and return rate is worse year on year."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links the miss to the quarter's growing shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Tells reader the miss is broad-based, not isolated to one KPI."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains slower-than-assumed growth widens the target gap."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Adds another comparison and 'worth tracking' without saying what it means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says gap compounds at current attainment level."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Only restates that both comparisons are down; no business consequence."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States effect on revenue even in growing-order weeks."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Connects weekly gaps to enlarged quarter-to-date shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says recovery needs above-target weeks, not just on-target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target unreachable at current pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reframes decline as concentrated, changing how to read the total."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains smaller sources cannot offset the largest source's decline."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains why the net weekly decline stayed small."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains AOV as the reason revenue fell more than orders."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Quantifies the cushion cancellations gave a weak revenue week."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Directs attention to level rather than direction."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Says flat volume against rising targets means shortfall won't self-correct."
+    }
+  ],
+  "cost_usd": 0.1783175,
+  "duration_s": 47.3
+}

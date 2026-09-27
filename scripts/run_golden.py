@@ -21,7 +21,7 @@ from weekly_report import config
 from weekly_report.commentary import produce
 from weekly_report.models import DataBrief
 
-GOLDEN = config.ROOT / "evals" / "golden" / "briefs"
+SETS = {"golden": config.ROOT / "evals" / "golden" / "briefs", "heldout": config.ROOT / "evals" / "heldout" / "briefs"}
 EXPERIMENTS = config.ROOT / "evals" / "experiments"
 
 
@@ -31,12 +31,13 @@ def main() -> int:
     parser.add_argument("--model", default=config.LLM_MODEL)
     parser.add_argument("--name", help="experiment name (default: <version>_<model>)")
     parser.add_argument("--weeks", nargs="*", help="subset of weeks (YYYY-MM-DD)")
+    parser.add_argument("--set", choices=list(SETS), default="golden", help="golden (answer keys) or heldout (never tuned on)")
     args = parser.parse_args()
 
-    name = args.name or f"{args.version}_{args.model.replace('claude-', '')}"
+    name = args.name or ("" if args.set == "golden" else "heldout_") + f"{args.version}_{args.model.replace('claude-', '')}"
     out = EXPERIMENTS / name
     out.mkdir(parents=True, exist_ok=True)
-    briefs = sorted(GOLDEN.glob("brief_*.json"))
+    briefs = sorted(SETS[args.set].glob("brief_*.json"))
     if args.weeks:
         briefs = [b for b in briefs if b.stem.removeprefix("brief_") in args.weeks]
 
@@ -62,7 +63,7 @@ def main() -> int:
 
     n = len(rows)
     summary = {
-        "experiment": name, "prompt_version": args.version, "model": args.model,
+        "experiment": name, "set": args.set, "prompt_version": args.version, "model": args.model,
         "finished_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "weeks": n,
         "verified_first_attempt": sum(r["first_attempt_passed"] for r in rows),
@@ -85,7 +86,7 @@ def main() -> int:
 
 def to_markdown(s: dict) -> str:
     lines = [f"# Experiment {s['experiment']}", "",
-             f"Prompt {s['prompt_version']}, model {s['model']}, {s['weeks']} golden weeks, finished {s['finished_at_utc']}.", "",
+             f"Prompt {s['prompt_version']}, model {s['model']}, {s['weeks']} {s.get('set', 'golden')} weeks, finished {s['finished_at_utc']}.", "",
              "| Metric | Value |", "|---|---|",
              f"| Passed guards on first attempt | {s['verified_first_attempt']} of {s['weeks']} |",
              f"| Passed after one retry | {s['verified_after_retry']} |",

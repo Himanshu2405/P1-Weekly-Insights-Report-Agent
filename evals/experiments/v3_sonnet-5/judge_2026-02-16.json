@@ -1,0 +1,150 @@
+{
+  "week": "2026-02-16",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "growth_but_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders rose 13.4% WoW and 58.1% YoY, but reached only 98.4% of the weekly target.",
+      "reason": "Growth and behind-target status for both orders and revenue are clearly conveyed."
+    },
+    {
+      "id": "cancellation_risk",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose 4.2 pp WoW to 19.0%, a notable increase.",
+      "reason": "Cancellation rise is stated in watchouts and explicitly called a revenue risk."
+    },
+    {
+      "id": "strong_week",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Week behind target on both orders (98.4%) and revenue (89.6%)",
+      "reason": "Commentary consistently frames the week as behind target, never strong or ahead."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week behind target on both orders (98.4%) and revenue (89.6%), with cancellation rate up 4.2 pp WoW and the year still behind at 87.7% YTD attainment.",
+      "reason": "States ahead/behind verdict and names target gap plus a risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose 4.2 pp WoW to 19.0%, a notable increase.",
+      "reason": "All three watchouts describe risks or worsening trends, none are good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "pointing to weaker basket value rather than fewer orders as the shortfall",
+      "reason": "AOV was roughly flat, so attributing the revenue shortfall to weaker basket value is an unsupported causal guess."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains growth concentration in EMEA versus APAC's larger share but smaller contribution."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains order gain is concentrated in largest channel, not faster-growing smaller ones."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Just re-emphasizes the fact and share number without stating a business implication."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue growth is driven by order volume, not basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Interprets YoY trend as the worse signal despite weekly improvement."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes imbalance between signup and order growth as a reading caveat."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States growth was insufficient to hit target, i.e., behind for the week."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Attributes larger revenue shortfall to basket value versus order count."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames cancellation rise as a risk to revenue booked."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States quarter and year remain behind, requiring faster pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes revenue's larger gap keeps the week net behind target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States closing quarter gap requires faster pace than recent run rate."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current run rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies cancellation rise as a meaningful revenue risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year revenue target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Flags YoY direction as ongoing risk despite weekly dip."
+    }
+  ],
+  "cost_usd": 0.086426,
+  "duration_s": 50.4
+}

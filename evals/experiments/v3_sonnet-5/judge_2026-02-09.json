@@ -1,0 +1,156 @@
+{
+  "week": "2026-02-09",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "down_and_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Behind target on orders (82.4%) and revenue (83.0%) this week",
+      "reason": "Headline and points state both declines and behind-target status with matching numbers."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue attainment is 87.4% against target, a gap of $52,211 with 6 weeks left in the quarter.",
+      "reason": "States quarter is behind with matching QTD % and weeks left."
+    },
+    {
+      "id": "positive_framing",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "",
+      "reason": "No use of resilient, solid, strong, or similar positive framing found."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Behind target on orders (82.4%) and revenue (83.0%) this week, with YTD revenue also behind at 87.4% attainment and the required run-rate well above the current pace.",
+      "reason": "States behind-target verdict and names run-rate/YTD issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "A jump of this size is a risk to watch in order quality over coming weeks.",
+      "reason": "All three watchouts are genuine risks (returns, AOV, run-rate gap)."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Rising returns alongside falling AOV point to weaker order quality this period.",
+      "reason": "Interprets underlying cause/quality of orders, a judgment not directly supported by the brief's data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says it worsens the quarter's target shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Interprets revenue drop as coming from smaller baskets, not just fewer orders."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links growth rate to falling short of target pace."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States effect of lower cancellations on revenue shortfall."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames return rate rise as a forward risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects AOV drop to pressure on revenue target."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains what run-rate gap means for full-year target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States effect on widening the quarter shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Ties monthly shortfalls to need for stronger future weeks."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames APAC as largest driver of shortfall vs target."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Just describes pattern of decline spread, no implication given."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames Organic as biggest shortfall source vs Search share."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue miss as due to fewer orders and smaller baskets."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Quantifies cancellation benefit's effect on revenue shortfall."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Interprets returns/AOV trend as weaker order quality."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States order growth is not from new customers YoY."
+    }
+  ],
+  "cost_usd": 0.0843,
+  "duration_s": 48.2
+}

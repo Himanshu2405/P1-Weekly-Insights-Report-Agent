@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-23",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "mixed_week",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "orders finished ahead of target at 102.9% while revenue reached only 90.2%",
+      "reason": "Headline and vs_target both state orders ahead at 102.9% and revenue behind at 90.2%."
+    },
+    {
+      "id": "q1_closes_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Q1 closed behind at 92.4% of the quarter target",
+      "reason": "Stated in the headline and repeated in vs_target with the $58,998 gap."
+    },
+    {
+      "id": "ahead_overall",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Mixed week: orders finished ahead of target at 102.9% while revenue reached only 90.2%",
+      "reason": "Every ahead-of-target mention is paired with the revenue miss; no overall-ahead framing."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Mixed week: ... and Q1 closed behind at 92.4% of the quarter target.",
+      "reason": "Gives a mixed ahead/behind verdict and names the quarter position, not just numbers."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Reaching the full-year target requires $79,331 of revenue a week, against a current 8-week run-rate of $57,236.",
+      "reason": "All three watch-outs are genuine risks: AOV decline, run-rate shortfall, signups below last year."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Signups are the one measure running below last year while orders are well ahead",
+      "reason": "Claims trace to brief facts; only minor looseness on \"one measure\", no guessed causes or predictions."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads the orders beat against the revenue miss to locate the constraint."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says the weekly miss deepened the quarter shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains that improving but sub-target months kept building the quarter gap."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Tells reader which comparison to trust when signals conflict."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains AOV as the point where orders and revenue diverge."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates signups below last year vs orders ahead; \"keep watching\" adds no meaning."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames revenue as the measure feeding quarter and year."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States quarter is unrecoverable and deficit carries into YTD."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says the year requires a step up above recent pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes concentration risk: whole gain from one region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains largest source was flat, so growth came elsewhere."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says growth rests on small-share sources, a fragility read."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links AOV decline to orders outpacing revenue."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Quantifies that lower cancellations helped a still-missed revenue week."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says the uptick breaks the prior downward trend, worth monitoring."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Only compares growth rates and directions; no business meaning given."
+    }
+  ],
+  "cost_usd": 0.2441645,
+  "duration_s": 53.9
+}

@@ -1,0 +1,156 @@
+{
+  "week": "2026-05-11",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on both orders and revenue, but the quarter is behind at 96.8%",
+      "reason": "Headline plus summary point 1 (revenue 104.5%) convey week ahead, quarter behind at 96.8%."
+    },
+    {
+      "id": "return_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate for the mature week of 27 Apr 2026 rose to 11.3%, up 1.3 pp, the third consecutive move in the bad direction from 8.7%",
+      "reason": "Streak, values and correct week flagged in the watchouts section."
+    },
+    {
+      "id": "wrong_return_week",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "for the mature week of 27 Apr 2026",
+      "reason": "Return rate is consistently attributed to the mature week of 27 Apr, not 11 May."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on both orders and revenue, but the quarter is behind at 96.8% and the year at 94.1%",
+      "reason": "Gives a clear ahead verdict for the week and names the quarter and year shortfalls."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "YTD revenue stands at 94.1% of target, with every month from January through May (MTD) behind target",
+      "reason": "All three watch-outs are risks or worsening trends, including the return-rate streak from the key."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Signup growth is running well below the 77.1% year-on-year growth in orders, so the two are not moving in step",
+      "reason": "Claims stay within stated figures; no guessed causes or predicted outcomes beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads the week against the quarter's shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Tells reader how to interpret the revenue level."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains the source of revenue growth versus orders."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States what the beat means for closing the quarter gap."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames the streak as a trend that is not reversing."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Characterises the year shortfall as persistent, not one-off."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Only verbalises the required-versus-actual run-rate numbers already given."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links the beat to the source of the quarter shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says what is needed from coming weeks to hit target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes the year target is out of reach at this pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Re-expresses the 76.5% concentration figure in words."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Repeats the contribution share without saying what it means."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Flat growth already implies no offset; adds no read."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how revenue rose while orders fell."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Ties the cancellation improvement to the weekly target beat."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Mainly adds another number; 'not in step' adds little meaning."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Restates the year-on-year worsening already in the fact."
+    }
+  ],
+  "cost_usd": 0.108971,
+  "duration_s": 35.4
+}

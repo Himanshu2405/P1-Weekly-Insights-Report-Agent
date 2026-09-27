@@ -1,0 +1,163 @@
+{
+  "week": "2026-04-13",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "revenue at $58,718, 88.7% of target... Revenue fell 13.1% week on week",
+      "reason": "Both the 88.7% revenue attainment and the 13.1% weekly decline are stated correctly."
+    },
+    {
+      "id": "quarter_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue is $186,837 against $184,491 of target, 101.3% attainment",
+      "reason": "Quarter-to-date attainment of 101.3% and the ahead position are explicitly stated."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has moved in the bad direction for three straight weeks and now sits at 15.3%.",
+      "reason": "Three-week rise from 13.6% to 15.3% appears in summary and is flagged in watchouts."
+    },
+    {
+      "id": "quarter_behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The quarter is ahead only by a thin margin",
+      "reason": "Commentary consistently calls the quarter ahead; 'behind' references are to the year, not the quarter."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week behind target on both orders and revenue, and the year stands at 94.1% of target",
+      "reason": "Gives a clear behind-target verdict for the week plus the year-to-date position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has moved in the bad direction for three straight weeks",
+      "reason": "All three watch-outs are genuine risks and the key's cancellation streak is included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue fell faster than orders because each order carried less value.",
+      "reason": "Claims follow arithmetically or directly from the stated figures; no guessed causes or forecasts."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links the double miss to the quarter's surplus not being extended."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Tells reader not to treat the drop as ordinary fluctuation."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains growth is insufficient to close the target gap."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Restates the streak continuing and adds a per-point number without saying what it means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames the streak as trend not noise and quantifies revenue held back."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says shortfall must be recovered on top of remaining weekly targets."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes the full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains the week worsened rather than reduced the YTD shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Warns a repeat week would tip the quarter behind target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Attributes the YTD gap to Q1 and notes it is unrecovered."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains LATAM exceeds the whole decline, so other gains failed to offset."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says growing regions did not cover the EMEA and LATAM losses."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes the decline is spread across sources rather than concentrated."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue fell faster than orders."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Reconciles the favourable year-on-year position with the unfavourable recent direction."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads the move as the one favourable signal among quality KPIs."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Merely re-expresses the signups-versus-orders contrast already given in the fact."
+    }
+  ],
+  "cost_usd": 0.10915099999999998,
+  "duration_s": 34.2
+}

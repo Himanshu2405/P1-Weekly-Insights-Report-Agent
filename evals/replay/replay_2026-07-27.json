@@ -1,0 +1,139 @@
+{
+  "week": "2026-07-27",
+  "status": "verified",
+  "attempts": 1,
+  "prompt_version": "v2",
+  "cost_usd": 0.2218,
+  "warnings": [],
+  "rejected_attempts": [],
+  "problems": [
+    "quality rules failed: no_speculation",
+    "so-what share 69% below 80%"
+  ],
+  "judge_cost_usd": 0.090891,
+  "so_what_share": 0.688,
+  "quality_fails": [
+    "no_speculation"
+  ],
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Ahead of target on orders and revenue, and the quarter is running ahead; but the year sits barely above target",
+      "reason": "Gives a clear ahead-of-target verdict for the week and names the thin year-to-date position as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "putting the full-year target at risk",
+      "reason": "All three watch-outs are risks or worsening trends: run-rate shortfall, rising cancellations, falling signups."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "it is the only region growing more slowly year on year than the targets assume",
+      "reason": "This comparative claim about regional growth versus target assumptions is not supported by any fact stated in the commentary."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats that orders beat target and grew fast; no business consequence drawn."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Simply repeats target beat plus week-on-week decline already in the fact."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says thin margin means weak weeks would push the year behind target."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Tells reader how to interpret the spike: unusual, not a new baseline."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Concludes required pace exceeds recent delivery, putting full-year target at risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links cancellation rise to the week's revenue decline, explaining its effect."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Only restates that signups fell while orders rose; no consequence stated."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads the cushion as provisional pending remaining quarter weeks."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains that the cushion is not decisive given outstanding target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Interprets marginal year position as resting entirely on recent months."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Concludes the whole weekly gain depends on a single region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates the negative contribution and appends an unsupported extra fact."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads the gain as scale of the largest source, not a mix shift."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that revenue decline stems from value per order, not volume."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Positions returns as the only improving quality measure, partly offsetting others."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Mainly repeats the two growth rates and their contrast with year-on-year."
+    }
+  ]
+}

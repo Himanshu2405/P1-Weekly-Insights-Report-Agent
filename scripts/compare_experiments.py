@@ -17,16 +17,17 @@ from weekly_report.guards import run_guards
 from weekly_report.models import DataBrief
 
 EXPERIMENTS = config.ROOT / "evals" / "experiments"
-GOLDEN = config.ROOT / "evals" / "golden" / "briefs"
+SETS = {"golden": config.ROOT / "evals" / "golden" / "briefs", "heldout": config.ROOT / "evals" / "heldout" / "briefs"}
 
 
 def guard_stats(name: str) -> dict:
     layout = yaml.safe_load(config.LAYOUT_FILE.read_text())
     first_pass = after_retry = fallback = 0
     first_cost, warn_weeks, warnings = [], 0, 0
+    brief_dir = SETS[json.loads((EXPERIMENTS / name / "summary.json").read_text()).get("set", "golden")]
     for f in sorted((EXPERIMENTS / name).glob("commentary_*.json")):
         saved = json.loads(f.read_text())
-        brief = DataBrief.model_validate_json((GOLDEN / f"brief_{saved['week']}.json").read_text())
+        brief = DataBrief.model_validate_json((brief_dir / f"brief_{saved['week']}.json").read_text())
         attempts = [a for a in saved["attempts"] if a.get("commentary")]
         reports = [run_guards(a["commentary"], brief, layout) for a in attempts]
         if attempts:
@@ -68,7 +69,7 @@ def main(a: str, b: str) -> int:
         return f"{100 * p / q:.0f}% ({p}/{q})" if q else "n/a"
 
     lines = [f"# {a} vs {b}", "",
-             f"Same 16 golden weeks, same answer keys, same judge ({jb['judge']}), guards re-checked with today's rules.", "",
+             f"Same weeks, same answer keys (if any), same judge ({jb['judge']}), guards re-checked with today's rules.", "",
              f"| Measure | {a} | {b} |", "|---|---|---|",
              "| **Quality (LLM judge)** | | |",
              row("Must-say items conveyed", share(ja["must_say"]["passed"], ja["must_say"]["total"]), share(jb["must_say"]["passed"], jb["must_say"]["total"])),
@@ -85,7 +86,7 @@ def main(a: str, b: str) -> int:
               row("Warning count (density, repetition, ...)", ga["warnings"], gb["warnings"], "lower"),
               "| **Cost (API equivalent)** | | |",
               row("Average cost of a first attempt", f"${ga['cost_first_attempt']}", f"${gb['cost_first_attempt']}", "lower"),
-              row("Judge cost for 16 weeks", f"${ja['judge_cost_usd']}", f"${jb['judge_cost_usd']}", "lower"),
+              row("Judge cost", f"${ja['judge_cost_usd']}", f"${jb['judge_cost_usd']}", "lower"),
               "", "## So-whats by week (share that are real implications)", "",
               f"| Week | {a} | {b} |", "|---|---|---|"]
     for w in sorted(ja["so_whats"]["by_week"]):

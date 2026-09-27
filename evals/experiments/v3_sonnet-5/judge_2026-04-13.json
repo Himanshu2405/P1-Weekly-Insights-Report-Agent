@@ -1,0 +1,163 @@
+{
+  "week": "2026-04-13",
+  "status": "verified_after_retry",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "week_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "revenue down 13.1% vs orders down 6.2%; 'Both KPIs stayed behind target'",
+      "reason": "Commentary states behind target (88.7%) and revenue down 13.1% explicitly in health section."
+    },
+    {
+      "id": "quarter_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The quarter remains ahead of target despite this week's miss",
+      "reason": "Quarter ahead of target with QTD 101.3% clearly stated in vs_target section."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose for a third consecutive week, from 13.6% to 15.3%.",
+      "reason": "Cancellation streak explicitly flagged as a watch-out in the watchouts section."
+    },
+    {
+      "id": "quarter_behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The quarter remains ahead of target despite this week's miss",
+      "reason": "Commentary states quarter is ahead, never claims it is behind."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Behind target on both orders and revenue, with cancellations rising for a third straight week and the year-to-date target still out of reach at current pace.",
+      "reason": "Headline gives ahead/behind verdict and names risk (cancellations) and target gap (YTD)."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "cancellation rate rose for a third consecutive week...AOV fell 7.1% week on week and 4.2% year on year",
+      "reason": "All three watch-out items are risks/worsening trends; no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "so growth is not being matched by new customer growth",
+      "reason": "Claims tie directly to brief figures with correct qualifiers (e.g., YoY specified); no unsupported causal guesses found."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that LATAM's drop exceeded total decline, implying other regions offset it."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains why Search's small decline has outsized impact given its large share."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links APAC's offset to the overall target-miss outcome."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that AOV drop, not order volume, drove the revenue shortfall."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Flags the cancellation trend as a risk to watch for reversal."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames the return rate drop as a positive signal for order quality."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Notes growth in orders is not matched by new customer signups YoY."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Ties order shortfall to added pressure on the quarter's remaining weeks."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Attributes revenue miss to smaller baskets rather than fewer orders."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Connects run-rate gap to full-year target being out of reach."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames the third straight rise as a persistent risk alongside the revenue miss."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only restates both KPIs' behind-target status and compares magnitudes without new implication."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects quarter's ahead status to remaining amount needed over remaining weeks."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains full-year target is out of reach given run-rate gap."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies revenue impact of cancellation rise, linking it to the week's shortfall."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains run-rate gap keeps full-year target out of reach."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames AOV decline as an ongoing revenue risk beyond normal volatility."
+    }
+  ],
+  "cost_usd": 0.08757200000000001,
+  "duration_s": 53.3
+}

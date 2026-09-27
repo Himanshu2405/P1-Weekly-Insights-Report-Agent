@@ -1,0 +1,103 @@
+{
+  "experiment": "v2_opus-5",
+  "judge": "judge_v3",
+  "weeks": 16,
+  "so_whats": {
+    "implication": 238,
+    "total": 270,
+    "by_week": {
+      "2025-12-29": {
+        "implication": 13,
+        "total": 17
+      },
+      "2026-01-12": {
+        "implication": 16,
+        "total": 17
+      },
+      "2026-01-19": {
+        "implication": 15,
+        "total": 17
+      },
+      "2026-02-09": {
+        "implication": 14,
+        "total": 17
+      },
+      "2026-02-16": {
+        "implication": 15,
+        "total": 17
+      },
+      "2026-02-23": {
+        "implication": 15,
+        "total": 16
+      },
+      "2026-03-16": {
+        "implication": 15,
+        "total": 17
+      },
+      "2026-03-23": {
+        "implication": 16,
+        "total": 17
+      },
+      "2026-03-30": {
+        "implication": 17,
+        "total": 17
+      },
+      "2026-04-06": {
+        "implication": 12,
+        "total": 16
+      },
+      "2026-04-13": {
+        "implication": 15,
+        "total": 17
+      },
+      "2026-04-20": {
+        "implication": 16,
+        "total": 17
+      },
+      "2026-05-11": {
+        "implication": 11,
+        "total": 17
+      },
+      "2026-06-01": {
+        "implication": 16,
+        "total": 17
+      },
+      "2026-06-15": {
+        "implication": 15,
+        "total": 17
+      },
+      "2026-06-22": {
+        "implication": 17,
+        "total": 17
+      }
+    }
+  },
+  "must_say": {
+    "passed": 35,
+    "total": 35
+  },
+  "must_not_say": {
+    "passed": 18,
+    "total": 18
+  },
+  "quality": {
+    "headline_has_verdict": {
+      "passed": 16,
+      "total": 16
+    },
+    "watchouts_are_risks": {
+      "passed": 16,
+      "total": 16
+    },
+    "no_speculation": {
+      "passed": 15,
+      "total": 16
+    }
+  },
+  "fails_by_week": {
+    "2026-06-15": [
+      "no_speculation"
+    ]
+  },
+  "judge_cost_usd": 1.777
+}

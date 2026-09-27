@@ -1,0 +1,129 @@
+{
+  "week": "2026-05-18",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Ahead of target this week, but the quarter and year remain behind, with rising cancellations a growing risk.",
+      "reason": "Headline states week ahead of target and names quarter/year gap plus a flagged risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Cancellation rate rose to 15.8%... New signups fell to 225, down 7.0% WoW",
+      "reason": "All three watch-outs describe genuine risks or worsening trends, none are good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Order growth this week did not come from more new signups... over the same week",
+      "reason": "Claims are grounded in brief figures and comparisons are period-matched (e.g. WoW vs WoW)."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Just restates the 'outside 8-week range' fact without added business meaning."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects week's ahead result to quarter/year still being behind."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Identifies cancellation rise as the main risk to watch."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Notes growth concentration in the already-dominant channel, a pattern insight."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies revenue risk from cancellation rise using per-pp dollar impact."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target is not being closed at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Flags risk that order growth isn't coming from new signups."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Simply restates ahead-of-target status already given in the fact."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Contrasts week's success with quarter still behind, adding context."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States required pace exceeds recent run-rate, implying gap won't close as-is."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Just restates APAC's rank as largest driver, already clear from the fact."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links Search's leading contribution to its structural dominant share, a pattern read."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Compares contribution vs growth rate numbers without stating business meaning."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that revenue growth stemmed from order volume, not higher spend."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States returns are easing rather than posing a quality risk."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Flags YoY gap between signup and order growth as a trend to monitor."
+    }
+  ],
+  "cost_usd": 0.067344,
+  "duration_s": 38.6
+}

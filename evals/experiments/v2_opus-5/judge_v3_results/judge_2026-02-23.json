@@ -1,0 +1,150 @@
+{
+  "week": "2026-02-23",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders reached 817, or 101.2% of the weekly target, and revenue reached $62,651, or 108.7% of target.",
+      "reason": "Week ahead of target stated with matching attainment figures."
+    },
+    {
+      "id": "quarter_still_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "the quarter is still at 90.0% of target with four weeks to go",
+      "reason": "Quarter behind at 90.0% with four weeks left is stated explicitly."
+    },
+    {
+      "id": "quarter_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "A single week ahead of target does not change the quarter position, which remains behind.",
+      "reason": "Commentary repeatedly stresses quarter and year remain behind target."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished the week ahead of target, but the quarter is still at 90.0% of target",
+      "reason": "Headline gives an ahead verdict and names the quarter shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At the current pace the full-year target of $3,888,802 is out of reach.",
+      "reason": "All three watch-outs are genuine risks: quarter gap, year gap, signup growth lag."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Growth is running under the pace the targets were built on",
+      "reason": "Claims are arithmetic readings of stated figures; no guessed causes or predictions beyond run-rate."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains beat came from order value as well as volume."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States the week's beat does not change the behind-target quarter position."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains how a week can beat target while year stays behind."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Only recaps that signups moved the wrong way; no business consequence given."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says required weekly revenue far exceeds recent levels."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames the customer-versus-order growth gap as the key risk to watch."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links the beat to narrowing the quarter's accumulated shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says beats of this size cannot close the shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes year starts from a deficit, not a cushion."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes the gain rests on a narrow base in the smallest region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains how to weigh moves in large versus small sources."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains declines offset gains, limiting net order growth."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Concludes year-on-year revenue gain rests on volume, not order value."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Ties lower cancellations to this week's revenue attainment."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains returns erode the value of reported gross revenue."
+    }
+  ],
+  "cost_usd": 0.08407099999999999,
+  "duration_s": 22.6
+}

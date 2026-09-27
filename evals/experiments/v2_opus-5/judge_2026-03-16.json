@@ -1,50 +1,50 @@
 {
   "week": "2026-03-16",
   "status": "verified",
-  "judge": "judge_v3",
-  "model": "claude-opus-5",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
   "verdicts": [
     {
       "id": "week_ahead_quarter_behind",
       "kind": "must_say",
       "verdict": "pass",
       "evidence": "Orders and revenue both finished ahead of target, but the quarter stands at 92.6% of target with one week left.",
-      "reason": "Headline plus summary give revenue 101.8% ahead and Q1 at 92.6% with one week remaining."
+      "reason": "Headline states week ahead and quarter behind at 92.6% with one week left."
     },
     {
       "id": "cancellation_streak",
       "kind": "must_say",
       "verdict": "pass",
       "evidence": "The cancellation rate has risen for three consecutive weeks, from 14.3% to 16.4%",
-      "reason": "Streak is explicitly flagged as the first watch-out with correct figures."
+      "reason": "Watchouts section flags the 3-week rising cancellation streak with matching numbers."
     },
     {
       "id": "q1_will_hit",
       "kind": "must_not_say",
       "verdict": "pass",
       "evidence": "The quarterly target is out of reach at anything close to the current weekly pace.",
-      "reason": "Commentary states the quarter shortfall will not close, never implying Q1 hits target."
+      "reason": "Commentary explicitly says the quarter target is out of reach, not that it will be hit."
     },
     {
       "id": "headline_has_verdict",
       "kind": "quality",
       "verdict": "pass",
-      "evidence": "both finished ahead of target, but the quarter stands at 92.6% of target with one week left",
-      "reason": "Headline gives an ahead-of-target verdict and names the quarter position."
+      "evidence": "Orders and revenue both finished ahead of target, but the quarter stands at 92.6% of target with one week left.",
+      "reason": "Headline gives ahead/behind verdict and names the quarter shortfall."
     },
     {
       "id": "watchouts_are_risks",
       "kind": "quality",
       "verdict": "pass",
       "evidence": "Reaching the full-quarter target of $774,555 requires $120,354 in the final week",
-      "reason": "All three watch-outs are risks or gaps, and the cancellation streak is included."
+      "reason": "All three watch-outs describe risks or worsening trends, none is good news."
     },
     {
       "id": "no_speculation",
       "kind": "quality",
       "verdict": "pass",
-      "evidence": "Growth is real but below the pace the 2026 targets were built on",
-      "reason": "Claims stay tied to stated figures without guessing causes or predicting outcomes."
+      "evidence": "Order growth is not being matched by growth in new accounts.",
+      "reason": "All claims trace to brief figures; no unsupported causal or behavioural guesses found."
     }
   ],
   "so_whats": [
@@ -52,105 +52,105 @@
       "slot": "summary",
       "point": 1,
       "verdict": "restatement",
-      "reason": "Restates targets met and cites next week's target without saying what it means."
+      "reason": "Only notes next week's higher target without saying what missing it would mean."
     },
     {
       "slot": "summary",
       "point": 2,
       "verdict": "implication",
-      "reason": "Says one on-target week cannot close the quarter's shortfall."
+      "reason": "States that one week cannot close the quarter's shortfall."
     },
     {
       "slot": "summary",
       "point": 3,
       "verdict": "implication",
-      "reason": "Links below-assumption growth to slipping annual attainment."
+      "reason": "Explains why growth pace causes the year's attainment to slip."
     },
     {
       "slot": "summary",
       "point": 4,
       "verdict": "implication",
-      "reason": "Frames trend as not reversing and quantifies revenue cost per point."
+      "reason": "Frames trend as ongoing risk and quantifies revenue cost."
     },
     {
       "slot": "watchouts",
       "point": 1,
       "verdict": "implication",
-      "reason": "Explains that sustained rise removes orders before they become revenue."
+      "reason": "States effect: more orders fail to contribute revenue."
     },
     {
       "slot": "watchouts",
       "point": 2,
       "verdict": "implication",
-      "reason": "Concludes quarterly target is unreachable at current pace."
+      "reason": "States quarterly target is effectively unreachable."
     },
     {
       "slot": "watchouts",
       "point": 3,
       "verdict": "implication",
-      "reason": "Concludes the year-to-date gap would keep widening."
+      "reason": "Says the YTD gap will keep widening given the pace gap."
     },
     {
       "slot": "vs_target",
       "point": 1,
       "verdict": "implication",
-      "reason": "Says beats were too small to change the quarter's position."
+      "reason": "Notes margin is too small to change the quarter's position."
     },
     {
       "slot": "vs_target",
       "point": 2,
       "verdict": "implication",
-      "reason": "Notes March's on-target month does not offset earlier shortfalls."
+      "reason": "Clarifies March's good month does not offset prior shortfalls."
     },
     {
       "slot": "vs_target",
       "point": 3,
       "verdict": "implication",
-      "reason": "States full-year target is out of reach without a step up."
+      "reason": "States full-year target is out of reach without faster pace."
     },
     {
       "slot": "drivers",
       "point": 1,
       "verdict": "implication",
-      "reason": "Highlights concentration risk: growth rests on a single region."
+      "reason": "Highlights concentration risk: growth rests on one region."
     },
     {
       "slot": "drivers",
       "point": 2,
       "verdict": "implication",
-      "reason": "Explains how LATAM's decline held total order growth to 4.0%."
+      "reason": "Explains LATAM's drag on overall order growth rate."
     },
     {
       "slot": "drivers",
       "point": 3,
       "verdict": "implication",
-      "reason": "Reads growth as narrow, from the largest source not broad-based."
+      "reason": "Notes growth is concentrated in one channel, not broad-based."
     },
     {
       "slot": "health",
       "point": 1,
       "verdict": "implication",
-      "reason": "Explains smaller baskets cap revenue growth against target assumption."
+      "reason": "Links AOV trend to the 75% target growth assumption."
     },
     {
       "slot": "health",
       "point": 2,
       "verdict": "implication",
-      "reason": "Translates the point rise into a measurable revenue cost."
+      "reason": "Quantifies revenue cost of the cancellation rise."
     },
     {
       "slot": "health",
       "point": 3,
       "verdict": "restatement",
-      "reason": "Merely repeats the fall and the higher year-ago level."
+      "reason": "Just restates the two directional facts without stating a business meaning."
     },
     {
       "slot": "health",
       "point": 4,
       "verdict": "implication",
-      "reason": "Reads signup weakness against order growth as a mismatch."
+      "reason": "Implies order growth is not being fueled by new customer growth."
     }
   ],
-  "cost_usd": 0.086456,
-  "duration_s": 23.9
+  "cost_usd": 0.071546,
+  "duration_s": 40.0
 }

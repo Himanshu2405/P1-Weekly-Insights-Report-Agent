@@ -1,0 +1,157 @@
+{
+  "week": "2026-01-12",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "deep_miss",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Behind target on orders (75.3%) and revenue (74.9%) this week, both down WoW",
+      "reason": "Headline clearly states the week was behind target on revenue with matching 74.9% figure."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue trails target by $29,480, with 10 weeks left in the quarter.",
+      "reason": "Quarter behind target and 10 weeks left stated; 83.7% attainment given via matching YTD figure."
+    },
+    {
+      "id": "cancellation_improved",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate fell to 11.4%, a notable improvement of 2.1 pp WoW",
+      "reason": "States the 2.1pp drop to 11.4% and frames it as improvement/good news."
+    },
+    {
+      "id": "softened",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Behind target on orders (75.3%) and revenue (74.9%)",
+      "reason": "No softening language like 'slightly behind' or 'close to target' is used anywhere."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Behind target on orders (75.3%) and revenue (74.9%) this week... YTD revenue also trails target at 83.7% attainment.",
+      "reason": "Headline gives clear ahead/behind verdict and names the year-to-date target gap issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "New signups fell 15.0% WoW... signals weakening new customer acquisition.",
+      "reason": "All three watchouts (signups drop, YoY return rate rise, revenue run-rate shortfall) are genuine risks."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue fell more than orders this week, pointing to smaller basket sizes rather than fewer orders alone driving the shortfall.",
+      "reason": "Claims are combinations of brief figures (AOV/revenue/orders deltas) without unsupported causal or behavioral speculation."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links EMEA's decline directly to the week's order shortfall against target."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains Search's outsized role in driving overall order decline."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains APAC's offset was insufficient to prevent the WoW order fall."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Interprets AOV drop as basket-size driver of the revenue shortfall."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes order quality improved despite volume miss, a read on the numbers."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Flags YoY return rate rise as ongoing trend to monitor."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Ties order shortfall to quarterly target pace."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Attributes revenue's steeper decline to basket size, linking to shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States current pace isn't closing the year's shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames signups as lagging indicator amid otherwise growing week."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Connects weekly miss to cumulative quarterly shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States what's needed going forward to close the QTD gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is out of reach at current run-rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Interprets signup decline as weakening acquisition trend."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Flags YoY return rate rise as the less favorable trend to watch."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States consequence: full-year target unreachable without revenue step-up."
+    }
+  ],
+  "cost_usd": 0.107148,
+  "duration_s": 48.1
+}

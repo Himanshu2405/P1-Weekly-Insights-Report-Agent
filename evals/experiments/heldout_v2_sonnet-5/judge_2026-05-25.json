@@ -1,0 +1,135 @@
+{
+  "week": "2026-05-25",
+  "status": "verified_after_retry",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue beat their weekly targets, but QTD and YTD revenue remain behind target, and the 14-Day Return Rate rose notably.",
+      "reason": "Headline states ahead/behind verdict and names the return-rate risk and target gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Returns are rising against both last week and last year, a risk to watch on order quality.",
+      "reason": "All three watchouts are genuine risks or unmet targets, no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Search orders fell 2.0% WoW and contributed -13, the largest share of change among traffic sources at 41.9%.",
+      "reason": "Email has identical contribution (-13) and share (41.9%), so calling Search uniquely 'the largest' is unsupported."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that target attainment and WoW direction can diverge."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Just restates the two facts already given without added meaning."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States quarter and year remain behind target despite weekly beat."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Flags a risk in order quality."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames rising returns as a risk to watch."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains quarter gap persists despite weekly beat."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States current pace is insufficient for full-year target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates the attainment percentages without further meaning."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says quarter needs stronger weeks to close gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States current pace is below what's required for the year."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Identifies APAC as largest drag on order decline."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains EMEA offset other regions' declines."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Identifies Search as biggest traffic-source driver of decline."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue not driven by bigger baskets."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains lower cancellation rate's effect on revenue-counted orders."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames rising returns as ongoing risk."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Compares YoY order growth vs signup growth, showing gap."
+    }
+  ],
+  "cost_usd": 0.10638899999999998,
+  "duration_s": 45.7
+}

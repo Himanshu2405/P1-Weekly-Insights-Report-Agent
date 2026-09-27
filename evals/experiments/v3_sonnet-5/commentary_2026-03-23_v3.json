@@ -1,0 +1,283 @@
+{
+  "week": "2026-03-23",
+  "status": "verified",
+  "commentary": {
+    "drivers": {
+      "points": [
+        {
+          "what": "LATAM orders rose 40.2% WoW, contributing 35 orders, 134.6% of the week's total order growth.",
+          "so_what": "LATAM alone accounted for more than all of the week's order growth, offsetting declines elsewhere."
+        },
+        {
+          "what": "APAC, the largest region at 44.7% of orders, fell 1.3% WoW and contributed -5 to the week's change.",
+          "so_what": "The largest region declining WoW shows the week's order growth did not come from the biggest source of orders."
+        },
+        {
+          "what": "Email and Display orders grew 31.4% and 47.8% WoW respectively, each contributing 11 orders to the week's growth.",
+          "so_what": "Search, which holds 69.9% of orders, contributed only 2 orders to the change, so growth came from smaller channels rather than the largest traffic source."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV fell 5.2% WoW to 83.03, but was still up 5.3% YoY.",
+          "so_what": "With orders up 3.1% WoW, the smaller 1.1% WoW revenue gain shows this week's growth came from more orders rather than bigger baskets."
+        },
+        {
+          "what": "Cancellation rate fell 2.8 pp WoW to 13.6%, a notable improvement, but remains up 1.2 pp YoY.",
+          "so_what": "Each point of cancellation is worth 710 in revenue, so the WoW drop helps revenue even though the rate is still worse than last year."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 09 Mar 2026 rose 0.3 pp WoW to 9.5%, though it remains down 1.6 pp YoY.",
+          "so_what": "The WoW rise is a small negative move, but the YoY drop means return-related revenue loss remains lower than a year ago."
+        },
+        {
+          "what": "New signups rose 10.3% WoW, a notable increase, but were down 3.7% YoY.",
+          "so_what": "Orders grew 83.1% YoY over the same period, so signup growth continues to lag far behind order growth on a yearly basis."
+        }
+      ]
+    },
+    "summary": {
+      "headline": "Orders finished ahead of target at 102.9% but revenue lagged at 90.2%, leaving Q1 at 92.4% of target as the quarter closes with an unusually large order jump.",
+      "points": [
+        {
+          "what": "Orders reached 855, 102.9% of target, a level flagged as outside the normal 8-week range.",
+          "so_what": "This week's ahead-of-target result is an outlier rather than a new steady pace."
+        },
+        {
+          "what": "Revenue was 61356, 90.2% of target, even as orders finished ahead of target.",
+          "so_what": "The gap between orders ahead and revenue behind points to lower value per order as the source of the shortfall."
+        },
+        {
+          "what": "Q1 closed at 92.4% of target, the third straight month behind target.",
+          "so_what": "Q2 starts with the quarter's target gap already built in rather than closed."
+        },
+        {
+          "what": "New signups rose 10.3% WoW but were still down 3.7% YoY, well behind the 83.1% YoY growth in orders.",
+          "so_what": "New customer growth continues to lag far behind order growth on a yearly view."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders were 855 against a target of 831, an attainment of 102.9%.",
+          "so_what": "The week ended ahead of target, but next week's target rises to 896, above this week's actual, so the pace needs to increase to stay ahead."
+        },
+        {
+          "what": "Revenue was 61356 against a target of 68006, an attainment of 90.2%.",
+          "so_what": "This is the same shortfall pattern that has kept revenue behind target through the quarter."
+        },
+        {
+          "what": "Year-to-date revenue attainment is 92.4%, and the required weekly revenue run rate for the rest of the year is 79331 against a current 8-week run rate of 57236.",
+          "so_what": "The current pace is well below what's needed, so the full-year revenue target is out of reach without a significant increase in weekly revenue."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The current 8-week revenue run rate is 57236, against a required weekly run rate of 79331 needed for the rest of the year.",
+          "so_what": "At this pace, the full-year revenue target is out of reach."
+        },
+        {
+          "what": "Cancellation rate is still up 1.2 pp YoY despite this week's WoW improvement.",
+          "so_what": "The year-on-year direction remains worse than last year, a risk if the WoW improvement doesn't hold."
+        },
+        {
+          "what": "All three months of Q1 (Jan, Feb, Mar) closed behind target.",
+          "so_what": "Entering Q2, the year starts already behind rather than at target."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 144469,
+      "cost_usd": 0.18448760000000003,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6719,
+        "cache_read": 6388,
+        "output": 15633,
+        "thinking": 13941
+      },
+      "blocking_failures": [],
+      "guard_details": {},
+      "commentary": {
+        "drivers": {
+          "points": [
+            {
+              "what": "LATAM orders rose 40.2% WoW, contributing 35 orders, 134.6% of the week's total order growth.",
+              "so_what": "LATAM alone accounted for more than all of the week's order growth, offsetting declines elsewhere."
+            },
+            {
+              "what": "APAC, the largest region at 44.7% of orders, fell 1.3% WoW and contributed -5 to the week's change.",
+              "so_what": "The largest region declining WoW shows the week's order growth did not come from the biggest source of orders."
+            },
+            {
+              "what": "Email and Display orders grew 31.4% and 47.8% WoW respectively, each contributing 11 orders to the week's growth.",
+              "so_what": "Search, which holds 69.9% of orders, contributed only 2 orders to the change, so growth came from smaller channels rather than the largest traffic source."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell 5.2% WoW to 83.03, but was still up 5.3% YoY.",
+              "so_what": "With orders up 3.1% WoW, the smaller 1.1% WoW revenue gain shows this week's growth came from more orders rather than bigger baskets."
+            },
+            {
+              "what": "Cancellation rate fell 2.8 pp WoW to 13.6%, a notable improvement, but remains up 1.2 pp YoY.",
+              "so_what": "Each point of cancellation is worth 710 in revenue, so the WoW drop helps revenue even though the rate is still worse than last year."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 09 Mar 2026 rose 0.3 pp WoW to 9.5%, though it remains down 1.6 pp YoY.",
+              "so_what": "The WoW rise is a small negative move, but the YoY drop means return-related revenue loss remains lower than a year ago."
+            },
+            {
+              "what": "New signups rose 10.3% WoW, a notable increase, but were down 3.7% YoY.",
+              "so_what": "Orders grew 83.1% YoY over the same period, so signup growth continues to lag far behind order growth on a yearly basis."
+            }
+          ]
+        },
+        "summary": {
+          "headline": "Orders finished ahead of target at 102.9% but revenue lagged at 90.2%, leaving Q1 at 92.4% of target as the quarter closes with an unusually large order jump.",
+          "points": [
+            {
+              "what": "Orders reached 855, 102.9% of target, a level flagged as outside the normal 8-week range.",
+              "so_what": "This week's ahead-of-target result is an outlier rather than a new steady pace."
+            },
+            {
+              "what": "Revenue was 61356, 90.2% of target, even as orders finished ahead of target.",
+              "so_what": "The gap between orders ahead and revenue behind points to lower value per order as the source of the shortfall."
+            },
+            {
+              "what": "Q1 closed at 92.4% of target, the third straight month behind target.",
+              "so_what": "Q2 starts with the quarter's target gap already built in rather than closed."
+            },
+            {
+              "what": "New signups rose 10.3% WoW but were still down 3.7% YoY, well behind the 83.1% YoY growth in orders.",
+              "so_what": "New customer growth continues to lag far behind order growth on a yearly view."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders were 855 against a target of 831, an attainment of 102.9%.",
+              "so_what": "The week ended ahead of target, but next week's target rises to 896, above this week's actual, so the pace needs to increase to stay ahead."
+            },
+            {
+              "what": "Revenue was 61356 against a target of 68006, an attainment of 90.2%.",
+              "so_what": "This is the same shortfall pattern that has kept revenue behind target through the quarter."
+            },
+            {
+              "what": "Year-to-date revenue attainment is 92.4%, and the required weekly revenue run rate for the rest of the year is 79331 against a current 8-week run rate of 57236.",
+              "so_what": "The current pace is well below what's needed, so the full-year revenue target is out of reach without a significant increase in weekly revenue."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The current 8-week revenue run rate is 57236, against a required weekly run rate of 79331 needed for the rest of the year.",
+              "so_what": "At this pace, the full-year revenue target is out of reach."
+            },
+            {
+              "what": "Cancellation rate is still up 1.2 pp YoY despite this week's WoW improvement.",
+              "so_what": "The year-on-year direction remains worse than last year, a risk if the WoW improvement doesn't hold."
+            },
+            {
+              "what": "All three months of Q1 (Jan, Feb, Mar) closed behind target.",
+              "so_what": "Entering Q2, the year starts already behind rather than at target."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "df13bb337d1c92ad",
+  "cache_hit": false,
+  "cost_usd": 0.1845,
+  "duration_ms": 144469,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6719,
+    "cache_read": 6388,
+    "output": 15633,
+    "thinking": 13941
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "week": "2026-05-25",
+  "status": "verified_after_retry",
+  "commentary": {
+    "summary": {
+      "headline": "Orders and revenue beat their weekly targets, but QTD and YTD revenue remain behind target, and the 14-Day Return Rate rose notably.",
+      "points": [
+        {
+          "what": "Orders were 938 for the week, 102.5% of the 915 target, even though they fell 3.2% from the prior week's 969.",
+          "so_what": "The week cleared its target despite the week-over-week pullback, showing target attainment and week-over-week direction do not always move together."
+        },
+        {
+          "what": "Revenue was $67,708, 106.5% of the $63,587 target, though down 5.4% from the prior week.",
+          "so_what": "Revenue outperformed its weekly target even while declining from the previous week."
+        },
+        {
+          "what": "QTD revenue is at 99.3% of target and YTD revenue is at 95.7% of target.",
+          "so_what": "Despite this week's target beat, the quarter and the year remain behind target."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 11 May rose to 10.9%, a change marked as notable.",
+          "so_what": "This flags a risk in order quality moving in the wrong direction."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The 14-Day Return Rate for the week of 11 May rose to 10.9%, up 1.0 pp WoW and up 2.0 pp YoY, both marked bad and notable.",
+          "so_what": "Returns are rising against both last week and last year, a risk to watch on order quality."
+        },
+        {
+          "what": "QTD revenue is at 99.3% of target, a gap of $4,397, with $288,597 still needed over the remaining 4 weeks to reach the $884,086 full-quarter target.",
+          "so_what": "The quarter remains behind target and this week's beat alone did not close the gap."
+        },
+        {
+          "what": "The required weekly revenue run-rate for the rest of the year is $83,008, above the current 8-week run-rate of $66,763.",
+          "so_what": "At the current pace, revenue is running below what is needed to reach the full-year target."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders were 102.5% of target and revenue was 106.5% of target this week.",
+          "so_what": "The week was ahead of target on both orders and revenue."
+        },
+        {
+          "what": "QTD revenue is 99.3% of target, with $288,597 still needed across the remaining 4 weeks to hit the $884,086 full-quarter target.",
+          "so_what": "The quarter needs stronger weeks ahead, since one week ahead of target did not close the quarterly gap."
+        },
+        {
+          "what": "YTD revenue is 95.7% of target, and the required weekly run-rate for the rest of the year is $83,008 versus a current 8-week run-rate of $66,763.",
+          "so_what": "The current pace is below what full-year attainment requires."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "APAC orders fell 9.5% WoW and contributed -41 to the week's order change, 132.3% of the total change.",
+          "so_what": "APAC was the largest single drag on this week's order decline."
+        },
+        {
+          "what": "EMEA orders rose 24.4% WoW and contributed +42 to the change, the only region with a positive contribution.",
+          "so_what": "EMEA growth partly offset the declines in APAC, North America, and LATAM."
+        },
+        {
+          "what": "Search orders fell 2.0% WoW and contributed -13, the largest share of change among traffic sources at 41.9%.",
+          "so_what": "Search was the biggest driver of the traffic-source decline in orders this week."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV was $84.53, down 3.7% from the prior week's $87.74, though up 6.6% YoY.",
+          "so_what": "This week's revenue is not coming from bigger baskets, since AOV fell versus last week."
+        },
+        {
+          "what": "The cancellation rate fell 1.2 pp to 14.6%, a notable improvement, and also down YoY.",
+          "so_what": "A lower cancellation rate means more of this week's orders counted toward revenue."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 11 May rose to 10.9%, up 1.0 pp WoW and up 2.0 pp YoY.",
+          "so_what": "Rising returns against both comparisons is a risk to order quality to keep watching."
+        },
+        {
+          "what": "New signups rose 16.0% WoW to 261, a notable increase, and were up 8.3% YoY versus 67.5% YoY growth in orders.",
+          "so_what": "Order growth YoY is far outpacing new signup growth YoY."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "summary point 1 what: 5 numbers",
+          "watchouts point 2 what: 5 numbers"
+        ]
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'99.3' appears in 3 slots: ['summary', 'vs_target', 'watchouts']",
+          "'10.9' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'2.0' appears in 3 slots: ['drivers', 'health', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": false,
+      "error": null,
+      "duration_ms": 185201,
+      "cost_usd": 0.23834999999999998,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6777,
+        "cache_read": 5990,
+        "output": 21004,
+        "thinking": 19195
+      },
+      "blocking_failures": [
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "guard_details": {
+        "no causes, recommendations, 'plan', or 'net revenue'": [
+          "watchouts point 1 so_what: calls revenue net ('net revenue')"
+        ]
+      },
+      "commentary": {
+        "drivers": {
+          "points": [
+            {
+              "what": "APAC orders fell to 392, down 9.5% WoW, accounting for 132.3% of the week's total order change.",
+              "so_what": "This makes APAC the largest driver of this week's order decline, worth tracking against next week's target."
+            },
+            {
+              "what": "EMEA orders rose to 214, up 24.4% WoW, contributing +42 orders toward the week's total change.",
+              "so_what": "EMEA's growth partly offset declines elsewhere, but not enough to prevent the overall WoW drop in orders."
+            },
+            {
+              "what": "Search orders fell to 650, down 2.0% WoW, but still accounted for 41.9% of the week's total order change.",
+              "so_what": "Search is by far the largest traffic source, so even a small decline there weighs heavily on total orders."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell to $84.53, down 3.7% WoW (bad), though still up 6.6% YoY.",
+              "so_what": "Revenue growth this week came from order volume more than from bigger baskets: per-order value fell WoW."
+            },
+            {
+              "what": "Cancellation rate fell to 14.6%, down 1.2pp WoW (a notable, good change) and down 2.5pp YoY.",
+              "so_what": "Each point of cancellation is worth about $793 in revenue, so this improvement helped support this week's revenue."
+            },
+            {
+              "what": "New signups rose to 261, up 16.0% WoW (notable, good) and up 8.3% YoY.",
+              "so_what": "Signups grew faster than orders this week: orders fell 3.2% WoW while signups rose, showing the two moved in opposite directions."
+            }
+          ]
+        },
+        "summary": {
+          "headline": "Orders and revenue were ahead of weekly target, but the quarter (99.3%) and year (95.7%) remain behind target on revenue.",
+          "points": [
+            {
+              "what": "Orders were 938 for the week, 102.5% of target, though down 3.2% from the prior week (a bad WoW result).",
+              "so_what": "The weekly target was met, but the softer WoW trend comes as QTD revenue remains behind target."
+            },
+            {
+              "what": "Revenue was $67,708, 106.5% of target, but down 5.4% WoW (bad).",
+              "so_what": "This week's revenue beat target, but the WoW decline combined with a falling AOV means the gain reflects volume more than bigger baskets."
+            },
+            {
+              "what": "QTD revenue attainment is 99.3% of target and YTD attainment is 95.7%, both behind target.",
+              "so_what": "Despite this week's win, the quarter and year remain behind, keeping full-year risk elevated."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 11 May rose to 10.9%, up 1.0pp WoW, a notable increase.",
+              "so_what": "This marks a reversal after several weeks of falling returns, a risk worth watching alongside the quarter's shortfall."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Weekly orders were 102.5% of target and weekly revenue was 106.5% of target, both ahead this week.",
+              "so_what": "Next week's targets rise to 1,006 orders and $74,990 in revenue, higher bars than this week already met."
+            },
+            {
+              "what": "The quarter needs $288,597 more to reach the full quarter target of $884,086, with 4 weeks left.",
+              "so_what": "This keeps the quarter at risk without stronger weeks ahead than the one just closed."
+            },
+            {
+              "what": "YTD revenue attainment is 95.7% of target, and the required weekly run-rate for the rest of the year is $83,008 versus a recent 8-week run-rate of $66,763.",
+              "so_what": "The recent pace is below what's needed for the rest of the year, keeping the full-year target at risk."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate (week of 11 May) rose to 10.9%, up 1.0pp WoW and up 2.0pp YoY (both bad).",
+              "so_what": "Two consecutive bad reads mean the improvement seen earlier in the year is not holding, adding risk to net revenue if the trend continues."
+            },
+            {
+              "what": "QTD revenue attainment is 99.3% of target, a gap of -$4,397, with 4 weeks left in the quarter.",
+              "so_what": "Closing this gap requires stronger weeks over the remaining quarter, or the quarter will miss its target."
+            },
+            {
+              "what": "AOV fell to $84.53, down 3.7% WoW (bad), though still up 6.6% YoY.",
+              "so_what": "This week's revenue results relied on order volume more than basket size, and order volume itself was down WoW too."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": 2,
+      "ok": true,
+      "error": null,
+      "duration_ms": 61710,
+      "cost_usd": 0.11672819999999999,
+      "tokens": {
+        "input": 4,
+        "cache_write": 11796,
+        "cache_read": 18831,
+        "output": 6577,
+        "thinking": 3072
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "sentences at most 30 words and 4 numbers": [
+          "summary point 1 what: 5 numbers",
+          "watchouts point 2 what: 5 numbers"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'99.3' appears in 3 slots: ['summary', 'vs_target', 'watchouts']",
+          "'10.9' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'2.0' appears in 3 slots: ['drivers', 'health', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Orders and revenue beat their weekly targets, but QTD and YTD revenue remain behind target, and the 14-Day Return Rate rose notably.",
+          "points": [
+            {
+              "what": "Orders were 938 for the week, 102.5% of the 915 target, even though they fell 3.2% from the prior week's 969.",
+              "so_what": "The week cleared its target despite the week-over-week pullback, showing target attainment and week-over-week direction do not always move together."
+            },
+            {
+              "what": "Revenue was $67,708, 106.5% of the $63,587 target, though down 5.4% from the prior week.",
+              "so_what": "Revenue outperformed its weekly target even while declining from the previous week."
+            },
+            {
+              "what": "QTD revenue is at 99.3% of target and YTD revenue is at 95.7% of target.",
+              "so_what": "Despite this week's target beat, the quarter and the year remain behind target."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 11 May rose to 10.9%, a change marked as notable.",
+              "so_what": "This flags a risk in order quality moving in the wrong direction."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate for the week of 11 May rose to 10.9%, up 1.0 pp WoW and up 2.0 pp YoY, both marked bad and notable.",
+              "so_what": "Returns are rising against both last week and last year, a risk to watch on order quality."
+            },
+            {
+              "what": "QTD revenue is at 99.3% of target, a gap of $4,397, with $288,597 still needed over the remaining 4 weeks to reach the $884,086 full-quarter target.",
+              "so_what": "The quarter remains behind target and this week's beat alone did not close the gap."
+            },
+            {
+              "what": "The required weekly revenue run-rate for the rest of the year is $83,008, above the current 8-week run-rate of $66,763.",
+              "so_what": "At the current pace, revenue is running below what is needed to reach the full-year target."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders were 102.5% of target and revenue was 106.5% of target this week.",
+              "so_what": "The week was ahead of target on both orders and revenue."
+            },
+            {
+              "what": "QTD revenue is 99.3% of target, with $288,597 still needed across the remaining 4 weeks to hit the $884,086 full-quarter target.",
+              "so_what": "The quarter needs stronger weeks ahead, since one week ahead of target did not close the quarterly gap."
+            },
+            {
+              "what": "YTD revenue is 95.7% of target, and the required weekly run-rate for the rest of the year is $83,008 versus a current 8-week run-rate of $66,763.",
+              "so_what": "The current pace is below what full-year attainment requires."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "APAC orders fell 9.5% WoW and contributed -41 to the week's order change, 132.3% of the total change.",
+              "so_what": "APAC was the largest single drag on this week's order decline."
+            },
+            {
+              "what": "EMEA orders rose 24.4% WoW and contributed +42 to the change, the only region with a positive contribution.",
+              "so_what": "EMEA growth partly offset the declines in APAC, North America, and LATAM."
+            },
+            {
+              "what": "Search orders fell 2.0% WoW and contributed -13, the largest share of change among traffic sources at 41.9%.",
+              "so_what": "Search was the biggest driver of the traffic-source decline in orders this week."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV was $84.53, down 3.7% from the prior week's $87.74, though up 6.6% YoY.",
+              "so_what": "This week's revenue is not coming from bigger baskets, since AOV fell versus last week."
+            },
+            {
+              "what": "The cancellation rate fell 1.2 pp to 14.6%, a notable improvement, and also down YoY.",
+              "so_what": "A lower cancellation rate means more of this week's orders counted toward revenue."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 11 May rose to 10.9%, up 1.0 pp WoW and up 2.0 pp YoY.",
+              "so_what": "Rising returns against both comparisons is a risk to order quality to keep watching."
+            },
+            {
+              "what": "New signups rose 16.0% WoW to 261, a notable increase, and were up 8.3% YoY versus 67.5% YoY growth in orders.",
+              "so_what": "Order growth YoY is far outpacing new signup growth YoY."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "935683244f991d88",
+  "cache_hit": false,
+  "cost_usd": 0.3551,
+  "duration_ms": 246911,
+  "tokens": {
+    "input": 6,
+    "cache_write": 18573,
+    "cache_read": 24821,
+    "output": 27581,
+    "thinking": 22267
+  }
+}

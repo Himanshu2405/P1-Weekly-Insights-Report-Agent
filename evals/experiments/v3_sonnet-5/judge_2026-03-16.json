@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-16",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue beat target this week, but QTD and YTD revenue remain behind at 92.6%, with only one week left in the quarter.",
+      "reason": "Headline states week ahead, quarter behind at 92.6% with one week left, matching the key."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Cancellation rate has risen for 3 straight weeks, from 14.3% to 16.4%.",
+      "reason": "Appears explicitly in the watchouts section with correct numbers."
+    },
+    {
+      "id": "q1_will_hit",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "leaving little room to close the gap",
+      "reason": "Commentary emphasizes the quarter remains behind and gap is hard to close, not that it will hit target."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue beat target this week, but QTD and YTD revenue remain behind at 92.6%, with only one week left in the quarter.",
+      "reason": "States ahead/behind verdict and names the quarter shortfall issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Cancellation rate has risen for 3 straight weeks...",
+      "reason": "All three watchout items are genuine risks (cancellations, run-rate shortfall, signup decline)."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Order growth this week came almost entirely from Search, with other traffic sources not adding to the gain.",
+      "reason": "Facebook (+13) and Email (+3) contributed positively per brief, contradicting the claim that other sources didn't add."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that growth depended almost entirely on one region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States what LATAM decline means for growth pattern (uneven)."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames growth as concentrated in one channel, an interpretation of the mix."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains source of revenue growth and YoY basket comparison."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Ties cancellation rise to revenue impact and order quality risk."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains that YoY return rise has not reversed despite WoW dip."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Connects order growth to lack of matching signup growth."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes week's strength hasn't closed the quarter shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States quarter and year remain behind with limited time to close gap."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Attributes revenue growth to AOV rather than order volume."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames signup decline as a risk to sustaining order volume."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Just restates that the week met target without added meaning."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains remaining gap and difficulty closing it with one week left."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current run-rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains streak signals a persistent, not one-off, risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames signup decline as a risk to future order growth."
+    }
+  ],
+  "cost_usd": 0.07752400000000001,
+  "duration_s": 36.7
+}

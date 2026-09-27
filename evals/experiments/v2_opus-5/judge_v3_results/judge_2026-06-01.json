@@ -1,0 +1,156 @@
+{
+  "week": "2026-06-01",
+  "status": "verified_after_retry",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders came in at 942, or 93.6% of the weekly target, and revenue at $67,610, or 90.2% of target... revenue down 8.7%",
+      "reason": "All three figures stated accurately and the week is explicitly called behind target."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue is $659,577, or 97.7% of the target for the same weeks, with 3 weeks left in the quarter.",
+      "reason": "QTD attainment, weeks remaining, and behind-target conclusion all conveyed."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The required pace sits far above anything achieved recently, so the full-year target is out of reach at this rate.",
+      "reason": "Tone is measured; every watch-out is grounded in cited figures rather than invented."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week behind target on both orders and revenue, and the year stands at 94.9% of target",
+      "reason": "Gives a clear behind-target verdict plus the year position as the named issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "AOV was $84.72, down 5.8% week on week and down 3.7% on last year, both rated bad.",
+      "reason": "All three watch-outs are genuine risks or worsening trends; no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "EMEA alone accounts for more than the whole decline, so the drop is concentrated rather than broad-based.",
+      "reason": "Claims trace back to stated figures; no invented causes or forecasts beyond arithmetic."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links the double miss to the year's growing revenue shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes the quarter will close behind based on required versus actual pace."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains why attainment keeps slipping relative to target growth assumptions."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Says the decline leaves no offset for the quarterly gap."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Draws the conclusion that the full-year target is unreachable at this pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Reframes revenue composition and the added exposure from order dips."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Identifies returns as a risk to revenue counted gross."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Interprets the relative miss sizes as a value-per-order problem."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says closing the gap needs pace far above recent, flagging the quarter."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes one strong month cannot recover the cumulative year gap."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader the decline is concentrated, not broad-based."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains that Search movements set the direction of the weekly total."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes the largest region's growth still failed to offset declines."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Converts cancellations to revenue value against the missed revenue target."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Merely juxtaposes signups and order growth without saying what it means."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains that lower AOV forces order growth to carry revenue."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Interprets rising returns plus falling AOV as deteriorating order quality."
+    }
+  ],
+  "cost_usd": 0.10328599999999999,
+  "duration_s": 32.4
+}

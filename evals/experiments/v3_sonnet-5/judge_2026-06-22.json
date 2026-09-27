@@ -1,0 +1,156 @@
+{
+  "week": "2026-06-22",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "q2_closes_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue attainment finished the quarter at 100.7% of target... The quarter closed ahead of target",
+      "reason": "Commentary states quarter closed ahead at 100.7% and week ahead on revenue 107.5%."
+    },
+    {
+      "id": "year_gap",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "required weekly run-rate of $84,542 versus the current 8-week run-rate of $71,736",
+      "reason": "YTD 96.8% behind target and run-rate gap both stated with matching numbers."
+    },
+    {
+      "id": "year_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The year remains behind target",
+      "reason": "Commentary explicitly says year is behind, never implies on-track."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Ahead of target on orders and revenue this week, but YTD revenue is still behind target at 96.8%",
+      "reason": "Headline gives ahead/behind verdict and names the year gap issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "the required weekly run-rate now outpaces the recent 8-week pace",
+      "reason": "All three watchouts (AOV drop, rising returns, run-rate shortfall) are genuine risks."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Order growth is outpacing new customer signups by a wide margin on a year-on-year basis.",
+      "reason": "Claims are grounded in brief figures and correctly qualified (e.g., YoY basis stated explicitly)."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Connects YoY pace to target growth assumption and weekly attainment status."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States target attainment status (ahead), not just the raw number."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains year is still behind despite recent good months."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Explains growth driver (volume vs. basket size)."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames AOV decline as a risk to revenue growth composition."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Labels rising return rate as a forward risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links weekly attainment to quarter-level outcome."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects quarter close to year-to-date shortfall context."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach given run-rate gap."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains North America's role in offsetting declines elsewhere."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes growth concentration in largest channel rather than diversified sources."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Ties regional declines to overall target status."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains dependency on volume for staying ahead of target."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects cancellation improvement to revenue attainment via dollar impact."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames WoW return rate rise as a risk despite favorable YoY trend."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Identifies growth pattern (orders outpacing signups) as a read on the business."
+    }
+  ],
+  "cost_usd": 0.1239044,
+  "duration_s": 57.4
+}

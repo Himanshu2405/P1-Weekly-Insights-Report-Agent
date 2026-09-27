@@ -1,57 +1,57 @@
 {
   "week": "2026-04-13",
   "status": "verified",
-  "judge": "judge_v3",
-  "model": "claude-opus-5",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
   "verdicts": [
     {
       "id": "week_behind",
       "kind": "must_say",
       "verdict": "pass",
-      "evidence": "revenue at $58,718, 88.7% of target... Revenue fell 13.1% week on week",
-      "reason": "Both the 88.7% revenue attainment and the 13.1% weekly decline are stated correctly."
+      "evidence": "Week behind target on both orders and revenue... revenue at $58,718, 88.7% of target... Revenue fell 13.1% week on week",
+      "reason": "Headline and summary state week behind target with revenue 88.7% and -13.1% WoW."
     },
     {
       "id": "quarter_ahead",
       "kind": "must_say",
       "verdict": "pass",
-      "evidence": "QTD revenue is $186,837 against $184,491 of target, 101.3% attainment",
-      "reason": "Quarter-to-date attainment of 101.3% and the ahead position are explicitly stated."
+      "evidence": "QTD revenue is $186,837 against $184,491 of target, 101.3% attainment... The quarter is ahead only by a thin margin",
+      "reason": "vs_target section explicitly states quarter is ahead with 101.3% attainment."
     },
     {
       "id": "cancellation_streak",
       "kind": "must_say",
       "verdict": "pass",
       "evidence": "The cancellation rate has moved in the bad direction for three straight weeks and now sits at 15.3%.",
-      "reason": "Three-week rise from 13.6% to 15.3% appears in summary and is flagged in watchouts."
+      "reason": "Flagged in watchouts section as a three-week trend, matching the key's streak claim."
     },
     {
       "id": "quarter_behind_claim",
       "kind": "must_not_say",
       "verdict": "pass",
       "evidence": "The quarter is ahead only by a thin margin",
-      "reason": "Commentary consistently calls the quarter ahead; 'behind' references are to the year, not the quarter."
+      "reason": "Commentary explicitly states the quarter is ahead, never claims it is behind."
     },
     {
       "id": "headline_has_verdict",
       "kind": "quality",
       "verdict": "pass",
-      "evidence": "Week behind target on both orders and revenue, and the year stands at 94.1% of target",
-      "reason": "Gives a clear behind-target verdict for the week plus the year-to-date position."
+      "evidence": "Week behind target on both orders and revenue, and the year stands at 94.1% of target with the required run-rate well above recent pace.",
+      "reason": "Headline gives week's behind verdict and names year-target issue."
     },
     {
       "id": "watchouts_are_risks",
       "kind": "quality",
       "verdict": "pass",
-      "evidence": "The cancellation rate has moved in the bad direction for three straight weeks",
-      "reason": "All three watch-outs are genuine risks and the key's cancellation streak is included."
+      "evidence": "cancellation rate has moved in the bad direction for three straight weeks...YTD revenue is...94.1% attainment...requires $80,714 a week, against a recent 8-week run-rate of $60,886",
+      "reason": "All three watch-outs are genuine risks or worsening trends, none is good news."
     },
     {
       "id": "no_speculation",
       "kind": "quality",
       "verdict": "pass",
-      "evidence": "Revenue fell faster than orders because each order carried less value.",
-      "reason": "Claims follow arithmetically or directly from the stated figures; no guessed causes or forecasts."
+      "evidence": "The quarter is ahead only by a thin margin, so repeat weeks like this one would tip it behind.",
+      "reason": "Claims are grounded in brief figures; even conditional statements are arithmetically derivable, not guessed causes or outcomes."
     }
   ],
   "so_whats": [
@@ -59,79 +59,79 @@
       "slot": "summary",
       "point": 1,
       "verdict": "implication",
-      "reason": "Links the double miss to the quarter's surplus not being extended."
+      "reason": "Explains that missing the week failed to add to the quarter's surplus."
     },
     {
       "slot": "summary",
       "point": 2,
       "verdict": "implication",
-      "reason": "Tells reader not to treat the drop as ordinary fluctuation."
+      "reason": "Says how to read the drop, i.e. not ordinary fluctuation."
     },
     {
       "slot": "summary",
       "point": 3,
       "verdict": "implication",
-      "reason": "Explains growth is insufficient to close the target gap."
+      "reason": "States growth is insufficient versus the target assumption."
     },
     {
       "slot": "summary",
       "point": 4,
-      "verdict": "restatement",
-      "reason": "Restates the streak continuing and adds a per-point number without saying what it means."
+      "verdict": "implication",
+      "reason": "Flags persistent trend and quantifies revenue impact."
     },
     {
       "slot": "watchouts",
       "point": 1,
       "verdict": "implication",
-      "reason": "Frames the streak as trend not noise and quantifies revenue held back."
+      "reason": "Explains trend significance and revenue cost per point."
     },
     {
       "slot": "watchouts",
       "point": 2,
       "verdict": "implication",
-      "reason": "Says shortfall must be recovered on top of remaining weekly targets."
+      "reason": "States the shortfall must be recovered against future targets."
     },
     {
       "slot": "watchouts",
       "point": 3,
       "verdict": "implication",
-      "reason": "Concludes the full-year target is out of reach at current pace."
+      "reason": "Concludes full-year target is out of reach at current pace."
     },
     {
       "slot": "vs_target",
       "point": 1,
       "verdict": "implication",
-      "reason": "Explains the week worsened rather than reduced the YTD shortfall."
+      "reason": "Says the miss adds to, not reduces, the YTD shortfall."
     },
     {
       "slot": "vs_target",
       "point": 2,
       "verdict": "implication",
-      "reason": "Warns a repeat week would tip the quarter behind target."
+      "reason": "Explains fragility of the quarter's ahead position."
     },
     {
       "slot": "vs_target",
       "point": 3,
       "verdict": "implication",
-      "reason": "Attributes the YTD gap to Q1 and notes it is unrecovered."
+      "reason": "Attributes the YTD gap to Q1 shortfalls, explaining the number."
     },
     {
       "slot": "drivers",
       "point": 1,
       "verdict": "implication",
-      "reason": "Explains LATAM exceeds the whole decline, so other gains failed to offset."
+      "reason": "Explains LATAM's outsized role in the total decline."
     },
     {
       "slot": "drivers",
       "point": 2,
       "verdict": "implication",
-      "reason": "Says growing regions did not cover the EMEA and LATAM losses."
+      "reason": "States growing regions couldn't offset the losses."
     },
     {
       "slot": "drivers",
       "point": 3,
       "verdict": "implication",
-      "reason": "Concludes the decline is spread across sources rather than concentrated."
+      "reason": "Explains decline is spread rather than concentrated."
     },
     {
       "slot": "health",
@@ -143,21 +143,21 @@
       "slot": "health",
       "point": 2,
       "verdict": "implication",
-      "reason": "Reconciles the favourable year-on-year position with the unfavourable recent direction."
+      "reason": "Explains how to read the YoY vs WoW divergence."
     },
     {
       "slot": "health",
       "point": 3,
       "verdict": "implication",
-      "reason": "Reads the move as the one favourable signal among quality KPIs."
+      "reason": "States this is the sole favorable quality signal."
     },
     {
       "slot": "health",
       "point": 4,
-      "verdict": "restatement",
-      "reason": "Merely re-expresses the signups-versus-orders contrast already given in the fact."
+      "verdict": "implication",
+      "reason": "Explains order growth outpacing account growth."
     }
   ],
-  "cost_usd": 0.10915099999999998,
-  "duration_s": 34.2
+  "cost_usd": 0.085898,
+  "duration_s": 45.3
 }

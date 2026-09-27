@@ -1,0 +1,163 @@
+{
+  "week": "2025-12-29",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "A week behind target: orders at 87.4% and revenue at 87.5%",
+      "reason": "Headline states both attainment figures matching the key."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose for a third consecutive week, from 13.0% to 16.0%.",
+      "reason": "Streak flagged with correct figures in the watchouts section."
+    },
+    {
+      "id": "positive_framing",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The quarter opens behind target",
+      "reason": "No sentence calls the week strong, good, or on track."
+    },
+    {
+      "id": "streak_as_good",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Order quality is worse than last week while still better than a year ago",
+      "reason": "Rising cancellations consistently treated as a negative trend."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "A week behind target ... and cancellations rising a third week.",
+      "reason": "Gives behind-target verdict plus the flagged cancellation risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Hitting the full-year target requires $73,875 of revenue a week, against a recent 8-week run-rate of $49,177.",
+      "reason": "All three watch-outs are genuine risks; key risks are included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Each percentage point of cancellations is worth $563 of revenue",
+      "reason": "All claims trace to brief facts; comparisons state the basis used."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States the quarter opens behind and gap must be recovered later."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Only rephrases that both orders and revenue declined."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains why growth below assumed 75% causes the target miss."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Repeats the directional contrast without saying what it means."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies revenue drag of unreversed cancellation trend."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Tells reader it is not a comparison artefact."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target unreachable at current pace."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates that both metrics missed; no business consequence."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Shows the whole quarter target now depends on remaining 12 weeks."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says later weeks must run above target to recover."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats the 80.5% concentration figure in words."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates Search's dominant share of the change."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Arithmetic restatement that gains did not offset declines."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains growth mix: volume not basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Guides how to weigh the yearly comparison versus current trend."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links returns and cancellations as a combined quality deterioration."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Repeats the two YoY growth rates without meaning."
+    }
+  ],
+  "cost_usd": 0.1515875,
+  "duration_s": 28.7
+}

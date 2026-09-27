@@ -1,0 +1,156 @@
+{
+  "week": "2026-05-11",
+  "status": "verified_after_retry",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both ahead of target this week, but the quarter and year remain behind",
+      "reason": "Headline and summary clearly convey week ahead vs quarter/year behind with matching numbers."
+    },
+    {
+      "id": "return_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate for the week of 27 Apr rose to 11.3%, up 1.3 pp WoW and marking a third straight bad-direction move.",
+      "reason": "Streak, week label, and rise are conveyed clearly, appearing in watchouts section too."
+    },
+    {
+      "id": "wrong_return_week",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate for the week of 27 Apr rose to 11.3%",
+      "reason": "Commentary consistently attributes the return rate to the week of 27 Apr, not the reporting week."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both ahead of target this week, but the quarter and year remain behind, with a rising return rate as the key risk.",
+      "reason": "States ahead/behind verdict and names quarter position and a flagged risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "A three-week rising streak signals the return rate trend is not reversing on its own.",
+      "reason": "All three watchouts are genuine risks (return streak, YTD shortfall, QTD gap), no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "New customer growth outpaced order growth this week, in contrast to the order side being ahead of target.",
+      "reason": "Claims are scoped correctly (e.g., 'this week' for WoW) and supported by brief figures without inventing causes."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes this week's attainment hasn't closed QTD/YTD gap."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains how to read the notable revenue move, not as new normal."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States quarter/year remain behind and need sustained beats to close gap."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames streak as a risk not offset by this week's strength."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says trend is not self-correcting, a risk framing."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States quarter needs above-current-week revenue to close gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Just restates 'ahead of target' which the percentages already show."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates behind-target status already implied by the attainment numbers."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States recent pace falls short of what's needed for full-year target."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains order drop is concentrated, not broad-based."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes a small channel has outsized effect on order movement."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains largest region kept decline from being worse."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Attributes revenue growth partly to bigger baskets, not just volume."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links lower cancellations to supporting target attainment."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames rising returns as a quality risk counter to good results."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts signup growth with order growth and order target status."
+    }
+  ],
+  "cost_usd": 0.089538,
+  "duration_s": 53.5
+}

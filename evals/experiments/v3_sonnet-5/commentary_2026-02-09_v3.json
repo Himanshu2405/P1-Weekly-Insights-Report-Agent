@@ -1,0 +1,283 @@
+{
+  "week": "2026-02-09",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Behind target on orders (82.4%) and revenue (83.0%) this week, with YTD revenue also behind at 87.4% attainment and the required run-rate well above the current pace.",
+      "points": [
+        {
+          "what": "Orders fell 6.1% week over week, reaching only 82.4% of the weekly target.",
+          "so_what": "This adds to the quarter's shortfall against target rather than closing it."
+        },
+        {
+          "what": "Revenue fell 9.1% week over week to 83.0% of the weekly target, a steeper drop than the 6.1% fall in orders.",
+          "so_what": "Revenue fell faster than orders, meaning the weaker week came from smaller baskets rather than fewer orders alone."
+        },
+        {
+          "what": "Orders grew 44.4% year over year and revenue grew 37.3% year over year, both below the 75% growth the 2026 targets assume.",
+          "so_what": "Growth at this rate falls short of the pace the targets were built on, consistent with the week landing behind target."
+        },
+        {
+          "what": "The cancellation rate fell 1.3 pp week over week to 14.8%, a notable improvement, and is also down 0.6 pp year over year.",
+          "so_what": "Lower cancellations helped limit the revenue shortfall against target this week."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The 14-Day Return Rate for the week of Jan 26 rose 2.2 pp week over week to 11.6%, flagged as notable.",
+          "so_what": "A jump of this size is a risk to watch in order quality over coming weeks."
+        },
+        {
+          "what": "AOV fell 4.7% week over week and 5.5% year over year to $83.71.",
+          "so_what": "A falling AOV on top of falling orders adds pressure on hitting the revenue target."
+        },
+        {
+          "what": "The current 8-week revenue run-rate is $51,543, well below the $76,671 weekly run-rate required for the rest of the year to hit the full-year target.",
+          "so_what": "This gap means the full-year target requires a meaningfully stronger pace than the last 8 weeks have shown."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Weekly orders reached 82.4% of target and revenue reached 83.0% of target, both behind for the week.",
+          "so_what": "Neither KPI closed the gap to target this week, widening the shortfall the quarter needs to make up."
+        },
+        {
+          "what": "QTD revenue attainment is 87.4% against target, a gap of $52,211 with 6 weeks left in the quarter.",
+          "so_what": "January and February month-to-date have both been behind target so far this quarter, so closing the gap needs stronger weeks than recently seen."
+        },
+        {
+          "what": "YTD revenue attainment is 87.4%, and the required weekly run-rate to hit the full-year target is $76,671 versus a current 8-week run-rate of $51,543.",
+          "so_what": "At the current pace the full-year revenue target is out of reach."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "APAC orders fell 6.5% week over week, contributing -22 orders, 48.9% of the week's total order decline.",
+          "so_what": "APAC was the single largest regional driver of the order shortfall against target this week."
+        },
+        {
+          "what": "LATAM orders fell 21.4% week over week, also contributing -22 orders, 48.9% of the decline despite being the smallest region.",
+          "so_what": "The decline was spread across two regions rather than concentrated in the largest one."
+        },
+        {
+          "what": "Organic traffic orders fell 25.9% week over week, contributing -29 orders, 64.4% of the total order decline, the largest driver by traffic source.",
+          "so_what": "Organic was the single biggest source of this week's order shortfall, more than Search which holds most of the order share."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV fell 4.7% week over week to $83.71 and 5.5% year over year.",
+          "so_what": "AOV falling alongside orders means the revenue miss this week came from both fewer orders and smaller baskets."
+        },
+        {
+          "what": "The cancellation rate fell 1.3 pp week over week to 14.8%, a notable improvement, and is down 0.6 pp year over year.",
+          "so_what": "With each 1 pp of cancellation worth $583 in revenue, this week's improvement helped limit the revenue shortfall against target."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of Jan 26 rose 2.2 pp week over week and 2.2 pp year over year to 11.6%.",
+          "so_what": "Rising returns alongside falling AOV point to weaker order quality this period."
+        },
+        {
+          "what": "New signups were flat week over week at 223 but down 3.9% year over year, while orders grew 44.4% year over year.",
+          "so_what": "This week's order growth is not coming from new customer accounts on a year-over-year basis."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 124619,
+      "cost_usd": 0.2276084,
+      "tokens": {
+        "input": 4,
+        "cache_write": 19543,
+        "cache_read": 19492,
+        "output": 14553,
+        "thinking": 12634
+      },
+      "blocking_failures": [],
+      "guard_details": {},
+      "commentary": {
+        "summary": {
+          "headline": "Behind target on orders (82.4%) and revenue (83.0%) this week, with YTD revenue also behind at 87.4% attainment and the required run-rate well above the current pace.",
+          "points": [
+            {
+              "what": "Orders fell 6.1% week over week, reaching only 82.4% of the weekly target.",
+              "so_what": "This adds to the quarter's shortfall against target rather than closing it."
+            },
+            {
+              "what": "Revenue fell 9.1% week over week to 83.0% of the weekly target, a steeper drop than the 6.1% fall in orders.",
+              "so_what": "Revenue fell faster than orders, meaning the weaker week came from smaller baskets rather than fewer orders alone."
+            },
+            {
+              "what": "Orders grew 44.4% year over year and revenue grew 37.3% year over year, both below the 75% growth the 2026 targets assume.",
+              "so_what": "Growth at this rate falls short of the pace the targets were built on, consistent with the week landing behind target."
+            },
+            {
+              "what": "The cancellation rate fell 1.3 pp week over week to 14.8%, a notable improvement, and is also down 0.6 pp year over year.",
+              "so_what": "Lower cancellations helped limit the revenue shortfall against target this week."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate for the week of Jan 26 rose 2.2 pp week over week to 11.6%, flagged as notable.",
+              "so_what": "A jump of this size is a risk to watch in order quality over coming weeks."
+            },
+            {
+              "what": "AOV fell 4.7% week over week and 5.5% year over year to $83.71.",
+              "so_what": "A falling AOV on top of falling orders adds pressure on hitting the revenue target."
+            },
+            {
+              "what": "The current 8-week revenue run-rate is $51,543, well below the $76,671 weekly run-rate required for the rest of the year to hit the full-year target.",
+              "so_what": "This gap means the full-year target requires a meaningfully stronger pace than the last 8 weeks have shown."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Weekly orders reached 82.4% of target and revenue reached 83.0% of target, both behind for the week.",
+              "so_what": "Neither KPI closed the gap to target this week, widening the shortfall the quarter needs to make up."
+            },
+            {
+              "what": "QTD revenue attainment is 87.4% against target, a gap of $52,211 with 6 weeks left in the quarter.",
+              "so_what": "January and February month-to-date have both been behind target so far this quarter, so closing the gap needs stronger weeks than recently seen."
+            },
+            {
+              "what": "YTD revenue attainment is 87.4%, and the required weekly run-rate to hit the full-year target is $76,671 versus a current 8-week run-rate of $51,543.",
+              "so_what": "At the current pace the full-year revenue target is out of reach."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "APAC orders fell 6.5% week over week, contributing -22 orders, 48.9% of the week's total order decline.",
+              "so_what": "APAC was the single largest regional driver of the order shortfall against target this week."
+            },
+            {
+              "what": "LATAM orders fell 21.4% week over week, also contributing -22 orders, 48.9% of the decline despite being the smallest region.",
+              "so_what": "The decline was spread across two regions rather than concentrated in the largest one."
+            },
+            {
+              "what": "Organic traffic orders fell 25.9% week over week, contributing -29 orders, 64.4% of the total order decline, the largest driver by traffic source.",
+              "so_what": "Organic was the single biggest source of this week's order shortfall, more than Search which holds most of the order share."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell 4.7% week over week to $83.71 and 5.5% year over year.",
+              "so_what": "AOV falling alongside orders means the revenue miss this week came from both fewer orders and smaller baskets."
+            },
+            {
+              "what": "The cancellation rate fell 1.3 pp week over week to 14.8%, a notable improvement, and is down 0.6 pp year over year.",
+              "so_what": "With each 1 pp of cancellation worth $583 in revenue, this week's improvement helped limit the revenue shortfall against target."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of Jan 26 rose 2.2 pp week over week and 2.2 pp year over year to 11.6%.",
+              "so_what": "Rising returns alongside falling AOV point to weaker order quality this period."
+            },
+            {
+              "what": "New signups were flat week over week at 223 but down 3.9% year over year, while orders grew 44.4% year over year.",
+              "so_what": "This week's order growth is not coming from new customer accounts on a year-over-year basis."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "d982a02a2773d24d",
+  "cache_hit": false,
+  "cost_usd": 0.2276,
+  "duration_ms": 124619,
+  "tokens": {
+    "input": 4,
+    "cache_write": 19543,
+    "cache_read": 19492,
+    "output": 14553,
+    "thinking": 12634
+  }
+}

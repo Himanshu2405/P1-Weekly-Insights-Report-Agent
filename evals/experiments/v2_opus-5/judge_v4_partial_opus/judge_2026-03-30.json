@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-30",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "near_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Revenue of $60,547 reached 100.4% of the weekly target, while orders came in at 95.0%.",
+      "reason": "Both attainment figures given, plus small 0.5% and 1.3% week-on-week moves."
+    },
+    {
+      "id": "year_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Year-to-date revenue stands at 93.0% of target, $58,749 short.",
+      "reason": "Year behind target at 93.0% stated correctly in summary and headline."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Orders fell 0.5% and revenue 1.3% against the prior week",
+      "reason": "Language stays measured; no dramatic verbs and all watch-outs are brief-supported."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Mixed week: revenue cleared target at 100.4% while orders reached only 95.0%; the year is still behind at 93.0% of target.",
+      "reason": "Gives a mixed ahead/behind verdict plus the year-to-date position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate rose to 14.2%, up 0.6 pp on the prior week",
+      "reason": "All three watch-outs are genuine risks: cancellations, run-rate shortfall, AOV decline."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "New accounts grew in a week when orders slipped, so the order dip is not mirrored on the signup side.",
+      "reason": "Claims trace to brief figures; comparisons specify the timeframe and no causes are invented."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader the week cannot be read as broadly on target."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates the week-on-week declines with quarter framing, no business consequence."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says the shortfall persists and carries into Q2."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Explains that sub-target growth caused the YTD gap."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Shows cancellations outweigh the slim revenue beat."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target unreachable at current run-rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains revenue must rely on volume already behind target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Interprets next week's lower target as a weaker base for recovery."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says first-week beat gives little cushion for the quarter."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links the three misses to the accumulated year-to-date shortfall."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader the decline is concentrated, not broad-based."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Arithmetic restatement of the offsetting contribution, no business meaning."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Adds another number; merely restates that total still fell."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Tells reader to read the revenue beat as volume-led."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Places returns against cancellation pressure; guides interpretation."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates that signups rose while orders fell; no consequence drawn."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contextualises the target miss against still-elevated volume."
+    }
+  ],
+  "cost_usd": 0.14657749999999997,
+  "duration_s": 34.8
+}

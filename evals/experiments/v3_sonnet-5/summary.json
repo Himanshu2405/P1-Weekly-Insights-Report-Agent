@@ -1,0 +1,238 @@
+{
+  "experiment": "v3_sonnet-5",
+  "set": "golden",
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "finished_at_utc": "2026-09-27T17:49:10+00:00",
+  "weeks": 16,
+  "verified_first_attempt": 13,
+  "verified_after_retry": 3,
+  "fallback": 0,
+  "weeks_with_warnings": 10,
+  "total_cost_usd": 3.247,
+  "avg_cost_per_week_usd": 0.203,
+  "avg_duration_s": 142.6,
+  "wall_clock_min": 0.0,
+  "rows": [
+    {
+      "week": "2025-12-29",
+      "status": "verified_after_retry",
+      "reused": true,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "14-Day Return Rate names its mature week"
+      ],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.3069,
+      "duration_s": 207.5
+    },
+    {
+      "week": "2026-01-12",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.1605,
+      "duration_s": 109.6
+    },
+    {
+      "week": "2026-01-19",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.2625,
+      "duration_s": 157.9
+    },
+    {
+      "week": "2026-02-09",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.2276,
+      "duration_s": 124.6
+    },
+    {
+      "week": "2026-02-16",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.1831,
+      "duration_s": 145.0
+    },
+    {
+      "week": "2026-02-23",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1773,
+      "duration_s": 145.9
+    },
+    {
+      "week": "2026-03-16",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1485,
+      "duration_s": 112.9
+    },
+    {
+      "week": "2026-03-23",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.1845,
+      "duration_s": 144.5
+    },
+    {
+      "week": "2026-03-30",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1212,
+      "duration_s": 80.2
+    },
+    {
+      "week": "2026-04-06",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1097,
+      "duration_s": 67.8
+    },
+    {
+      "week": "2026-04-13",
+      "status": "verified_after_retry",
+      "reused": true,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.3516,
+      "duration_s": 264.6
+    },
+    {
+      "week": "2026-04-20",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.2629,
+      "duration_s": 159.9
+    },
+    {
+      "week": "2026-05-11",
+      "status": "verified_after_retry",
+      "reused": true,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "14-Day Return Rate names its mature week"
+      ],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.2346,
+      "duration_s": 166.1
+    },
+    {
+      "week": "2026-06-01",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.1935,
+      "duration_s": 147.8
+    },
+    {
+      "week": "2026-06-15",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.1838,
+      "duration_s": 143.0
+    },
+    {
+      "week": "2026-06-22",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1388,
+      "duration_s": 104.4
+    }
+  ]
+}

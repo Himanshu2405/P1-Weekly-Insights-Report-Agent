@@ -1,0 +1,275 @@
+{
+  "week": "2026-06-15",
+  "status": "verified",
+  "commentary": {
+    "drivers": {
+      "points": [
+        {
+          "what": "Search traffic contributed -44 orders to this week's change, the largest negative contributor with a 293.3% share of the change.",
+          "so_what": "The WoW order dip was mainly pulled down by Search, even though the week finished ahead of target overall."
+        },
+        {
+          "what": "LATAM orders contributed -30 to this week's change, the largest negative regional contributor with a 200% share of the change.",
+          "so_what": "The WoW order dip was concentrated in one region rather than spread evenly across regions."
+        },
+        {
+          "what": "Organic traffic contributed +28 to this week's change, the largest positive contributor among traffic sources.",
+          "so_what": "Organic growth partly offset the pullback in Search, keeping the overall order decline smaller than the Search drop alone."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV rose 3.5% week on week and 4.0% year on year, both notable moves, while orders fell 1.5% week on week.",
+          "so_what": "This week's revenue growth came from a higher average order value rather than more orders."
+        },
+        {
+          "what": "Cancellation rate fell 1.7 pp week on week to 14.5%, a notable improvement rated good.",
+          "so_what": "Lower cancellations helped drive this week's revenue outperformance against target."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 1 Jun 2026 was 9.4%, up 0.1 pp week on week and up 0.2 pp year on year.",
+          "so_what": "Rising returns run counter to the improvement in cancellations, a mixed signal on order quality this week."
+        }
+      ]
+    },
+    "summary": {
+      "headline": "Orders and revenue both finished ahead of target this week, but year-to-date revenue remains behind target at 96.3%, needing a faster pace than the recent run-rate.",
+      "points": [
+        {
+          "what": "Orders were 106.9% of target and revenue was 113.6% of target this week.",
+          "so_what": "This keeps the quarter close to target, with QTD revenue at 100.1% of target with one week left in Q2."
+        },
+        {
+          "what": "Revenue rose 4.0% week on week while orders fell 1.5% week on week, a notable move for revenue.",
+          "so_what": "The week's revenue growth came from a higher average order value rather than more orders."
+        },
+        {
+          "what": "Orders grew 84.6% year on year and revenue grew 92.4% year on year, both above the 75% growth assumed in this year's targets.",
+          "so_what": "This pace of year-on-year growth is consistent with a week that finished ahead of target."
+        },
+        {
+          "what": "New signups fell 11.4% year on year and 0.4% week on week.",
+          "so_what": "Signups remain the weak point despite the week finishing ahead of target on both orders and revenue."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders were 106.9% of target and revenue was 113.6% of target this week.",
+          "so_what": "Both figures ahead of target are what keep the quarter attainment near target despite earlier weeks lagging."
+        },
+        {
+          "what": "QTD revenue is 100.1% of target with one week left in the quarter, needing $72,160 more to reach the full-quarter target.",
+          "so_what": "With just one week remaining, the quarter's final result depends on reaching this remaining amount."
+        },
+        {
+          "what": "YTD revenue is 96.3% of target, with a required weekly run-rate of $84,333 for the rest of the year versus a recent 8-week run-rate of $70,390.",
+          "so_what": "The recent pace is below what's needed, so the full-year target requires a faster pace than achieved lately."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The required weekly revenue run-rate for the rest of 2026 is $84,333, above the current 8-week run-rate of $70,390.",
+          "so_what": "At the recent pace, the full-year revenue target is out of reach."
+        },
+        {
+          "what": "New signups fell 0.4% week on week and 11.4% year on year, both rated declines.",
+          "so_what": "This is a risk to future order growth even though orders are currently ahead of target."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 1 Jun 2026 was 9.4%, up 0.1 pp week on week and up 0.2 pp year on year, both rated bad.",
+          "so_what": "Returns are trending upward, a risk to watch on order quality even as cancellations improved this week."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 143047,
+      "cost_usd": 0.1838416,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6790,
+        "cache_read": 6388,
+        "output": 15540,
+        "thinking": 13836
+      },
+      "blocking_failures": [],
+      "guard_details": {},
+      "commentary": {
+        "drivers": {
+          "points": [
+            {
+              "what": "Search traffic contributed -44 orders to this week's change, the largest negative contributor with a 293.3% share of the change.",
+              "so_what": "The WoW order dip was mainly pulled down by Search, even though the week finished ahead of target overall."
+            },
+            {
+              "what": "LATAM orders contributed -30 to this week's change, the largest negative regional contributor with a 200% share of the change.",
+              "so_what": "The WoW order dip was concentrated in one region rather than spread evenly across regions."
+            },
+            {
+              "what": "Organic traffic contributed +28 to this week's change, the largest positive contributor among traffic sources.",
+              "so_what": "Organic growth partly offset the pullback in Search, keeping the overall order decline smaller than the Search drop alone."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV rose 3.5% week on week and 4.0% year on year, both notable moves, while orders fell 1.5% week on week.",
+              "so_what": "This week's revenue growth came from a higher average order value rather than more orders."
+            },
+            {
+              "what": "Cancellation rate fell 1.7 pp week on week to 14.5%, a notable improvement rated good.",
+              "so_what": "Lower cancellations helped drive this week's revenue outperformance against target."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 1 Jun 2026 was 9.4%, up 0.1 pp week on week and up 0.2 pp year on year.",
+              "so_what": "Rising returns run counter to the improvement in cancellations, a mixed signal on order quality this week."
+            }
+          ]
+        },
+        "summary": {
+          "headline": "Orders and revenue both finished ahead of target this week, but year-to-date revenue remains behind target at 96.3%, needing a faster pace than the recent run-rate.",
+          "points": [
+            {
+              "what": "Orders were 106.9% of target and revenue was 113.6% of target this week.",
+              "so_what": "This keeps the quarter close to target, with QTD revenue at 100.1% of target with one week left in Q2."
+            },
+            {
+              "what": "Revenue rose 4.0% week on week while orders fell 1.5% week on week, a notable move for revenue.",
+              "so_what": "The week's revenue growth came from a higher average order value rather than more orders."
+            },
+            {
+              "what": "Orders grew 84.6% year on year and revenue grew 92.4% year on year, both above the 75% growth assumed in this year's targets.",
+              "so_what": "This pace of year-on-year growth is consistent with a week that finished ahead of target."
+            },
+            {
+              "what": "New signups fell 11.4% year on year and 0.4% week on week.",
+              "so_what": "Signups remain the weak point despite the week finishing ahead of target on both orders and revenue."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders were 106.9% of target and revenue was 113.6% of target this week.",
+              "so_what": "Both figures ahead of target are what keep the quarter attainment near target despite earlier weeks lagging."
+            },
+            {
+              "what": "QTD revenue is 100.1% of target with one week left in the quarter, needing $72,160 more to reach the full-quarter target.",
+              "so_what": "With just one week remaining, the quarter's final result depends on reaching this remaining amount."
+            },
+            {
+              "what": "YTD revenue is 96.3% of target, with a required weekly run-rate of $84,333 for the rest of the year versus a recent 8-week run-rate of $70,390.",
+              "so_what": "The recent pace is below what's needed, so the full-year target requires a faster pace than achieved lately."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The required weekly revenue run-rate for the rest of 2026 is $84,333, above the current 8-week run-rate of $70,390.",
+              "so_what": "At the recent pace, the full-year revenue target is out of reach."
+            },
+            {
+              "what": "New signups fell 0.4% week on week and 11.4% year on year, both rated declines.",
+              "so_what": "This is a risk to future order growth even though orders are currently ahead of target."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 1 Jun 2026 was 9.4%, up 0.1 pp week on week and up 0.2 pp year on year, both rated bad.",
+              "so_what": "Returns are trending upward, a risk to watch on order quality even as cancellations improved this week."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "d01144fc1c4990c9",
+  "cache_hit": false,
+  "cost_usd": 0.1838,
+  "duration_ms": 143047,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6790,
+    "cache_read": 6388,
+    "output": 15540,
+    "thinking": 13836
+  }
+}

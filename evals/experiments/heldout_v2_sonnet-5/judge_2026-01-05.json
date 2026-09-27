@@ -1,0 +1,123 @@
+{
+  "week": "2026-01-05",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue finished behind target this week, and a third straight rise in cancellations adds risk to a quarter already trailing its revenue target.",
+      "reason": "States behind-target verdict and names cancellation risk and quarter trailing."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Cancellation rate has risen for three straight weeks... requires a weekly revenue run-rate of $74,080... New signups fell to 235, down 6.0% WoW",
+      "reason": "All three watch-outs describe genuine risks or worsening trends, none is good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Signups are declining while order growth continues to outpace new customer growth.",
+      "reason": "Orders declined -0.3% WoW same week, so 'order growth continues' is false on a WoW basis though true YoY."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States orders remain behind pace needed for the quarter."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes the week still missed target despite strong revenue."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames cancellation streak as a worsening quality trend."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Describes ongoing revenue drag from cancellations."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames declining signups as a risk to future order growth."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes next week's target requires a stronger pace to close gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States the quarter is still behind pace despite growth."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes recent pace is below what full-year target requires."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains LATAM's decline outweighed other regions' gains."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains NA growth partly offset other regional declines."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Describes mix shift without saying what it means for the business."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue growth came from bigger baskets, not more orders."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects lower returns to better order quality and retained value."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames signup decline vs order growth as a risk pattern."
+    }
+  ],
+  "cost_usd": 0.073898,
+  "duration_s": 44.2
+}

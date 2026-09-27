@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-23",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "mixed_week",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders finished ahead of target at 102.9% but revenue lagged at 90.2%",
+      "reason": "Headline clearly states the mixed orders-ahead, revenue-behind result."
+    },
+    {
+      "id": "q1_closes_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Q1 closed at 92.4% of target, the third straight month behind target.",
+      "reason": "Explicitly states Q1 closed behind target at 92.4%."
+    },
+    {
+      "id": "ahead_overall",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Orders finished ahead of target at 102.9% but revenue lagged at 90.2%",
+      "reason": "Commentary never calls the week ahead without noting the revenue miss."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders finished ahead of target at 102.9% but revenue lagged at 90.2%, leaving Q1 at 92.4% of target",
+      "reason": "States ahead/behind verdict and names the quarter position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At this pace, the full-year revenue target is out of reach.",
+      "reason": "All three watch-outs describe risks or caveats, none are good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The gap between orders ahead and revenue behind points to lower value per order as the source of the shortfall.",
+      "reason": "Claims combine brief facts (AOV, orders, revenue) without unsupported guesses."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains LATAM's outsized role in offsetting declines elsewhere."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains growth didn't come from the largest region."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains growth source shifted to smaller channels vs Search."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue growth driven by volume not basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Ties cancellation rate to revenue impact and YoY caveat."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains what the YoY vs WoW move means for revenue loss."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States signup growth lags order growth yearly, a risk read."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains the orders figure is an outlier, not a steady pace."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Attributes revenue shortfall to lower value per order."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States implication for Q2 starting position."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States signup growth lags order growth on yearly view."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes pace must increase given rising next-week target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Ties this week's shortfall to a recurring quarterly pattern."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States full-year target unreachable at current run rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames YoY cancellation gap as a risk if trend reverses."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States Q2 starts already behind due to Q1 shortfall."
+    }
+  ],
+  "cost_usd": 0.06496400000000001,
+  "duration_s": 31.3
+}

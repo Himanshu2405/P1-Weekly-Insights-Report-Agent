@@ -1,0 +1,150 @@
+{
+  "week": "2026-04-06",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "strong_week",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders came in at 104.1% of the weekly target and revenue at 116.6%... Quarter-to-date revenue is 108.3% of target",
+      "reason": "Strong week ahead of target with quarter ahead conveyed with matching figures."
+    },
+    {
+      "id": "year_gap",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "requires $80,135 of revenue a week, against a recent 8-week pace of $60,216",
+      "reason": "YTD 94.5% behind and required versus recent run rate both stated correctly."
+    },
+    {
+      "id": "year_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "the year is still behind at 94.5% of target",
+      "reason": "Commentary repeatedly states the year is behind, never implies it is on track."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both beat target and the quarter is ahead, but the year is still behind at 94.5%",
+      "reason": "Gives ahead verdict for the week and names the year-to-date gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Year-to-date revenue is $49,135 below target... The 14-Day Return Rate... rose 2.2 pp to 11.5%",
+      "reason": "All three watch-outs are genuine risks; key year gap and return rate included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "The smallest source is growing far faster than the 75% year-on-year growth the targets assume.",
+      "reason": "Display (51 orders) is not the smallest source; Email at 49 orders is smaller, contradicting the brief."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue beat wider than orders, so beat not volume-only."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Reads growth against the 75% growth targets assume."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says quarter opened with buffer unlike prior completed months."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Says weekly beats must be read against annual position."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames shortfall the remainder of the year must absorb."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Identifies it as clearest quality deterioration despite the beat."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates that cancellation rate rose; definitional, no business consequence."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links weekly beat to building the quarter's position."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Caveats the ahead start against outstanding quarter target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target out of reach at current pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates 107.9% share of change and adds more segment numbers."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains growth came from outside the largest traffic source."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Re-expresses 292.3% against threshold without saying what it means."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how AOV reconciles revenue versus order growth."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says how to read YoY improvement against WoW worsening."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Juxtaposes signup and order changes without stating business consequence."
+    }
+  ],
+  "cost_usd": 0.1623775,
+  "duration_s": 40.9
+}

@@ -15,7 +15,8 @@ from .models import DataBrief
 # ---------------------------------------------------------------- vocabulary
 
 KPI_WORDS = {
-    "orders": [r"\borders?\b"],
+    # "order quality", "order value", "average order value" are about AOV/cancellations, not order volume
+    "orders": [r"(?<!average )\borders?\b(?!\s+(quality|value|size|mix))"],
     "revenue": [r"\brevenue\b"],
     "aov": [r"average order value", r"\baov\b"],
     "cancellation_rate": [r"cancell?ation"],
@@ -147,7 +148,10 @@ def _matches_brief(token: str, values: set[float]) -> bool:
 
 def _kpis_in(text: str) -> set[str]:
     t = text.lower()
-    return {k for k, pats in KPI_WORDS.items() if any(re.search(p, t) for p in pats)}
+    found = {k for k, pats in KPI_WORDS.items() if any(re.search(p, t) for p in pats)}
+    if re.search(r"\border quality\b", t):
+        found.add("order_quality")  # a subject of its own (AOV, cancellations, returns), so the sentence is mixed
+    return found
 
 
 # ---------------------------------------------------------------- checks
@@ -166,6 +170,7 @@ YOY_WORDS = r"\b(last year|a year ago|yoy|year on year|year-over-year|prior year
 TARGET_GAP_WORDS = r"\b(target|short of|shortfall|gap)\b"
 IDIOMS = r"\b(held up|up to|up with|down to earth|kept .{0,30}? to)\b"  # "held up", "kept the decline to 4 orders"
 TOTAL_WORDS = r"\b(total|overall|in all|combined)\b"
+CONTRAST_WORDS = r"\b(despite|against|while|whereas|offset|offsetting|but|although|even as|counterweight)\b"  # "the gain came despite LATAM"
 SEGMENT_REFS = r"\b(regions?|sources?|segments?|channels?|markets?)\b"  # "the largest region" without naming it
 
 
@@ -193,7 +198,7 @@ def check_directions(commentary: dict, brief: DataBrief) -> Check:
         says_up, says_down = bool(re.search(UP_WORDS, t)), bool(re.search(DOWN_WORDS, t))
         named = [seg for seg in segments if re.search(rf"\b{re.escape(seg)}\b", t)]
         if named:
-            if len(named) > 1 or re.search(TOTAL_WORDS, t) or (says_up and says_down):
+            if len(named) > 1 or re.search(TOTAL_WORDS, t) or re.search(CONTRAST_WORDS, t) or (says_up and says_down):
                 continue  # mixed sentence: leave it to the judge
             wow, yoy = segments[named[0]]
             move = yoy if re.search(YOY_WORDS, t) else wow
@@ -205,8 +210,8 @@ def check_directions(commentary: dict, brief: DataBrief) -> Check:
         if re.search(SEGMENT_REFS, t):
             continue  # talks about an unnamed segment: leave it to the judge
         mentioned = _kpis_in(t)
-        if len(mentioned) != 1:
-            continue
+        if len(mentioned) != 1 or "order_quality" in mentioned:
+            continue  # several subjects, or "order quality" (not a single KPI): leave it to the judge
         k = kpis[mentioned.pop()]
         dirs = {k["wow_direction"], k["yoy_direction"]}
         assessments = {k["wow_assessment"], k["yoy_assessment"]}
@@ -297,7 +302,7 @@ def check_slot_scope(commentary: dict, layout: dict) -> Check:
         allowed = {base.get(k, k) for k in rules["allowed_kpis"]}
         for s, label, text in _items(commentary):
             if s == slot and not label.endswith("so_what"):  # so-whats may link to other KPIs (e.g. revenue impact)
-                extra = _kpis_in(text) - allowed
+                extra = _kpis_in(text) - allowed - {"order_quality"}
                 if extra:
                     c.fail(f"{slot} {label}: mentions {sorted(extra)}, not allowed in this slot")
     return c

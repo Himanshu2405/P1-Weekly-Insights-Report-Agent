@@ -1,0 +1,143 @@
+{
+  "week": "2026-07-20",
+  "status": "verified",
+  "attempts": 1,
+  "prompt_version": "v2",
+  "cost_usd": 0.1498,
+  "warnings": [
+    "sentences at most 30 words and 4 numbers",
+    "each slot only covers its allowed KPIs"
+  ],
+  "rejected_attempts": [],
+  "problems": [],
+  "judge_cost_usd": 0.09067599999999999,
+  "so_what_share": 0.882,
+  "quality_fails": [],
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on orders and revenue; the year sits exactly at target, and the pace needed for the rest of 2026 is above the recent run-rate.",
+      "reason": "Gives a clear ahead-of-target verdict plus the year position and required pace gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "New signups were 232, down 3.7% on the same week last year, rated bad.",
+      "reason": "All three watch-outs are genuine risks: required run-rate step-up, falling signups, rising returns."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Almost all of the week's order growth rests on a single region.",
+      "reason": "Claims stay tied to stated figures; no guessed causes or predicted outcomes beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says the beat added to the quarter's surplus, a quarter-level reading."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Tells reader growth was not volume-only and to read AOV alongside orders."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains how the year reached level: later beats offset early shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Merely repeats that 102% exceeds the 75% target assumption."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames required run-rate as the new norm needed, not an exception."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links signup weakness to order line as a risk behind strong revenue."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says worsening returns erode pre-return revenue figures."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes no recovery needed elsewhere in the quarter."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Balances quarter lead against most of quarterly target outstanding."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States the year has no cushion and depends on quarter surplus."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Flags concentration of growth in one region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes growth concentrated in largest channel, not spread."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains net change understates gains elsewhere."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains why revenue outpaced orders this week."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects lower cancellations to the 120.4% revenue attainment."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Only repeats that 10.5% is slightly above last year's 10.4%."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Advises the two growth lines should not be read as moving together."
+    }
+  ]
+}

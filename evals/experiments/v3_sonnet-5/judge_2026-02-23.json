@@ -1,0 +1,156 @@
+{
+  "week": "2026-02-23",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "week_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue beat target this week",
+      "reason": "Headline and summary point 1 clearly state week ahead with matching numbers."
+    },
+    {
+      "id": "quarter_still_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue needs $296,595 more to reach the full-quarter target, with 4 weeks left in the quarter.",
+      "reason": "QTD 90.0% behind target and 4 weeks left both stated in commentary."
+    },
+    {
+      "id": "quarter_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "revenue remains behind target for the quarter and year",
+      "reason": "Commentary consistently states quarter/year are behind, never implies on track."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue beat target this week, but revenue remains behind target for the quarter and year, with new signups down 10.8% WoW.",
+      "reason": "Headline gives ahead/behind verdict and names quarter/year gap and signups risk."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "New signups fell 10.8% WoW to 256, a notable decline.",
+      "reason": "All three watchouts are genuine risks (quarter gap, run-rate shortfall, signup decline)."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Each point of cancellation is worth $731 in revenue, so the drop in cancellations supported this week's revenue result.",
+      "reason": "All claims tie directly to brief figures without unsupported causal or behavioral guesses."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Contrasts week status with quarter/year position, stating implication."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States that ahead week hasn't closed quarter/year gap."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Identifies signups as the weak point of the week."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States full-year target remains at risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States meaningful gap remains to close for quarter."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target is at risk given pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames signups decline as a risk to customer growth."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States week ahead, contrasts with quarter/year position."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States one strong week hasn't closed the gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States pace is insufficient, making target harder to reach."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes growth concentration in one region, not broad-based."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes growth concentration in largest channel."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains decline offset gains, showing non-uniform growth."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains AOV's role in revenue gain and YoY context."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Quantifies cancellation drop's contribution to revenue result."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Flags returns as a bad-direction order-quality signal."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States signup growth lags order growth for the year."
+    }
+  ],
+  "cost_usd": 0.062796,
+  "duration_s": 30.6
+}

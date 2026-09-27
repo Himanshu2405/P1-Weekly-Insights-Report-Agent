@@ -1,0 +1,401 @@
+{
+  "week": "2025-12-29",
+  "status": "verified_after_retry",
+  "commentary": {
+    "drivers": {
+      "points": [
+        {
+          "what": "Search contributed -38 orders, 92.7% of this week's total order decline, down 7.2% week on week.",
+          "so_what": "Search is 71.5% of order share, so its drop was the main reason total orders fell behind target this week."
+        },
+        {
+          "what": "North America contributed -33 orders, 80.5% of the week's total order decline, down 20.2% week on week.",
+          "so_what": "North America was the single largest driver of the order decline, alongside Search."
+        },
+        {
+          "what": "LATAM orders rose 4.2% week on week, contributing +4 orders.",
+          "so_what": "The LATAM gain was too small to offset the declines from Search and North America."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "The 14-Day Return Rate for the week of 15 Dec 2025 was 10.3%, up 1.6 pp week on week and up 3.2 pp year on year, a notable increase.",
+          "so_what": "Return rates are worsening on both bases, adding to signs of weaker order quality."
+        },
+        {
+          "what": "Average Order Value was 82.73, flat week on week but down 3.2% year on year, a notable move outside its recent 8-week range.",
+          "so_what": "With AOV falling year on year, revenue growth is coming more from order volume than from bigger baskets."
+        },
+        {
+          "what": "The cancellation rate rose to 16.0%, up 0.3 pp week on week, the third straight week of increases.",
+          "so_what": "Each further rise in cancellations reduces revenue, and the streak shows the trend has not reversed."
+        },
+        {
+          "what": "New signups rose 12.5% week on week to 252, up 10.5% year on year, a notable increase.",
+          "so_what": "Signup growth of 10.5% year on year trails the 51.3% year-on-year growth in orders, so new customer growth is not keeping pace with order growth."
+        }
+      ]
+    },
+    "summary": {
+      "headline": "Orders and revenue were behind target this week (87.4% and 87.5% of target), the quarter is starting behind target, and cancellations rose for a third straight week.",
+      "points": [
+        {
+          "what": "Orders were 681 against a target of 779, 87.4% of target, down 5.7% week on week.",
+          "so_what": "The week missed the weekly order target, and next week's target rises further to 810."
+        },
+        {
+          "what": "Revenue was 47,322 against a target of 54,058, 87.5% of target, down 6.1% week on week.",
+          "so_what": "QTD revenue attainment is also 87.5%, so the quarter is starting behind target."
+        },
+        {
+          "what": "Orders grew 51.3% year on year and revenue grew 48.9% year on year, both below the 75% growth assumed in the targets.",
+          "so_what": "Even with year-on-year growth, the pace is not enough to close the gap to target."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 15 Dec 2025 rose to 10.3%, up 1.6 pp week on week, a notable increase.",
+          "so_what": "Rising returns alongside rising cancellations point to weaker order quality this week."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders and revenue were both behind target this week, at 87.4% and 87.5% of target, with gaps of -98 orders and -6,736 in revenue.",
+          "so_what": "Next week's targets rise to 810 orders and 58,234 in revenue, a higher bar than this week's shortfall."
+        },
+        {
+          "what": "QTD revenue attainment is 87.5% of target, behind, with 727,233 remaining to reach the full-quarter target over the next 12 weeks.",
+          "so_what": "The quarter needs stronger weekly performance than this week's to close the gap by quarter end."
+        },
+        {
+          "what": "YTD revenue attainment is 87.5% of target; the required weekly run rate to hit the full-year target is 73,875, versus a current 8-week run rate of 49,177.",
+          "so_what": "The current pace is well below what is needed, putting the full-year target out of reach at this rate."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The cancellation rate has risen for three straight weeks, from 13.0% to 16.0%.",
+          "so_what": "Each 1 pp of cancellations equals about 563 in revenue, so a continuing rise steadily erodes revenue."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 15 Dec 2025 rose 1.6 pp week on week, a notable increase after a lower reading the prior week.",
+          "so_what": "This adds to the cancellation-rate streak as a second sign of weakening order quality."
+        },
+        {
+          "what": "The current 8-week revenue run rate of 49,177 is well below the 73,875 weekly rate required to hit the full-year target.",
+          "so_what": "At the recent pace, the full-year revenue target is not on track."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'1.6' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": false,
+      "error": null,
+      "duration_ms": 168637,
+      "cost_usd": 0.231498,
+      "tokens": {
+        "input": 2,
+        "cache_write": 13231,
+        "cache_read": 0,
+        "output": 17857,
+        "thinking": 16153
+      },
+      "blocking_failures": [
+        "14-Day Return Rate names its mature week"
+      ],
+      "guard_details": {
+        "14-Day Return Rate names its mature week": [
+          "health point 1: mentions the return rate without naming the week of 15 Dec"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'3.2' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "drivers": {
+          "points": [
+            {
+              "what": "North America was the biggest driver of the order decline, contributing -33 orders (80.5% of the total change), with orders down 20.2% WoW.",
+              "so_what": "The order shortfall this week is concentrated in North America rather than spread evenly across regions."
+            },
+            {
+              "what": "Search was the biggest driver on the traffic side, contributing -38 orders (92.7% of the total change), down 7.2% WoW.",
+              "so_what": "Nearly all of the order decline came through Search, while Organic orders rose 13.6% WoW, so the weakness is isolated to one channel."
+            },
+            {
+              "what": "APAC also contributed to the decline, down 10 orders (24.4% of the change) and down 3.0% WoW.",
+              "so_what": "LATAM orders rose 4.2% WoW, showing the decline was not universal across regions."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV was $82.73, essentially flat WoW but down 3.2% YoY, notable as outside its 8-week range.",
+              "so_what": "A lower per-order value alongside rising cancellations and returns points to weaker order quality this week."
+            },
+            {
+              "what": "The cancellation rate rose to 16.0% this week, the third straight WoW increase, up from 13.0% three weeks ago.",
+              "so_what": "The rise is part of a three-week upward streak, adding cost since each point of cancellation is worth about $563 in revenue this week."
+            },
+            {
+              "what": "New signups rose 12.5% WoW and 10.5% YoY to 252, both rated good.",
+              "so_what": "Signups grew while total orders fell WoW, so this week's order shortfall is not reflected in new customer acquisition."
+            }
+          ]
+        },
+        "summary": {
+          "headline": "Orders and revenue were behind target this week, and the year's revenue run-rate remains below the pace needed to hit the full-year target.",
+          "points": [
+            {
+              "what": "Orders were 87.4% of target and revenue was 87.5% of target this week, both status behind.",
+              "so_what": "A behind-target week for both orders and revenue keeps QTD revenue attainment at 87.5% of target in the quarter's first week."
+            },
+            {
+              "what": "AOV was $82.73, flat WoW but down 3.2% YoY, notable as outside its 8-week range.",
+              "so_what": "Falling AOV YoY even as orders and revenue grew YoY means yearly growth is coming from more orders, not bigger baskets."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 15 Dec rose to 10.3%, up 1.6 pp WoW, a notable increase rather than normal movement.",
+              "so_what": "This adds a risk on top of the week's target shortfall, since both the WoW and YoY changes are rated bad."
+            },
+            {
+              "what": "New signups rose 12.5% WoW to 252, a notable increase, while orders fell 5.7% WoW.",
+              "so_what": "Signups grew even as orders fell WoW, so this week's order shortfall is not linked to fewer new customers."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders were 87.4% of target and revenue was 87.5% of target this week, both status behind.",
+              "so_what": "A behind-target week keeps QTD revenue attainment at 87.5% of target already in the quarter's first week."
+            },
+            {
+              "what": "QTD revenue attainment is 87.5% of target, with $727,233 remaining to reach the full quarter target of $774,555 over the next 12 weeks.",
+              "so_what": "That remaining gap needs to close over the next 12 weeks for the quarter to hit target."
+            },
+            {
+              "what": "YTD revenue attainment is 87.5% of target, and the $73,875 weekly run-rate required for the rest of the year is above the current 8-week run-rate of $49,177.",
+              "so_what": "At this pace, the full-year revenue target is out of reach."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The cancellation rate rose to 16.0% this week, the third straight WoW increase, up from 13.0% three weeks ago.",
+              "so_what": "A third consecutive rise means the cancellation trend is not reversing, and each point of cancellation is worth about $563 in revenue lost from an already behind-target week."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 15 Dec rose to 10.3%, up 1.6 pp WoW and up 3.2 pp YoY, a notable increase.",
+              "so_what": "Both the WoW and YoY changes are rated bad, adding a risk on top of orders and revenue already behind target this week."
+            },
+            {
+              "what": "The current 8-week revenue run-rate is $49,177, below the $73,875 weekly rate required for the rest of the year to hit the full-year target of $3,888,802.",
+              "so_what": "At this pace, the full-year revenue target is out of reach."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": 2,
+      "ok": true,
+      "error": null,
+      "duration_ms": 38845,
+      "cost_usd": 0.07543159999999999,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6910,
+        "cache_read": 6388,
+        "output": 4651,
+        "thinking": 2990
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "no fact repeated across 3+ slots": [
+          "'1.6' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "drivers": {
+          "points": [
+            {
+              "what": "Search contributed -38 orders, 92.7% of this week's total order decline, down 7.2% week on week.",
+              "so_what": "Search is 71.5% of order share, so its drop was the main reason total orders fell behind target this week."
+            },
+            {
+              "what": "North America contributed -33 orders, 80.5% of the week's total order decline, down 20.2% week on week.",
+              "so_what": "North America was the single largest driver of the order decline, alongside Search."
+            },
+            {
+              "what": "LATAM orders rose 4.2% week on week, contributing +4 orders.",
+              "so_what": "The LATAM gain was too small to offset the declines from Search and North America."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate for the week of 15 Dec 2025 was 10.3%, up 1.6 pp week on week and up 3.2 pp year on year, a notable increase.",
+              "so_what": "Return rates are worsening on both bases, adding to signs of weaker order quality."
+            },
+            {
+              "what": "Average Order Value was 82.73, flat week on week but down 3.2% year on year, a notable move outside its recent 8-week range.",
+              "so_what": "With AOV falling year on year, revenue growth is coming more from order volume than from bigger baskets."
+            },
+            {
+              "what": "The cancellation rate rose to 16.0%, up 0.3 pp week on week, the third straight week of increases.",
+              "so_what": "Each further rise in cancellations reduces revenue, and the streak shows the trend has not reversed."
+            },
+            {
+              "what": "New signups rose 12.5% week on week to 252, up 10.5% year on year, a notable increase.",
+              "so_what": "Signup growth of 10.5% year on year trails the 51.3% year-on-year growth in orders, so new customer growth is not keeping pace with order growth."
+            }
+          ]
+        },
+        "summary": {
+          "headline": "Orders and revenue were behind target this week (87.4% and 87.5% of target), the quarter is starting behind target, and cancellations rose for a third straight week.",
+          "points": [
+            {
+              "what": "Orders were 681 against a target of 779, 87.4% of target, down 5.7% week on week.",
+              "so_what": "The week missed the weekly order target, and next week's target rises further to 810."
+            },
+            {
+              "what": "Revenue was 47,322 against a target of 54,058, 87.5% of target, down 6.1% week on week.",
+              "so_what": "QTD revenue attainment is also 87.5%, so the quarter is starting behind target."
+            },
+            {
+              "what": "Orders grew 51.3% year on year and revenue grew 48.9% year on year, both below the 75% growth assumed in the targets.",
+              "so_what": "Even with year-on-year growth, the pace is not enough to close the gap to target."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 15 Dec 2025 rose to 10.3%, up 1.6 pp week on week, a notable increase.",
+              "so_what": "Rising returns alongside rising cancellations point to weaker order quality this week."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders and revenue were both behind target this week, at 87.4% and 87.5% of target, with gaps of -98 orders and -6,736 in revenue.",
+              "so_what": "Next week's targets rise to 810 orders and 58,234 in revenue, a higher bar than this week's shortfall."
+            },
+            {
+              "what": "QTD revenue attainment is 87.5% of target, behind, with 727,233 remaining to reach the full-quarter target over the next 12 weeks.",
+              "so_what": "The quarter needs stronger weekly performance than this week's to close the gap by quarter end."
+            },
+            {
+              "what": "YTD revenue attainment is 87.5% of target; the required weekly run rate to hit the full-year target is 73,875, versus a current 8-week run rate of 49,177.",
+              "so_what": "The current pace is well below what is needed, putting the full-year target out of reach at this rate."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The cancellation rate has risen for three straight weeks, from 13.0% to 16.0%.",
+              "so_what": "Each 1 pp of cancellations equals about 563 in revenue, so a continuing rise steadily erodes revenue."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 15 Dec 2025 rose 1.6 pp week on week, a notable increase after a lower reading the prior week.",
+              "so_what": "This adds to the cancellation-rate streak as a second sign of weakening order quality."
+            },
+            {
+              "what": "The current 8-week revenue run rate of 49,177 is well below the 73,875 weekly rate required to hit the full-year target.",
+              "so_what": "At the recent pace, the full-year revenue target is not on track."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "86be973e837c012e",
+  "cache_hit": false,
+  "cost_usd": 0.3069,
+  "duration_ms": 207482,
+  "tokens": {
+    "input": 4,
+    "cache_write": 20141,
+    "cache_read": 6388,
+    "output": 22508,
+    "thinking": 19143
+  }
+}

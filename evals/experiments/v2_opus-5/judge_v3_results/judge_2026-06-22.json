@@ -1,0 +1,156 @@
+{
+  "week": "2026-06-22",
+  "status": "verified",
+  "judge": "judge_v3",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "q2_closes_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Q2 closed at 100.7% of the quarter-to-date revenue target, $6,522 ahead... revenue at 108.2% and revenue at 107.5% of target",
+      "reason": "Both the Q2 100.7% close and the week's 107.5% revenue beat are stated with matching figures."
+    },
+    {
+      "id": "year_gap",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Year-to-date revenue stands at 96.8% of target... remaining 27 weeks require $84,542 of revenue a week... against a current 8-week run-rate of $71,736",
+      "reason": "YTD 96.8% shortfall and the required $84,542 vs $71,736 run-rate are both stated correctly."
+    },
+    {
+      "id": "year_on_track",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "the year cannot be recovered at the current pace",
+      "reason": "Commentary consistently describes the year as behind and the full-year target as out of reach."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on both orders and revenue, and the quarter closed ahead; the year to date remains behind at 96.8% of target.",
+      "reason": "Headline gives an ahead verdict for the week plus the quarter close and the year-to-date gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The remaining 27 weeks require $84,542 of revenue a week... against a current 8-week run-rate of $71,736",
+      "reason": "All three watch-outs are genuine risks or worsening trends, including the key full-year pace gap."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "All of the week's order growth came from one region, with the others flat or lower.",
+      "reason": "Claims follow arithmetically from the stated figures; no guessed causes or forecasts beyond the data."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Reads the beat against the 8-week range to judge pace, not just restating."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Compares growth to the growth rate the year's targets assume."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says quarter is settled and shifts focus to the yearly gap."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States the shortfall carries into the second half despite the quarter beat."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Concludes the full-year target is unreachable at the recent pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains the week's gain came from volume, not basket size."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames rising returns as a risk to order quality."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links the beat to easing rather than widening the year-to-date shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says the quarter position is final and ahead, not merely the numbers."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes the year cannot be recovered at the current run-rate."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes growth concentration in one region with others flat or lower."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains dependence: shifts in one source move the total."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes the week's growth was not broad-based across regions."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Connects lower cancellations to supporting the week's revenue beat."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Attributes year-on-year revenue gain to both value and volume."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Contrasts signup growth with order growth as an unmatched gain."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Tempers how to read the week-on-week returns rise using the yearly view."
+    }
+  ],
+  "cost_usd": 0.10227599999999999,
+  "duration_s": 30.5
+}

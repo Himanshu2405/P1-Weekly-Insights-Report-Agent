@@ -1,0 +1,267 @@
+{
+  "week": "2026-01-05",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Orders and revenue finished behind target this week, and a third straight rise in cancellations adds risk to a quarter already trailing its revenue target.",
+      "points": [
+        {
+          "what": "Orders were 710, 87.7% of target.",
+          "so_what": "Order volume remains behind the pace needed for the quarter."
+        },
+        {
+          "what": "Revenue was $57,086, 98.0% of target, a notable move outside its usual 8-week range.",
+          "so_what": "Even with unusually high revenue, the week still landed behind its target."
+        },
+        {
+          "what": "Cancellation rate rose to 15.8%, a third straight weekly increase from 12.5% to 15.8%.",
+          "so_what": "The streak signals a persistent, worsening trend in order quality."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "Cancellation rate has risen for three straight weeks, from 12.5% to 15.8%, and each point of cancellations equals about $678 in revenue.",
+          "so_what": "This is a growing drag on revenue that has not reversed."
+        },
+        {
+          "what": "The full-year target requires a weekly revenue run-rate of $74,080, well above the current 8-week run-rate of $50,745.",
+          "so_what": "At the recent pace, the full-year revenue target is out of reach."
+        },
+        {
+          "what": "New signups fell to 235, down 6.0% WoW and 6.4% YoY.",
+          "so_what": "New customer signups are declining while recent order volume stays elevated, a risk to future order growth."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders were 710, 87.7% of target, a gap of -100 orders.",
+          "so_what": "Next week's order target rises further, requiring a stronger pace than this week to close the gap."
+        },
+        {
+          "what": "Revenue was $57,086, 98.0% of target, a gap of -$1,148.",
+          "so_what": "The quarter remains behind pace even after this week's revenue growth."
+        },
+        {
+          "what": "Year-to-date revenue attainment is 98.6%, and reaching the full-year target requires a $74,080 weekly run-rate versus the current 8-week run-rate of $50,745.",
+          "so_what": "The recent pace runs well below what full-year attainment requires."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "LATAM was the largest negative contributor to the order change, down 17.0% WoW with a contribution of -19.",
+          "so_what": "LATAM's pullback outweighs the gains from other regions this week."
+        },
+        {
+          "what": "North America orders grew 17.3% WoW, the largest positive regional contributor with a contribution of +24.",
+          "so_what": "North America's growth partly offset declines in APAC and LATAM this week."
+        },
+        {
+          "what": "Facebook was the largest negative contributor among traffic sources, down 25.0% WoW with a contribution of -11.",
+          "so_what": "The order mix shifted away from Facebook while the largest channel, Search, held nearly steady."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV rose to $95.46, up 7.9% WoW and 4.7% YoY, a notable move outside the 8-week range.",
+          "so_what": "Revenue growth this week came along with a slight WoW dip in orders, pointing to bigger baskets rather than more orders."
+        },
+        {
+          "what": "14-Day Return Rate for the week of 2025-12-22 fell to 9.0%, down 1.9 pp WoW, a notable move.",
+          "so_what": "Fewer returns from that week reduce the value given back after purchase, supporting order quality."
+        },
+        {
+          "what": "New signups fell to 235, down 6.0% WoW and 6.4% YoY.",
+          "so_what": "Signups are declining while order growth continues to outpace new customer growth."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 132803,
+      "cost_usd": 0.23192780000000002,
+      "tokens": {
+        "input": 4,
+        "cache_write": 20217,
+        "cache_read": 18809,
+        "output": 14729,
+        "thinking": 13196
+      },
+      "blocking_failures": [],
+      "guard_details": {},
+      "commentary": {
+        "summary": {
+          "headline": "Orders and revenue finished behind target this week, and a third straight rise in cancellations adds risk to a quarter already trailing its revenue target.",
+          "points": [
+            {
+              "what": "Orders were 710, 87.7% of target.",
+              "so_what": "Order volume remains behind the pace needed for the quarter."
+            },
+            {
+              "what": "Revenue was $57,086, 98.0% of target, a notable move outside its usual 8-week range.",
+              "so_what": "Even with unusually high revenue, the week still landed behind its target."
+            },
+            {
+              "what": "Cancellation rate rose to 15.8%, a third straight weekly increase from 12.5% to 15.8%.",
+              "so_what": "The streak signals a persistent, worsening trend in order quality."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "Cancellation rate has risen for three straight weeks, from 12.5% to 15.8%, and each point of cancellations equals about $678 in revenue.",
+              "so_what": "This is a growing drag on revenue that has not reversed."
+            },
+            {
+              "what": "The full-year target requires a weekly revenue run-rate of $74,080, well above the current 8-week run-rate of $50,745.",
+              "so_what": "At the recent pace, the full-year revenue target is out of reach."
+            },
+            {
+              "what": "New signups fell to 235, down 6.0% WoW and 6.4% YoY.",
+              "so_what": "New customer signups are declining while recent order volume stays elevated, a risk to future order growth."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders were 710, 87.7% of target, a gap of -100 orders.",
+              "so_what": "Next week's order target rises further, requiring a stronger pace than this week to close the gap."
+            },
+            {
+              "what": "Revenue was $57,086, 98.0% of target, a gap of -$1,148.",
+              "so_what": "The quarter remains behind pace even after this week's revenue growth."
+            },
+            {
+              "what": "Year-to-date revenue attainment is 98.6%, and reaching the full-year target requires a $74,080 weekly run-rate versus the current 8-week run-rate of $50,745.",
+              "so_what": "The recent pace runs well below what full-year attainment requires."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "LATAM was the largest negative contributor to the order change, down 17.0% WoW with a contribution of -19.",
+              "so_what": "LATAM's pullback outweighs the gains from other regions this week."
+            },
+            {
+              "what": "North America orders grew 17.3% WoW, the largest positive regional contributor with a contribution of +24.",
+              "so_what": "North America's growth partly offset declines in APAC and LATAM this week."
+            },
+            {
+              "what": "Facebook was the largest negative contributor among traffic sources, down 25.0% WoW with a contribution of -11.",
+              "so_what": "The order mix shifted away from Facebook while the largest channel, Search, held nearly steady."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV rose to $95.46, up 7.9% WoW and 4.7% YoY, a notable move outside the 8-week range.",
+              "so_what": "Revenue growth this week came along with a slight WoW dip in orders, pointing to bigger baskets rather than more orders."
+            },
+            {
+              "what": "14-Day Return Rate for the week of 2025-12-22 fell to 9.0%, down 1.9 pp WoW, a notable move.",
+              "so_what": "Fewer returns from that week reduce the value given back after purchase, supporting order quality."
+            },
+            {
+              "what": "New signups fell to 235, down 6.0% WoW and 6.4% YoY.",
+              "so_what": "Signups are declining while order growth continues to outpace new customer growth."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "78be4337ae36fd46",
+  "cache_hit": false,
+  "cost_usd": 0.2319,
+  "duration_ms": 132803,
+  "tokens": {
+    "input": 4,
+    "cache_write": 20217,
+    "cache_read": 18809,
+    "output": 14729,
+    "thinking": 13196
+  }
+}

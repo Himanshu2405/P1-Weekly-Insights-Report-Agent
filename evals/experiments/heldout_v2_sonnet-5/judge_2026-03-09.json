@@ -1,0 +1,135 @@
+{
+  "week": "2026-03-09",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Mixed week: revenue beat target at 104.8% while orders fell short at 94.6%; the quarter remains behind at 93.1% QTD.",
+      "reason": "Headline states ahead/behind verdict and names the quarter's behind-target position."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The current 8-week revenue run-rate is 54350, well below the 78254 needed each week to reach the full-year target.",
+      "reason": "All three watchouts are genuine risks: rising returns, falling AOV, and an unreachable run-rate."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue offset the order shortfall to still land ahead of the weekly target.",
+      "reason": "All claims trace to brief figures; no unsupported causes, predictions, or mismatched comparisons found."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Just restates that EMEA had the largest contribution without added business meaning."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames the fact as channel concentration, a meaningful business read."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Merely rephrases that these two channels were negative while others grew."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains that revenue growth is volume-driven, not value-driven."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Repeats the WoW/YoY direction without stating a business consequence."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Labels rising returns as a quality signal worth monitoring, a risk implication."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Compares signup growth to order growth, implying customer acquisition lags order growth."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States the WoW gain still leaves a shortfall versus target."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Contrasts revenue beating target against orders missing theirs."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States quarter is behind heading into final weeks."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Explains revenue growth is order-volume driven, not AOV driven."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how revenue attainment offset the order shortfall for the week."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States the quarter needs stronger revenue pace to close the gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains the year needs a faster pace than the recent run-rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Flags the rising return rate as a signal to track, a risk framing."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States falling AOV adds pressure on revenue per order."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States the full-year target is out of reach at current pace."
+    }
+  ],
+  "cost_usd": 0.087952,
+  "duration_s": 57.1
+}

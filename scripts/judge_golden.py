@@ -19,7 +19,7 @@ from weekly_report.judge import JUDGE_VERSION, QUALITY_RULES, answer_keys, judge
 from weekly_report.models import DataBrief
 
 EXPERIMENTS = config.ROOT / "evals" / "experiments"
-GOLDEN = config.ROOT / "evals" / "golden" / "briefs"
+SETS = {"golden": config.ROOT / "evals" / "golden" / "briefs", "heldout": config.ROOT / "evals" / "heldout" / "briefs"}
 
 
 def main() -> int:
@@ -30,6 +30,7 @@ def main() -> int:
     args = parser.parse_args()
 
     exp = EXPERIMENTS / args.experiment
+    brief_dir = SETS[json.loads((exp / "summary.json").read_text()).get("set", "golden")]
     keys = answer_keys()
     rows, cost = [], 0.0
     for f in sorted(exp.glob("commentary_*.json")):
@@ -40,12 +41,13 @@ def main() -> int:
             rows.append(json.loads(out.read_text()))
             print(f"  {week}  (already judged)")
             continue
-        brief = DataBrief.model_validate_json((GOLDEN / f"brief_{week}.json").read_text())
+        brief = DataBrief.model_validate_json((brief_dir / f"brief_{week}.json").read_text())
         commentary, status = published_commentary(saved, brief)
         if commentary is None:
             row = {"week": week, "status": status, "verdicts": [], "so_whats": [], "cost_usd": 0.0}
         else:
-            verdicts, so_whats, res = judge(keys[week], commentary, args.model)
+            key = keys.get(week) or {"week": week, "scenario": "held-out week (no answer key)", "must_say": [], "must_not_say": []}
+            verdicts, so_whats, res = judge(key, commentary, args.model, brief=brief)
             row = {"week": week, "status": status, "judge": JUDGE_VERSION, "model": res.model, "verdicts": verdicts,
                    "so_whats": so_whats, "cost_usd": res.cost_usd, "duration_s": round(res.duration_ms / 1000, 1)}
             cost += res.cost_usd

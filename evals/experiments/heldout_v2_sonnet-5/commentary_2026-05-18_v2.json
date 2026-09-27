@@ -1,0 +1,275 @@
+{
+  "week": "2026-05-18",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Ahead of target this week, but the quarter and year remain behind, with rising cancellations a growing risk.",
+      "points": [
+        {
+          "what": "Orders and revenue were both ahead of target this week, at 100.7% and 101.1% respectively, and both flagged notable for falling outside the normal 8-week range.",
+          "so_what": "This means the week's outperformance sits outside the typical growth pattern seen in recent weeks."
+        },
+        {
+          "what": "QTD revenue attainment is 98.4%, a gap of -$8,518 against target.",
+          "so_what": "The quarter remains behind target, and the year-to-date position is behind as well, despite this week's ahead-of-target result."
+        },
+        {
+          "what": "Cancellation rate rose to 15.8%, up 2.0 pp WoW, flagged notable for crossing the 1.0 pp threshold.",
+          "so_what": "This is the main risk to watch this week."
+        },
+        {
+          "what": "Search was the largest contributor to order growth, accounting for 43.8% of the week's change.",
+          "so_what": "Growth continues to concentrate in the channel that already holds the majority of orders."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "Cancellation rate rose to 15.8%, up 2.0 pp WoW and up 2.8 pp YoY, both rated bad.",
+          "so_what": "Each percentage point of cancellation equates to $850 in revenue, so this rise is a meaningful revenue risk this week."
+        },
+        {
+          "what": "YTD revenue attainment is 95.2%, with the required weekly run-rate of $82,530 above the current 8-week run-rate of $65,973.",
+          "so_what": "At the current pace, the full-year target is not being closed."
+        },
+        {
+          "what": "New signups fell to 225, down 7.0% WoW, while orders grew 9.0% WoW over the same week.",
+          "so_what": "Order growth this week did not come from more new signups, a risk if the trend continues."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Weekly orders were 100.7% of target and weekly revenue was 101.1% of target.",
+          "so_what": "The week itself was ahead of target on both measures."
+        },
+        {
+          "what": "QTD revenue attainment is 98.4%, a gap of -$8,518 versus the target to date.",
+          "so_what": "The quarter remains behind target even after this week's ahead-of-target result."
+        },
+        {
+          "what": "YTD revenue attainment is 95.2%, with a required weekly run-rate of $82,530 versus the current 8-week run-rate of $65,973.",
+          "so_what": "The recent pace runs below what's required, so closing the year-end gap needs a faster pace than seen recently."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "APAC contributed 28 orders and 35% of the week's order change, with orders up 6.9% WoW.",
+          "so_what": "APAC was the single largest regional driver of this week's order growth."
+        },
+        {
+          "what": "Search contributed 35 orders and 43.8% of the week's order change, with orders up 5.6% WoW.",
+          "so_what": "Search remains the largest driver of order growth, consistent with its already dominant share of orders."
+        },
+        {
+          "what": "Facebook contributed 25 orders and 31.2% of the week's order change, with orders up 61.0% WoW.",
+          "so_what": "Despite the high percentage growth, Facebook contributed less to total order growth than Search or APAC."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV was $87.74, down 1.7% WoW but up 3.4% YoY.",
+          "so_what": "The WoW dip means this week's revenue growth came more from additional orders than from higher spend per order."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 04 May 2026 was 9.9%, down 0.2 pp WoW and flat YoY.",
+          "so_what": "Returns are easing rather than adding to order-quality risk this week."
+        },
+        {
+          "what": "New signups were 225, down 7.0% WoW but up 6.1% YoY.",
+          "so_what": "Signup growth of 6.1% YoY trails order growth's 88.5% YoY, a gap to monitor alongside the order trend."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 129336,
+      "cost_usd": 0.14643340000000002,
+      "tokens": {
+        "input": 2,
+        "cache_write": 0,
+        "cache_read": 12747,
+        "output": 14388,
+        "thinking": 12928
+      },
+      "blocking_failures": [],
+      "guard_details": {},
+      "commentary": {
+        "summary": {
+          "headline": "Ahead of target this week, but the quarter and year remain behind, with rising cancellations a growing risk.",
+          "points": [
+            {
+              "what": "Orders and revenue were both ahead of target this week, at 100.7% and 101.1% respectively, and both flagged notable for falling outside the normal 8-week range.",
+              "so_what": "This means the week's outperformance sits outside the typical growth pattern seen in recent weeks."
+            },
+            {
+              "what": "QTD revenue attainment is 98.4%, a gap of -$8,518 against target.",
+              "so_what": "The quarter remains behind target, and the year-to-date position is behind as well, despite this week's ahead-of-target result."
+            },
+            {
+              "what": "Cancellation rate rose to 15.8%, up 2.0 pp WoW, flagged notable for crossing the 1.0 pp threshold.",
+              "so_what": "This is the main risk to watch this week."
+            },
+            {
+              "what": "Search was the largest contributor to order growth, accounting for 43.8% of the week's change.",
+              "so_what": "Growth continues to concentrate in the channel that already holds the majority of orders."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "Cancellation rate rose to 15.8%, up 2.0 pp WoW and up 2.8 pp YoY, both rated bad.",
+              "so_what": "Each percentage point of cancellation equates to $850 in revenue, so this rise is a meaningful revenue risk this week."
+            },
+            {
+              "what": "YTD revenue attainment is 95.2%, with the required weekly run-rate of $82,530 above the current 8-week run-rate of $65,973.",
+              "so_what": "At the current pace, the full-year target is not being closed."
+            },
+            {
+              "what": "New signups fell to 225, down 7.0% WoW, while orders grew 9.0% WoW over the same week.",
+              "so_what": "Order growth this week did not come from more new signups, a risk if the trend continues."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Weekly orders were 100.7% of target and weekly revenue was 101.1% of target.",
+              "so_what": "The week itself was ahead of target on both measures."
+            },
+            {
+              "what": "QTD revenue attainment is 98.4%, a gap of -$8,518 versus the target to date.",
+              "so_what": "The quarter remains behind target even after this week's ahead-of-target result."
+            },
+            {
+              "what": "YTD revenue attainment is 95.2%, with a required weekly run-rate of $82,530 versus the current 8-week run-rate of $65,973.",
+              "so_what": "The recent pace runs below what's required, so closing the year-end gap needs a faster pace than seen recently."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "APAC contributed 28 orders and 35% of the week's order change, with orders up 6.9% WoW.",
+              "so_what": "APAC was the single largest regional driver of this week's order growth."
+            },
+            {
+              "what": "Search contributed 35 orders and 43.8% of the week's order change, with orders up 5.6% WoW.",
+              "so_what": "Search remains the largest driver of order growth, consistent with its already dominant share of orders."
+            },
+            {
+              "what": "Facebook contributed 25 orders and 31.2% of the week's order change, with orders up 61.0% WoW.",
+              "so_what": "Despite the high percentage growth, Facebook contributed less to total order growth than Search or APAC."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV was $87.74, down 1.7% WoW but up 3.4% YoY.",
+              "so_what": "The WoW dip means this week's revenue growth came more from additional orders than from higher spend per order."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 04 May 2026 was 9.9%, down 0.2 pp WoW and flat YoY.",
+              "so_what": "Returns are easing rather than adding to order-quality risk this week."
+            },
+            {
+              "what": "New signups were 225, down 7.0% WoW but up 6.1% YoY.",
+              "so_what": "Signup growth of 6.1% YoY trails order growth's 88.5% YoY, a gap to monitor alongside the order trend."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "c34917ed6981c8a7",
+  "cache_hit": false,
+  "cost_usd": 0.1464,
+  "duration_ms": 129336,
+  "tokens": {
+    "input": 2,
+    "cache_write": 0,
+    "cache_read": 12747,
+    "output": 14388,
+    "thinking": 12928
+  }
+}

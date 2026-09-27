@@ -1,0 +1,291 @@
+{
+  "week": "2026-03-09",
+  "status": "verified",
+  "commentary": {
+    "drivers": {
+      "points": [
+        {
+          "what": "EMEA was the biggest regional contributor to the order increase, contributing 32 orders, a 37.6% share of the total change.",
+          "so_what": "EMEA drove the largest share of this week's order growth of any region."
+        },
+        {
+          "what": "Search was the biggest traffic-source contributor, contributing 63 orders, a 74.1% share of the total change.",
+          "so_what": "Most of this week's order growth is concentrated in a single channel."
+        },
+        {
+          "what": "Facebook and Email contributed negatively to the order change, at -3 and -2 respectively.",
+          "so_what": "These two channels declined this week while growth came from other channels."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV fell 4.6% WoW to 82.16 and is down 12.4% YoY.",
+          "so_what": "Order growth, not order value, is behind this week's revenue increase."
+        },
+        {
+          "what": "Cancellation rate rose 0.2pp WoW to 12.9%, though it remains down 1.2pp YoY.",
+          "so_what": "The rate is moving in the bad direction week over week even though it stays below last year's level."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 2026-02-23 was 9.7%, up 0.7pp WoW and up 1.0pp YoY.",
+          "so_what": "Returns for that week increased on both a weekly and yearly basis, a quality signal worth monitoring."
+        },
+        {
+          "what": "New signups were 260, flat WoW and up 1.6% YoY.",
+          "so_what": "This growth pace is well below the 51.9% YoY increase in orders."
+        }
+      ]
+    },
+    "summary": {
+      "headline": "Mixed week: revenue beat target at 104.8% while orders fell short at 94.6%; the quarter remains behind at 93.1% QTD.",
+      "points": [
+        {
+          "what": "Orders were 828, up 11.4% WoW, reaching 94.6% of the weekly target.",
+          "so_what": "Despite the WoW increase, orders stayed behind target, leaving a weekly shortfall."
+        },
+        {
+          "what": "Revenue was 59238, up 6.0% WoW, reaching 104.8% of the weekly target.",
+          "so_what": "Revenue exceeded target this week even though orders fell short of theirs."
+        },
+        {
+          "what": "QTD revenue attainment stands at 93.1%, with two weeks left in the quarter.",
+          "so_what": "The quarter remains behind target heading into its final two weeks."
+        },
+        {
+          "what": "AOV fell 4.6% WoW to 82.16, down 12.4% YoY.",
+          "so_what": "Revenue growth this week came from more orders, not higher order values."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders reached 94.6% of the weekly target while revenue reached 104.8%, a gap of +2688 for revenue.",
+          "so_what": "Revenue offset the order shortfall to still land ahead of the weekly target."
+        },
+        {
+          "what": "QTD revenue attainment is 93.1%, a gap of -44764, with 172424 still needed to reach the full quarter target.",
+          "so_what": "The quarter needs stronger revenue in the remaining two weeks to close this gap."
+        },
+        {
+          "what": "YTD revenue attainment is 93.1%, requiring a weekly run-rate of 78254 versus the current 8-week run-rate of 54350.",
+          "so_what": "The gap between the required and current run-rate shows the year needs a faster pace than recent weeks."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The 14-Day Return Rate for the week of 2026-02-23 rose to 9.7%, up 0.7pp WoW and up 1.0pp YoY.",
+          "so_what": "The return rate is rising against both the prior week and last year, a bad-direction signal to track."
+        },
+        {
+          "what": "AOV fell 4.6% WoW and 12.4% YoY, both rated bad.",
+          "so_what": "A falling AOV on both comparisons adds pressure on revenue per order."
+        },
+        {
+          "what": "The current 8-week revenue run-rate is 54350, well below the 78254 needed each week to reach the full-year target.",
+          "so_what": "At the current pace, the full-year revenue target is out of reach."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'4.6' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'12.4' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 102872,
+      "cost_usd": 0.13630600000000004,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6706,
+        "cache_read": 5990,
+        "output": 10828,
+        "thinking": 9355
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "no fact repeated across 3+ slots": [
+          "'4.6' appears in 3 slots: ['health', 'summary', 'watchouts']",
+          "'12.4' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA was the biggest regional contributor to the order increase, contributing 32 orders, a 37.6% share of the total change.",
+              "so_what": "EMEA drove the largest share of this week's order growth of any region."
+            },
+            {
+              "what": "Search was the biggest traffic-source contributor, contributing 63 orders, a 74.1% share of the total change.",
+              "so_what": "Most of this week's order growth is concentrated in a single channel."
+            },
+            {
+              "what": "Facebook and Email contributed negatively to the order change, at -3 and -2 respectively.",
+              "so_what": "These two channels declined this week while growth came from other channels."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV fell 4.6% WoW to 82.16 and is down 12.4% YoY.",
+              "so_what": "Order growth, not order value, is behind this week's revenue increase."
+            },
+            {
+              "what": "Cancellation rate rose 0.2pp WoW to 12.9%, though it remains down 1.2pp YoY.",
+              "so_what": "The rate is moving in the bad direction week over week even though it stays below last year's level."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 2026-02-23 was 9.7%, up 0.7pp WoW and up 1.0pp YoY.",
+              "so_what": "Returns for that week increased on both a weekly and yearly basis, a quality signal worth monitoring."
+            },
+            {
+              "what": "New signups were 260, flat WoW and up 1.6% YoY.",
+              "so_what": "This growth pace is well below the 51.9% YoY increase in orders."
+            }
+          ]
+        },
+        "summary": {
+          "headline": "Mixed week: revenue beat target at 104.8% while orders fell short at 94.6%; the quarter remains behind at 93.1% QTD.",
+          "points": [
+            {
+              "what": "Orders were 828, up 11.4% WoW, reaching 94.6% of the weekly target.",
+              "so_what": "Despite the WoW increase, orders stayed behind target, leaving a weekly shortfall."
+            },
+            {
+              "what": "Revenue was 59238, up 6.0% WoW, reaching 104.8% of the weekly target.",
+              "so_what": "Revenue exceeded target this week even though orders fell short of theirs."
+            },
+            {
+              "what": "QTD revenue attainment stands at 93.1%, with two weeks left in the quarter.",
+              "so_what": "The quarter remains behind target heading into its final two weeks."
+            },
+            {
+              "what": "AOV fell 4.6% WoW to 82.16, down 12.4% YoY.",
+              "so_what": "Revenue growth this week came from more orders, not higher order values."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders reached 94.6% of the weekly target while revenue reached 104.8%, a gap of +2688 for revenue.",
+              "so_what": "Revenue offset the order shortfall to still land ahead of the weekly target."
+            },
+            {
+              "what": "QTD revenue attainment is 93.1%, a gap of -44764, with 172424 still needed to reach the full quarter target.",
+              "so_what": "The quarter needs stronger revenue in the remaining two weeks to close this gap."
+            },
+            {
+              "what": "YTD revenue attainment is 93.1%, requiring a weekly run-rate of 78254 versus the current 8-week run-rate of 54350.",
+              "so_what": "The gap between the required and current run-rate shows the year needs a faster pace than recent weeks."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The 14-Day Return Rate for the week of 2026-02-23 rose to 9.7%, up 0.7pp WoW and up 1.0pp YoY.",
+              "so_what": "The return rate is rising against both the prior week and last year, a bad-direction signal to track."
+            },
+            {
+              "what": "AOV fell 4.6% WoW and 12.4% YoY, both rated bad.",
+              "so_what": "A falling AOV on both comparisons adds pressure on revenue per order."
+            },
+            {
+              "what": "The current 8-week revenue run-rate is 54350, well below the 78254 needed each week to reach the full-year target.",
+              "so_what": "At the current pace, the full-year revenue target is out of reach."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "906d109169488b61",
+  "cache_hit": false,
+  "cost_usd": 0.1363,
+  "duration_ms": 102872,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6706,
+    "cache_read": 5990,
+    "output": 10828,
+    "thinking": 9355
+  }
+}

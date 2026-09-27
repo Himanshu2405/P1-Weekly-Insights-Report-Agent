@@ -1,0 +1,153 @@
+{
+  "week": "2026-08-03",
+  "status": "verified_after_retry",
+  "attempts": 2,
+  "prompt_version": "v2",
+  "cost_usd": 0.4251,
+  "warnings": [
+    "sentences at most 30 words and 4 numbers"
+  ],
+  "rejected_attempts": [
+    {
+      "attempt": 1,
+      "failures": {
+        "direction words match the data": [
+          "drivers point 3 so_what: says up, but latam fell"
+        ]
+      }
+    }
+  ],
+  "problems": [
+    "so-what share 71% below 80%"
+  ],
+  "judge_cost_usd": 0.1502645,
+  "so_what_share": 0.706,
+  "quality_fails": [],
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on both orders and revenue, but the year sits only marginally ahead at 100.9%",
+      "reason": "Headline gives an ahead-of-target verdict and names the narrow year-to-date position as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The required weekly revenue for the rest of 2026 is $85,020, above the current eight-week run-rate of $79,467.",
+      "reason": "All three watch-outs are genuine risks: run-rate shortfall, rising returns, and falling AOV."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "the week's growth came from more orders rather than larger baskets",
+      "reason": "Claims stay tied to stated figures; no guessed causes or predictions beyond the data given."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says beat adds to quarter cushion, not just repeating attainment percentages."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Merely repeats that growth exceeds the 75% target assumption already stated."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains full-year position depends on second half holding recent form."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames signups as the lone negative measure in an otherwise beating week."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States the narrow year lead leaves little room at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Identifies risk to the value retained from the quarter's growth."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains weaker AOV limits each order's contribution to the revenue target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Only restates that both beat target and which margin is wider."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Repeats the quarter lead and remaining-target figure without saying what it means."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the run-rate versus required-pace comparison already in the fact."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes concentration in one region, telling how to read the weekly total."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains the order line tracks Search due to channel concentration."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains LATAM held back an otherwise broad-based rise across regions."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains growth came from volume rather than basket size."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Translates cancellation improvement into an addition to the revenue base."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Mainly restates the gross revenue definition rather than a business consequence."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Contrasts signup fall with order rise, showing gain lacked account growth."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "experiment": "heldout_v2_sonnet-5",
+  "judge": "judge_v4",
+  "weeks": 10,
+  "so_whats": {
+    "implication": 125,
+    "total": 150,
+    "by_week": {
+      "2026-01-05": {
+        "implication": 14,
+        "total": 15
+      },
+      "2026-01-26": {
+        "implication": 17,
+        "total": 17
+      },
+      "2026-02-02": {
+        "implication": 14,
+        "total": 17
+      },
+      "2026-03-02": {
+        "implication": 12,
+        "total": 17
+      },
+      "2026-03-09": {
+        "implication": 14,
+        "total": 17
+      },
+      "2026-04-27": {
+        "implication": 17,
+        "total": 17
+      },
+      "2026-05-04": {
+        "implication": 10,
+        "total": 17
+      },
+      "2026-05-18": {
+        "implication": 12,
+        "total": 16
+      },
+      "2026-05-25": {
+        "implication": 15,
+        "total": 17
+      },
+      "2026-06-08": {
+        "implication": 0,
+        "total": 0
+      }
+    }
+  },
+  "must_say": {
+    "passed": 0,
+    "total": 0
+  },
+  "must_not_say": {
+    "passed": 0,
+    "total": 0
+  },
+  "quality": {
+    "headline_has_verdict": {
+      "passed": 9,
+      "total": 9
+    },
+    "watchouts_are_risks": {
+      "passed": 9,
+      "total": 9
+    },
+    "no_speculation": {
+      "passed": 6,
+      "total": 9
+    }
+  },
+  "fails_by_week": {
+    "2026-01-05": [
+      "no_speculation"
+    ],
+    "2026-02-02": [
+      "no_speculation"
+    ],
+    "2026-05-25": [
+      "no_speculation"
+    ]
+  },
+  "judge_cost_usd": 0.792
+}

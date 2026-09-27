@@ -1,0 +1,156 @@
+{
+  "week": "2026-06-01",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "A behind-target week for orders and revenue... Weekly orders were 93.6% of target and weekly revenue was 90.2% of target.",
+      "reason": "Headline and vs_target section state behind-target status with matching attainment percentages and WoW revenue drop."
+    },
+    {
+      "id": "quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue is 97.7% of target, a gap of $15,299 with 3 weeks left in the quarter.",
+      "reason": "Quarter's behind-target status with matching QTD attainment and weeks left is clearly stated."
+    },
+    {
+      "id": "dramatized",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "",
+      "reason": "No dramatized language or invented watch-outs found; all watch-outs are grounded in brief data."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "A behind-target week for orders and revenue, with the quarter also short of target and the full-year pace behind what's required.",
+      "reason": "Headline states ahead/behind verdict and names quarter and year-position issues."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The 14-Day Return Rate for the week of May 18 rose to 11.4%, up 0.5pp WoW and up 0.8pp YoY.",
+      "reason": "All three watch-outs are genuine risks (QTD gap, rising returns, falling AOV), none are good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Signups falling YoY while orders grew 70.3% YoY shows order growth is not coming from new customer acquisition.",
+      "reason": "Claims specify the comparison basis (YoY) correctly and are supported by brief figures throughout."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Ties YoY growth to target growth assumption, explaining why week is under target."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains cause of larger revenue shortfall as weaker AOV plus fewer orders."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target not on track at current pace."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Attributes Search's decline as main driver of order drop."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links quarter target achievement to closing gap in remaining weeks."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames consistent rise as an unresolved risk."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains what AOV decline means for revenue shortfall composition."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Combines both KPI misses into an overall week verdict."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States what closing the QTD gap requires going forward."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target not on track at current pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains how EMEA decline outweighed APAC gain to drive total down."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Attributes Search's decline as main driver given its share size."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States APAC growth insufficient to offset overall decline."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Frames WoW rise as a risk despite favorable YoY comparison."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains impact of rising returns on realized revenue."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States order growth is not coming from new customer acquisition, per YoY data."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Explains AOV decline's contribution to revenue shortfall."
+    }
+  ],
+  "cost_usd": 0.071646,
+  "duration_s": 34.5
+}

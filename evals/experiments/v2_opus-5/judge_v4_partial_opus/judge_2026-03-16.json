@@ -1,0 +1,156 @@
+{
+  "week": "2026-03-16",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-opus-5",
+  "verdicts": [
+    {
+      "id": "week_ahead_quarter_behind",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished ahead of target, but the quarter stands at 92.6% of target with one week left.",
+      "reason": "Headline and summary convey week ahead, Q1 behind at 92.6% with one week left."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for three consecutive weeks, from 14.3% to 16.4%",
+      "reason": "Streak is flagged in the watchouts section with correct figures."
+    },
+    {
+      "id": "q1_will_hit",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The quarterly target is out of reach at anything close to the current weekly pace.",
+      "reason": "Commentary states the quarter target is unreachable, never implying it will be met."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "both finished ahead of target, but the quarter stands at 92.6% of target with one week left",
+      "reason": "Headline gives an ahead verdict and names the quarter shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Reaching the full-quarter target of $774,555 requires $120,354 in the final week",
+      "reason": "All three watch-outs are genuine risks, including the key cancellation streak."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "New signups fell 9.3% to 214 and were 1.4% below last year, while orders rose 4.0% and 60.0% respectively.",
+      "reason": "Claims trace to brief figures; comparisons specify both WoW and YoY readings."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates targets met and gives next week's target without saying what it means."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says one good week cannot close the quarter shortfall."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links below-assumption growth to slipping annual attainment."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Restates the streak and adds the $726 figure without stating consequence."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains sustained rise means more orders lost before contributing revenue."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes quarterly target unreachable at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says gap would keep widening given run-rate shortfall."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes beats too small to change quarter position."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says March strength does not offset Jan/Feb shortfalls."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes full-year target out of reach at current pace."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Flags growth concentration in a single region."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains how LATAM drag held total growth to 4.0%."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says growth is narrow, not a broad channel lift."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains weaker baskets cap revenue growth versus target assumption."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Translates the pp rise into a measurable revenue cost."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Only repeats the WoW fall and the YoY gap already stated."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Restates that signups lag orders without saying what it means."
+    }
+  ],
+  "cost_usd": 0.14614249999999998,
+  "duration_s": 31.0
+}

@@ -1,0 +1,294 @@
+{
+  "week": "2026-01-26",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Orders and revenue both landed behind target this week, and year-to-date revenue stays behind target with the recent pace short of what the rest of 2026 requires.",
+      "points": [
+        {
+          "what": "Orders reached 99.6% of target and revenue reached 96.7% of target this week, both landing behind target.",
+          "so_what": "Both key weekly measures missed target despite week-over-week growth, showing this week's gains were not enough to close the gap."
+        },
+        {
+          "what": "Orders grew 61.0% year on year and revenue grew 54.3% year on year, both below the 75% growth rate the 2026 targets assume.",
+          "so_what": "Growth running below the pace the targets assume is consistent with a growing week still landing behind target."
+        },
+        {
+          "what": "Orders were flagged as notable, with this week's level sitting outside the normal 8-week range.",
+          "so_what": "This level should not be read as part of a normal growth trend for orders."
+        },
+        {
+          "what": "Year-to-date revenue is 94.4% of target, behind, and the current 8-week revenue run-rate of $53,042 is well below the $75,259 weekly pace needed for the rest of the year.",
+          "so_what": "At the recent pace, the full-year revenue target is out of reach."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "The required weekly revenue run-rate to hit the full-year target is $75,259, well above the current 8-week run-rate of $53,042.",
+          "so_what": "At the recent pace, the full-year revenue target is out of reach."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of Jan 12 rose to 9.8%, up 0.1pp week on week and up 1.1pp year on year, both bad-direction moves.",
+          "so_what": "Returns are trending in the wrong direction on both comparisons, a risk to revenue quality."
+        },
+        {
+          "what": "The cancellation rate rose 2.1pp year on year to 16.5%, even though it fell 0.2pp week on week.",
+          "so_what": "The year-on-year rise in cancellations is a risk sitting behind the small week-over-week improvement."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders were 99.6% of target and revenue was 96.7% of target this week, both status behind.",
+          "so_what": "The week finished behind target on both core measures despite growth week over week."
+        },
+        {
+          "what": "Quarter-to-date revenue is 94.4% of target, behind, with $498,187 still needed against the full-quarter target over the remaining 8 weeks.",
+          "so_what": "The quarter needs stronger weekly revenue than achieved so far to close the gap to target."
+        },
+        {
+          "what": "Year-to-date revenue is 94.4% of target, behind, and closing the full-year gap requires a weekly run-rate of $75,259 versus the current 8-week run-rate of $53,042.",
+          "so_what": "The recent pace falls well short of what the rest of the year requires to hit the full-year target."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "EMEA orders rose 20.0% week on week, contributing +30 orders, the largest positive contributor to the week's order change.",
+          "so_what": "Order growth this week was concentrated in EMEA rather than spread across regions."
+        },
+        {
+          "what": "APAC orders fell 9.4% week on week, contributing -32 orders, the largest negative contributor.",
+          "so_what": "APAC's decline nearly offset EMEA's gain, holding total order growth to a small net change."
+        },
+        {
+          "what": "Organic orders rose 23.4% week on week, contributing +25 orders, the largest positive contributor among traffic sources, while Search, the largest channel by share, fell 2.7% week on week and contributed -15 orders.",
+          "so_what": "The week's order growth came from a smaller channel rather than the dominant Search channel, which pulled the total down."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV rose 0.8% week on week to $85.64 but fell 1.8% year on year.",
+          "so_what": "Baskets are smaller than a year ago even as they ticked up week over week, meaning revenue growth is coming more from order volume than basket size."
+        },
+        {
+          "what": "The cancellation rate fell 0.2pp week on week to 16.5% but rose 2.1pp year on year.",
+          "so_what": "The year-on-year direction remains bad even though the week-over-week move improved slightly."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of Jan 12 was 9.8%, up 0.1pp week on week and up 1.1pp year on year.",
+          "so_what": "Returns are moving in the bad direction on both comparisons."
+        },
+        {
+          "what": "New signups rose 14.2% year on year, well below orders' 61.0% year-on-year growth.",
+          "so_what": "Signup growth is lagging the pace of order growth this year, a gap worth watching alongside the otherwise strong order trend."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "drivers point 3 what: 33 words"
+        ]
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'$53,042' appears in 3 slots: ['summary', 'vs_target', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 77192,
+      "cost_usd": 0.10909160000000001,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6655,
+        "cache_read": 6388,
+        "output": 8119,
+        "thinking": 6377
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "sentences at most 30 words and 4 numbers": [
+          "drivers point 3 what: 33 words"
+        ],
+        "no fact repeated across 3+ slots": [
+          "'$53,042' appears in 3 slots: ['summary', 'vs_target', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Orders and revenue both landed behind target this week, and year-to-date revenue stays behind target with the recent pace short of what the rest of 2026 requires.",
+          "points": [
+            {
+              "what": "Orders reached 99.6% of target and revenue reached 96.7% of target this week, both landing behind target.",
+              "so_what": "Both key weekly measures missed target despite week-over-week growth, showing this week's gains were not enough to close the gap."
+            },
+            {
+              "what": "Orders grew 61.0% year on year and revenue grew 54.3% year on year, both below the 75% growth rate the 2026 targets assume.",
+              "so_what": "Growth running below the pace the targets assume is consistent with a growing week still landing behind target."
+            },
+            {
+              "what": "Orders were flagged as notable, with this week's level sitting outside the normal 8-week range.",
+              "so_what": "This level should not be read as part of a normal growth trend for orders."
+            },
+            {
+              "what": "Year-to-date revenue is 94.4% of target, behind, and the current 8-week revenue run-rate of $53,042 is well below the $75,259 weekly pace needed for the rest of the year.",
+              "so_what": "At the recent pace, the full-year revenue target is out of reach."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "The required weekly revenue run-rate to hit the full-year target is $75,259, well above the current 8-week run-rate of $53,042.",
+              "so_what": "At the recent pace, the full-year revenue target is out of reach."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of Jan 12 rose to 9.8%, up 0.1pp week on week and up 1.1pp year on year, both bad-direction moves.",
+              "so_what": "Returns are trending in the wrong direction on both comparisons, a risk to revenue quality."
+            },
+            {
+              "what": "The cancellation rate rose 2.1pp year on year to 16.5%, even though it fell 0.2pp week on week.",
+              "so_what": "The year-on-year rise in cancellations is a risk sitting behind the small week-over-week improvement."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders were 99.6% of target and revenue was 96.7% of target this week, both status behind.",
+              "so_what": "The week finished behind target on both core measures despite growth week over week."
+            },
+            {
+              "what": "Quarter-to-date revenue is 94.4% of target, behind, with $498,187 still needed against the full-quarter target over the remaining 8 weeks.",
+              "so_what": "The quarter needs stronger weekly revenue than achieved so far to close the gap to target."
+            },
+            {
+              "what": "Year-to-date revenue is 94.4% of target, behind, and closing the full-year gap requires a weekly run-rate of $75,259 versus the current 8-week run-rate of $53,042.",
+              "so_what": "The recent pace falls well short of what the rest of the year requires to hit the full-year target."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA orders rose 20.0% week on week, contributing +30 orders, the largest positive contributor to the week's order change.",
+              "so_what": "Order growth this week was concentrated in EMEA rather than spread across regions."
+            },
+            {
+              "what": "APAC orders fell 9.4% week on week, contributing -32 orders, the largest negative contributor.",
+              "so_what": "APAC's decline nearly offset EMEA's gain, holding total order growth to a small net change."
+            },
+            {
+              "what": "Organic orders rose 23.4% week on week, contributing +25 orders, the largest positive contributor among traffic sources, while Search, the largest channel by share, fell 2.7% week on week and contributed -15 orders.",
+              "so_what": "The week's order growth came from a smaller channel rather than the dominant Search channel, which pulled the total down."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV rose 0.8% week on week to $85.64 but fell 1.8% year on year.",
+              "so_what": "Baskets are smaller than a year ago even as they ticked up week over week, meaning revenue growth is coming more from order volume than basket size."
+            },
+            {
+              "what": "The cancellation rate fell 0.2pp week on week to 16.5% but rose 2.1pp year on year.",
+              "so_what": "The year-on-year direction remains bad even though the week-over-week move improved slightly."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of Jan 12 was 9.8%, up 0.1pp week on week and up 1.1pp year on year.",
+              "so_what": "Returns are moving in the bad direction on both comparisons."
+            },
+            {
+              "what": "New signups rose 14.2% year on year, well below orders' 61.0% year-on-year growth.",
+              "so_what": "Signup growth is lagging the pace of order growth this year, a gap worth watching alongside the otherwise strong order trend."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "ec7e9a5daae47ab8",
+  "cache_hit": false,
+  "cost_usd": 0.1091,
+  "duration_ms": 77192,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6655,
+    "cache_read": 6388,
+    "output": 8119,
+    "thinking": 6377
+  }
+}

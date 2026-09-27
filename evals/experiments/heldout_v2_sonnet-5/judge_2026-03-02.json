@@ -1,0 +1,135 @@
+{
+  "week": "2026-03-02",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Behind target on orders (88.7%) and revenue (94.7%) this week, with the quarter and year also behind at 92.0% attainment.",
+      "reason": "Headline states behind-target verdict and cites quarter/year gap."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The full-year required weekly revenue run-rate is $77,812, well above the current 8-week run-rate of $54,024.",
+      "reason": "All three watch-outs describe real risks or shortfalls, none are good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "At the recent pace, the full-year revenue target is out of reach.",
+      "reason": "All claims trace to brief figures (contributions, attainment, run-rates); no unsupported causes or predictions."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States order growth depended heavily on one region, a concentration risk."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains how NA's drop capped overall order growth to 1.6%."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains growth relied on Search offsetting Facebook, not net new demand."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue growth stems from both volume and price, not just one."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects lower cancellations to supporting revenue, a business effect."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames lower return rate as a favorable signal on order quality."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Just restates the comparison of two growth rates without saying what it means."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Restates that growth didn't close the gap without further implication."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Merely compares two attainment figures already stated."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates quarter/year behind-target status without new implication."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Links YoY growth shortfall vs target assumption to explain attainment gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Simply restates that both KPIs were behind target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States what's needed to close the quarter gap going forward."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes recent pace is insufficient for the full-year target."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States what's required to reach the quarter target."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Concludes the full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames the shortfall as a persistent, multi-week trend not a one-off."
+    }
+  ],
+  "cost_usd": 0.08623,
+  "duration_s": 49.3
+}

@@ -14,8 +14,8 @@ COMMENTARY_DIR = ROOT / "commentary"
 RUNS_DIR = ROOT / "runs"
 
 # AI commentary (Claude Code headless today; API backend can be added behind llm.generate)
-PROMPT_VERSION = "v1"
-LLM_MODEL = "claude-opus-5"
+PROMPT_VERSION = "v2"  # promoted 2026-09-26 after the v1 vs v2 golden-set comparison
+LLM_MODEL = "claude-sonnet-5"  # switched from claude-opus-5 on 2026-09-26 to cut token usage
 LLM_TIMEOUT_SECONDS = 300
 LLM_TRANSPORT_RETRIES = 2      # infrastructure retries (with backoff) per attempt
 

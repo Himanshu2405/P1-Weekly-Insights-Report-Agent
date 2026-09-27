@@ -1,0 +1,135 @@
+{
+  "week": "2026-04-27",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both fell behind target this week, with the year-to-date revenue pace also lagging at 94.6% of target.",
+      "reason": "Headline states behind-target verdict and names YTD lag as the issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "A second straight increase points to a worsening order-quality trend...",
+      "reason": "All three watchouts describe risks or worsening trends, none are good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Revenue per order kept growing, so the week's revenue shortfall reflects fewer orders rather than smaller baskets.",
+      "reason": "All claims combine and interpret brief figures without guessing causes or predicting outcomes."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States NA is the main driver behind the order decline."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains Search's decline caused the entire net order drop."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains why smaller channel gains didn't rescue overall orders."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains revenue shortfall is volume-driven, not basket-size driven."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Translates cancellation drop into revenue-saved implication."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Flags returns as offsetting cancellation gains, a quality concern."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States signup growth held up despite order weakness."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links weekly misses to ongoing quarter pressure."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames WoW declines as reversing recent momentum."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Compares growth rates to the target assumption, explaining what it means."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Explains relative difficulty of annual vs quarterly target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes shortfall adds to quarter's target gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames QTD gap as still behind despite small dollar amount."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Compares required run-rate to actual, stating pace is insufficient."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Flags returns trend as a worsening quality issue not visible elsewhere."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States annual target is increasingly at risk given current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States quarter target now depends on accelerated revenue."
+    }
+  ],
+  "cost_usd": 0.069234,
+  "duration_s": 34.6
+}

@@ -1,0 +1,144 @@
+{
+  "week": "2026-07-06",
+  "status": "verified",
+  "attempts": 1,
+  "prompt_version": "v2",
+  "cost_usd": 0.25,
+  "warnings": [],
+  "rejected_attempts": [],
+  "problems": [
+    "quality rules failed: no_speculation"
+  ],
+  "judge_cost_usd": 0.09922099999999999,
+  "so_what_share": 0.941,
+  "quality_fails": [
+    "no_speculation"
+  ],
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Week ahead of target on both orders and revenue, and the quarter is running ahead, but the year is still behind at 98.9% of target.",
+      "reason": "Headline gives a clear ahead verdict for the week and names the year-to-date shortfall."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The required pace sits above the current pace, so the full-year target is out of reach unless weekly revenue steps up.",
+      "reason": "All three watch-outs are genuine risks or worsening trends: run-rate gap, AOV decline, revenue fall."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "Signups are not growing alongside orders, which is the weaker side of an otherwise ahead-of-target week.",
+      "reason": "Signups rose 4.0% versus orders 3.8%, so the claim interprets beyond and against the stated facts."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Places the beat in the quarter's cumulative position, week 2 of 13."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains that the weekly decline did not cost target attainment."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Reads growth mix: volume driven, not basket size."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "States the year is the binding constraint despite quarter surplus."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Concludes full-year target is unreachable at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Says attainment now depends on volume given weaker order value."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the divergence and cites next week's target without saying what it means."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Says the week widened the quarter's position against target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Notes two weeks cover little, so quarter is unsettled."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Remaining weeks must absorb the shortfall on top of targets."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Shows the gain depends on a smaller region, not the largest ones."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains over-100% contribution implies offsetting declines elsewhere."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Says Display held back the size of the orders beat."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links above-range volume to revenue clearing target despite lower AOV."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Sizes the cost and notes it works against the year-on-year gain."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Concludes returns are not adding pressure to the revenue shortfall."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Frames signups as the weak side of an otherwise ahead week."
+    }
+  ]
+}

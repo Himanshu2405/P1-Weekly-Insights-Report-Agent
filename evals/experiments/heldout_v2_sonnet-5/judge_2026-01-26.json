@@ -1,0 +1,135 @@
+{
+  "week": "2026-01-26",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished the week behind target, and the quarter and year remain behind at 94.4% attainment",
+      "reason": "Headline states behind-target verdict and names quarter/year and pace issues."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Cancellation rate is up 2.1pp YoY... Returns are increasing... a risk... current 8-week revenue run-rate... below... required",
+      "reason": "All three watch-outs are genuine risks or worsening trends, no good news included."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Signup growth this week outpaced order growth, so it has not yet shown up as a matching increase in orders.",
+      "reason": "All claims are tied to specific WoW/YoY figures in the brief; no unsupported causal or predictive claims found."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains EMEA's growth offset declines elsewhere, driving total order growth."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains how APAC's drop muted overall order growth this week."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains Organic's gain offsetting Search's decline, a read on traffic mix."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes revenue per order still trails last year despite WoW uptick."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames elevated YoY cancellation as an ongoing drag on order quality."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames rising returns as a sign of weaker order quality."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Notes signup growth this week hasn't translated into matching order growth."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States WoW growth was insufficient to close the target gap."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States revenue growth fell short of target despite the increase."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Links run-rate shortfall to not keeping pace with full-year target."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Explains growth depended on EMEA offsetting the largest region's decline."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Notes closing the gap needs faster growth given rising next-week target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States revenue growth must accelerate to meet next week's higher target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Ties run-rate shortfall to the year not being on pace to close the gap."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies revenue impact of elevated cancellation rate versus last year."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames rising returns as a risk to order quality this quarter."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States the run-rate shortfall puts the full-year target at risk."
+    }
+  ],
+  "cost_usd": 0.081612,
+  "duration_s": 50.8
+}

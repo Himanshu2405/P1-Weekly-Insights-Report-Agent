@@ -1,0 +1,289 @@
+{
+  "week": "2026-01-26",
+  "status": "verified",
+  "commentary": {
+    "drivers": {
+      "points": [
+        {
+          "what": "EMEA orders rose 20.0% WoW and were the largest contributor to total order growth this week.",
+          "so_what": "EMEA's growth was the main reason total orders grew despite declines elsewhere."
+        },
+        {
+          "what": "APAC orders fell 9.4% WoW, the biggest drag on total order growth.",
+          "so_what": "APAC's pullback nearly offset the gains from other regions, muting the week's overall order growth."
+        },
+        {
+          "what": "Organic orders grew 23.4% WoW, the top contributor among traffic sources to order growth.",
+          "so_what": "Organic's gain helped offset a 2.7% WoW decline in Search, the largest traffic source."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV was $85.64, up 0.8% WoW but down 1.8% YoY.",
+          "so_what": "The WoW uptick does not recover last year's higher order value, so revenue per order remains below last year's level."
+        },
+        {
+          "what": "Cancellation rate was 16.5%, down 0.2pp WoW but up 2.1pp YoY.",
+          "so_what": "The rate remains higher than a year ago even after the weekly dip, a continued drag on order quality."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of Jan 12 was 9.8%, up 0.1pp WoW and 1.1pp YoY.",
+          "so_what": "Returns are trending worse than both the prior week and last year, pointing to weaker order quality."
+        },
+        {
+          "what": "New signups rose 12.8% WoW to 273, notably faster than the 1.3% WoW rise in orders.",
+          "so_what": "Signup growth this week outpaced order growth, so it has not yet shown up as a matching increase in orders."
+        }
+      ]
+    },
+    "summary": {
+      "headline": "Orders and revenue both finished the week behind target, and the quarter and year remain behind at 94.4% attainment with the pace still below what's required.",
+      "points": [
+        {
+          "what": "Orders were 99.6% of the weekly target, still behind despite growing 1.3% WoW.",
+          "so_what": "Growth this week was not enough to close the gap to target."
+        },
+        {
+          "what": "Revenue was 96.7% of the weekly target despite rising 2.3% WoW.",
+          "so_what": "Revenue growth also fell short of what was needed to meet the target this week."
+        },
+        {
+          "what": "QTD and YTD revenue are both at 94.4% of target, with the current 8-week run-rate of $53,042 well below the $75,259 required weekly pace.",
+          "so_what": "At the current pace, the full-year revenue target is not being kept up with."
+        },
+        {
+          "what": "EMEA orders grew 20.0% WoW, the top contributor to order growth, while APAC, which holds 39.8% share, fell 9.4% WoW.",
+          "so_what": "Growth this week depended on EMEA offsetting a pullback in APAC, the largest single region by orders."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Weekly orders were 99.6% of target, a gap of 3 orders, with next week's target rising to 800.",
+          "so_what": "Closing this small gap while facing a higher target next week will need faster growth than this week's pace."
+        },
+        {
+          "what": "Weekly revenue was 96.7% of target, a gap of $1,885, and next week's target rises to $61,466.",
+          "so_what": "Revenue growth would need to accelerate meaningfully to meet next week's higher bar."
+        },
+        {
+          "what": "QTD and YTD revenue are both at 94.4% of target, a gap of $16,527 so far this year.",
+          "so_what": "The current 8-week run-rate of $53,042 is below the $75,259 needed weekly to reach the full-year target, so the year is not on pace to close this gap."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "Cancellation rate is up 2.1pp YoY to 16.5%.",
+          "so_what": "At $660 of revenue per point of cancellation, this elevated rate versus last year continues to weigh on realized revenue."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of Jan 12 rose to 9.8%, up 1.1pp YoY and 0.1pp WoW.",
+          "so_what": "Returns are increasing versus both the prior week and last year, a risk to order quality this quarter."
+        },
+        {
+          "what": "The current 8-week revenue run-rate is $53,042, below the $75,259 weekly pace required to hit the full-year target.",
+          "so_what": "Unless the pace accelerates, the full-year revenue target is at risk of being missed."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'$75,259' appears in 3 slots: ['summary', 'vs_target', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v2",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 102039,
+      "cost_usd": 0.142248,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6654,
+        "cache_read": 5990,
+        "output": 11443,
+        "thinking": 9826
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "no fact repeated across 3+ slots": [
+          "'$75,259' appears in 3 slots: ['summary', 'vs_target', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA orders rose 20.0% WoW and were the largest contributor to total order growth this week.",
+              "so_what": "EMEA's growth was the main reason total orders grew despite declines elsewhere."
+            },
+            {
+              "what": "APAC orders fell 9.4% WoW, the biggest drag on total order growth.",
+              "so_what": "APAC's pullback nearly offset the gains from other regions, muting the week's overall order growth."
+            },
+            {
+              "what": "Organic orders grew 23.4% WoW, the top contributor among traffic sources to order growth.",
+              "so_what": "Organic's gain helped offset a 2.7% WoW decline in Search, the largest traffic source."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV was $85.64, up 0.8% WoW but down 1.8% YoY.",
+              "so_what": "The WoW uptick does not recover last year's higher order value, so revenue per order remains below last year's level."
+            },
+            {
+              "what": "Cancellation rate was 16.5%, down 0.2pp WoW but up 2.1pp YoY.",
+              "so_what": "The rate remains higher than a year ago even after the weekly dip, a continued drag on order quality."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of Jan 12 was 9.8%, up 0.1pp WoW and 1.1pp YoY.",
+              "so_what": "Returns are trending worse than both the prior week and last year, pointing to weaker order quality."
+            },
+            {
+              "what": "New signups rose 12.8% WoW to 273, notably faster than the 1.3% WoW rise in orders.",
+              "so_what": "Signup growth this week outpaced order growth, so it has not yet shown up as a matching increase in orders."
+            }
+          ]
+        },
+        "summary": {
+          "headline": "Orders and revenue both finished the week behind target, and the quarter and year remain behind at 94.4% attainment with the pace still below what's required.",
+          "points": [
+            {
+              "what": "Orders were 99.6% of the weekly target, still behind despite growing 1.3% WoW.",
+              "so_what": "Growth this week was not enough to close the gap to target."
+            },
+            {
+              "what": "Revenue was 96.7% of the weekly target despite rising 2.3% WoW.",
+              "so_what": "Revenue growth also fell short of what was needed to meet the target this week."
+            },
+            {
+              "what": "QTD and YTD revenue are both at 94.4% of target, with the current 8-week run-rate of $53,042 well below the $75,259 required weekly pace.",
+              "so_what": "At the current pace, the full-year revenue target is not being kept up with."
+            },
+            {
+              "what": "EMEA orders grew 20.0% WoW, the top contributor to order growth, while APAC, which holds 39.8% share, fell 9.4% WoW.",
+              "so_what": "Growth this week depended on EMEA offsetting a pullback in APAC, the largest single region by orders."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Weekly orders were 99.6% of target, a gap of 3 orders, with next week's target rising to 800.",
+              "so_what": "Closing this small gap while facing a higher target next week will need faster growth than this week's pace."
+            },
+            {
+              "what": "Weekly revenue was 96.7% of target, a gap of $1,885, and next week's target rises to $61,466.",
+              "so_what": "Revenue growth would need to accelerate meaningfully to meet next week's higher bar."
+            },
+            {
+              "what": "QTD and YTD revenue are both at 94.4% of target, a gap of $16,527 so far this year.",
+              "so_what": "The current 8-week run-rate of $53,042 is below the $75,259 needed weekly to reach the full-year target, so the year is not on pace to close this gap."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "Cancellation rate is up 2.1pp YoY to 16.5%.",
+              "so_what": "At $660 of revenue per point of cancellation, this elevated rate versus last year continues to weigh on realized revenue."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of Jan 12 rose to 9.8%, up 1.1pp YoY and 0.1pp WoW.",
+              "so_what": "Returns are increasing versus both the prior week and last year, a risk to order quality this quarter."
+            },
+            {
+              "what": "The current 8-week revenue run-rate is $53,042, below the $75,259 weekly pace required to hit the full-year target.",
+              "so_what": "Unless the pace accelerates, the full-year revenue target is at risk of being missed."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "ec7e9a5daae47ab8",
+  "cache_hit": false,
+  "cost_usd": 0.1422,
+  "duration_ms": 102039,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6654,
+    "cache_read": 5990,
+    "output": 11443,
+    "thinking": 9826
+  }
+}

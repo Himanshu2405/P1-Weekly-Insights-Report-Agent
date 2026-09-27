@@ -1,0 +1,135 @@
+{
+  "week": "2026-05-04",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Behind target: orders at 99.7% and revenue at 90.1% of target for the week, with the quarter and year also running behind and revenue pace well under what's needed.",
+      "reason": "Headline states behind-target verdict and names quarter/year gap issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The required weekly revenue run-rate to hit the full-year target is $81,791, well above the current 8-week run-rate of $63,221.",
+      "reason": "All three watch-outs are genuine risks or caveats, no good news listed."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The revenue decline is coming mostly from lower order value rather than fewer orders.",
+      "reason": "Claims are grounded in brief figures (AOV vs orders WoW deltas, contributions); no unsupported causes or predictions."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links the week's shortfall to the quarter's ongoing target gap."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains that revenue drop stems from AOV, not order volume, a composition insight."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target is unreachable at current pace."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Just restates the WoW growth comparison already given in the fact."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States consequence: target won't be hit unless run-rate improves."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects QTD gap to pace needed for full-quarter target."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the WoW/YoY figures in words without added business meaning."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Merely rephrases the two attainment percentages as near vs wide miss."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames gap as pace shortfall against full-quarter target."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States pace is insufficient for the remainder of the year target."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "restatement",
+      "reason": "Repeats 'largest negative contributor' already stated in the fact."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Connects EMEA's positive contribution to net effect on total order decline."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Repeats 'largest negative contributor' phrasing already in the fact."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Attributes revenue decline mainly to order value, not volume."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Translates cancellation-rate drop into a revenue benefit via the $757/pp metric."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Restates the WoW improvement and YoY worsening without new implication."
+    },
+    {
+      "slot": "health",
+      "point": 4,
+      "verdict": "restatement",
+      "reason": "Restates the same-week comparison of signup vs order growth rates."
+    }
+  ],
+  "cost_usd": 0.1317226,
+  "duration_s": 73.0
+}

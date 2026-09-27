@@ -1,0 +1,150 @@
+{
+  "week": "2026-06-15",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "down_but_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished ahead of target this week... Revenue rose 4.0% week on week while orders fell 1.5% week on week",
+      "reason": "Commentary conveys both the WoW order dip and the ahead-of-target status across sections."
+    },
+    {
+      "id": "quarter_just_ahead",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "QTD revenue is 100.1% of target with one week left in the quarter",
+      "reason": "Q2 near-target status with one week left is explicitly stated."
+    },
+    {
+      "id": "behind_claim",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished ahead of target this week",
+      "reason": "Commentary never frames the week as behind target due to the order dip."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue both finished ahead of target this week, but year-to-date revenue remains behind target at 96.3%",
+      "reason": "States ahead/behind verdict for the week and names the YTD gap issue."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "the full-year revenue target is out of reach... a risk to future order growth... a risk to watch on order quality",
+      "reason": "All three watchouts describe genuine risks or worsening trends, none are good news."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Lower cancellations helped drive this week's revenue outperformance against target.",
+      "reason": "Claims combine brief facts (cancellation rate, revenue vs target) without introducing unsupported causes or predictions."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains the dip driver while contrasting with overall ahead-of-target status."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates that LATAM was the largest contributor without a business implication."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Explains how Organic offset Search, clarifying the net order decline."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States revenue growth was driven by AOV, not order volume."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Links lower cancellations to revenue outperformance vs target."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames rising returns as a mixed signal on order quality."
+    },
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Connects weekly attainment to the quarter's near-target position."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States revenue growth came from AOV rather than order volume."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "restatement",
+      "reason": "Merely correlates YoY growth with ahead-of-target status without added meaning."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Flags signups as the weak point despite strong headline results."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Links weekly attainment to quarter-level target performance."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "States an obvious dependency without adding risk or likelihood insight."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "States full-year target requires a faster pace than recent run-rate."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "States the full-year target is out of reach at current pace."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Frames signup decline as a risk to future order growth."
+    },
+    {
+      "slot": "watchouts",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Frames rising returns as an ongoing risk to order quality."
+    }
+  ],
+  "cost_usd": 0.12286739999999999,
+  "duration_s": 57.7
+}

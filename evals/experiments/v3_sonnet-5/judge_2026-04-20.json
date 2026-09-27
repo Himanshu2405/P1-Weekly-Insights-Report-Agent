@@ -1,0 +1,144 @@
+{
+  "week": "2026-04-20",
+  "status": "verified",
+  "judge": "judge_v4",
+  "model": "claude-sonnet-5",
+  "verdicts": [
+    {
+      "id": "behind_target",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "Orders and revenue fell behind target this week (91.4% and 90.7%)",
+      "reason": "Headline clearly states the week was behind target with matching attainment percentages."
+    },
+    {
+      "id": "cancellation_streak",
+      "kind": "must_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for four consecutive weeks, from 13.6% to 15.5%",
+      "reason": "Cancellation streak is flagged in the watchouts section with matching numbers."
+    },
+    {
+      "id": "streak_missed",
+      "kind": "must_not_say",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for four consecutive weeks",
+      "reason": "Watchouts section is not empty and includes the cancellation streak."
+    },
+    {
+      "id": "headline_has_verdict",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "Orders and revenue fell behind target this week (91.4% and 90.7%), with cancellation rate marking a fourth straight weekly rise and YTD revenue still behind at 93.9%.",
+      "reason": "Headline states behind-target verdict and names two issues (cancellation streak, YTD gap)."
+    },
+    {
+      "id": "watchouts_are_risks",
+      "kind": "quality",
+      "verdict": "pass",
+      "evidence": "The cancellation rate has risen for four consecutive weeks... YTD revenue is behind target at 93.9% attainment",
+      "reason": "Both watch-outs are genuine risks/worsening trends consistent with the answer key."
+    },
+    {
+      "id": "no_speculation",
+      "kind": "quality",
+      "verdict": "fail",
+      "evidence": "LATAM's contribution outweighed declines elsewhere in the regional mix, driving the week's overall order growth.",
+      "reason": "Inaccurate: APAC's -63 order decline exceeds LATAM's +47 contribution, so it did not outweigh declines."
+    }
+  ],
+  "so_whats": [
+    {
+      "slot": "summary",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Ties week's shortfall to quarter-to-date pacing and remaining gap."
+    },
+    {
+      "slot": "summary",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains that YoY outperformance doesn't close the weekly target gap."
+    },
+    {
+      "slot": "summary",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Identifies signups as the weak spot amid otherwise positive order growth."
+    },
+    {
+      "slot": "summary",
+      "point": 4,
+      "verdict": "implication",
+      "reason": "Links cancellation streak to added pressure on revenue target."
+    },
+    {
+      "slot": "watchouts",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Quantifies revenue impact of cancellations, tying to target shortfall."
+    },
+    {
+      "slot": "watchouts",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States full-year target risk if run-rate pace does not improve."
+    },
+    {
+      "slot": "vs_target",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Explains need to close gap against rising future targets."
+    },
+    {
+      "slot": "vs_target",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "States quarter remains behind and needs pace pickup to close gap."
+    },
+    {
+      "slot": "vs_target",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Flags full-year target risk from pace shortfall versus required run-rate."
+    },
+    {
+      "slot": "drivers",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Claims LATAM drove growth by outweighing declines, though factually inaccurate."
+    },
+    {
+      "slot": "drivers",
+      "point": 2,
+      "verdict": "implication",
+      "reason": "Explains APAC's pullback weighed on growth but was offset elsewhere."
+    },
+    {
+      "slot": "drivers",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Notes growth concentration in largest channel rather than broad-based."
+    },
+    {
+      "slot": "health",
+      "point": 1,
+      "verdict": "implication",
+      "reason": "Attributes revenue growth mainly to AOV rather than order volume."
+    },
+    {
+      "slot": "health",
+      "point": 2,
+      "verdict": "restatement",
+      "reason": "Restates what a lower return rate means without a business implication."
+    },
+    {
+      "slot": "health",
+      "point": 3,
+      "verdict": "implication",
+      "reason": "Highlights divergence between signup and order growth as a risk trend."
+    }
+  ],
+  "cost_usd": 0.08322,
+  "duration_s": 48.2
+}
