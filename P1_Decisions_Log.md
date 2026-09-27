@@ -8,7 +8,8 @@ Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech 
 - SONNET 5 EVAL (user: stop mid-run, use partial results): ran steps 1-5 of the planned 7-step v3/judge_v4 evaluation on Sonnet 5, then stopped (~1hr runtime, user flagged time). Completed: judge_v4 re-baseline of v2 golden, prompt v3 on golden + judged, prompt v2 on the 10-week held-out set + judged. NOT run: prompt v3 on held-out, judge of it (steps 6-7) - can resume later, nothing needs to be redone.
 - RESULT (v2, Sonnet 5, held-out 10 weeks, never used to tune anything): 9 of 10 published (1 fallback), so-whats real implications 83% (125/150) vs 96% on the golden set (judge_v4, same model/judge) - a real but modest generalization gap. Headline verdict 9/9, watch-outs are risks 9/9, no speculation 6/9. Avg cost $0.175/week.
 - NOTE: golden-set v2(Opus 5) vs v3(Sonnet 5) comparison is confounded by model change; user asked to skip that comparison for now, revisit later. No clean v2-vs-v3 held-out comparison yet (v3 held-out not run).
-- BACKLOG: run steps 6-7 (prompt v3 + judge on held-out) when resuming; then a same-model v2-vs-v3 held-out comparison.
+- RESUMED (step 6): v3 held-out generation (10 weeks, Sonnet 5): 8/10 first-attempt, 2 after retry, 0 fallback, $1.652 total ($0.165/week). Results in `evals/experiments/heldout_v3_sonnet-5/`.
+- DECIDED (user): skip step 7 (judge v4 on v3 held-out) and the planned same-model v2-vs-v3 held-out comparison. Data is synthetic (no real company/product), so there is no ground truth for "correct" commentary; further eval/prompt iteration chasing a higher pass-rate is a token/time sink, not a learning gain. Eval loop (golden set, judge, guards, held-out replay) is considered demonstrated. BACKLOG item closed, not deferred.
 
 ## 2026-09-26
 
