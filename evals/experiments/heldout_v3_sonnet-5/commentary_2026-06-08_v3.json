@@ -1,0 +1,283 @@
+{
+  "week": "2026-06-08",
+  "status": "verified",
+  "commentary": {
+    "summary": {
+      "headline": "Orders and revenue beat target this week despite WoW declines, but YTD revenue remains behind target and the 14-Day Return Rate shows an anomalous jump.",
+      "points": [
+        {
+          "what": "Orders came in at 989, 110.6% of target, down 6.7% WoW.",
+          "so_what": "The week stayed ahead of target even as volume pulled back, keeping the quarter's order performance on the ahead side of target."
+        },
+        {
+          "what": "Revenue was 74081, 109.5% of target, down 5.0% WoW.",
+          "so_what": "Revenue also cleared target despite the pullback, contributing to the quarter's 100.7% QTD attainment."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 25 May rose to 11.7%, up 2.7pp WoW, flagged as an anomaly.",
+          "so_what": "The anomaly flag means this increase is unusual, not a typical week-to-week move, and marks a fresh risk to order quality."
+        },
+        {
+          "what": "YTD revenue attainment stands at 96.7%, behind target.",
+          "so_what": "Even with two ahead-of-target weekly results, the year overall remains behind, and the recent pace falls short of what full-year attainment requires."
+        }
+      ]
+    },
+    "watchouts": {
+      "points": [
+        {
+          "what": "Cancellation rate rose to 15.4%, up 0.8pp WoW and up 1.7pp YoY, both rated bad.",
+          "so_what": "A rise in both WoW and YoY terms means cancellations continue moving in the wrong direction, working against the revenue captured this week."
+        },
+        {
+          "what": "The 14-Day Return Rate for the week of 25 May rose to 11.7%, up 2.7pp WoW and up 1.9pp YoY, flagged as an anomaly.",
+          "so_what": "The anomaly flag means this jump is unusual rather than typical week-to-week movement, marking a risk to order quality that stands out from recent weeks."
+        },
+        {
+          "what": "New signups fell to 223, down 20.6% WoW and down 11.2% YoY, both rated bad.",
+          "so_what": "A notable drop in new signups while orders kept growing YoY is a risk to sustaining that order growth if the gap continues."
+        }
+      ]
+    },
+    "vs_target": {
+      "points": [
+        {
+          "what": "Orders were 110.6% of target and revenue was 109.5% of target this week, both rated ahead.",
+          "so_what": "Both weekly KPIs cleared target despite WoW declines, keeping the week in ahead-of-target territory alongside the quarter's ahead position."
+        },
+        {
+          "what": "QTD revenue attainment is 100.7%, ahead of target, with 2 weeks left in the quarter and 136509 still needed to reach the full-quarter target.",
+          "so_what": "The quarter is currently ahead of target but not yet secured, with the full remaining amount still to be delivered in the last two weeks."
+        },
+        {
+          "what": "YTD revenue attainment is 96.7%, behind target, and requires a weekly run rate of 83488 against a recent 8-week run rate of 70092.",
+          "so_what": "At the current pace, the full-year target is out of reach unless the weekly pace rises well above the recent run rate."
+        }
+      ]
+    },
+    "drivers": {
+      "points": [
+        {
+          "what": "EMEA orders fell to 170, down 22.0% WoW, the largest contributor to the week's order decline at 67.6% of the change.",
+          "so_what": "EMEA alone accounted for most of the week's order pullback, making it the region driving the overall decline."
+        },
+        {
+          "what": "Search orders fell to 711, down 6.7% WoW, contributing 71.8% of the week's order decline.",
+          "so_what": "Since Search is the largest traffic source, its pullback was the main reason total orders fell WoW, rather than weakness spread evenly across channels."
+        },
+        {
+          "what": "Facebook orders rose to 65, up 18.2% WoW, adding orders while other channels fell.",
+          "so_what": "Facebook was the only channel growing WoW, but its gain was not enough to offset the declines in Search and other channels."
+        }
+      ]
+    },
+    "health": {
+      "points": [
+        {
+          "what": "AOV rose to 88.51, up 2.7% WoW and 3.2% YoY, both rated good.",
+          "so_what": "Since orders fell 6.7% WoW while revenue fell only 5.0% WoW, the smaller revenue decline came from the higher AOV rather than from order volume."
+        },
+        {
+          "what": "Cancellation rate rose to 15.4%, up 0.8pp WoW and up 1.7pp YoY, both rated bad.",
+          "so_what": "At $875 of revenue per cancellation point, the higher rate represents revenue lost against this week's target."
+        },
+        {
+          "what": "New signups fell to 223, down 20.6% WoW and down 11.2% YoY, both rated bad, even as orders grew 88.4% YoY.",
+          "so_what": "New signup growth continues to lag order growth, a risk to sustaining that order growth if the gap persists."
+        }
+      ]
+    }
+  },
+  "guard_report": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "numbers exist in the brief",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "direction words match the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "ahead/behind target matches the data",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no causes, recommendations, 'plan', or 'net revenue'",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "14-Day Return Rate names its mature week",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "anomaly flag acknowledged in the summary",
+        "severity": "block",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "sentences at most 30 words and 4 numbers",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "each slot only covers its allowed KPIs",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no fact repeated across 3+ slots",
+        "severity": "warn",
+        "passed": false,
+        "details": [
+          "'6.7' appears in 3 slots: ['drivers', 'health', 'summary']",
+          "'2.7' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      {
+        "name": "so_what differs from what",
+        "severity": "warn",
+        "passed": true,
+        "details": []
+      }
+    ]
+  },
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "backend": "claude_headless",
+  "attempts": [
+    {
+      "number": 1,
+      "ok": true,
+      "error": null,
+      "duration_ms": 119870,
+      "cost_usd": 0.1588156,
+      "tokens": {
+        "input": 2,
+        "cache_write": 6786,
+        "cache_read": 6388,
+        "output": 13039,
+        "thinking": 11316
+      },
+      "blocking_failures": [],
+      "guard_details": {
+        "no fact repeated across 3+ slots": [
+          "'6.7' appears in 3 slots: ['drivers', 'health', 'summary']",
+          "'2.7' appears in 3 slots: ['health', 'summary', 'watchouts']"
+        ]
+      },
+      "commentary": {
+        "summary": {
+          "headline": "Orders and revenue beat target this week despite WoW declines, but YTD revenue remains behind target and the 14-Day Return Rate shows an anomalous jump.",
+          "points": [
+            {
+              "what": "Orders came in at 989, 110.6% of target, down 6.7% WoW.",
+              "so_what": "The week stayed ahead of target even as volume pulled back, keeping the quarter's order performance on the ahead side of target."
+            },
+            {
+              "what": "Revenue was 74081, 109.5% of target, down 5.0% WoW.",
+              "so_what": "Revenue also cleared target despite the pullback, contributing to the quarter's 100.7% QTD attainment."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 25 May rose to 11.7%, up 2.7pp WoW, flagged as an anomaly.",
+              "so_what": "The anomaly flag means this increase is unusual, not a typical week-to-week move, and marks a fresh risk to order quality."
+            },
+            {
+              "what": "YTD revenue attainment stands at 96.7%, behind target.",
+              "so_what": "Even with two ahead-of-target weekly results, the year overall remains behind, and the recent pace falls short of what full-year attainment requires."
+            }
+          ]
+        },
+        "watchouts": {
+          "points": [
+            {
+              "what": "Cancellation rate rose to 15.4%, up 0.8pp WoW and up 1.7pp YoY, both rated bad.",
+              "so_what": "A rise in both WoW and YoY terms means cancellations continue moving in the wrong direction, working against the revenue captured this week."
+            },
+            {
+              "what": "The 14-Day Return Rate for the week of 25 May rose to 11.7%, up 2.7pp WoW and up 1.9pp YoY, flagged as an anomaly.",
+              "so_what": "The anomaly flag means this jump is unusual rather than typical week-to-week movement, marking a risk to order quality that stands out from recent weeks."
+            },
+            {
+              "what": "New signups fell to 223, down 20.6% WoW and down 11.2% YoY, both rated bad.",
+              "so_what": "A notable drop in new signups while orders kept growing YoY is a risk to sustaining that order growth if the gap continues."
+            }
+          ]
+        },
+        "vs_target": {
+          "points": [
+            {
+              "what": "Orders were 110.6% of target and revenue was 109.5% of target this week, both rated ahead.",
+              "so_what": "Both weekly KPIs cleared target despite WoW declines, keeping the week in ahead-of-target territory alongside the quarter's ahead position."
+            },
+            {
+              "what": "QTD revenue attainment is 100.7%, ahead of target, with 2 weeks left in the quarter and 136509 still needed to reach the full-quarter target.",
+              "so_what": "The quarter is currently ahead of target but not yet secured, with the full remaining amount still to be delivered in the last two weeks."
+            },
+            {
+              "what": "YTD revenue attainment is 96.7%, behind target, and requires a weekly run rate of 83488 against a recent 8-week run rate of 70092.",
+              "so_what": "At the current pace, the full-year target is out of reach unless the weekly pace rises well above the recent run rate."
+            }
+          ]
+        },
+        "drivers": {
+          "points": [
+            {
+              "what": "EMEA orders fell to 170, down 22.0% WoW, the largest contributor to the week's order decline at 67.6% of the change.",
+              "so_what": "EMEA alone accounted for most of the week's order pullback, making it the region driving the overall decline."
+            },
+            {
+              "what": "Search orders fell to 711, down 6.7% WoW, contributing 71.8% of the week's order decline.",
+              "so_what": "Since Search is the largest traffic source, its pullback was the main reason total orders fell WoW, rather than weakness spread evenly across channels."
+            },
+            {
+              "what": "Facebook orders rose to 65, up 18.2% WoW, adding orders while other channels fell.",
+              "so_what": "Facebook was the only channel growing WoW, but its gain was not enough to offset the declines in Search and other channels."
+            }
+          ]
+        },
+        "health": {
+          "points": [
+            {
+              "what": "AOV rose to 88.51, up 2.7% WoW and 3.2% YoY, both rated good.",
+              "so_what": "Since orders fell 6.7% WoW while revenue fell only 5.0% WoW, the smaller revenue decline came from the higher AOV rather than from order volume."
+            },
+            {
+              "what": "Cancellation rate rose to 15.4%, up 0.8pp WoW and up 1.7pp YoY, both rated bad.",
+              "so_what": "At $875 of revenue per cancellation point, the higher rate represents revenue lost against this week's target."
+            },
+            {
+              "what": "New signups fell to 223, down 20.6% WoW and down 11.2% YoY, both rated bad, even as orders grew 88.4% YoY.",
+              "so_what": "New signup growth continues to lag order growth, a risk to sustaining that order growth if the gap persists."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "brief_hash": "95b9e3486648ab3e",
+  "cache_hit": false,
+  "cost_usd": 0.1588,
+  "duration_ms": 119870,
+  "tokens": {
+    "input": 2,
+    "cache_write": 6786,
+    "cache_read": 6388,
+    "output": 13039,
+    "thinking": 11316
+  }
+}

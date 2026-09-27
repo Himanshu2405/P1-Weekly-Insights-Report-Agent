@@ -1,0 +1,160 @@
+{
+  "experiment": "heldout_v3_sonnet-5",
+  "set": "heldout",
+  "prompt_version": "v3",
+  "model": "claude-sonnet-5",
+  "finished_at_utc": "2026-09-27T19:07:59+00:00",
+  "weeks": 10,
+  "verified_first_attempt": 8,
+  "verified_after_retry": 2,
+  "fallback": 0,
+  "weeks_with_warnings": 7,
+  "total_cost_usd": 1.652,
+  "avg_cost_per_week_usd": 0.165,
+  "avg_duration_s": 119.6,
+  "wall_clock_min": 16.6,
+  "rows": [
+    {
+      "week": "2026-01-05",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.1874,
+      "duration_s": 128.1
+    },
+    {
+      "week": "2026-01-26",
+      "status": "verified",
+      "reused": true,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1091,
+      "duration_s": 77.2
+    },
+    {
+      "week": "2026-02-02",
+      "status": "verified_after_retry",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "no causes, recommendations, 'plan', or 'net revenue'"
+      ],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.2465,
+      "duration_s": 169.5
+    },
+    {
+      "week": "2026-03-02",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "each slot only covers its allowed KPIs",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.081,
+      "duration_s": 48.8
+    },
+    {
+      "week": "2026-03-09",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "sentences at most 30 words and 4 numbers",
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1826,
+      "duration_s": 145.1
+    },
+    {
+      "week": "2026-04-27",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.2014,
+      "duration_s": 160.5
+    },
+    {
+      "week": "2026-05-04",
+      "status": "verified_after_retry",
+      "reused": false,
+      "attempts": 2,
+      "first_attempt_passed": false,
+      "blocking_failures": [
+        "ahead/behind target matches the data"
+      ],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1837,
+      "duration_s": 120.7
+    },
+    {
+      "week": "2026-05-18",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [],
+      "cost_usd": 0.1699,
+      "duration_s": 131.0
+    },
+    {
+      "week": "2026-05-25",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1316,
+      "duration_s": 95.5
+    },
+    {
+      "week": "2026-06-08",
+      "status": "verified",
+      "reused": false,
+      "attempts": 1,
+      "first_attempt_passed": true,
+      "blocking_failures": [],
+      "errors": [],
+      "warnings": [
+        "no fact repeated across 3+ slots"
+      ],
+      "cost_usd": 0.1588,
+      "duration_s": 119.9
+    }
+  ]
+}
