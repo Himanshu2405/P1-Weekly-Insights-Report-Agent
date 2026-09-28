@@ -97,6 +97,13 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      - name: Post status comment (scheduled runs only, not manual)
+        if: always() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        run: python scripts/notify_status.py
+
   alert-on-failure:
     needs: [guard, build-and-publish]
     if: failure() && needs.guard.outputs.proceed == 'true'

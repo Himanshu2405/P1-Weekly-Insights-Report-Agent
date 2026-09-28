@@ -114,6 +114,7 @@ GitHub Actions (Mon 12:00 and 13:00 UTC)
 - Scheduling: two cron triggers (12:00 and 13:00 UTC Monday) bracket 8am America/New_York across EST and EDT, since GitHub cron is UTC-only with no daylight-saving support. `weekly_report/schedule.is_scheduled_run()` lets only the one that actually lands on 8am ET proceed; the other exits as a no-op (tested for both EST and EDT). No separate "does this week's report already exist" check: `AS_OF_WEEK` is frozen, so every run targets the same week by design (see section 3). Manual rerun via `workflow_dispatch` (a `force` input skips the time guard).
 - Secrets: `ANTHROPIC_API_KEY` (CI-only Claude backend, the one real stored secret) in GitHub secrets; BigQuery via Workload Identity Federation instead of a key file (`scripts/setup_gcp_wif.sh`, a Workload Identity Pool + OIDC provider scoped to this exact repo, impersonating a service account with only `roles/bigquery.jobUser`).
 - Failure path: guards fail after retries -> publish numbers with template narrative, label "commentary unavailable", still enforced blocking (this happened on the first real scheduled test run, see section 7). A workflow-level failure (not a guard failure) opens a GitHub issue automatically.
+- Status notification: every *scheduled* run (not manual `workflow_dispatch`) posts a comment to a persistent tracking issue (`scripts/notify_status.py`) with success/failure, checks, cost, and links. GitHub emails the subscriber on new comments, so this delivers email without adding an SMTP credential.
 
 ## 5. File formats
 
