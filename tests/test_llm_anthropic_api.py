@@ -38,6 +38,29 @@ class FakeClient:
         self.messages = FakeMessages(response)
 
 
+def test_api_schema_strips_unsupported_min_items():
+    schema = {"type": "object", "properties": {
+        "points": {"type": "array", "minItems": 3, "maxItems": 4, "description": "3 to 4 points"},
+        "flags": {"type": "array", "minItems": 1},
+        "extra": {"type": "array", "minItems": 0},
+    }}
+    cleaned = llm._api_schema(schema)
+    assert "minItems" not in cleaned["properties"]["points"]
+    assert cleaned["properties"]["points"]["maxItems"] == 4
+    assert cleaned["properties"]["points"]["description"] == "3 to 4 points"
+    assert cleaned["properties"]["flags"]["minItems"] == 1
+    assert cleaned["properties"]["extra"]["minItems"] == 0
+
+
+def test_anthropic_api_sends_sanitized_schema_to_the_api(monkeypatch):
+    client = FakeClient(fake_response())
+    monkeypatch.setattr(llm.anthropic, "Anthropic", lambda: client)
+    schema = {"type": "object", "properties": {"points": {"type": "array", "minItems": 3}}}
+    llm._anthropic_api("system", "user", schema, "claude-sonnet-5")
+    sent_schema = client.messages.kwargs["output_config"]["format"]["schema"]
+    assert "minItems" not in sent_schema["properties"]["points"]
+
+
 def test_anthropic_api_translates_response_to_headless_shape(monkeypatch):
     monkeypatch.setattr(llm.anthropic, "Anthropic", lambda: FakeClient(fake_response()))
     out = llm._anthropic_api("system", "user", {"type": "object"}, "claude-sonnet-5")

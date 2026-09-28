@@ -104,6 +104,18 @@ def _anthropic_cost_usd(model: str, tokens: dict) -> float:
             + tokens["output"] * price["output"]) / 1_000_000
 
 
+def _api_schema(node):
+    """The Messages API's structured-outputs schema only allows minItems of 0 or 1 (the CLI's
+    --json-schema has no such limit). Strip out-of-range minItems; commentary_model() in
+    generate() still enforces the real min/max locally on every response, so nothing is
+    left unchecked - Claude just loses the in-schema hint for point counts above 1."""
+    if isinstance(node, dict):
+        return {k: _api_schema(v) for k, v in node.items() if not (k == "minItems" and v not in (0, 1))}
+    if isinstance(node, list):
+        return [_api_schema(v) for v in node]
+    return node
+
+
 def _anthropic_api(system: str, user: str, schema: dict, model: str) -> dict:
     """One Anthropic API call: the CI backend, used when there is no interactive `claude -p` login."""
     client = anthropic.Anthropic()
@@ -112,7 +124,7 @@ def _anthropic_api(system: str, user: str, schema: dict, model: str) -> dict:
         response = client.messages.create(
             model=model, max_tokens=16000, system=system,
             messages=[{"role": "user", "content": user}],
-            output_config={"format": {"type": "json_schema", "schema": schema}},
+            output_config={"format": {"type": "json_schema", "schema": _api_schema(schema)}},
         )
     except anthropic.APIStatusError as e:
         raise LLMError(f"Anthropic API error {e.status_code}: {str(e.message)[:500]}") from e
