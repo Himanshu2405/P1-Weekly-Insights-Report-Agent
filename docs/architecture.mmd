@@ -1,11 +1,20 @@
 flowchart TD
+    %% ---------- automation wrapper: phase 5 ----------
+    subgraph AUTOMATE["0. Automated trigger (GitHub Actions)"]
+        CRON["Mon 12:00 + 13:00 UTC<br/>two triggers, no DST support"]
+        GUARD{"Actually 8am America/New_York?<br/>schedule.py"}
+        SKIP(["Skip: wrong trigger of the pair"])
+        AUTH["GCP auth<br/>Workload Identity Federation<br/>no long-lived key"]
+        CIT["pytest: guards, judge,<br/>schema, schedule tests<br/>must pass first"]
+    end
+
     %% ---------- inputs ----------
     subgraph IN["Inputs"]
         BQ[("BigQuery public data<br/>orders, order_items, users")]
         TGT["targets/weekly_targets_2026.csv<br/>frozen weekly targets"]
         LAY["report_layout.yaml<br/>page sections + AI slots"]
         CTX["business_context.md<br/>business facts for Claude"]
-        PR["prompts/commentary_v1.md<br/>instructions for Claude"]
+        PR["prompts/commentary_v2.md<br/>instructions for Claude"]
     end
 
     %% ---------- data: phase 1 ----------
@@ -22,10 +31,10 @@ flowchart TD
     %% ---------- AI: phase 2 ----------
     subgraph AI["2. AI commentary (write the text)"]
         S7["Step 7: Assemble the prompt<br/>prompt + business context + brief + output format"]
-        S8["Step 8: Call Claude (headless)<br/>returns JSON + tokens, time, cost"]
+        S8["Step 8: Call Claude<br/>local: headless CLI (subscription)<br/>CI: Anthropic API (ANTHROPIC_API_KEY)"]
         S9{"Step 9: Guards<br/>numbers, direction words,<br/>so-what, banned words"}
         S9R["Retry once"]
-        S9F["Template fallback<br/>labelled 'commentary unavailable'"]
+        S9F["Template fallback<br/>labelled 'commentary unavailable'<br/>(job still succeeds)"]
         S10["Step 10: Log the run<br/>checks, model, tokens, cost"]
     end
 
@@ -36,13 +45,17 @@ flowchart TD
         OUT["site/reports/report_week.html<br/>+ site/index.html"]
     end
 
-    %% ---------- later ----------
-    subgraph LATER["4. Prove it + 5. Publish"]
-        EV["Phase 4: Evals<br/>run steps 7 to 9 on ~25 saved briefs,<br/>score, error analysis, prompt v2, v3"]
-        TR["Phase 4: Traces<br/>LangSmith records every call"]
-        PUB["Phase 5: GitHub Pages<br/>public link for interviewers"]
+    %% ---------- proven + shipped: phase 4 + 5 ----------
+    subgraph LATER["4. Proven + 5. Shipped"]
+        EV["Evals - DONE<br/>golden set 16 + held-out 10,<br/>guards, LLM judge v1 to v4, error analysis"]
+        PUB["GitHub Pages - LIVE<br/>himanshu2405.github.io/P1-Weekly-Insights-Report-Agent"]
+        ALERT["Job fails (data gate, crash)<br/>opens a GitHub issue automatically"]
     end
 
+    CRON --> GUARD
+    GUARD -- "no" --> SKIP
+    GUARD -- "yes, or manual run" --> AUTH --> CIT
+    CIT --> S2
     BQ --> S2
     S1 --> S2 --> S3 --> S4
     TGT --> S4
@@ -62,14 +75,12 @@ flowchart TD
     LAY --> S12
     S12 --> OUT
     S6 -. "saved briefs = golden set" .-> EV
-    S8 -. "every call" .-> TR
-    OUT -.-> PUB
+    OUT --> PUB
+    STOP -. "data problem: alert a human" .-> ALERT
 
     classDef done fill:#e7f5ea,stroke:#1d6b33,color:#0b0b0b
-    classDef next fill:#fff4d6,stroke:#b07d00,color:#0b0b0b
-    classDef later fill:#f0efec,stroke:#898781,color:#52514e
+    classDef auto fill:#f3ecfb,stroke:#7a3fc7,color:#0b0b0b
     classDef input fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b
-    class BQ,TGT,LAY,CTX input
-    class PR input
-    class S1,S2,S3,S4,S5,S6,S7,S8,S9,S9R,S9F,S10,S11,S12,OUT,STOP done
-    class EV,TR,PUB later
+    class BQ,TGT,LAY,CTX,PR input
+    class S1,S2,S3,S4,S5,S6,S7,S8,S9,S9R,S9F,S10,S11,S12,OUT,STOP,EV,PUB,ALERT done
+    class CRON,GUARD,AUTH,CIT,SKIP auto

@@ -30,14 +30,13 @@ PAGE = """<!DOCTYPE html>
 <body>
 <header>
   <h1>How the weekly report is built</h1>
-  <div class="sub">One command runs everything for one week: <code>python scripts/build_report.py --week 2026-08-03</code>.
-  Step details: see ARCHITECTURE.md.</div>
+  <div class="sub">Runs itself every Monday via GitHub Actions, or by hand: <code>python scripts/build_report.py --week 2026-08-03</code>.
+  Step details: see ARCHITECTURE.md. Live report: <a href="https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/">himanshu2405.github.io/P1-Weekly-Insights-Report-Agent</a>.</div>
 </header>
 <div class="legend">
   <span class="chip" style="background:#eef4fc">Inputs</span>
-  <span class="chip" style="background:#e7f5ea">Built</span>
-  
-  <span class="chip" style="background:#f0efec">Phase 4 and 5 (later)</span>
+  <span class="chip" style="background:#e7f5ea">Built and shipped</span>
+  <span class="chip" style="background:#f3ecfb">Automation (Phase 5)</span>
 </div>
 <div class="wrap"><pre class="mermaid">
 {diagram}

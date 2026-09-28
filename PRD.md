@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | Owner | Himanshu Dubey |
-| Status | v0.5 (2026-09-24) |
+| Status | v0.6 (2026-09-28) |
 | Tech spec | [TECH_SPEC.md](TECH_SPEC.md) |
 | Plan | [PLAN.md](PLAN.md) |
 | Decisions log | [P1_Decisions_Log.md](P1_Decisions_Log.md) |
@@ -78,10 +78,10 @@ Out of scope: product and category cuts, web funnel (`events` table), any delive
 | Guarded | Every number in the commentary exists in the data brief (within rounding) | 100% on published reports (enforced by guard, not hoped for) |
 | Guarded | Direction words match the sign and polarity of the change (for example "worsened" for a rising cancellation rate) | 100% on published reports |
 | Guarded | Output matches the required JSON schema | 100%; retry, then template fallback |
-| Evaluated | Golden set of historical weeks with hand-labeled expectations, including hard scenarios (spike week, target miss in a growth week, quiet week, good week in a bad quarter) | 25 or more examples |
+| Evaluated | Golden set of historical weeks with hand-labeled expectations, including hard scenarios (spike week, target miss in a growth week, quiet week, good week in a bad quarter) | 16 examples (revised down from the original 25+ target on synthetic data, see decisions log 2026-09-25), plus a 10-week held-out set never used to tune anything |
 | Evaluated | LLM-as-judge scores faithfulness and usefulness, calibrated against human labels | Judge agrees with human labels on 85% or more |
 | Evaluated | Every prompt or model change runs the eval suite in CI and cannot merge if scores drop | Pass rate 90% or more on golden set |
-| Traced | Every run records input brief, prompt version, model, output, guard results, retries | 100% of runs traced (LangSmith) |
+| Traced | Every run records input brief, prompt version, model, output, guard results, retries | 100% of runs logged (`runs/run_log.jsonl`, git-tracked; LangSmith evaluated and deferred to P2, see decisions log 2026-09-27) |
 | Observable | Per-run metrics: latency, tokens, cost, guard pass/fail, retries, fallback used | Visible in a run history log and on the report footer |
 | Cost-tracked | Cost per weekly report and per eval run recorded; Opus 5 vs Sonnet 5 vs Haiku 4.5 compared | Under $0.10 per report, under $5 per full eval run |
 | Resilient | On guard failure after retries: publish numbers with template commentary, label it, and open an alert | Zero wrong numbers published, ever |
@@ -101,8 +101,8 @@ Out of scope: product and category cuts, web funnel (`events` table), any delive
 - The report is frozen as of the week of 2026-08-03 (last week of steady data; the public dataset shows a data break from mid-September 2026).
 - Fiscal year = Jan to Dec.
 - Targets are simulated (same week last year x 1.75) and frozen in a versioned file.
-- Budget: GCP free tier with a $5 alert; Anthropic API pay-as-you-go.
-- Stack: Python, BigQuery, Anthropic API, LangSmith (free tier), GitHub Actions, GitHub Pages.
+- Budget: GCP free tier with a $5 alert; Anthropic API pay-as-you-go (CI only, ~$0.15/run).
+- Stack: Python, BigQuery, Claude Code headless (local dev) + Anthropic API (CI), GitHub Actions, GitHub Pages, Workload Identity Federation.
 
 ## 11. Risks and mitigations
 
@@ -122,15 +122,21 @@ Out of scope: product and category cuts, web funnel (`events` table), any delive
 | M0 Setup | Environment, BigQuery access | Done |
 | M1 Data | SQL, KPIs, targets file, data brief | Modules 1, 2, 2.5 (done) |
 | M2 Commentary | Business context file, prompt, automated LLM call, schema output | Module 3 (done) |
-| M3 Reliability | Guards, golden set, judge, tracing, error analysis | Module 5 (in progress) |
-| M4 Ship | HTML report, GitHub Actions schedule, Pages, alerts, run metrics | Modules 7.3, 7.4 |
-| M5 Story | README and slides for interviews | All of the above |
+| M3 Reliability | Guards, golden set, judge, observability, error analysis | Done |
+| M4 Ship | HTML report, GitHub Actions schedule, Pages, alerts, run metrics | Done (Modules 7.3, 7.4) |
+| M5 Story | README and slides for interviews | In progress |
 
 ## 13. Decisions (resolved 2026-09-24)
 
 - Delivery: GitHub Pages only. No Slack or email, now or later.
 - Models: commentary default is Claude Opus 5 (`claude-opus-5`). Claude Sonnet 5 and Claude Haiku 4.5 are eval challengers: if one passes the same golden set and guards, switch to it and report the savings. Judge: Claude Opus 5 (at least as capable as the model it grades). No Claude Fable models anywhere in this project.
 - Commentary style: bullet points, never long paragraphs. Every point = what happened + a "So what" (the business implication). A "So what" must be grounded in code-computed facts in the brief (target impact, quarter outlook, revenue value of a change, comparison between KPIs, data caveats). Still no causes and no action recommendations such as "increase spend", because they cannot be verified from the data and invite invented causes.
+
+## 13a. Decisions (resolved 2026-09-26 to 2026-09-28)
+
+- Model switch (2026-09-26): production commentary and judge both moved from Claude Opus 5 to **Claude Sonnet 5** (about 40% of Opus 5 cost per token), after the eval showed comparable quality. No Claude Fable models anywhere in this project, unchanged.
+- Tracing (2026-09-27): LangSmith evaluated and **deferred to P2**. P1's homegrown stack (guards, LLM-as-judge, `run_log.jsonl`, guard error analysis) already does the eval/observability job for a manual weekly batch job; LangSmith's actual value (a trace dashboard, production monitoring) fits P2's live chatbot, not a report that runs once a week. See `P1_Decisions_Log.md` 2026-09-27.
+- CI model auth (2026-09-28): the "no Anthropic API key" decision above only ever considered local, manual runs. GitHub Actions has no access to the local Claude Code subscription login, so the scheduled workflow uses a real, narrowly-scoped `ANTHROPIC_API_KEY` GitHub secret (~$0.15/run). Local development is unaffected and stays on the free subscription CLI.
 
 ## 14. Open questions
 
