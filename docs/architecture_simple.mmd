@@ -1,0 +1,11 @@
+flowchart LR
+    P0["Phase 0<br/>Automated trigger<br/>GitHub Actions, 8am ET"] --> P1["Phase 1<br/>Data<br/>BigQuery -> KPIs, targets"]
+    P1 --> P2["Phase 2<br/>AI commentary<br/>Claude + guards + fallback"]
+    P2 --> P3["Phase 3<br/>Page<br/>Render HTML"]
+    P3 --> P5["Phase 5<br/>Publish<br/>GitHub Pages, live"]
+    P1 -. "saved briefs" .-> P4["Phase 4<br/>Evals<br/>golden + held-out set, judge"]
+
+    classDef done fill:#e7f5ea,stroke:#1d6b33,color:#0b0b0b
+    classDef auto fill:#f3ecfb,stroke:#7a3fc7,color:#0b0b0b
+    class P0 auto
+    class P1,P2,P3,P4,P5 done

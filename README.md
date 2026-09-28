@@ -36,7 +36,7 @@ flowchart LR
     class DATA,GATE,ISSUE,BRIEF,LLM,GUARDS,RETRY,FALLBACK,PAGE,PAGES done
 ```
 
-Full step-by-step diagram with every file and reliability trap: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (renders on GitHub) or the live [browser view](https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/architecture.html).
+Full step-by-step diagram with every file and reliability trap, plus a simpler phase-level view: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (renders on GitHub), the live [browser view](https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/architecture.html), or [open locally](file:///Users/himanshudubey/Documents/AI-learnings/Projects/P1-Weekly-Insights-Report/docs/architecture.html).
 
 ## How this was built: eval, observability, reliability
 

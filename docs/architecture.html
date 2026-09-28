@@ -10,6 +10,7 @@
          font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
   header { padding: 20px 24px 8px; }
   h1 { margin: 0 0 4px; font-size: 22px; }
+  h2 { margin: 28px 24px 0; font-size: 16px; }
   .sub { color: var(--ink-2); }
   .legend { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 24px 12px; }
   .chip { border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; font-size: 13px; }
@@ -28,6 +29,24 @@
   <span class="chip" style="background:#e7f5ea">Built and shipped</span>
   <span class="chip" style="background:#f3ecfb">Automation (Phase 5)</span>
 </div>
+
+<h2>Simple view: the 5 phases</h2>
+<div class="wrap"><pre class="mermaid">
+flowchart LR
+    P0["Phase 0<br/>Automated trigger<br/>GitHub Actions, 8am ET"] --&gt; P1["Phase 1<br/>Data<br/>BigQuery -&gt; KPIs, targets"]
+    P1 --&gt; P2["Phase 2<br/>AI commentary<br/>Claude + guards + fallback"]
+    P2 --&gt; P3["Phase 3<br/>Page<br/>Render HTML"]
+    P3 --&gt; P5["Phase 5<br/>Publish<br/>GitHub Pages, live"]
+    P1 -. "saved briefs" .-&gt; P4["Phase 4<br/>Evals<br/>golden + held-out set, judge"]
+
+    classDef done fill:#e7f5ea,stroke:#1d6b33,color:#0b0b0b
+    classDef auto fill:#f3ecfb,stroke:#7a3fc7,color:#0b0b0b
+    class P0 auto
+    class P1,P2,P3,P4,P5 done
+
+</pre></div>
+
+<h2>Detailed view: every step and file</h2>
 <div class="wrap"><pre class="mermaid">
 flowchart TD
     %% ---------- automation wrapper: phase 5 ----------

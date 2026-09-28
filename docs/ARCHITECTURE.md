@@ -4,9 +4,29 @@ Runs itself every Monday via GitHub Actions, or by hand: `python scripts/build_r
 
 Colors: purple = automation (Phase 5), green = built and shipped, blue = inputs. All phases complete.
 
-Browser view (live, standalone page): https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/architecture.html (published alongside the report; regenerate the source with `python scripts/build_architecture_html.py` after editing `docs/architecture.mmd` - the diagram below is a copy, kept in sync by hand).
+Browser view (live, standalone page): https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/architecture.html (published alongside the report; regenerate it with `python scripts/build_architecture_html.py` after editing `docs/architecture_simple.mmd` or `docs/architecture.mmd` - the two diagrams below are copies, kept in sync by hand).
 
 Live report: https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/
+
+## Simple view: the 5 phases
+
+```mermaid
+flowchart LR
+    P0["Phase 0<br/>Automated trigger<br/>GitHub Actions, 8am ET"] --> P1["Phase 1<br/>Data<br/>BigQuery -> KPIs, targets"]
+    P1 --> P2["Phase 2<br/>AI commentary<br/>Claude + guards + fallback"]
+    P2 --> P3["Phase 3<br/>Page<br/>Render HTML"]
+    P3 --> P5["Phase 5<br/>Publish<br/>GitHub Pages, live"]
+    P1 -. "saved briefs" .-> P4["Phase 4<br/>Evals<br/>golden + held-out set, judge"]
+
+    classDef done fill:#e7f5ea,stroke:#1d6b33,color:#0b0b0b
+    classDef auto fill:#f3ecfb,stroke:#7a3fc7,color:#0b0b0b
+    class P0 auto
+    class P1,P2,P3,P4,P5 done
+```
+
+Source: `docs/architecture_simple.mmd`.
+
+## Detailed view: every step and file
 
 ```mermaid
 flowchart TD
@@ -96,6 +116,8 @@ flowchart TD
     class S1,S2,S3,S4,S5,S6,S7,S8,S9,S9R,S9F,S10,S11,S12,OUT,STOP,EV,PUB,ALERT done
     class CRON,GUARD,AUTH,CIT,SKIP auto
 ```
+
+Source: `docs/architecture.mmd`.
 
 ## Step by step
 

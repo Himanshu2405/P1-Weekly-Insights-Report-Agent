@@ -1,4 +1,5 @@
-"""Regenerate docs/architecture.html from docs/architecture.mmd (the single source of the diagram).
+"""Regenerate docs/architecture.html from docs/architecture_simple.mmd and docs/architecture.mmd
+(the single sources of the two diagrams: simple phase view, then the full detailed view).
 
 Usage: python scripts/build_architecture_html.py
 """
@@ -20,6 +21,7 @@ PAGE = """<!DOCTYPE html>
          font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }}
   header {{ padding: 20px 24px 8px; }}
   h1 {{ margin: 0 0 4px; font-size: 22px; }}
+  h2 {{ margin: 28px 24px 0; font-size: 16px; }}
   .sub {{ color: var(--ink-2); }}
   .legend {{ display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 24px 12px; }}
   .chip {{ border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; font-size: 13px; }}
@@ -38,6 +40,13 @@ PAGE = """<!DOCTYPE html>
   <span class="chip" style="background:#e7f5ea">Built and shipped</span>
   <span class="chip" style="background:#f3ecfb">Automation (Phase 5)</span>
 </div>
+
+<h2>Simple view: the 5 phases</h2>
+<div class="wrap"><pre class="mermaid">
+{simple_diagram}
+</pre></div>
+
+<h2>Detailed view: every step and file</h2>
 <div class="wrap"><pre class="mermaid">
 {diagram}
 </pre></div>
@@ -50,11 +59,15 @@ PAGE = """<!DOCTYPE html>
 """
 
 
-def main() -> None:
-    diagram = (DOCS / "architecture.mmd").read_text()
+def _escaped(path: Path) -> str:
     # escape for HTML, but keep the <br/> line breaks used inside node labels
-    body = escape(diagram, quote=False).replace("&lt;br/&gt;", "<br/>")
-    (DOCS / "architecture.html").write_text(PAGE.format(diagram=body))
+    return escape(path.read_text(), quote=False).replace("&lt;br/&gt;", "<br/>")
+
+
+def main() -> None:
+    simple_diagram = _escaped(DOCS / "architecture_simple.mmd")
+    diagram = _escaped(DOCS / "architecture.mmd")
+    (DOCS / "architecture.html").write_text(PAGE.format(simple_diagram=simple_diagram, diagram=diagram))
     print(f"Wrote {DOCS / 'architecture.html'}")
 
 
