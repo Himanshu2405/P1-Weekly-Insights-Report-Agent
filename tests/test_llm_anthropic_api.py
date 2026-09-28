@@ -38,17 +38,18 @@ class FakeClient:
         self.messages = FakeMessages(response)
 
 
-def test_api_schema_strips_unsupported_min_items():
+def test_api_schema_strips_max_items_and_unsupported_min_items():
     schema = {"type": "object", "properties": {
         "points": {"type": "array", "minItems": 3, "maxItems": 4, "description": "3 to 4 points"},
-        "flags": {"type": "array", "minItems": 1},
+        "flags": {"type": "array", "minItems": 1, "maxItems": 1},
         "extra": {"type": "array", "minItems": 0},
     }}
     cleaned = llm._api_schema(schema)
     assert "minItems" not in cleaned["properties"]["points"]
-    assert cleaned["properties"]["points"]["maxItems"] == 4
+    assert "maxItems" not in cleaned["properties"]["points"]
     assert cleaned["properties"]["points"]["description"] == "3 to 4 points"
     assert cleaned["properties"]["flags"]["minItems"] == 1
+    assert "maxItems" not in cleaned["properties"]["flags"]
     assert cleaned["properties"]["extra"]["minItems"] == 0
 
 

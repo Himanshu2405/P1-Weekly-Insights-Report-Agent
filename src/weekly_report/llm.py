@@ -105,12 +105,13 @@ def _anthropic_cost_usd(model: str, tokens: dict) -> float:
 
 
 def _api_schema(node):
-    """The Messages API's structured-outputs schema only allows minItems of 0 or 1 (the CLI's
-    --json-schema has no such limit). Strip out-of-range minItems; commentary_model() in
-    generate() still enforces the real min/max locally on every response, so nothing is
-    left unchecked - Claude just loses the in-schema hint for point counts above 1."""
+    """The Messages API's structured-outputs schema mode rejects maxItems outright and only
+    allows minItems of 0 or 1 (the CLI's --json-schema has neither limit). Strip both here;
+    commentary_model() in generate() still enforces the real min/max locally on every response,
+    so nothing is left unchecked - Claude just loses the in-schema hint for point counts."""
     if isinstance(node, dict):
-        return {k: _api_schema(v) for k, v in node.items() if not (k == "minItems" and v not in (0, 1))}
+        return {k: _api_schema(v) for k, v in node.items()
+                if k != "maxItems" and not (k == "minItems" and v not in (0, 1))}
     if isinstance(node, list):
         return [_api_schema(v) for v in node]
     return node
