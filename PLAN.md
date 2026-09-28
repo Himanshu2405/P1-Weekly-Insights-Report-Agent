@@ -71,6 +71,6 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 - [x] Phase 2 AI commentary: prompt v1, output format, Claude headless call, guards, retry with feedback, fallback, cache, run log, page
 - [ ] Phase 3 Drill-down tools (optional)
 - [x] Phase 4 Evaluation, reliability (eval in CI still open, folded into Phase 5)
-- [ ] Module 7.3 completed (prereq for Phase 5)
+- [x] Module 7.3 completed (prereq for Phase 5)
 - [ ] Phase 5 Ship and operate
 - [ ] README + slides

@@ -211,10 +211,11 @@ def ai_context(outcome) -> dict:
     t = outcome.tokens
     details = [
         ("Model", outcome.model), ("Prompt version", outcome.prompt_version),
-        ("Engine", "Claude Code headless (subscription)" if outcome.backend == "claude_headless" else outcome.backend),
+        ("Engine", {"claude_headless": "Claude Code headless (subscription)",
+                    "anthropic_api": "Anthropic API (scheduled run)"}.get(outcome.backend, outcome.backend)),
         ("Attempts", f"{len(outcome.attempts)}" + (" (retried after failed checks)" if len(outcome.attempts) > 1 else "")),
         ("Tokens", f"{t.get('input', 0) + t.get('cache_write', 0) + t.get('cache_read', 0):,} in / {t.get('output', 0):,} out"),
-        ("LLM cost (API equivalent)", f"${outcome.cost_usd:.4f}" + (" (reused, no new call)" if outcome.cache_hit else "")),
+        ("LLM cost", f"${outcome.cost_usd:.4f}" + (" (reused, no new call)" if outcome.cache_hit else "")),
         ("LLM time", f"{outcome.duration_ms / 1000:.1f} s"),
     ]
     return {"status": outcome.status, "badge": badge, "badge_class": cls, "commentary": outcome.commentary or {},
