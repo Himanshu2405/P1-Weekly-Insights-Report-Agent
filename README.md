@@ -36,33 +36,45 @@ flowchart LR
     class DATA,GATE,ISSUE,BRIEF,LLM,GUARDS,RETRY,FALLBACK,PAGE,PAGES done
 ```
 
-Full step-by-step diagram with every file and reliability trap: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) ([browser view](docs/architecture.html)).
+Full step-by-step diagram with every file and reliability trap: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (renders on GitHub) or the live [browser view](https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/architecture.html).
 
 ## How this was built: eval, observability, reliability
 
-This is the core of the project. Generating commentary was the easy part; making it trustworthy enough to publish unattended is where the actual engineering is.
+Generating commentary was the easy part. Making it trustworthy enough to publish unattended, every week, is the actual engineering.
 
-**Reliability (guards, retry, fallback)**
-- 10 deterministic checks run on every AI answer before it can publish: numbers must exist in the data brief, direction words ("rose"/"fell") must match the data's actual sign, "ahead/behind target" must match the real attainment, no invented causes or recommendations, anomalies must be acknowledged, the 14-Day Return Rate must name its own week.
-- A blocking failure gets **one retry** with the exact failures fed back to Claude. If it still fails, the report publishes with a labeled fallback template and the real numbers, never a guess. This actually happened, live, not in a demo: the first scheduled test run hit a real bug (the Anthropic API's structured-output schema mode rejects constraints the CLI accepts fine) and correctly published the safe fallback instead of a wrong or missing page; the bug was found and fixed the same day.
-- Guards themselves were error-analyzed, not trusted blindly: an early pass found most "failures" were guard false positives, not real problems (e.g. "because the value..." flagged as a forbidden cause). Fixing guard precision mattered more for reliability than any single prompt change.
+**Reliability**
+- 10 deterministic guards before anything can publish:
+  - Every number must exist in the data brief
+  - Direction words ("rose"/"fell") must match the data's actual sign
+  - "Ahead/behind target" must match the real attainment
+  - No invented causes or recommendations
+  - Anomalies must be acknowledged
+  - 14-Day Return Rate must name its own week
+- On failure: one retry with the exact failures fed back to Claude, then a labeled fallback template with the real numbers, never a guess.
+  - Happened for real, not in a demo: the first live scheduled run hit an Anthropic API schema bug, published the safe fallback instead of a broken page, bug fixed the same day.
+- Guards were error-analyzed, not trusted blindly: an early pass found most "failures" were false positives. Fixing guard precision mattered more than any single prompt change.
 
 **Evaluation**
-- A **golden set** of 16 hand-picked historical weeks (behind/ahead of target, quiet weeks, anomalies, quarter boundaries, traps like "up week-over-week but behind target") plus a **held-out set** of 10 weeks never used to tune anything.
-- An **LLM-as-judge**, iterated v1 through v4 against 20 hand-labeled examples (v1 agreed with the human reviewer 85% of the time; after fixing the two vaguest rules, v2 agreed 100% on that same sample, an optimistic number since it's the data the fix was tuned on, not a fresh held-out check), scoring whether each point is a real business implication or just a restated fact.
-- Prompt v1 -> v2: the share of "so-what" points that are real implications (not restated facts) went from 68% to 88% on the golden set (same judge version, so directly comparable). v2 was promoted to production on that result.
-- Held-out generalization, checked honestly rather than assumed: v2 scored 96% on the golden set under a later judge revision, but only 83% on the 10-week held-out set it was never tuned against, a real but modest gap, not overfit to zero (the two figures use a newer judge than the 68%/88% pair above, so they're comparable to each other, not across that pair).
-- A prompt v3 was built and generated on the held-out set (8/10 first-attempt), but deliberately never fully judged or compared against v2: the underlying data is synthetic with no ground truth for "correct" commentary, so finishing that comparison would spend tokens chasing a score, not add a real lesson. That's a judgment call, logged with its reasoning in [P1_Decisions_Log.md](P1_Decisions_Log.md).
+- Golden set: 16 hand-picked weeks (anomalies, target misses, quarter boundaries, quiet weeks).
+- Held-out set: 10 weeks, never used to tune anything.
+- LLM-as-judge, iterated v1 -> v4, calibrated against 20 hand labels:
+  - v1: 85% agreement with a human reviewer
+  - v2 (fixed the two vaguest rules): 100% on that same sample, an optimistic number since it's the data the fix was tuned on, not a fresh check
+- Prompt v1 -> v2 (same judge, golden set): so-what real-implication rate 68% -> 88%. v2 promoted to production on this.
+- Held-out generalization, checked honestly: v2 scored 96% golden / 83% held-out under a later judge version, a real but modest gap, not overfit to zero.
+- Prompt v3 was built and generated but deliberately never fully judged: the data is synthetic with no ground truth, so finishing that comparison would chase a score, not add a lesson. Reasoning: [P1_Decisions_Log.md](P1_Decisions_Log.md).
 
 **Observability**
-- Every run, local or scheduled, writes one line to `runs/run_log.jsonl` (git-tracked): status, which backend and model ran, attempts, tokens, cost, guard pass/fail, and any errors.
-- The report page itself carries a trust panel: every data-quality and AI check for that specific run, plus model, prompt version, engine, attempts, tokens, cost, and time, visible to anyone reading the report, not just the engineer.
-- Considered and explicitly rejected a hosted tracing platform (LangSmith) for this project: the homegrown log + trust panel already does the job for a once-a-week batch run, and a tracing dashboard's real value is live production traffic, which this isn't. That tradeoff (and where LangSmith *would* make sense) is written up in the decisions log.
+- Every run writes one line to `runs/run_log.jsonl` (git-tracked): status, backend, model, attempts, tokens, cost, guard pass/fail, errors.
+- The report page carries its own trust panel: every check for that specific run, plus model, prompt version, engine, attempts, tokens, cost, time.
+- Considered and rejected a hosted tracing platform (LangSmith): the homegrown log + trust panel already covers a once-a-week batch job; a tracing dashboard earns its keep on live production traffic, which this isn't. Full tradeoff in the decisions log.
 
-**Checks that actually run in production, not just in a demo**
-- `.github/workflows/tests.yml`: the full test suite (61 tests, guards, judge, schema, scheduling) runs on every push, no credentials needed.
-- `.github/workflows/weekly-report.yml`: guards and tests must pass *inside the scheduled run itself* before anything publishes. GCP authentication uses Workload Identity Federation, so there's no long-lived GCP key to leak or rotate (the one real stored secret is the Claude API key, scoped to CI only). A job failure (bad data, a crash) opens a GitHub issue automatically, no silent failures.
-- The first two live test runs surfaced two real bugs in the new CI-only code path (both fixed same-day, see the decisions log); the third run succeeded end to end: **verified, 1 attempt, 10/10 checks passed, $0.1537**, live on GitHub Pages.
+**Checks that run in production, not just a demo**
+- `.github/workflows/tests.yml`: full test suite (61 tests) on every push, no credentials needed.
+- `.github/workflows/weekly-report.yml`: guards and tests must pass *inside the scheduled run itself* before publishing.
+  - GCP auth via Workload Identity Federation, no long-lived GCP key (the one real stored secret is the CI-only Claude API key).
+  - A job failure opens a GitHub issue automatically.
+- The first two live test runs surfaced two real bugs (fixed same day, see the decisions log); the third run succeeded end to end: **verified, 1 attempt, 10/10 checks passed, $0.1537**, live on GitHub Pages.
 
 ## Documents
 

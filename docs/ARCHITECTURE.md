@@ -4,7 +4,7 @@ Runs itself every Monday via GitHub Actions, or by hand: `python scripts/build_r
 
 Colors: purple = automation (Phase 5), green = built and shipped, blue = inputs. All phases complete.
 
-Browser view: open `docs/architecture.html` (regenerate it after editing `docs/architecture.mmd` with `python scripts/build_architecture_html.py`; the diagram below is a copy, kept in sync by hand).
+Browser view (live, standalone page): https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/architecture.html (published alongside the report; regenerate the source with `python scripts/build_architecture_html.py` after editing `docs/architecture.mmd` - the diagram below is a copy, kept in sync by hand).
 
 Live report: https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/
 

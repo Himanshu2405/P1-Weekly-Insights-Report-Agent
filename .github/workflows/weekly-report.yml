@@ -82,6 +82,9 @@ jobs:
           git diff --cached --quiet || git commit -m "Log scheduled run $(date -u +%F)"
           git push
 
+      - name: Include the architecture diagram in the published site
+        run: cp docs/architecture.html site/architecture.html
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

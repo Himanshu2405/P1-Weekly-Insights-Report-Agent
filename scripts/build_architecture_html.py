@@ -31,7 +31,7 @@ PAGE = """<!DOCTYPE html>
 <header>
   <h1>How the weekly report is built</h1>
   <div class="sub">Runs itself every Monday via GitHub Actions, or by hand: <code>python scripts/build_report.py --week 2026-08-03</code>.
-  Step details: see ARCHITECTURE.md. Live report: <a href="https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/">himanshu2405.github.io/P1-Weekly-Insights-Report-Agent</a>.</div>
+  Step details: see <a href="https://github.com/Himanshu2405/P1-Weekly-Insights-Report-Agent/blob/main/docs/ARCHITECTURE.md">ARCHITECTURE.md</a>. Live report: <a href="https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/">himanshu2405.github.io/P1-Weekly-Insights-Report-Agent</a>.</div>
 </header>
 <div class="legend">
   <span class="chip" style="background:#eef4fc">Inputs</span>
