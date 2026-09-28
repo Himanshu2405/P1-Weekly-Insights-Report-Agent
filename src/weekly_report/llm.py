@@ -1,18 +1,30 @@
 """Steps 7 and 8: assemble the prompt and call Claude for the commentary.
 
-The model call lives behind `generate()`. Today it runs Claude Code headless (`claude -p`) with the
-user's subscription; an Anthropic API backend can be added behind the same function later.
+The model call lives behind `generate()`. Local runs use Claude Code headless (`claude -p`) with the
+user's subscription. The GitHub Actions runner has no interactive login, so the scheduled workflow
+sets ANTHROPIC_API_KEY and call_structured() switches to the Anthropic API backend instead; see
+_anthropic_api(). Local dev never sets that env var, so it always stays on the free subscription CLI.
 """
 
 import json
+import os
 import subprocess
 import tempfile
 import time
 from dataclasses import asdict, dataclass, field
 
+import anthropic
+
 from . import config
 from .commentary_schema import commentary_model, json_schema
 from .models import DataBrief
+
+# Anthropic API list price per 1M tokens (Sept 2026). Cache writes cost ~1.25x input, cache reads
+# ~0.1x input, per Anthropic's published caching cost guidance. Only used by _anthropic_api(); the
+# headless CLI reports its own cost directly and never touches this table.
+_PRICE_PER_MTOK = {
+    "claude-sonnet-5": {"input": 2.00, "output": 10.00},
+}
 
 
 # ---------------------------------------------------------------- step 7: assemble the prompt
@@ -84,6 +96,47 @@ def _claude_headless(system: str, user: str, schema: dict, model: str) -> dict:
     return out
 
 
+def _anthropic_cost_usd(model: str, tokens: dict) -> float:
+    price = _PRICE_PER_MTOK[model]
+    return (tokens["input"] * price["input"]
+            + tokens["cache_write"] * price["input"] * 1.25
+            + tokens["cache_read"] * price["input"] * 0.1
+            + tokens["output"] * price["output"]) / 1_000_000
+
+
+def _anthropic_api(system: str, user: str, schema: dict, model: str) -> dict:
+    """One Anthropic API call: the CI backend, used when there is no interactive `claude -p` login."""
+    client = anthropic.Anthropic()
+    started = time.monotonic()
+    try:
+        response = client.messages.create(
+            model=model, max_tokens=16000, system=system,
+            messages=[{"role": "user", "content": user}],
+            output_config={"format": {"type": "json_schema", "schema": schema}},
+        )
+    except anthropic.APIStatusError as e:
+        raise LLMError(f"Anthropic API error {e.status_code}: {str(e.message)[:500]}") from e
+    duration_ms = int((time.monotonic() - started) * 1000)
+    try:
+        text = next(b.text for b in response.content if b.type == "text")
+        structured_output = json.loads(text)
+    except (StopIteration, json.JSONDecodeError) as e:
+        raise LLMError(f"no valid structured_output text block: {str(e)[:200]}") from e
+    u = response.usage
+    tokens = {"input": u.input_tokens, "cache_write": u.cache_creation_input_tokens or 0,
+              "cache_read": u.cache_read_input_tokens or 0, "output": u.output_tokens}
+    return {
+        "structured_output": structured_output,
+        "modelUsage": {response.model: None},
+        "duration_ms": duration_ms,
+        "total_cost_usd": _anthropic_cost_usd(model, tokens),
+        "usage": {"input_tokens": tokens["input"], "cache_creation_input_tokens": tokens["cache_write"],
+                  "cache_read_input_tokens": tokens["cache_read"], "output_tokens": tokens["output"]},
+        "session_id": response.id,
+        "is_error": False,
+    }
+
+
 def with_backoff(fn, *args, retries: int = config.LLM_TRANSPORT_RETRIES, base_delay: float = 5.0, sleep=time.sleep):
     """Retry infrastructure failures (CLI crash, timeout, bad JSON) with exponential backoff: 5 s, 10 s, ...
 
@@ -100,9 +153,17 @@ def with_backoff(fn, *args, retries: int = config.LLM_TRANSPORT_RETRIES, base_de
 
 
 def call_structured(system: str, user: str, schema: dict, model: str, version: str) -> LLMResult:
-    """One structured Claude call (any prompt): returns the JSON answer plus model, time, cost, tokens."""
+    """One structured Claude call (any prompt): returns the JSON answer plus model, time, cost, tokens.
+
+    Backend picked by ANTHROPIC_API_KEY: unset (the local default) uses the subscription CLI, set
+    (only in the scheduled GitHub Actions run) uses the Anthropic API. See the module docstring.
+    """
     started = time.monotonic()
-    out = with_backoff(_claude_headless, system, user, schema, model)
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        backend_fn, backend_name = _anthropic_api, "anthropic_api"
+    else:
+        backend_fn, backend_name = _claude_headless, "claude_headless"
+    out = with_backoff(backend_fn, system, user, schema, model)
     answer = out.get("structured_output")
     if answer is None:
         raise LLMError("no structured_output in the response")
@@ -111,7 +172,7 @@ def call_structured(system: str, user: str, schema: dict, model: str, version: s
         commentary=answer,
         prompt_version=version,
         model=next(iter(out.get("modelUsage") or {model: None})),
-        backend="claude_headless",
+        backend=backend_name,
         duration_ms=int(out.get("duration_ms") or (time.monotonic() - started) * 1000),
         cost_usd=float(out.get("total_cost_usd") or 0.0),
         tokens={"input": u.get("input_tokens", 0), "cache_write": u.get("cache_creation_input_tokens", 0),

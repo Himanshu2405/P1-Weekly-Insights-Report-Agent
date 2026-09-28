@@ -2,6 +2,17 @@
 
 Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech spec: [TECH_SPEC.md](TECH_SPEC.md). Plan: [PLAN.md](PLAN.md).
 
+## 2026-09-28
+
+- STARTED Phase 5 (ship and operate) on branch `feature/phase5-ci-cd`, after completing Module 7.3 (CI/CD).
+- BUILT: `weekly_report/schedule.py` (`is_scheduled_run`) + `scripts/should_run_now.py`. GitHub Actions cron is UTC-only with no daylight-saving support, so the weekly workflow fires two triggers (12:00 and 13:00 UTC Monday) and this guard lets only the one that actually lands on 8am America/New_York proceed. 5 new tests (both EST and EDT, both trigger times).
+- BLOCKER FOUND: the AI commentary step calls `claude -p` headless using the user's local Claude Code subscription login; GitHub Actions runners have neither the CLI nor that login. This conflicts with the earlier "no Anthropic API key" decision, which only ever considered local/manual runs.
+- DECIDED (user: no preference, use judgment): add an Anthropic API backend for CI only, real ANTHROPIC_API_KEY as a GitHub secret, cost ~$0.15-0.20/week based on existing run logs. Local dev is unaffected (no env var set there, stays on the free subscription CLI). Implemented in `llm.py`: `call_structured()` already anticipated this ("an Anthropic API backend can be added behind the same function later"); now picks `_anthropic_api()` when `ANTHROPIC_API_KEY` is set, `_claude_headless()` otherwise, both returning the same dict shape so nothing downstream changed. 5 new offline tests (fake client, no real network call) cover response-shape translation and the cache-write/read pricing math.
+- BUILT: `.github/workflows/tests.yml` (eval-in-CI: pytest on every push, no credentials needed, confirmed all 54 existing tests run fully offline).
+- Render.py: engine label now distinguishes "Claude Code headless (subscription)" from "Anthropic API (scheduled run)".
+- CONSIDERED and REJECTED (user asked, then decided): swap the CI-only Anthropic API key for a free-tier model (e.g. Gemini) to avoid the ~$8-10/year cost, since commentary quality does not matter on dummy data. Rejected because it is not actually cheaper: guards, judge, and all three prompt versions are tuned to Claude-specific output patterns, so a second vendor would need its own validation pass before being trusted to publish unattended, real effort for a trivial saving. Confirmed: staying on the paid Claude API for the scheduled run.
+- BUILT: `scripts/setup_gcp_wif.sh` (Workload Identity Federation setup, not run by Claude, real GCP IAM change) and `.github/workflows/weekly-report.yml` (guard -> build -> GCP auth -> tests -> Pages deploy -> failure issue). Depends on the user running the WIF script and adding `ANTHROPIC_API_KEY` as a GitHub secret themselves.
+
 ## 2026-09-27
 
 - FIXED: judge.py crashed if the judge returned any extra/unrequested id (Sonnet 5 occasionally adds one stray id; Opus 5 did not). Now only fails on MISSING required ids, drops extras. Added regression test (49 tests). Also fixed run_v3_all.sh: `set -e` without pipefail was silently swallowing step failures (piped to `tail -1`), letting later steps run on broken state; added `-o pipefail`.
