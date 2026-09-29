@@ -2,7 +2,7 @@
 
 An automated weekly business report for a (fictional) online retailer, where every KPI is computed by code and the AI-written commentary is **evaluated, guarded, and observable** before it is published, unattended, every Monday.
 
-**Live report: [himanshu2405.github.io/P1-Weekly-Insights-Report-Agent](https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/)**
+**Live report: [himanshu2405.github.io/P1-Weekly-Insights-Report-Agent](https://himanshu2405.github.io/P1-Weekly-Insights-Report-Agent/)** · **[Interview slide deck](https://claude.ai/artifact/W6K3dQvQGXg9tb5kRU2tnw)**
 
 > Status: all phases complete (data pipeline, AI commentary with guards, evaluation, and full automation via GitHub Actions + GitHub Pages).
 
@@ -87,6 +87,7 @@ Generating commentary was the easy part. Making it trustworthy enough to publish
 | [business_context.md](business_context.md) | Stable business facts the LLM reads every week |
 | [report_layout.yaml](report_layout.yaml) | Page structure and AI commentary slots (drives rendering, output schema, and guards) |
 | [P1_Decisions_Log.md](P1_Decisions_Log.md) | Every design decision, bug found, and why, in the order it happened |
+| [Interview slide deck](https://claude.ai/artifact/W6K3dQvQGXg9tb5kRU2tnw) | 16-slide portfolio deck: problem, architecture, guards, a real production bug, eval results, generalization, observability, judgment calls |
 
 ## Data
 

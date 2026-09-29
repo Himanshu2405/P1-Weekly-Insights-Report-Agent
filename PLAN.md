@@ -59,7 +59,7 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 
 - Repo README: objective, why, what, how, architecture, data, eval results, cost table, failure taxonomy, lessons. Done.
 - Eval report: before/after error analysis. Done (`evals/experiments/`, `P1_Decisions_Log.md`).
-- Slides (2026-09-29): 16-slide interview/portfolio deck built as a Claude Artifact. Thesis: this is a verification pipeline that happens to produce a report, not the other way around. Covers the problem, the naive approach, guards, the real production bug, evaluation (golden + held-out), the judge and its own calibration, prompt-iteration results, generalization, observability, operations, and judgment calls. Done.
+- Slides (2026-09-29): 16-slide interview/portfolio deck built as a [Claude Artifact](https://claude.ai/artifact/W6K3dQvQGXg9tb5kRU2tnw), linked from the README. Thesis: this is a verification pipeline that happens to produce a report, not the other way around. Covers the problem, the naive approach, guards, the real production bug, evaluation (golden + held-out), the judge and its own calibration, prompt-iteration results, generalization, observability, operations, and judgment calls. Done.
 
 ## Checklist
 
