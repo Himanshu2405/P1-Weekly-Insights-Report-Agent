@@ -2,6 +2,13 @@
 
 Newest on top. Index: [../README.md](../README.md). PRD: [PRD.md](PRD.md). Tech spec: [TECH_SPEC.md](TECH_SPEC.md). Plan: [PLAN.md](PLAN.md).
 
+## 2026-09-29
+
+- BUILT: 16-slide interview/portfolio deck, as a Claude Artifact (private, not in the repo). Thesis: this is not a report generator, it's a verification pipeline that happens to produce a report; guards, evals, and observability are the subject, the AI-written commentary itself is evidence, not the point. All facts sourced from README.md, TECH_SPEC.md, PLAN.md, this log, the architecture diagrams, and `runs/run_log.jsonl`, verified by a research pass before building.
+- CORRECTED during research: the golden set's 16 weeks do not include a spike/anomaly week (that scenario is a separate synthetic guard-test fixture, `briefs/scenarios/anomaly_week_2026-09-14.json`, not part of the golden 16). The deck's evaluation slide uses four scenario types that are genuinely in the golden 16 instead: target-miss-in-a-growth-week, quiet week, good-week/bad-quarter, and its inverse.
+- NOTED for accuracy: the deck's "$0.07-0.15 per scheduled run" cost range is derived from the two real `anthropic_api`/`verified` lines in `run_log.jsonl` ($0.1537 and $0.0734); no single doc states that exact range as prose. The two held-out generalization numbers (68%/88% under judge_v3, and 96%/83% under judge_v4) are flagged on the deck as not directly comparable to each other, since judge_v4 is a later revision.
+- This closes the last open item in `PLAN.md`'s checklist ("README + slides"). P1 is complete: all phases done except Phase 3 (drill-down tools), which stays deliberately optional/skipped.
+
 ## 2026-09-28
 
 - ADDED (user request): email notification for scheduled runs only, not manual test runs. Reverses part of the earlier "no Slack or email, now or later" decision, but that was about report delivery to stakeholders (unchanged, still GitHub Pages only); this is an operational status ping to the project owner. Chose GitHub-native over SMTP (user picked, presented as a tradeoff): `scripts/notify_status.py` posts one comment per scheduled run to a persistent tracking issue (`#2`, "Weekly Report Status") with status, checks, cost, and links; GitHub emails subscribers on new comments, no SMTP credential needed. Gated to `github.event_name == 'schedule'` in the workflow so manual runs never post. A freshness check (log entry must be under 30 min old) avoids misreporting a prior run's stats if the current run failed before logging.

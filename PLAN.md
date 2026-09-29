@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| Updated | 2026-09-28 |
+| Updated | 2026-09-29 |
 | Learning plan | [AI_Automation_Engineering_Plan.md](../../AI_Automation_Engineering_Plan.md) |
 | PRD | [PRD.md](PRD.md) |
 | Tech spec | [TECH_SPEC.md](TECH_SPEC.md) |
@@ -53,13 +53,13 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 ## Recommended order
 
 - Phases 1, 2, 4, and 5 are all complete.
-- Remaining: README + slides deliverable (below). Phase 3 stays optional/skipped.
+- README and slides deliverable done (below). Phase 3 stays optional/skipped. P1 is complete.
 
 ## Deliverables
 
-- Repo README: objective, why, what, how, architecture, data, eval results, cost table, failure taxonomy, lessons.
-- Eval report: before/after error analysis.
-- Slides (later): problem, architecture, reliability loop, results, cost, demo.
+- Repo README: objective, why, what, how, architecture, data, eval results, cost table, failure taxonomy, lessons. Done.
+- Eval report: before/after error analysis. Done (`evals/experiments/`, `P1_Decisions_Log.md`).
+- Slides (2026-09-29): 16-slide interview/portfolio deck built as a Claude Artifact. Thesis: this is a verification pipeline that happens to produce a report, not the other way around. Covers the problem, the naive approach, guards, the real production bug, evaluation (golden + held-out), the judge and its own calibration, prompt-iteration results, generalization, observability, operations, and judgment calls. Done.
 
 ## Checklist
 
@@ -73,4 +73,4 @@ Legend: DONE = covered by a completed module. PREREQ = must learn first. GAP = s
 - [x] Phase 4 Evaluation, reliability (incl. eval in CI)
 - [x] Module 7.3 completed (prereq for Phase 5)
 - [x] Phase 5 Ship and operate (scheduled workflow, WIF, Pages, failure alert, verified live)
-- [ ] README + slides
+- [x] README + slides (slide deck built 2026-09-29)
